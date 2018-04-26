@@ -1,9 +1,9 @@
 === Product Input Fields for WooCommerce ===
-Contributors: algoritmika, anbinder
+Contributors: algoritmika, anbinder, karzin
 Tags: woocommerce, product input fields, wpcodefactory
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -61,6 +61,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
+= 1.1.3 - 26/04/2018 =
+* Add composer
+
 = 1.1.2 - 18/04/2018 =
 * Dev - "WC tested up to" added to plugin header.
 
@@ -86,5 +89,5 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Upgrade Notice ==
 
-= 1.0.0 =
-This is the first release of the plugin.
+= 1.1.3 =
+* Add composer

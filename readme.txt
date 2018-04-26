@@ -63,6 +63,7 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 = 1.1.3 - 26/04/2018 =
 * Add composer
+* Add filter 'alg_product_input_fields_options'
 
 = 1.1.2 - 18/04/2018 =
 * Dev - "WC tested up to" added to plugin header.
@@ -91,3 +92,4 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 = 1.1.3 =
 * Add composer
+* Add filter 'alg_product_input_fields_options'

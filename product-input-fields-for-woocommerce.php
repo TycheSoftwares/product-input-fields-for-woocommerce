@@ -40,7 +40,7 @@ if ( 'product-input-fields-for-woocommerce.php' === basename( __FILE__ ) ) {
 
 // Constants
 if ( ! defined( 'ALG_WC_PIF_VERSION' ) ) {
-	define( 'ALG_WC_PIF_VERSION', '1.1.2' );
+	define( 'ALG_WC_PIF_VERSION', '1.1.3' );
 }
 if ( ! defined( 'ALG_WC_PIF_ID' ) ) {
 	define( 'ALG_WC_PIF_ID',      'alg_wc_pif' );

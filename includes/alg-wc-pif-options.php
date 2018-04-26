@@ -28,7 +28,7 @@ if ( ! function_exists( 'alg_get_product_input_fields_options' ) ) {
 	 */
 	function alg_get_product_input_fields_options() {
 		$fill_only_on_type_message = __( 'Fill this only if <strong>%s</strong> type is selected.', 'product-input-fields-for-woocommerce' );
-		return array(
+		$options = array(
 
 			// Main
 			array(
@@ -362,5 +362,6 @@ if ( ! function_exists( 'alg_get_product_input_fields_options' ) ) {
 				'type'              => 'sectionend',
 			),
 		);
+		return apply_filters( 'alg_product_input_fields_options', $options );
 	}
 }

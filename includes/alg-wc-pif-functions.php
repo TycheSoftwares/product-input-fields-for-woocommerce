@@ -304,7 +304,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 							'" placeholder="' . $product_input_field['placeholder'] . '"' . $custom_attributes . $required . '>';
 						break;
 				}
-				$field_html = apply_filters( 'alg_wc_pif_field_html', $field_html, $product_input_field['type'] );
+				$field_html = apply_filters( 'alg_wc_pif_field_html', $field_html, $product_input_field['type'], $product_input_field );
 				$field_id = ( 'radio' === $product_input_field['type'] ) ? $field_id : $field_name;
 				$template = get_wc_pif_option( 'frontend_template', '<tr><td><label for="%field_id%">%title%</label></td><td>%field%</td></tr>' );
 				$html .= str_replace( array( '%field_id%', '%title%', '%field%' ), array( $field_id, $product_input_field['title'], $field_html ), $template );

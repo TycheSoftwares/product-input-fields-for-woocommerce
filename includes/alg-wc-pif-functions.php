@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Functions
  *
- * @version 1.1.0
+ * @version 1.1.3
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -157,7 +157,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 	/**
 	 * alg_get_frontend_product_input_fields.
 	 *
-	 * @version 1.1.0
+	 * @version 1.1.3
 	 * @since   1.0.0
 	 * @todo    (maybe) required for 'radio'; and maybe for 'select' and 'country'
 	 */
@@ -202,6 +202,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 				$field_name = ALG_WC_PIF_ID . '_' . $scope . '_' . $i;
 				$_value = ( 'yes' === get_wc_pif_option( 'frontend_refill', 'yes' ) && isset( $_POST[ $field_name ] ) ) ?
 					$_POST[ $field_name ] : $product_input_field['default_value'];
+				$_value = stripslashes_deep( $_value );
 				$field_id = '';
 				// Field HTML
 				$field_html = '';

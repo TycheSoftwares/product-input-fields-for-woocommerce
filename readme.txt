@@ -3,7 +3,7 @@ Contributors: algoritmika, anbinder, karzin
 Tags: woocommerce, product input fields, wpcodefactory
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -61,6 +61,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
+= 1.1.4 - 07/06/2018 =
+* Check if order and input fields exist before trying to delete file uploads
+
 = 1.1.3 - 18/05/2018 =
 * Add composer
 * Add filter 'alg_product_input_fields_options' allowing changes on field options
@@ -93,9 +96,5 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Upgrade Notice ==
 
-= 1.1.3 =
-* Add composer
-* Add filter 'alg_product_input_fields_options' allowing changes on field options
-* Add filter 'alg_wc_pif_field_html' allowing changes the field html
-* Remove check for pro version
-* Remove slashes from the values
+= 1.1.4 =
+* Check if order and input fields exist before trying to delete file uploads

@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Core Class
  *
- * @version 1.0.0
+ * @version 1.1.4
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -88,16 +88,22 @@ class Alg_WC_PIF_Core {
 	/**
 	 * delete_order_file_uploads.
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.4
 	 * @since   1.0.0
 	 */
 	function delete_order_file_uploads( $postid ) {
 		$_order = wc_get_order( $postid );
+		if( ! $_order ){
+			return;
+		}
 		$_items = $_order->get_items();
 		$scopes = array( 'global', 'local' );
 		foreach ( $scopes as $scope ) {
 			foreach ( $_items as $item ) {
 				$product_input_fields = maybe_unserialize( $item[ ALG_WC_PIF_ID . '_' . $scope ] );
+				if ( ! $product_input_fields || empty( $product_input_fields ) ){
+					return;
+				}
 				foreach ( $product_input_fields as $product_input_field ) {
 					if ( 'file' === $product_input_field['type'] ) {
 						$_value = maybe_unserialize( $product_input_field['_value'] );

@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Options
  *
- * @version 1.0.0
+ * @version 1.1.4
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -13,7 +13,7 @@ if ( ! function_exists( 'alg_get_product_input_fields_options' ) ) {
 	/**
 	 * alg_get_product_input_fields_options.
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.4
 	 * @since   1.0.0
 	 * @todo    (later) more types - https://www.w3schools.com/html/html_form_input_types.asp - date; datetime-local; month; time; week
 	 * @todo    (later) color type - show color instead of color code on frontend and backend
@@ -174,7 +174,7 @@ if ( ! function_exists( 'alg_get_product_input_fields_options' ) ) {
 			array(
 				'id'                => 'input_restrictions_pattern',
 				'title'             => __( 'Pattern', 'product-input-fields-for-woocommerce' ),
-				'desc'              => __( 'Visit <a href="https://www.w3schools.com/js/js_regexp.asp" target="_blank">documentation on regular expressions</a> for valid option formats.', 'product-input-fields-for-woocommerce' ),
+				'desc'              => sprintf( __( 'Visit <a href="%s" target="_blank">HTML pattern Attribute</a> for valid option formats.', 'product-input-fields-for-woocommerce' ), 'https://www.w3schools.com/tags/att_input_pattern.asp' ),
 				'desc_tip'          => __( 'Regular expression to check the input value against. E.g. for <strong>Text</strong> type.', 'product-input-fields-for-woocommerce' ) . ' ' . __( 'Leave blank to disable.', 'product-input-fields-for-woocommerce' ),
 				'type'              => 'text',
 				'default'           => '',

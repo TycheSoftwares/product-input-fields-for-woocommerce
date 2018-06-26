@@ -61,8 +61,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
-= 1.1.4 - 07/06/2018 =
+= 1.1.4 - 26/06/2018 =
 * Check if order and input fields exist before trying to delete file uploads
+* Improve help link for pattern attribute
 
 = 1.1.3 - 18/05/2018 =
 * Add composer
@@ -98,3 +99,4 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 = 1.1.4 =
 * Check if order and input fields exist before trying to delete file uploads
+* Improve help link for pattern attribute

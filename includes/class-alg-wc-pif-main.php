@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Main Class
  *
- * @version 1.1.3
+ * @version 1.1.4
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -116,7 +116,7 @@ class Alg_WC_PIF_Main {
 	/**
 	 * add_product_input_fields_to_cart_item_data - from $_POST to $cart_item_data
 	 *
-	 * @version 1.1.3
+	 * @version 1.1.4
 	 * @since   1.0.0
 	 */
 	function add_product_input_fields_to_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
@@ -139,7 +139,9 @@ class Alg_WC_PIF_Main {
 				}
 			} else {
 				if ( isset( $_POST[ $field_name ] ) ) {
-					$product_input_field['_value'] = stripslashes_deep( $_POST[ $field_name ] );
+					$value = stripslashes_deep( $_POST[ $field_name ] );
+					$value = ! is_array( $value ) ? sanitize_text_field( $value ) : array_map( 'sanitize_text_field', $value );
+					$product_input_field['_value'] = $value;
 				}
 			}
 			$product_input_fields[] = $product_input_field;

@@ -178,7 +178,7 @@ class Alg_WC_PIF_Main {
 	/**
 	 * Adds product input values to order details (and emails).
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.4
 	 * @since   1.0.0
 	 */
 	function add_product_input_fields_to_order_item_name( $name, $item, $is_cart = false ) {
@@ -194,6 +194,7 @@ class Alg_WC_PIF_Main {
 				$value = ( isset( $value['name'] ) ) ? $value['name'] : '';
 			}
 			if ( '' != $value ) {
+				$value = is_array($value) ? implode(", ",$value) : $value;
 				$product_input_fields_html .= ( $is_cart ) ?
 					'<dt>' . $product_input_field['title'] . '</dt>' . '<dd>' . $value . '</dd>' /* . '<pre>' . print_r( $product_input_field, true ) . '</pre>' */ :
 					str_replace( array( '%title%', '%value%' ), array( $product_input_field['title'], $value ), get_wc_pif_option( 'frontend_order_table_format', '&nbsp;| %title% %value%' ) );
@@ -271,7 +272,7 @@ class Alg_WC_PIF_Main {
 	/**
 	 * output_custom_input_fields_in_admin_order.
 	 *
-	 * @version 1.1.0
+	 * @version 1.1.4
 	 * @since   1.0.0
 	 * @todo    (later) make fields editable
 	 */
@@ -314,6 +315,7 @@ class Alg_WC_PIF_Main {
 					'<a href="' . add_query_arg( 'alg_wc_pif_download_file', $item_id . '.' . pathinfo( $_value['name'], PATHINFO_EXTENSION ) ) . '">' . $_value['name'] . '</a>' : '';
 			}
 			if ( '' != $_value ) {
+				$_value = is_array($_value) ? implode(", ",$_value) : $_value;
 				$html .= '<div class="wc-order-item-variation"><strong>' . $title . ':</strong> ' . $_value . '</div>';
 			}
 		}

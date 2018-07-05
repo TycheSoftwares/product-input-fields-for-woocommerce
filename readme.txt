@@ -65,6 +65,7 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 * Check if order and input fields exist before trying to delete file uploads
 * Improve help link for pattern attribute
 * Improve input sanitizing
+* Display multiple array value as comma separated string
 
 = 1.1.3 - 18/05/2018 =
 * Add composer
@@ -102,3 +103,4 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 * Check if order and input fields exist before trying to delete file uploads
 * Improve help link for pattern attribute
 * Improve input sanitizing
+* Display multiple array value as comma separated string

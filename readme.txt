@@ -61,7 +61,7 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
-= 1.1.4 - 04/07/2018 =
+= 1.1.4 - 11/07/2018 =
 * Check if order and input fields exist before trying to delete file uploads
 * Improve help link for pattern attribute
 * Improve input sanitizing

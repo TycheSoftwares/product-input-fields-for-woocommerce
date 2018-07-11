@@ -315,7 +315,7 @@ class Alg_WC_PIF_Main {
 					'<a href="' . add_query_arg( 'alg_wc_pif_download_file', $item_id . '.' . pathinfo( $_value['name'], PATHINFO_EXTENSION ) ) . '">' . $_value['name'] . '</a>' : '';
 			}
 			if ( '' != $_value ) {
-				$_value = is_array($_value) ? implode(", ",$_value) : $_value;
+				$_value = is_array( $_value ) ? implode( ", ", $_value ) : $_value;
 				$html .= '<div class="wc-order-item-variation"><strong>' . $title . ':</strong> ' . $_value . '</div>';
 			}
 		}

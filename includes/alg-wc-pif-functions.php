@@ -300,14 +300,15 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 						$field_html = $field;
 						break;
 					default: // 'number' 'text' 'file' 'password' 'email' 'tel' 'color' etc.
-						$field_html = '<input' . $min . $max . $step . $maxlength . $pattern . $class . $style . ' value="'. $_value .
+						$input_value = is_array( $_value ) ? implode( ", ", $_value ) : $_value;
+						$field_html = '<input' . $min . $max . $step . $maxlength . $pattern . $class . $style . ' value="'. $input_value .
 							'" type="' . $product_input_field['type'] .
 							'" name="' . $field_name .
 							'" id="' . $field_name .
 							'" placeholder="' . $product_input_field['placeholder'] . '"' . $custom_attributes . $required . '>';
 						break;
 				}
-				$field_html = apply_filters( 'alg_wc_pif_field_html', $field_html, $product_input_field['type'], $product_input_field );
+				$field_html = apply_filters( 'alg_wc_pif_field_html', $field_html, $product_input_field['type'], $product_input_field, $_value, $field_name, $class, $required, $style );
 				$field_id = ( 'radio' === $product_input_field['type'] ) ? $field_id : $field_name;
 				$template = get_wc_pif_option( 'frontend_template', '<tr><td><label for="%field_id%">%title%</label></td><td>%field%</td></tr>' );
 				$html .= str_replace( array( '%field_id%', '%title%', '%field%' ), array( $field_id, $product_input_field['title'], $field_html ), $template );

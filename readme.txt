@@ -61,11 +61,13 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
-= 1.1.4 - 11/07/2018 =
+= 1.1.4 - 31/07/2018 =
 * Check if order and input fields exist before trying to delete file uploads
 * Improve help link for pattern attribute
 * Improve input sanitizing
 * Display multiple array value as comma separated string
+* Fix PHP warnings
+* Fix file uploading when using multiple file inputs
 
 = 1.1.3 - 18/05/2018 =
 * Add composer
@@ -104,3 +106,5 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 * Improve help link for pattern attribute
 * Improve input sanitizing
 * Display multiple array value as comma separated string
+* Fix PHP warnings
+* Fix file uploading when using multiple file inputs

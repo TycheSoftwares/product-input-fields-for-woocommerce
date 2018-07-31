@@ -239,28 +239,30 @@ class Alg_WC_PIF_Main {
 	/**
 	 * add_product_input_fields_to_order_item_meta.
 	 *
-	 * @version 1.1.1
+	 * @version 1.1.4
 	 * @since   1.0.0
 	 * @todo    (maybe) rethink filename (maybe order ID + $item_id)
 	 */
-	function add_product_input_fields_to_order_item_meta( $item_id, $values, $cart_item_key  ) {
-		$product_input_fields = ( isset( $values[ ALG_WC_PIF_ID . '_' . $this->scope ] ) ? $values[ ALG_WC_PIF_ID . '_' . $this->scope ] : array() );
+	function add_product_input_fields_to_order_item_meta( $item_id, $values, $cart_item_key ) {
+		$product_input_fields  = ( isset( $values[ ALG_WC_PIF_ID . '_' . $this->scope ] ) ? $values[ ALG_WC_PIF_ID . '_' . $this->scope ] : array() );
 		$_product_input_fields = array();
 		foreach ( $product_input_fields as $product_input_field ) {
-			$value = $product_input_field['_value'];
-			if ( 'file' === $product_input_field['type'] ) {
+			if (
+				'file' === $product_input_field['type'] &&
+				isset ( $product_input_field['_value'] )
+			) {
+				$value = $product_input_field['_value'];
 				if ( '' != ( $tmp_name = $value['_tmp_name'] ) ) {
-					$ext = pathinfo( $value['name'], PATHINFO_EXTENSION );
-					$name = $item_id . '.' . $ext;
+					$name       = $item_id . '_' . $value['name'];
 					$upload_dir = alg_get_uploads_dir( 'product_input_fields' );
 					if ( ! file_exists( $upload_dir ) ) {
 						mkdir( $upload_dir, 0755, true );
 					}
 					$upload_dir_and_name = $upload_dir . '/' . $name;
-					$file_data = file_get_contents( $tmp_name );
+					$file_data           = file_get_contents( $tmp_name );
 					file_put_contents( $upload_dir_and_name, $file_data );
 					unlink( $tmp_name );
-					$value['_tmp_name'] = addslashes( $upload_dir_and_name );
+					$value['_tmp_name']            = addslashes( $upload_dir_and_name );
 					$product_input_field['_value'] = $value;
 				}
 			}
@@ -312,7 +314,7 @@ class Alg_WC_PIF_Main {
 			if ( 'file' === $product_input_field['type'] ) {
 				$_value = maybe_unserialize( $_value );
 				$_value = ( isset( $_value['name'] ) && '' != $_value['name'] ) ?
-					'<a href="' . add_query_arg( 'alg_wc_pif_download_file', $item_id . '.' . pathinfo( $_value['name'], PATHINFO_EXTENSION ) ) . '">' . $_value['name'] . '</a>' : '';
+					'<a href="' . add_query_arg( 'alg_wc_pif_download_file', $item_id . '_' . $_value['name'] ) . '">' . $_value['name'] . '</a>' : '';
 			}
 			if ( '' != $_value ) {
 				$_value = is_array( $_value ) ? implode( ", ", $_value ) : $_value;
@@ -325,7 +327,7 @@ class Alg_WC_PIF_Main {
 	/**
 	 * add_files_to_email_attachments.
 	 *
-	 * @version 1.1.0
+	 * @version 1.1.4
 	 * @since   1.0.0
 	 */
 	function add_files_to_email_attachments( $attachments, $status, $order ) {
@@ -339,7 +341,11 @@ class Alg_WC_PIF_Main {
 					continue;
 				}
 				foreach ( $product_input_fields as $product_input_field ) {
-					if ( isset( $product_input_field['type'] ) && 'file' === $product_input_field['type'] ) {
+					if (
+						isset( $product_input_field['type'] ) &&
+						'file' === $product_input_field['type'] &&
+						isset( $product_input_field['_value'] )
+					) {
 						$_value = $product_input_field['_value'];
 						$_value = maybe_unserialize( $_value );
 						if ( isset( $_value['_tmp_name'] ) ) {

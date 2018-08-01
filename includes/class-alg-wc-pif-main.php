@@ -19,7 +19,7 @@ class Alg_WC_PIF_Main {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.1.1
+	 * @version 1.1.4
 	 * @since   1.0.0
 	 * @todo    (later) solve archives add to cart issue (especially if required is set)
 	 */
@@ -44,6 +44,8 @@ class Alg_WC_PIF_Main {
 				add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'save_values_in_item' ),                             PHP_INT_MAX, 4 );
 				add_action( 'woocommerce_new_order_item',                  array( $this, 'add_product_input_fields_to_order_item_meta_wc3' ), PHP_INT_MAX, 3 );
 			}
+			// Add style to hover and show full textarea value
+			add_action( 'wp_head',                                      array( $this, 'hover_textarea_value' ) );
 		}
 		// Show details at order details, emails
 		add_filter( 'woocommerce_order_item_name',                  array( $this, 'add_product_input_fields_to_order_item_name' ),     PHP_INT_MAX, 2 );
@@ -51,6 +53,44 @@ class Alg_WC_PIF_Main {
 		add_action( 'woocommerce_before_order_itemmeta',            array( $this, 'output_custom_input_fields_in_admin_order' ),       10, 3 );
 		// Add to emails
 		add_filter( 'woocommerce_email_attachments',                array( $this, 'add_files_to_email_attachments' ),                  PHP_INT_MAX, 3 );
+	}
+
+	/**
+	 * Add option to hover textarea value on cart and checkout pages showing its full value
+	 *
+	 * @version 1.1.4
+	 * @since   1.1.4
+	 */
+	public function hover_textarea_value() {
+		if (
+			is_admin() ||
+			'yes' !== get_wc_pif_option( 'frontend_smart_textarea', 'yes' ) ||
+			( ! is_cart() && ! is_checkout() )
+		) {
+			return;
+		}
+		?>
+		<style>
+			.alg-pif-dt.textarea{
+				cursor: pointer;
+			}
+			.alg-pif-dt.textarea:after{
+				content:'\25bc';
+				display:inline-block;
+				margin:0 0 0 3px;
+				font-size:10px;
+			}
+			.alg-pif-dt.textarea:hover + .alg-pif-dd, .alg-pif-dd.textarea:hover{
+				max-height: 400px;
+			}
+			.alg-pif-dd.textarea{
+				white-space: pre-wrap;
+				overflow:hidden;
+				max-height:16px;
+				transition: max-height 0.4s ease-in-out;
+			}
+		</style>
+		<?php
 	}
 
 	/**
@@ -140,7 +180,11 @@ class Alg_WC_PIF_Main {
 			} else {
 				if ( isset( $_POST[ $field_name ] ) ) {
 					$value = stripslashes_deep( $_POST[ $field_name ] );
-					$value = ! is_array( $value ) ? sanitize_text_field( $value ) : array_map( 'sanitize_text_field', $value );
+					if ( $product_input_field['type'] == 'textarea' ) {
+						$value = sanitize_textarea_field( $value );
+					} else {
+						$value = ! is_array( $value ) ? sanitize_text_field( $value ) : array_map( 'sanitize_text_field', $value );
+					}
 					$product_input_field['_value'] = $value;
 				}
 			}
@@ -194,9 +238,9 @@ class Alg_WC_PIF_Main {
 				$value = ( isset( $value['name'] ) ) ? $value['name'] : '';
 			}
 			if ( '' != $value ) {
-				$value = is_array($value) ? implode(", ",$value) : $value;
+				$value = is_array( $value ) ? implode( ", ", $value ) : $value;
 				$product_input_fields_html .= ( $is_cart ) ?
-					'<dt>' . $product_input_field['title'] . '</dt>' . '<dd>' . $value . '</dd>' /* . '<pre>' . print_r( $product_input_field, true ) . '</pre>' */ :
+					'<dt class="alg-pif-dt '.$product_input_field['type'].'">' . $product_input_field['title'] . '</dt>' . '<dd class="alg-pif-dd '.$product_input_field['type'].'">' . $value . '</dd>' /* . '<pre>' . print_r( $product_input_field, true ) . '</pre>' */ :
 					str_replace( array( '%title%', '%value%' ), array( $product_input_field['title'], $value ), get_wc_pif_option( 'frontend_order_table_format', '&nbsp;| %title% %value%' ) );
 			}
 		}

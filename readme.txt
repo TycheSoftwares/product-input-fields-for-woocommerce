@@ -68,6 +68,7 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 * Display multiple array value as comma separated string
 * Fix PHP warnings
 * Fix file uploading when using multiple file inputs
+* Add "Smart Textarea" option, showing only the textarea value excerpt on cart / checkout pages and hovering it will make it display the full content
 
 = 1.1.3 - 18/05/2018 =
 * Add composer
@@ -108,3 +109,4 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 * Display multiple array value as comma separated string
 * Fix PHP warnings
 * Fix file uploading when using multiple file inputs
+* Add "Smart Textarea" option, showing only the textarea value excerpt on cart / checkout pages and hovering it will make it display the full content

@@ -203,7 +203,11 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 				$_value = ( 'yes' === get_wc_pif_option( 'frontend_refill', 'yes' ) && isset( $_POST[ $field_name ] ) ) ?
 					$_POST[ $field_name ] : $product_input_field['default_value'];
 				$_value = stripslashes_deep( $_value );
-				$_value = ! is_array( $_value ) ? sanitize_text_field( $_value ) : array_map( 'sanitize_text_field', $_value );
+				if ( $product_input_field['type'] == 'textarea' ) {
+					$_value = sanitize_textarea_field( $_value );
+				} else {
+					$_value = ! is_array( $_value ) ? sanitize_text_field( $_value ) : array_map( 'sanitize_text_field', $_value );
+				}
 
 				$field_id = '';
 				// Field HTML

@@ -44,7 +44,7 @@ class Alg_WC_PIF_Main {
 				add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'save_values_in_item' ),                             PHP_INT_MAX, 4 );
 				add_action( 'woocommerce_new_order_item',                  array( $this, 'add_product_input_fields_to_order_item_meta_wc3' ), PHP_INT_MAX, 3 );
 			}
-			// Add style to hover and show full textarea value
+			// Add option to hover textarea value on frontend showing its full value
 			add_action( 'wp_head',                                      array( $this, 'hover_textarea_value' ) );
 		}
 		// Show details at order details, emails
@@ -56,7 +56,7 @@ class Alg_WC_PIF_Main {
 	}
 
 	/**
-	 * Add option to hover textarea value on cart and checkout pages showing its full value
+	 * Add option to hover textarea value on frontend showing its full value
 	 *
 	 * @version 1.1.4
 	 * @since   1.1.4
@@ -65,7 +65,7 @@ class Alg_WC_PIF_Main {
 		if (
 			is_admin() ||
 			'yes' !== get_wc_pif_option( 'frontend_smart_textarea', 'yes' ) ||
-			( ! is_cart() && ! is_checkout() )
+			( ! is_cart() && ! is_checkout() && ! is_wc_endpoint_url( 'view-order' ) )
 		) {
 			return;
 		}
@@ -86,7 +86,7 @@ class Alg_WC_PIF_Main {
 			.alg-pif-dd.textarea{
 				white-space: pre-wrap;
 				overflow:hidden;
-				max-height:16px;
+				max-height:22px;
 				transition: max-height 0.4s ease-in-out;
 			}
 		</style>
@@ -239,9 +239,14 @@ class Alg_WC_PIF_Main {
 			}
 			if ( '' != $value ) {
 				$value = is_array( $value ) ? implode( ", ", $value ) : $value;
-				$product_input_fields_html .= ( $is_cart ) ?
-					'<dt class="alg-pif-dt '.$product_input_field['type'].'">' . $product_input_field['title'] . '</dt>' . '<dd class="alg-pif-dd '.$product_input_field['type'].'">' . $value . '</dd>' /* . '<pre>' . print_r( $product_input_field, true ) . '</pre>' */ :
-					str_replace( array( '%title%', '%value%' ), array( $product_input_field['title'], $value ), get_wc_pif_option( 'frontend_order_table_format', '&nbsp;| %title% %value%' ) );
+				if (
+					$is_cart ||
+					$product_input_field['type'] == 'textarea'
+				) {
+					$product_input_fields_html .= '<dt class="alg-pif-dt ' . $product_input_field['type'] . '">' . $product_input_field['title'] . '</dt>' . '<dd class="alg-pif-dd ' . $product_input_field['type'] . '">' . $value . '</dd>' /* . '<pre>' . print_r( $product_input_field, true ) . '</pre>' */;
+				} else {
+					$product_input_fields_html .= str_replace( array( '%title%', '%value%' ), array( $product_input_field['title'], $value ), get_wc_pif_option( 'frontend_order_table_format', '&nbsp;| %title% %value%' ) );
+				}
 			}
 		}
 		if ( '' != $product_input_fields_html ) {

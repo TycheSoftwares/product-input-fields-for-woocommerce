@@ -61,14 +61,14 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
-= 1.1.4 - 31/07/2018 =
+= 1.1.4 - 01/08/2018 =
 * Check if order and input fields exist before trying to delete file uploads
 * Improve help link for pattern attribute
 * Improve input sanitizing
 * Display multiple array value as comma separated string
 * Fix PHP warnings
 * Fix file uploading when using multiple file inputs
-* Add "Smart Textarea" option, showing only the textarea value excerpt on cart / checkout pages and hovering it will make it display the full content
+* Add "Smart Textarea" option, showing only the textarea excerpt on frontend and hovering it will make it display the full content
 
 = 1.1.3 - 18/05/2018 =
 * Add composer
@@ -109,4 +109,4 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 * Display multiple array value as comma separated string
 * Fix PHP warnings
 * Fix file uploading when using multiple file inputs
-* Add "Smart Textarea" option, showing only the textarea value excerpt on cart / checkout pages and hovering it will make it display the full content
+* Add "Smart Textarea" option, showing only the textarea excerpt on frontend and hovering it will make it display the full content

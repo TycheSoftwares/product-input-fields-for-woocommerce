@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - General Section Settings
  *
- * @version 1.0.0
+ * @version 1.1.4
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -28,7 +28,7 @@ class Alg_WC_PIF_Settings_General extends Alg_WC_PIF_Settings_Section {
 	/**
 	 * get_section_settings.
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.4
 	 * @since   1.0.0
 	 * @todo    (later) major reset settings - including all global and *local* input fields
 	 * @todo    (later) add dashboard and move all options (except dashboard) to another settings section(s)

@@ -69,6 +69,7 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 * Fix PHP warnings
 * Fix file uploading when using multiple file inputs
 * Add "Smart Textarea" option, showing only the textarea excerpt on frontend and hovering it will make it display the full content
+* Add 'Textarea Auto Height' option, making the textarea auto increase its height as users type
 
 = 1.1.3 - 18/05/2018 =
 * Add composer
@@ -110,3 +111,4 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 * Fix PHP warnings
 * Fix file uploading when using multiple file inputs
 * Add "Smart Textarea" option, showing only the textarea excerpt on frontend and hovering it will make it display the full content
+* Add 'Textarea Auto Height' option, making the textarea auto increase its height as users type

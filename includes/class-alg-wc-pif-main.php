@@ -46,6 +46,8 @@ class Alg_WC_PIF_Main {
 			}
 			// Add option to hover textarea value on frontend showing its full value
 			add_action( 'wp_head',                                      array( $this, 'hover_textarea_value' ) );
+			// Text Area Auto Height option
+			add_action( 'wp_head',                                      array( $this, 'textarea_auto_height' ) );
 		}
 		// Show details at order details, emails
 		add_filter( 'woocommerce_order_item_name',                  array( $this, 'add_product_input_fields_to_order_item_name' ),     PHP_INT_MAX, 2 );
@@ -53,6 +55,54 @@ class Alg_WC_PIF_Main {
 		add_action( 'woocommerce_before_order_itemmeta',            array( $this, 'output_custom_input_fields_in_admin_order' ),       10, 3 );
 		// Add to emails
 		add_filter( 'woocommerce_email_attachments',                array( $this, 'add_files_to_email_attachments' ),                  PHP_INT_MAX, 3 );
+	}
+
+	/**
+	 * Makes the textarea auto increase its height as users type
+	 *
+	 * @version 1.1.4
+	 * @since   1.1.4
+	 */
+	public function textarea_auto_height() {
+		if (
+			is_admin() ||
+			'yes' !== get_wc_pif_option( 'frontend_textarea_auto_height', 'yes' ) ||
+			( ! is_product() )
+		) {
+			return;
+		}
+		?>
+        <script>
+            var pif_ta_autoheigh = {
+                loaded: false,
+                textarea_selector: '',
+                init: function (textarea_selector) {
+                    if (this.loaded === false) {
+                        this.loaded = true;
+                        this.textarea_selector = textarea_selector;
+                        var textareas = document.querySelectorAll(this.textarea_selector);
+                        [].forEach.call(textareas, function (el) {
+                            el.addEventListener('input', function () {
+                                pif_ta_autoheigh.auto_grow(this);
+                            });
+                        });
+                    }
+                },
+                auto_grow: function (element) {
+                    element.style.height = 'auto';
+                    element.style.height = (element.scrollHeight) + "px";
+                }
+            };
+            document.addEventListener("DOMContentLoaded", function () {
+                pif_ta_autoheigh.init('.alg-product-input-fields-table textarea');
+            });
+        </script>
+        <style>
+            .alg-product-input-fields-table textarea {
+                overflow: hidden;
+            }
+        </style>
+		<?php
 	}
 
 	/**

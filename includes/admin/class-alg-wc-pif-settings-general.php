@@ -161,6 +161,13 @@ class Alg_WC_PIF_Settings_General extends Alg_WC_PIF_Settings_Section {
 				'type'     => 'checkbox',
 			),
 			array(
+				'title'    => __( 'Textarea Auto Height', 'product-input-fields-for-woocommerce' ),
+				'desc'     => __( 'Makes the textarea auto increase its height as users type', 'product-input-fields-for-woocommerce' ),
+				'id'       => 'frontend_textarea_auto_height',
+				'default'  => 'yes',
+				'type'     => 'checkbox',
+			),
+			array(
 				'type'     => 'sectionend',
 				'id'       => 'frontend_options',
 			),

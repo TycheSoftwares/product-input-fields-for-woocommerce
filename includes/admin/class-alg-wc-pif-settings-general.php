@@ -155,7 +155,7 @@ class Alg_WC_PIF_Settings_General extends Alg_WC_PIF_Settings_Section {
 			),
 			array(
 				'title'    => __( 'Smart Textarea', 'product-input-fields-for-woocommerce' ),
-				'desc'     => __( 'Show only the textarea value excerpt on cart / checkout pages and hovering it will make it display the full content', 'product-input-fields-for-woocommerce' ),
+				'desc'     => __( 'Show only the textarea excerpt on frontend and hovering it will make it display the full content', 'product-input-fields-for-woocommerce' ),
 				'id'       => 'frontend_smart_textarea',
 				'default'  => 'yes',
 				'type'     => 'checkbox',

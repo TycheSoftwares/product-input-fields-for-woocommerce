@@ -3,7 +3,7 @@ Contributors: algoritmika, anbinder, karzin
 Tags: woocommerce, product input fields, wpcodefactory
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -61,6 +61,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
+= 1.1.5 - 10/08/2018 =
+* Fix maxlength attribute on textarea
+
 = 1.1.4 - 01/08/2018 =
 * Check if order and input fields exist before trying to delete file uploads
 * Improve help link for pattern attribute
@@ -103,12 +106,5 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Upgrade Notice ==
 
-= 1.1.4 =
-* Check if order and input fields exist before trying to delete file uploads
-* Improve help link for pattern attribute
-* Improve input sanitizing
-* Display multiple array value as comma separated string
-* Fix PHP warnings
-* Fix file uploading when using multiple file inputs
-* Add "Smart Textarea" option, showing only the textarea excerpt on frontend and hovering it will make it display the full content
-* Add 'Textarea Auto Height' option, making the textarea auto increase its height as users type
+= 1.1.5 - 10/08/2018 =
+* Fix maxlength attribute on textarea

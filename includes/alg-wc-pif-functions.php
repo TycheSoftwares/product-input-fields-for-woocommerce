@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Functions
  *
- * @version 1.1.4
+ * @version 1.1.5
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -157,7 +157,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 	/**
 	 * alg_get_frontend_product_input_fields.
 	 *
-	 * @version 1.1.4
+	 * @version 1.1.5
 	 * @since   1.0.0
 	 * @todo    (maybe) required for 'radio'; and maybe for 'select' and 'country'
 	 */
@@ -248,7 +248,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 							'" placeholder="' . $product_input_field['placeholder'] . '"' . $custom_attributes . $required . '>';
 						break;
 					case 'textarea':
-						$field_html = '<textarea' . $class . $style . ' id="' . $field_name .
+						$field_html = '<textarea' . $maxlength. $class . $style . ' id="' . $field_name .
 							'" name="' . $field_name .
 							'" placeholder="' . $product_input_field['placeholder'] . '"' . $required . '>' . $_value . '</textarea>';
 						break;

@@ -83,7 +83,10 @@ class Alg_WC_PIF_Main {
 				continue;
 			}
 			$new_price = $this->get_new_price( $current_field['price_change_conditions'], $current_field['_value'] );
-			if ( filter_var( $new_price, FILTER_VALIDATE_FLOAT ) ) {
+			if (
+				filter_var( $new_price, FILTER_VALIDATE_FLOAT ) !== false ||
+				$new_price == 0
+			) {
 				$cart_item_data[ ALG_WC_PIF_ID . '_' . $this->scope ][ $key ]['new_price'] = $new_price;
 			}
 		}
@@ -127,6 +130,14 @@ class Alg_WC_PIF_Main {
 		return false;
 	}
 
+	/**
+	 * Overrides product price in case 'Product Price Change' is Enabled
+	 *
+	 * @version 1.1.6
+	 * @since   1.1.6
+	 *
+	 * @param $cart_obj
+	 */
 	public function override_product_price( $cart_obj ) {
 		if ( is_admin() ) {
 			return;
@@ -138,9 +149,7 @@ class Alg_WC_PIF_Main {
 				continue;
 			}
 			foreach ( $pif_fields as $field ) {
-				if (
-					isset( $field['new_price'] ) && ! empty( $field['new_price'] )
-				) {
+				if ( isset( $field['new_price'] ) ) {
 					$item['data']->set_price( $field['new_price'] );
 				}
 			}

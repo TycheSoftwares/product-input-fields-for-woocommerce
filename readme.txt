@@ -3,7 +3,7 @@ Contributors: algoritmika, anbinder, karzin
 Tags: woocommerce, product input fields, wpcodefactory
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -61,6 +61,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
+= 1.1.6 - 23/08/2018 =
+* Add product price change option
+
 = 1.1.5 - 10/08/2018 =
 * Fix maxlength attribute on textarea
 
@@ -106,5 +109,5 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Upgrade Notice ==
 
-= 1.1.5 - 10/08/2018 =
-* Fix maxlength attribute on textarea
+= 1.1.6 =
+* Add product price change option

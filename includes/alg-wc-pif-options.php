@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Options
  *
- * @version 1.1.4
+ * @version 1.1.6
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -13,7 +13,7 @@ if ( ! function_exists( 'alg_get_product_input_fields_options' ) ) {
 	/**
 	 * alg_get_product_input_fields_options.
 	 *
-	 * @version 1.1.4
+	 * @version 1.1.6
 	 * @since   1.0.0
 	 * @todo    (later) more types - https://www.w3schools.com/html/html_form_input_types.asp - date; datetime-local; month; time; week
 	 * @todo    (later) color type - show color instead of color code on frontend and backend
@@ -359,6 +359,41 @@ if ( ! function_exists( 'alg_get_product_input_fields_options' ) ) {
 			),
 			array(
 				'id'                => 'type_select_radio_options',
+				'type'              => 'sectionend',
+			),
+
+			// Product Price Change
+			array(
+				'id'                => 'price_change_options',
+				'title'             => __( 'Product Price Change', 'product-input-fields-for-woocommerce' ),
+				'desc'              => __( 'Setup how this field will affect product price', 'product-input-fields-for-woocommerce' ),
+				'type'              => 'title',
+			),
+			array(
+				'id'                => 'price_change_enable',
+				'title'             => __( 'Product Price Change', 'product-input-fields-for-woocommerce' ),
+				'desc'              => __( 'Enable Product Price Change option', 'product-input-fields-for-woocommerce' ),
+				'type'              => 'checkbox',
+				'default'           => 'no',
+			),
+			/*array(
+				'id'                => 'price_change_dynamic',
+				'title'             => __( 'Dynamic Price', 'product-input-fields-for-woocommerce' ),
+				'desc'              => __( 'Product price will change dynamically according to input field value. Only works with text and number fields', 'product-input-fields-for-woocommerce' ),
+				'desc_tip'          => __( 'e.g If customers enter 10 on text or number field, new price will be 10', 'product-input-fields-for-woocommerce' ),
+				'type'              => 'checkbox',
+				'default'           => 'no',
+			),*/
+			array(
+				'id'                => 'price_change_conditions',
+				'title'             => __( 'Conditions', 'product-input-fields-for-woocommerce' ),
+				'desc_tip'          => __( 'A fixed price will be set depending on specific field value conditions.', 'product-input-fields-for-woocommerce' ) . __( ' e.g', 'product-input-fields-for-woocommerce' ) . '<br />' . __( 'Cheap, 1', 'product-input-fields-for-woocommerce' ) . '<br />' . __( 'Expensive, 99', 'product-input-fields-for-woocommerce' ),
+				'type'              => 'textarea',
+				'default'           => '',
+				'css'               => 'height:150px;width:300px;',
+			),
+			array(
+				'id'                => 'price_change_options',
 				'type'              => 'sectionend',
 			),
 		);

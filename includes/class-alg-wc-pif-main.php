@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Main Class
  *
- * @version 1.1.4
+ * @version 1.1.6
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -19,7 +19,7 @@ class Alg_WC_PIF_Main {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.1.4
+	 * @version 1.1.6
 	 * @since   1.0.0
 	 * @todo    (later) solve archives add to cart issue (especially if required is set)
 	 */
@@ -55,6 +55,96 @@ class Alg_WC_PIF_Main {
 		add_action( 'woocommerce_before_order_itemmeta',            array( $this, 'output_custom_input_fields_in_admin_order' ),       10, 3 );
 		// Add to emails
 		add_filter( 'woocommerce_email_attachments',                array( $this, 'add_files_to_email_attachments' ),                  PHP_INT_MAX, 3 );
+		add_filter( 'woocommerce_add_cart_item_data',               array( $this, 'add_price_to_cart_item_data' ), PHP_INT_MAX, 3 );
+		add_action( 'woocommerce_before_calculate_totals',          array( $this, 'override_product_price' ), 10, 1 );
+	}
+
+	/**
+     * Add new price to Cart Item Data in case 'Product Price Change' is Enabled
+     *
+	 * @version 1.1.6
+	 * @since   1.1.6
+     *
+	 * @param $cart_item_data
+	 * @param $product_id
+	 * @param $variation_id
+	 * @return mixed
+	 */
+	public function add_price_to_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
+		$pif_fields = $cart_item_data[ ALG_WC_PIF_ID . '_' . $this->scope ];
+		if ( empty( $pif_fields ) ) {
+			return $cart_item_data;
+		}
+		foreach ( $pif_fields as $key => $pif_field ) {
+			$current_field = $pif_field;
+			if (
+				empty( $current_field ) ||
+				'yes' !== $current_field['price_change_enable'] ) {
+				continue;
+			}
+			$new_price = $this->get_new_price( $current_field['price_change_conditions'], $current_field['_value'] );
+			if ( filter_var( $new_price, FILTER_VALIDATE_FLOAT ) ) {
+				$cart_item_data[ ALG_WC_PIF_ID . '_' . $this->scope ][ $key ]['new_price'] = $new_price;
+			}
+		}
+
+		return $cart_item_data;
+	}
+
+	/**
+	 * Get new product price based on 'Product Price Change' conditions.
+	 *
+	 * If input value is the same on condition then price will be set according to condition
+	 *
+	 * @version 1.1.6
+	 * @since   1.1.6
+	 *
+	 * @param $conditions_textarea_string
+	 * @param $field_value
+	 * @param string $separator
+	 *
+	 * @return bool
+	 */
+	public function get_new_price( $conditions_textarea_string, $field_value, $separator = ',' ) {
+		if ( strlen( $conditions_textarea_string ) == 0 ) {
+			return false;
+		}
+
+		$conditions = explode( "\n", str_replace( "\r", "", $conditions_textarea_string ) );
+		foreach ( $conditions as $condition ) {
+			if ( empty( $condition ) ) {
+				continue;
+			}
+			$current_condition     = preg_replace( '/\s+/', '', $condition );
+			$condition_info        = explode( $separator, $current_condition, 2 );
+			$condition_field_value = $condition_info[0];
+			$condition_price       = $condition_info[1];
+			if ( $condition_field_value == $field_value ) {
+				return $condition_price;
+			}
+		}
+
+		return false;
+	}
+
+	public function override_product_price( $cart_obj ) {
+		if ( is_admin() ) {
+			return;
+		}
+
+		foreach ( $cart_obj->get_cart() as $key => $item ) {
+			$pif_fields = $item[ ALG_WC_PIF_ID . '_' . $this->scope ];
+			if ( empty( $pif_fields ) ) {
+				continue;
+			}
+			foreach ( $pif_fields as $field ) {
+				if (
+					isset( $field['new_price'] ) && ! empty( $field['new_price'] )
+				) {
+					$item['data']->set_price( $field['new_price'] );
+				}
+			}
+		}
 	}
 
 	/**

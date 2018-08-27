@@ -144,6 +144,9 @@ class Alg_WC_PIF_Main {
 		}
 
 		foreach ( $cart_obj->get_cart() as $key => $item ) {
+			if ( ! isset( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) ) {
+				continue;
+			}
 			$pif_fields = $item[ ALG_WC_PIF_ID . '_' . $this->scope ];
 			if ( empty( $pif_fields ) ) {
 				continue;

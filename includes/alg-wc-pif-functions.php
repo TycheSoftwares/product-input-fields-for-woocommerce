@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Functions
  *
- * @version 1.1.5
+ * @version 1.1.6
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -157,7 +157,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 	/**
 	 * alg_get_frontend_product_input_fields.
 	 *
-	 * @version 1.1.5
+	 * @version 1.1.6
 	 * @since   1.0.0
 	 * @todo    (maybe) required for 'radio'; and maybe for 'select' and 'country'
 	 */
@@ -303,7 +303,17 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 						}
 						$field_html = $field;
 						break;
-					default: // 'number' 'text' 'file' 'password' 'email' 'tel' 'color' etc.
+					case 'color':
+						$input_value = is_array( $_value ) ? implode( ", ", $_value ) : $_value;
+						$allow_color_typing = $product_input_field['type_color_allow_typing'];
+						$color_text_input_html = ($allow_color_typing=='yes') ? '<input style="margin-right:10px" type="text" class="alg-pif-color-text-input" name="" />' : '';
+						$field_html = '<span class="alg-pif-color-wrapper">'.$color_text_input_html.'<input' . $min . $max . $step . $maxlength . $pattern . $class . $style . ' value="'. $input_value .
+						              '" type="' . $product_input_field['type'] .
+						              '" name="' . $field_name .
+						              '" id="' . $field_name .
+						              '" placeholder="' . $product_input_field['placeholder'] . '"' . $custom_attributes . $required . '></span>';
+					break;
+					default: // 'number' 'text' 'file' 'password' 'email' 'tel' etc.
 						$input_value = is_array( $_value ) ? implode( ", ", $_value ) : $_value;
 						$field_html = '<input' . $min . $max . $step . $maxlength . $pattern . $class . $style . ' value="'. $input_value .
 							'" type="' . $product_input_field['type'] .

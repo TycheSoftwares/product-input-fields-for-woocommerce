@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Options
  *
- * @version 1.1.4
+ * @version 1.1.6
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -13,7 +13,7 @@ if ( ! function_exists( 'alg_get_product_input_fields_options' ) ) {
 	/**
 	 * alg_get_product_input_fields_options.
 	 *
-	 * @version 1.1.4
+	 * @version 1.1.6
 	 * @since   1.0.0
 	 * @todo    (later) more types - https://www.w3schools.com/html/html_form_input_types.asp - date; datetime-local; month; time; week
 	 * @todo    (later) color type - show color instead of color code on frontend and backend
@@ -339,6 +339,25 @@ if ( ! function_exists( 'alg_get_product_input_fields_options' ) ) {
 			),
 			array(
 				'id'                => 'type_time_options',
+				'type'              => 'sectionend',
+			),
+
+			// Color
+			array(
+				'id'                => 'color_options',
+				'title'             => __( 'Color Type Options', 'product-input-fields-for-woocommerce' ),
+				'desc'              => sprintf( $fill_only_on_type_message, __( 'Color', 'product-input-fields-for-woocommerce' ) ),
+				'type'              => 'title',
+			),
+			array(
+				'id'                => 'type_color_allow_typing',
+				'title'             => __( 'Allow color typing', 'product-input-fields-for-woocommerce' ),
+				'desc'              => __( 'Allows typing or pasting the color manually', 'product-input-fields-for-woocommerce' ),
+				'type'              => 'checkbox',
+				'default'           => '',
+			),
+			array(
+				'id'                => 'color_options',
 				'type'              => 'sectionend',
 			),
 

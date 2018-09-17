@@ -365,14 +365,14 @@ if ( ! function_exists( 'alg_get_product_input_fields_options' ) ) {
 			// Product Price Change
 			array(
 				'id'                => 'price_change_options',
-				'title'             => __( 'Product Price Change', 'product-input-fields-for-woocommerce' ),
+				'title'             => __( 'Price Change', 'product-input-fields-for-woocommerce' ),
 				'desc'              => __( 'Setup how this field will affect product price', 'product-input-fields-for-woocommerce' ),
 				'type'              => 'title',
 			),
 			array(
 				'id'                => 'price_change_enable',
 				'title'             => __( 'Product Price Change', 'product-input-fields-for-woocommerce' ),
-				'desc'              => __( 'Enable Product Price Change option', 'product-input-fields-for-woocommerce' ),
+				'desc'              => __( 'Enable Price Change option', 'product-input-fields-for-woocommerce' ),
 				'type'              => 'checkbox',
 				'default'           => 'no',
 			),
@@ -385,9 +385,9 @@ if ( ! function_exists( 'alg_get_product_input_fields_options' ) ) {
 				'default'           => 'no',
 			),*/
 			array(
-				'id'                => 'price_change_conditions',
-				'title'             => __( 'Conditions', 'product-input-fields-for-woocommerce' ),
-				'desc_tip'          => __( 'A fixed price will be set depending on specific field value conditions.', 'product-input-fields-for-woocommerce' ) . __( ' e.g', 'product-input-fields-for-woocommerce' ) . '<br />' . __( 'Cheap, 1', 'product-input-fields-for-woocommerce' ) . '<br />' . __( 'Expensive, 99', 'product-input-fields-for-woocommerce' ),
+				'id'                => 'price_change_multiopt_rules',
+				'title'             => __( 'Multi-options Rules', 'product-input-fields-for-woocommerce' ),
+				'desc_tip'          => __( 'A fixed price will be set depending on specific rules regarding select, radio and multicheckbox options.', 'product-input-fields-for-woocommerce' ) . __( ' e.g', 'product-input-fields-for-woocommerce' ) . '<br />' . __( 'Cheap, 1', 'product-input-fields-for-woocommerce' ) . '<br />' . __( 'Expensive, 99', 'product-input-fields-for-woocommerce' ),
 				'type'              => 'textarea',
 				'default'           => '',
 				'css'               => 'height:150px;width:300px;',

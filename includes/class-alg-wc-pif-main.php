@@ -71,6 +71,9 @@ class Alg_WC_PIF_Main {
 	 * @return mixed
 	 */
 	public function add_price_to_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
+		if( ! isset( $cart_item_data[ ALG_WC_PIF_ID . '_' . $this->scope ] ) ){
+			return $cart_item_data;	
+		}
 		$pif_fields = $cart_item_data[ ALG_WC_PIF_ID . '_' . $this->scope ];
 		if ( empty( $pif_fields ) ) {
 			return $cart_item_data;
@@ -82,12 +85,12 @@ class Alg_WC_PIF_Main {
 				'yes' !== $current_field['price_change_enable'] ) {
 				continue;
 			}
-			$new_price = $this->get_new_price( $current_field['price_change_conditions'], $current_field['_value'] );
+			$new_price = $this->get_new_price( $current_field['price_change_multiopt_rules'], $current_field['_value'] );
 			if (
 				filter_var( $new_price, FILTER_VALIDATE_FLOAT ) !== false ||
 				$new_price == 0
 			) {
-				$cart_item_data[ ALG_WC_PIF_ID . '_' . $this->scope ][ $key ]['new_price'] = $new_price;
+				$cart_item_data[ ALG_WC_PIF_ID . '_' . $this->scope ][ $key ]['new_price_based_on_multiopt'] = $new_price;
 			}
 		}
 
@@ -95,9 +98,9 @@ class Alg_WC_PIF_Main {
 	}
 
 	/**
-	 * Get new product price based on 'Product Price Change' conditions.
+	 * Get new product price based on 'Product Price Change' rules
 	 *
-	 * If input value is the same on condition then price will be set according to condition
+	 * If input is the same on condition then price will be set according to that rule
 	 *
 	 * @version 1.1.6
 	 * @since   1.1.6
@@ -152,8 +155,8 @@ class Alg_WC_PIF_Main {
 				continue;
 			}
 			foreach ( $pif_fields as $field ) {
-				if ( isset( $field['new_price'] ) ) {
-					$item['data']->set_price( $field['new_price'] );
+				if ( isset( $field['new_price_based_on_multiopt'] ) ) {
+					$item['data']->set_price( $field['new_price_based_on_multiopt'] );
 				}
 			}
 		}

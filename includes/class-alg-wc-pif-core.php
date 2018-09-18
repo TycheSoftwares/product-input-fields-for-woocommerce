@@ -139,15 +139,56 @@ class Alg_WC_PIF_Core {
 	}
 
 	/**
+	 * Gets browser name
+	 *
+	 * @version 1.1.7
+	 * @since   1.1.7
+	 * @return string
+	 */
+	function get_browser_name()
+	{
+		$user_agent = $_SERVER['HTTP_USER_AGENT'];
+		if (strpos($user_agent, 'Opera') || strpos($user_agent, 'OPR/')) return 'Opera';
+		elseif (strpos($user_agent, 'Edge')) return 'Edge';
+		elseif (strpos($user_agent, 'Chrome')) return 'Chrome';
+		elseif (strpos($user_agent, 'Safari')) return 'Safari';
+		elseif (strpos($user_agent, 'Firefox')) return 'Firefox';
+		elseif (strpos($user_agent, 'MSIE') || strpos($user_agent, 'Trident/7')) return 'Internet Explorer';
+
+		return 'Other';
+	}
+
+	/**
+	 * Current browser can render color type?
+	 *
+	 * @version 1.1.7
+	 * @since   1.1.7
+	 * @return bool
+	 */
+	function browser_can_render_color_type() {
+		if ( $this->get_browser_name() == 'Safari' || $this->get_browser_name() == 'Opera' ) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	/**
 	 * enqueue_scripts.
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.7
 	 * @since   1.0.0
 	 */
 	function enqueue_scripts() {
 		if( ! is_product() ) {
 			return;
 		}
+
+		if ( ! $this->browser_can_render_color_type() ) {
+			wp_enqueue_script( 'spectrum', '//cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js', array( 'jquery' ) );
+			wp_enqueue_style( 'spectrum', '//cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css' );
+		}
+
 		wp_enqueue_script( 'jquery-ui-datepicker' );
 		$scripts = array(
 			'alg-datepicker'              => 'alg-datepicker.js',

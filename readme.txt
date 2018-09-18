@@ -3,7 +3,7 @@ Contributors: algoritmika, anbinder, karzin
 Tags: woocommerce, product input fields, wpcodefactory
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -61,6 +61,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
+= 1.1.7 - 18/09/2018 =
+* Add color input compatibility with Opera and Safari
+
 = 1.1.6 - 17/09/2018 =
 * Add color section on admin input fields options
 * Add option to allow typing or pasting the color manually
@@ -111,7 +114,5 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Upgrade Notice ==
 
-= 1.1.6 =
-* Add color section on admin input fields options
-* Add option to allow typing or pasting the color manually
-* Update WC tested up to
+= 1.1.7 - 18/09/2018 =
+* Add color input compatibility with Opera and Safari

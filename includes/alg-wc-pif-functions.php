@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Functions
  *
- * @version 1.1.6
+ * @version 1.1.8
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -157,7 +157,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 	/**
 	 * alg_get_frontend_product_input_fields.
 	 *
-	 * @version 1.1.6
+	 * @version 1.1.8
 	 * @since   1.0.0
 	 * @todo    (maybe) required for 'radio'; and maybe for 'select' and 'country'
 	 */
@@ -243,7 +243,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 						$field_html = '<input' . $class . $style . ' value="'. $_value . '" id="' . $field_name .
 							'" interval="' . $product_input_field['type_timepicker_interval'] .
 							'" timeformat="' . $product_input_field['type_timepicker_format'] .
-							'" type="' . $product_input_field['type'] .
+			                '" autocomplete="off" type="' . $product_input_field['type'] .
 							'" display="time" name="' . $field_name .
 							'" placeholder="' . $product_input_field['placeholder'] . '"' . $custom_attributes . $required . '>';
 						break;

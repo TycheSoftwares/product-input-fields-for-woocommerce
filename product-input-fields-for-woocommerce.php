@@ -3,7 +3,7 @@
 Plugin Name: Product Input Fields for WooCommerce
 Plugin URI: https://wpcodefactory.com/item/product-input-fields-woocommerce/
 Description: Add custom frontend input fields to WooCommerce products.
-Version: 1.1.7
+Version: 1.1.8
 Author: Algoritmika Ltd
 Author URI: http://www.algoritmika.com
 Text Domain: product-input-fields-for-woocommerce
@@ -40,7 +40,7 @@ if (
 
 // Constants
 if ( ! defined( 'ALG_WC_PIF_VERSION' ) ) {
-	define( 'ALG_WC_PIF_VERSION', '1.1.7' );
+	define( 'ALG_WC_PIF_VERSION', '1.1.8' );
 }
 if ( ! defined( 'ALG_WC_PIF_ID' ) ) {
 	define( 'ALG_WC_PIF_ID',      'alg_wc_pif' );

@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Core Class
  *
- * @version 1.1.7
+ * @version 1.1.8
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -176,7 +176,7 @@ class Alg_WC_PIF_Core {
 	/**
 	 * enqueue_scripts.
 	 *
-	 * @version 1.1.7
+	 * @version 1.1.8
 	 * @since   1.0.0
 	 */
 	function enqueue_scripts() {
@@ -206,6 +206,8 @@ class Alg_WC_PIF_Core {
 				true
 			);
 		}
+
+		wp_enqueue_style( 'jquery-ui-timepicker', '//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css' );
 	}
 
 }

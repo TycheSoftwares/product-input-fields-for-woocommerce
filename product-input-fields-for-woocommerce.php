@@ -40,7 +40,7 @@ if (
 
 // Constants
 if ( ! defined( 'ALG_WC_PIF_VERSION' ) ) {
-	define( 'ALG_WC_PIF_VERSION', '1.1.6' );
+	define( 'ALG_WC_PIF_VERSION', '1.1.7' );
 }
 if ( ! defined( 'ALG_WC_PIF_ID' ) ) {
 	define( 'ALG_WC_PIF_ID',      'alg_wc_pif' );

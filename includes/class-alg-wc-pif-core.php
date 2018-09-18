@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Core Class
  *
- * @version 1.1.4
+ * @version 1.1.7
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */

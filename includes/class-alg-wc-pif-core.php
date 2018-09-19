@@ -207,7 +207,16 @@ class Alg_WC_PIF_Core {
 			);
 		}
 
-		wp_enqueue_style( 'jquery-ui-timepicker', '//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css' );
+		// Timepicker style
+		if ( 'yes' === get_wc_pif_option( 'frontend_enqueue_timepicker_style', 'yes' ) ) {
+			wp_enqueue_style( 'jquery-ui-timepicker', '//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css' );
+		}
+
+		// Datepicker style
+		if ( 'yes' === get_wc_pif_option( 'frontend_enqueue_datepicker_style', 'yes' ) ) {
+			wp_enqueue_style( 'jquery-ui-datepicker', '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css' );
+		}
+
 	}
 
 }

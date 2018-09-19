@@ -223,7 +223,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 						$field_html = '<input' . $class . $style . ' value="'. $_value . '" id="' . $field_name . '" ' . $datepicker_year .
 							'firstday="' . $product_input_field['type_datepicker_firstday'] .
 							'" dateformat="' . $product_input_field['type_datepicker_format'] .
-							'" mindate="' . $product_input_field['type_datepicker_mindate'] .
+				            '" autocomplete="off" mindate="' . $product_input_field['type_datepicker_mindate'] .
 							'" maxdate="' . $product_input_field['type_datepicker_maxdate'] .
 							'" type="' . $product_input_field['type'] .
 							'" display="date" name="' . $field_name .
@@ -233,7 +233,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 						$field_html = '<input' . $class . $style . ' value="'. $_value . '" id="' . $field_name . '" ' . $datepicker_year .
 							'firstday="' . $product_input_field['type_datepicker_firstday'] .
 							'" dateformat="' . $product_input_field['type_datepicker_format'] .
-							'" mindate="' . $product_input_field['type_datepicker_mindate'] .
+						    '" autocomplete="off" mindate="' . $product_input_field['type_datepicker_mindate'] .
 							'" maxdate="' . $product_input_field['type_datepicker_maxdate'] .
 							'" type="' . $product_input_field['type'] .
 							'" display="week" name="' . $field_name .

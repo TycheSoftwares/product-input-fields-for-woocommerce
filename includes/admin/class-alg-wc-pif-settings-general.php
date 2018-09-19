@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - General Section Settings
  *
- * @version 1.1.4
+ * @version 1.1.8
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -28,7 +28,7 @@ class Alg_WC_PIF_Settings_General extends Alg_WC_PIF_Settings_Section {
 	/**
 	 * get_section_settings.
 	 *
-	 * @version 1.1.4
+	 * @version 1.1.8
 	 * @since   1.0.0
 	 * @todo    (later) major reset settings - including all global and *local* input fields
 	 * @todo    (later) add dashboard and move all options (except dashboard) to another settings section(s)
@@ -164,6 +164,22 @@ class Alg_WC_PIF_Settings_General extends Alg_WC_PIF_Settings_Section {
 				'title'    => __( 'Textarea Auto Height', 'product-input-fields-for-woocommerce' ),
 				'desc'     => __( 'Makes the textarea auto increase its height as users type', 'product-input-fields-for-woocommerce' ),
 				'id'       => 'frontend_textarea_auto_height',
+				'default'  => 'yes',
+				'type'     => 'checkbox',
+			),
+			array(
+				'title'    => __( 'Load Timepicker Style', 'product-input-fields-for-woocommerce' ),
+				'desc'     => __( 'Enqueues Timepicker Style', 'product-input-fields-for-woocommerce' ),
+				'desc_tip' => __( 'If you are not using Timepicker, please disable this opgion', 'product-input-fields-for-woocommerce' ),
+				'id'       => 'frontend_enqueue_timepicker_style',
+				'default'  => 'yes',
+				'type'     => 'checkbox',
+			),
+			array(
+				'title'    => __( 'Load Datepicker Style', 'product-input-fields-for-woocommerce' ),
+				'desc'     => __( 'Enqueues Datepicker and Weekpicker Style', 'product-input-fields-for-woocommerce' ),
+				'desc_tip' => __( 'If you are not using Datepicker or Weekpicker, please disable this opgion', 'product-input-fields-for-woocommerce' ),
+				'id'       => 'frontend_enqueue_datepicker_style',
 				'default'  => 'yes',
 				'type'     => 'checkbox',
 			),

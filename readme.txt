@@ -61,10 +61,12 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
-= 1.1.8 - 18/09/2018 =
-* Remove timepicker autocomplete
-* Add Timepicker style
+= 1.1.8 - 19/09/2018 =
+* Add 'Load Datepicker Style' option
+* Add 'Load Timepicker Style' option
 * Update Timepicker JS
+* Turn off autocomplete on timepicker, datepicker and weekpicker
+* Fix Datepicker, Timepicker and Weekpicker style
 
 = 1.1.7 - 18/09/2018 =
 * Add color input compatibility with Opera and Safari
@@ -120,4 +122,8 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 == Upgrade Notice ==
 
 = 1.1.8 =
-* Fix Timepicker
+* Add 'Load Datepicker Style' option
+* Add 'Load Timepicker Style' option
+* Update Timepicker JS
+* Turn off autocomplete on timepicker, datepicker and weekpicker
+* Fix Datepicker, Timepicker and Weekpicker style

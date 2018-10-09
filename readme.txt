@@ -3,7 +3,7 @@ Contributors: algoritmika, anbinder, karzin
 Tags: woocommerce, product input fields, wpcodefactory
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -60,6 +60,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 5. Setting local (i.e. on per product basis) product input field options.
 
 == Changelog ==
+
+= 1.1.9 - 08/10/2018 =
+* Display fields on PDF Invoices & Packing Slips plugin
 
 = 1.1.8 - 19/09/2018 =
 * Add 'Load Datepicker Style' option
@@ -121,9 +124,5 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Upgrade Notice ==
 
-= 1.1.8 =
-* Add 'Load Datepicker Style' option
-* Add 'Load Timepicker Style' option
-* Update Timepicker JS
-* Turn off autocomplete on timepicker, datepicker and weekpicker
-* Fix Datepicker, Timepicker and Weekpicker style
+= 1.1.9 =
+* Display fields on PDF Invoices & Packing Slips plugin

@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Main Class
  *
- * @version 1.1.4
+ * @version 1.1.9
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -19,7 +19,7 @@ class Alg_WC_PIF_Main {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.1.4
+	 * @version 1.1.9
 	 * @since   1.0.0
 	 * @todo    (later) solve archives add to cart issue (especially if required is set)
 	 */
@@ -53,8 +53,25 @@ class Alg_WC_PIF_Main {
 		add_filter( 'woocommerce_order_item_name',                  array( $this, 'add_product_input_fields_to_order_item_name' ),     PHP_INT_MAX, 2 );
 		// Output product input fields in order at backend
 		add_action( 'woocommerce_before_order_itemmeta',            array( $this, 'output_custom_input_fields_in_admin_order' ),       10, 3 );
+		// Output product input fields in invoice plugin
+		add_action( 'wpo_wcpdf_after_item_meta',                    array( $this, 'output_custom_input_fields_in_invoice_plugin' ), 10, 3 );
 		// Add to emails
 		add_filter( 'woocommerce_email_attachments',                array( $this, 'add_files_to_email_attachments' ),                  PHP_INT_MAX, 3 );
+	}
+
+	/**
+     * Outputs custom input fields in invoice plugin
+     *
+     * @see https://br.wordpress.org/plugins/woocommerce-pdf-invoices-packing-slips/
+     *
+	 * @version 1.1.9
+	 * @since   1.1.9
+	 * @param $type
+	 * @param $item
+	 * @param $order
+	 */
+	public function output_custom_input_fields_in_invoice_plugin( $type, $item, $order ) {
+		$this->output_custom_input_fields_in_admin_order( $item['item_id'], $item['item'], wc_get_product( $item['product_id'] ) );
 	}
 
 	/**

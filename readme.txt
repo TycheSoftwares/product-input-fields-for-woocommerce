@@ -61,7 +61,7 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
-= 1.1.9 - 08/10/2018 =
+= 1.1.9 - 09/10/2018 =
 * Display fields on PDF Invoices & Packing Slips plugin
 
 = 1.1.8 - 19/09/2018 =

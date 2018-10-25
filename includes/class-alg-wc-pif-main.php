@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Main Class
  *
- * @version 1.1.9
+ * @version 1.2.0
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -19,7 +19,7 @@ class Alg_WC_PIF_Main {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.1.9
+	 * @version 1.2.0
 	 * @since   1.0.0
 	 * @todo    (later) solve archives add to cart issue (especially if required is set)
 	 */
@@ -57,6 +57,44 @@ class Alg_WC_PIF_Main {
 		add_action( 'wpo_wcpdf_after_item_meta',                    array( $this, 'output_custom_input_fields_in_invoice_plugin' ), 10, 3 );
 		// Add to emails
 		add_filter( 'woocommerce_email_attachments',                array( $this, 'add_files_to_email_attachments' ),                  PHP_INT_MAX, 3 );
+		// Setups Advanced Order Export For WooCommerce plugin
+		add_filter( 'woe_get_order_product_value_apif',             array( $this, 'setup_adv_order_export_plugin_column' ), 10, 5 );
+		add_filter( 'woe_get_order_product_fields',                 array($this,  'add_input_fields_columns_to_adv_order_export_plugin' ) );
+	}
+
+	/**
+     * Adds Input Fields Column on Advanced Order Export For WooCommerce plugin
+     * @see https://br.wordpress.org/plugins/woo-order-export-lite/
+     *
+	 * @version 1.2.0
+	 * @since   1.2.0
+     *
+	 * @param $fields
+	 *
+	 * @return mixed
+	 */
+	function add_input_fields_columns_to_adv_order_export_plugin( $fields ) {
+		$fields['apif'] = array( 'label' => __( "Input Fields", 'product-input-fields-for-woocommerce' ), 'colname' => __( "Input Fields", 'product-input-fields-for-woocommerce' ), 'checked' => 1 );
+		return $fields;
+	}
+
+	/**
+     * Setups Input Fields Columns on Advanced Order Export For WooCommerce plugin
+     *
+	 * @version 1.2.0
+	 * @since   1.2.0
+     *
+	 * @param $value
+	 * @param WC_Order $order
+	 * @param WC_Order_Item_Product $item
+	 * @param $product
+	 * @param $itemmeta
+	 *
+	 * @return string
+	 */
+	public function setup_adv_order_export_plugin_column( $value, \WC_Order $order, \WC_Order_Item_Product $item, $product, $itemmeta ) {
+		$value .= $this->output_custom_input_fields_in_admin_order( $item->get_id(), $item, $product, false, true );
+		return $value;
 	}
 
 	/**
@@ -390,11 +428,11 @@ class Alg_WC_PIF_Main {
 	/**
 	 * output_custom_input_fields_in_admin_order.
 	 *
-	 * @version 1.1.4
+	 * @version 1.2.0
 	 * @since   1.0.0
 	 * @todo    (later) make fields editable
 	 */
-	function output_custom_input_fields_in_admin_order( $item_id, $item, $_product ) {
+	function output_custom_input_fields_in_admin_order( $item_id, $item, $_product, $echo = true, $simple_text = false ) {
 		if ( null === $_product ) {
 			// Shipping
 			return;
@@ -408,16 +446,17 @@ class Alg_WC_PIF_Main {
 				return;
 			}
 		}
-		$html = '';
+		$html                 = '';
 		$product_input_fields = ( version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' ) ?
 			unserialize( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) :
 			$item->get_meta( '_' . ALG_WC_PIF_ID . '_' . $this->scope )
 		);
+
 		foreach ( $product_input_fields as $product_input_field ) {
 			if ( ! (
-				isset( $product_input_field['title'] )     &&
+				isset( $product_input_field['title'] ) &&
 				isset( $product_input_field['_field_nr'] ) &&
-				isset( $product_input_field['_value'] )    &&
+				isset( $product_input_field['_value'] ) &&
 				isset( $product_input_field['type'] )
 			) ) {
 				continue;
@@ -434,10 +473,18 @@ class Alg_WC_PIF_Main {
 			}
 			if ( '' != $_value ) {
 				$_value = is_array( $_value ) ? implode( ", ", $_value ) : $_value;
-				$html .= '<div class="wc-order-item-variation"><strong>' . $title . ':</strong> ' . $_value . '</div>';
+				if ( $simple_text ) {
+					$html .= "\n" . $title . ': ' . $_value;
+				} else {
+					$html .= '<div class="wc-order-item-variation"><strong>' . $title . ':</strong> ' . $_value . '</div>';
+				}
 			}
 		}
-		echo $html;
+		if ( $echo ) {
+			echo $html;
+		} else {
+			return $html;
+		}
 	}
 
 	/**

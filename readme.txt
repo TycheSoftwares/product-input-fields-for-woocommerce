@@ -3,7 +3,7 @@ Contributors: algoritmika, anbinder, karzin
 Tags: woocommerce, product input fields, wpcodefactory
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.1.9
+Stable tag: 1.2.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -60,6 +60,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 5. Setting local (i.e. on per product basis) product input field options.
 
 == Changelog ==
+
+= 1.2.0 - 25/10/2018 =
+* Add compatibility with Advanced Order Export For WooCommerce plugin
 
 = 1.1.9 - 09/10/2018 =
 * Display fields on PDF Invoices & Packing Slips plugin
@@ -124,5 +127,5 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Upgrade Notice ==
 
-= 1.1.9 =
-* Display fields on PDF Invoices & Packing Slips plugin
+= 1.2.0 =
+* Add compatibility with Advanced Order Export For WooCommerce plugin

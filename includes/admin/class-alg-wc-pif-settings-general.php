@@ -33,7 +33,6 @@ class Alg_WC_PIF_Settings_General extends Alg_WC_PIF_Settings_Section {
 	 * @todo    (later) major reset settings - including all global and *local* input fields
 	 * @todo    (later) add dashboard and move all options (except dashboard) to another settings section(s)
 	 * @todo    (later) global required_message, max_size_message, wrong_file_type_message (maybe with replaceable %title%) (and add desc_tip - used when not required by JS enabled / outside the add to cart button form and per field message not set (i.e. leave blank to use default)) - validate_product_input_fields_on_add_to_cart()
-	 * @todo    (maybe) frontend_position - clean up
 	 */
 	function get_section_settings() {
 		$settings = array(
@@ -69,35 +68,14 @@ class Alg_WC_PIF_Settings_General extends Alg_WC_PIF_Settings_Section {
 				'default'  => 'woocommerce_before_add_to_cart_button',
 				'type'     => 'select',
 				'options'  => array(
-//					'woocommerce_before_single_product_summary' => __( 'Before single product summary', 'product-input-fields-for-woocommerce' ),
-//					'woocommerce_single_product_summary'        => __( 'Single product summary', 'product-input-fields-for-woocommerce' ),
-//					'woocommerce_before_add_to_cart_form'       => __( 'Before add to cart form', 'product-input-fields-for-woocommerce' ),
 					'woocommerce_before_add_to_cart_button'     => __( 'Before add to cart button', 'product-input-fields-for-woocommerce' ),
 					'woocommerce_after_add_to_cart_button'      => __( 'After add to cart button', 'product-input-fields-for-woocommerce' ),
-//					'woocommerce_after_add_to_cart_form'        => __( 'After add to cart form', 'product-input-fields-for-woocommerce' ),
-//					'woocommerce_after_single_product_summary'  => __( 'After single product summary', 'product-input-fields-for-woocommerce' ),
 					'disable'                                   => __( 'Do not display', 'product-input-fields-for-woocommerce' ),
 				),
 			),
 			array(
 				'title'    => __( 'Position Priority', 'product-input-fields-for-woocommerce' ),
 				'desc_tip' => __( 'Ignored if "Position" is set to "Do not display".', 'product-input-fields-for-woocommerce' ),
-				/* 'desc_tip' => __( 'Standard priorities:', 'product-input-fields-for-woocommerce' ) . '<br>' .
-						'<strong>' . __( 'Before single product summary:', 'product-input-fields-for-woocommerce' ) . '</strong>' . '<br>' .
-							__( 'Product sale flash - 10,', 'product-input-fields-for-woocommerce' ) . '<br>' .
-							__( 'Product images - 20.', 'product-input-fields-for-woocommerce' ) . '<br>' .
-						'<strong>' . __( 'After single product summary:', 'product-input-fields-for-woocommerce' ) . '</strong>' . '<br>' .
-							__( 'Product data tabs - 10,', 'product-input-fields-for-woocommerce' ) . '<br>' .
-							__( 'Upsell display - 15,', 'product-input-fields-for-woocommerce' ) . '<br>' .
-							__( 'Related products - 20.', 'product-input-fields-for-woocommerce' ) . '<br>' .
-						'<strong>' . __( 'Single product summary:', 'product-input-fields-for-woocommerce' ) . '</strong>' . '<br>' .
-							__( 'Title - 5,', 'product-input-fields-for-woocommerce' ) . '<br>' .
-							__( 'Rating - 10,', 'product-input-fields-for-woocommerce' ) . '<br>' .
-							__( 'Price - 10,', 'product-input-fields-for-woocommerce' ) . '<br>' .
-							__( 'Excerpt - 20,', 'product-input-fields-for-woocommerce' ) . '<br>' .
-							__( 'Add to cart - 30,', 'product-input-fields-for-woocommerce' ) . '<br>' .
-							__( 'Meta - 40,', 'product-input-fields-for-woocommerce' ) . '<br>' .
-							__( 'Sharing - 50.', 'product-input-fields-for-woocommerce' ), */
 				'id'       => 'frontend_position_priority',
 				'default'  => 10,
 				'type'     => 'number',

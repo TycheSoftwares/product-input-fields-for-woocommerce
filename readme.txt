@@ -3,7 +3,7 @@ Contributors: algoritmika, anbinder, karzin
 Tags: woocommerce, product input fields
 Requires at least: 4.4
 Tested up to: 5.0
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -63,7 +63,7 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 = 1.2.1 - 23/01/2019 =
 * Dev - Plugin URI updated.
-* Dev - Admin settings restyled.
+* Dev - Admin settings restyled and descriptions updated.
 * Dev - Code clean up.
 
 = 1.2.0 - 25/10/2018 =
@@ -132,5 +132,5 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Upgrade Notice ==
 
-= 1.2.0 =
-* Add compatibility with Advanced Order Export For WooCommerce plugin
+= 1.0.0 =
+This is the first release of the plugin.

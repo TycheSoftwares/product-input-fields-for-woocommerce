@@ -3,7 +3,7 @@
 Plugin Name: Product Input Fields for WooCommerce
 Plugin URI: https://wpfactory.com/item/product-input-fields-woocommerce/
 Description: Add custom frontend input fields to WooCommerce products.
-Version: 1.2.1-dev
+Version: 1.2.1
 Author: Algoritmika Ltd
 Author URI: http://www.algoritmika.com
 Text Domain: product-input-fields-for-woocommerce
@@ -27,20 +27,9 @@ if (
 	return;
 }
 
-/*if ( 'product-input-fields-for-woocommerce.php' === basename( __FILE__ ) ) {
-	// Check if Pro is active, if so then return
-	$plugin = 'product-input-fields-for-woocommerce-pro/product-input-fields-for-woocommerce-pro.php';
-	if (
-		in_array( $plugin, apply_filters( 'active_plugins', get_option( 'active_plugins', array() ) ) ) ||
-		( is_multisite() && array_key_exists( $plugin, get_site_option( 'active_sitewide_plugins', array() ) ) )
-	) {
-		return;
-	}
-}*/
-
 // Constants
 if ( ! defined( 'ALG_WC_PIF_VERSION' ) ) {
-	define( 'ALG_WC_PIF_VERSION', '1.2.1-dev-20190123-1934' );
+	define( 'ALG_WC_PIF_VERSION', '1.2.1' );
 }
 if ( ! defined( 'ALG_WC_PIF_ID' ) ) {
 	define( 'ALG_WC_PIF_ID',      'alg_wc_pif' );
@@ -115,7 +104,7 @@ final class Alg_WC_PIF {
 	}
 
 	/**
-	 * Show action links on the plugin screen
+	 * Show action links on the plugin screen.
 	 *
 	 * @version 1.2.1
 	 * @since   1.0.0
@@ -172,11 +161,11 @@ final class Alg_WC_PIF {
 	/**
 	 * Add Product Input Fields settings tab to WooCommerce settings.
 	 *
-	 * @version 1.0.0
+	 * @version 1.2.1
 	 * @since   1.0.0
 	 */
 	function add_woocommerce_settings_tab( $settings ) {
-		$settings[] = include( 'includes/admin/class-alg-wc-settings-pif.php' );
+		$settings[] = require_once( 'includes/admin/class-alg-wc-settings-pif.php' );
 		return $settings;
 	}
 

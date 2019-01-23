@@ -63,12 +63,12 @@ class Alg_WC_PIF_Main {
 	}
 
 	/**
-     * Adds Input Fields Column on Advanced Order Export For WooCommerce plugin
-     * @see https://br.wordpress.org/plugins/woo-order-export-lite/
-     *
+	 * Adds Input Fields Column on Advanced Order Export For WooCommerce plugin
+	 * @see https://br.wordpress.org/plugins/woo-order-export-lite/
+	 *
 	 * @version 1.2.0
 	 * @since   1.2.0
-     *
+	 *
 	 * @param $fields
 	 *
 	 * @return mixed
@@ -79,11 +79,11 @@ class Alg_WC_PIF_Main {
 	}
 
 	/**
-     * Setups Input Fields Columns on Advanced Order Export For WooCommerce plugin
-     *
+	 * Setups Input Fields Columns on Advanced Order Export For WooCommerce plugin
+	 *
 	 * @version 1.2.0
 	 * @since   1.2.0
-     *
+	 *
 	 * @param $value
 	 * @param WC_Order $order
 	 * @param WC_Order_Item_Product $item
@@ -98,10 +98,10 @@ class Alg_WC_PIF_Main {
 	}
 
 	/**
-     * Outputs custom input fields in invoice plugin
-     *
-     * @see https://br.wordpress.org/plugins/woocommerce-pdf-invoices-packing-slips/
-     *
+	 * Outputs custom input fields in invoice plugin
+	 *
+	 * @see https://br.wordpress.org/plugins/woocommerce-pdf-invoices-packing-slips/
+	 *
 	 * @version 1.1.9
 	 * @since   1.1.9
 	 * @param $type
@@ -127,36 +127,36 @@ class Alg_WC_PIF_Main {
 			return;
 		}
 		?>
-        <script>
-            var pif_ta_autoheigh = {
-                loaded: false,
-                textarea_selector: '',
-                init: function (textarea_selector) {
-                    if (this.loaded === false) {
-                        this.loaded = true;
-                        this.textarea_selector = textarea_selector;
-                        var textareas = document.querySelectorAll(this.textarea_selector);
-                        [].forEach.call(textareas, function (el) {
-                            el.addEventListener('input', function () {
-                                pif_ta_autoheigh.auto_grow(this);
-                            });
-                        });
-                    }
-                },
-                auto_grow: function (element) {
-                    element.style.height = 'auto';
-                    element.style.height = (element.scrollHeight) + "px";
-                }
-            };
-            document.addEventListener("DOMContentLoaded", function () {
-                pif_ta_autoheigh.init('.alg-product-input-fields-table textarea');
-            });
-        </script>
-        <style>
-            .alg-product-input-fields-table textarea {
-                overflow: hidden;
-            }
-        </style>
+		<script>
+			var pif_ta_autoheigh = {
+				loaded: false,
+				textarea_selector: '',
+				init: function (textarea_selector) {
+					if (this.loaded === false) {
+						this.loaded = true;
+						this.textarea_selector = textarea_selector;
+						var textareas = document.querySelectorAll(this.textarea_selector);
+						[].forEach.call(textareas, function (el) {
+							el.addEventListener('input', function () {
+								pif_ta_autoheigh.auto_grow(this);
+							});
+						});
+					}
+				},
+				auto_grow: function (element) {
+					element.style.height = 'auto';
+					element.style.height = (element.scrollHeight) + "px";
+				}
+			};
+			document.addEventListener("DOMContentLoaded", function () {
+				pif_ta_autoheigh.init('.alg-product-input-fields-table textarea');
+			});
+		</script>
+		<style>
+			.alg-product-input-fields-table textarea {
+				overflow: hidden;
+			}
+		</style>
 		<?php
 	}
 

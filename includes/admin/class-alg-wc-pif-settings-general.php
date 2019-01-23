@@ -120,7 +120,7 @@ class Alg_WC_PIF_Settings_General extends Alg_WC_PIF_Settings_Section {
 			),
 			array(
 				'title'    => __( 'Item Name Order Table Format', 'product-input-fields-for-woocommerce' ),
-				'desc_tip' => __( 'Affects Checkout, Emails and Admin Orders View', 'product-input-fields-for-woocommerce' ),
+				'desc_tip' => __( 'Affects Thank You page, Emails etc.', 'product-input-fields-for-woocommerce' ),
 				'id'       => 'frontend_order_table_format',
 				'default'  => '&nbsp;| %title% %value%',
 				'type'     => 'textarea',
@@ -150,7 +150,7 @@ class Alg_WC_PIF_Settings_General extends Alg_WC_PIF_Settings_Section {
 			array(
 				'title'    => __( 'Load Timepicker Style', 'product-input-fields-for-woocommerce' ),
 				'desc'     => __( 'Enqueues Timepicker Style', 'product-input-fields-for-woocommerce' ),
-				'desc_tip' => __( 'If you are not using Timepicker, please disable this opgion', 'product-input-fields-for-woocommerce' ),
+				'desc_tip' => __( 'If you are not using Timepicker, please disable this option', 'product-input-fields-for-woocommerce' ),
 				'id'       => 'frontend_enqueue_timepicker_style',
 				'default'  => 'yes',
 				'type'     => 'checkbox',
@@ -158,7 +158,7 @@ class Alg_WC_PIF_Settings_General extends Alg_WC_PIF_Settings_Section {
 			array(
 				'title'    => __( 'Load Datepicker Style', 'product-input-fields-for-woocommerce' ),
 				'desc'     => __( 'Enqueues Datepicker and Weekpicker Style', 'product-input-fields-for-woocommerce' ),
-				'desc_tip' => __( 'If you are not using Datepicker or Weekpicker, please disable this opgion', 'product-input-fields-for-woocommerce' ),
+				'desc_tip' => __( 'If you are not using Datepicker or Weekpicker, please disable this option', 'product-input-fields-for-woocommerce' ),
 				'id'       => 'frontend_enqueue_datepicker_style',
 				'default'  => 'yes',
 				'type'     => 'checkbox',

@@ -63,6 +63,7 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 = 1.2.1 - 23/01/2019 =
 -* Dev - Plugin URI updated.
+* Dev - Admin settings restyled.
 
 = 1.2.0 - 25/10/2018 =
 * Add compatibility with Advanced Order Export For WooCommerce plugin

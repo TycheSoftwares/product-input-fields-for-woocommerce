@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - General Section Settings
  *
- * @version 1.1.8
+ * @version 1.2.1
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -28,7 +28,7 @@ class Alg_WC_PIF_Settings_General extends Alg_WC_PIF_Settings_Section {
 	/**
 	 * get_section_settings.
 	 *
-	 * @version 1.1.8
+	 * @version 1.2.1
 	 * @since   1.0.0
 	 * @todo    (later) major reset settings - including all global and *local* input fields
 	 * @todo    (later) add dashboard and move all options (except dashboard) to another settings section(s)
@@ -63,7 +63,8 @@ class Alg_WC_PIF_Settings_General extends Alg_WC_PIF_Settings_Section {
 			),
 			array(
 				'title'    => __( 'Position', 'product-input-fields-for-woocommerce' ),
-				'desc'     => __( 'If set to "Do not display", alternatively you can use [alg_display_product_input_fields] shortcode, or PHP alg_display_product_input_fields() function.', 'product-input-fields-for-woocommerce' ),
+				'desc'     => sprintf( __( 'If set to "Do not display", alternatively you can use %s shortcode, or PHP %s function.', 'product-input-fields-for-woocommerce' ),
+					'<code>[alg_display_product_input_fields]</code>', '<code>alg_display_product_input_fields()</code>' ),
 				'id'       => 'frontend_position',
 				'default'  => 'woocommerce_before_add_to_cart_button',
 				'type'     => 'select',
@@ -111,7 +112,8 @@ class Alg_WC_PIF_Settings_General extends Alg_WC_PIF_Settings_Section {
 			array(
 				'title'    => __( 'Product Input Field Template', 'product-input-fields-for-woocommerce' ),
 				'desc_tip' => __( 'Replaced values:', 'product-input-fields-for-woocommerce' ) . ' ' . '%field_id%, %title%, %field%',
-				'desc'     => __( 'Alternatively try e.g.:', 'product-input-fields-for-woocommerce' ) . ' ' . esc_html( '<p><label for="%field_id%">%title%</label>%field%</p>' ),
+				'desc'     => sprintf( __( 'Alternatively try e.g.: %s', 'product-input-fields-for-woocommerce' ),
+					'<code>' . esc_html( '<p><label for="%field_id%">%title%</label>%field%</p>' ) . '</code>' ),
 				'id'       => 'frontend_template',
 				'default'  => '<tr><td><label for="%field_id%">%title%</label></td><td>%field%</td></tr>',
 				'type'     => 'textarea',

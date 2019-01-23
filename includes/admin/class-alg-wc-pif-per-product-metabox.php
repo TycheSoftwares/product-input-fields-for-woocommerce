@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Per Product Metabox
  *
- * @version 1.1.0
+ * @version 1.2.1
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -96,7 +96,7 @@ class Alg_WC_PIF_Per_Product_Metabox {
 	/**
 	 * create_local_product_input_fields_total_number_meta_box.
 	 *
-	 * @version 1.1.0
+	 * @version 1.2.1
 	 * @since   1.0.0
 	 */
 	function create_local_product_input_fields_total_number_meta_box() {
@@ -110,7 +110,7 @@ class Alg_WC_PIF_Per_Product_Metabox {
 		$html .= ' ' . '<input type="number" min="1" max="100" id="' . ALG_WC_PIF_ID . '_' . 'local_total_number" name="' . ALG_WC_PIF_ID . '_' . 'local_total_number" value="' .
 			$total_number . '"' . apply_filters( 'alg_wc_product_input_fields', ' readonly', 'settings' ) . '>';
 		$html .= apply_filters( 'alg_wc_product_input_fields', ' <em>' .
-			sprintf( __( 'Get <a target="_blank" href="%s">Product Input Fields for WooCommerce Pro</a> plugin to add more than one product input field.', 'product-input-fields-for-woocommerce' ), 'https://wpcodefactory.com/item/product-input-fields-woocommerce/' ) . '</em>', 'settings' );
+			sprintf( __( 'Get <a target="_blank" href="%s">Product Input Fields for WooCommerce Pro</a> plugin to add more than one product input field.', 'product-input-fields-for-woocommerce' ), 'https://wpfactory.com/item/product-input-fields-woocommerce/' ) . '</em>', 'settings' );
 		$html .= '<input type="hidden" name="' . ALG_WC_PIF_ID . '_' . 'save_post" value="' . ALG_WC_PIF_ID . '_' . 'save_post">';
 		echo $html;
 	}

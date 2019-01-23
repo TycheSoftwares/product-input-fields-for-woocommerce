@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - Per Product Section Settings
  *
- * @version 1.1.0
+ * @version 1.2.1
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -28,7 +28,7 @@ class Alg_WC_PIF_Settings_Per_Product extends Alg_WC_PIF_Settings_Section {
 	/**
 	 * get_section_settings.
 	 *
-	 * @version 1.1.0
+	 * @version 1.2.1
 	 * @since   1.0.0
 	 * @todo    (later) variable - per product or per variation
 	 */
@@ -56,7 +56,7 @@ class Alg_WC_PIF_Settings_Per_Product extends Alg_WC_PIF_Settings_Section {
 				'desc_tip' => __( 'You will be able to change this number later as well as define the fields, for each product individually, in product\'s "Edit".', 'product-input-fields-for-woocommerce' ),
 				'default'  => 1,
 				'type'     => 'number',
-				'desc'     => apply_filters( 'alg_wc_product_input_fields', sprintf( __( 'Get <a target="_blank" href="%s">Product Input Fields for WooCommerce Pro</a> plugin to add more than one product input field.', 'product-input-fields-for-woocommerce' ), 'https://wpcodefactory.com/item/product-input-fields-woocommerce/' ), 'settings' ),
+				'desc'     => apply_filters( 'alg_wc_product_input_fields', sprintf( __( 'Get <a target="_blank" href="%s">Product Input Fields for WooCommerce Pro</a> plugin to add more than one product input field.', 'product-input-fields-for-woocommerce' ), 'https://wpfactory.com/item/product-input-fields-woocommerce/' ), 'settings' ),
 				'custom_attributes' => apply_filters( 'alg_wc_product_input_fields', array( 'min' => '1', 'max' => '1' ), 'settings_array' ),
 			),
 

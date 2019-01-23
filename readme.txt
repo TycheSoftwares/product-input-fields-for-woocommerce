@@ -40,7 +40,7 @@ Each type comes with specific **options** you can set for each field.
 
 Additionally you can set fields **HTML template** and much more.
 
-Plugin is limited to adding two input fields to each product - one (global) field for all products and one more (local) for each product individually. If you wish to add unlimited number of global and/or local product input fields, please check our [Product Input Fields for WooCommerce Pro](https://wpcodefactory.com/item/product-input-fields-woocommerce/) plugin.
+Plugin is limited to adding two input fields to each product - one (global) field for all products and one more (local) for each product individually. If you wish to add unlimited number of global and/or local product input fields, please check our [Product Input Fields for WooCommerce Pro](https://wpfactory.com/item/product-input-fields-woocommerce/) plugin.
 
 = Feedback =
 * We are open to your suggestions and feedback. Thank you for using or trying out one of our plugins!
@@ -62,7 +62,7 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 == Changelog ==
 
 = 1.2.1 - 23/01/2019 =
--* Dev - Plugin URI updated.
+* Dev - Plugin URI updated.
 * Dev - Admin settings restyled.
 * Dev - Code clean up.
 

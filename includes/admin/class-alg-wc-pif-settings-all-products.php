@@ -2,7 +2,7 @@
 /**
  * Product Input Fields for WooCommerce - All Products Section Settings
  *
- * @version 1.1.0
+ * @version 1.2.1
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -28,7 +28,7 @@ class Alg_WC_PIF_Settings_All_Products extends Alg_WC_PIF_Settings_Section {
 	/**
 	 * get_section_settings.
 	 *
-	 * @version 1.1.0
+	 * @version 1.2.1
 	 * @since   1.0.0
 	 * @todo    (later) when resetting, delete all global products input fields (maybe just max 100?) (except 1st?)
 	 */
@@ -54,7 +54,7 @@ class Alg_WC_PIF_Settings_All_Products extends Alg_WC_PIF_Settings_Section {
 				'id'       => 'global_total_number',
 				'default'  => 1,
 				'type'     => 'number',
-				'desc'     => apply_filters( 'alg_wc_product_input_fields', sprintf( __( 'Get <a target="_blank" href="%s">Product Input Fields for WooCommerce Pro</a> plugin to add more than one product input field.', 'product-input-fields-for-woocommerce' ), 'https://wpcodefactory.com/item/product-input-fields-woocommerce/' ), 'settings' ),
+				'desc'     => apply_filters( 'alg_wc_product_input_fields', sprintf( __( 'Get <a target="_blank" href="%s">Product Input Fields for WooCommerce Pro</a> plugin to add more than one product input field.', 'product-input-fields-for-woocommerce' ), 'https://wpfactory.com/item/product-input-fields-woocommerce/' ), 'settings' ),
 				'custom_attributes' => apply_filters( 'alg_wc_product_input_fields', array( 'min' => '1', 'max' => '1' ), 'settings_array' ),
 			),
 			array(

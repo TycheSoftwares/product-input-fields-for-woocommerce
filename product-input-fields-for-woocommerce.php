@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Product Input Fields for WooCommerce
-Plugin URI: https://wpcodefactory.com/item/product-input-fields-woocommerce/
+Plugin URI: https://wpfactory.com/item/product-input-fields-woocommerce/
 Description: Add custom frontend input fields to WooCommerce products.
 Version: 1.2.1-dev
 Author: Algoritmika Ltd
@@ -64,7 +64,7 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
  * Main Alg_WC_PIF Class
  *
  * @class   Alg_WC_PIF
- * @version 1.1.1
+ * @version 1.2.1
  * @since   1.0.0
  */
 final class Alg_WC_PIF {
@@ -117,7 +117,7 @@ final class Alg_WC_PIF {
 	/**
 	 * Show action links on the plugin screen
 	 *
-	 * @version 1.1.0
+	 * @version 1.2.1
 	 * @since   1.0.0
 	 * @param   mixed $links
 	 * @return  array
@@ -126,7 +126,7 @@ final class Alg_WC_PIF {
 		$custom_links = array();
 		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_pif' ) . '">' . __( 'Settings', 'woocommerce' ) . '</a>';
 		if ( 'product-input-fields-for-woocommerce.php' === basename( __FILE__ ) ) {
-			$custom_links[] = '<a href="https://wpcodefactory.com/item/product-input-fields-woocommerce/">' . __( 'Unlock All', 'product-input-fields-for-woocommerce' ) . '</a>';
+			$custom_links[] = '<a href="https://wpfactory.com/item/product-input-fields-woocommerce/">' . __( 'Unlock All', 'product-input-fields-for-woocommerce' ) . '</a>';
 		}
 		return array_merge( $custom_links, $links );
 	}

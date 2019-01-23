@@ -1,8 +1,8 @@
 === Product Input Fields for WooCommerce ===
 Contributors: algoritmika, anbinder, karzin
-Tags: woocommerce, product input fields, wpcodefactory
+Tags: woocommerce, product input fields
 Requires at least: 4.4
-Tested up to: 4.9
+Tested up to: 5.0
 Stable tag: 1.2.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -60,6 +60,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 5. Setting local (i.e. on per product basis) product input field options.
 
 == Changelog ==
+
+= 1.2.1 - 23/01/2019 =
+-* Dev - Plugin URI updated.
 
 = 1.2.0 - 25/10/2018 =
 * Add compatibility with Advanced Order Export For WooCommerce plugin

@@ -47,9 +47,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Installation ==
 
-1. Upload the entire 'product-input-fields-for-woocommerce' folder to the '/wp-content/plugins/' directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Start by visiting plugin settings at WooCommerce > Settings > Product Input Fields.
+1. Upload the entire plugin folder to the `/wp-content/plugins/` directory.
+2. Activate the plugin through the "Plugins" menu in WordPress.
+3. Start by visiting plugin settings at "WooCommerce > Settings > Product Input Fields".
 
 == Screenshots ==
 

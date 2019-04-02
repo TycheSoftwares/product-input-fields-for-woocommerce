@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: Product Input Fields for WooCommerce
-Plugin URI: https://wpfactory.com/item/product-input-fields-woocommerce/
+Plugin URI: https://www.tychesoftwares.com/store/premium-plugins/product-input-fields-for-woocommerce/
 Description: Add custom frontend input fields to WooCommerce products.
-Version: 1.2.1
-Author: Algoritmika Ltd
-Author URI: http://www.algoritmika.com
+Version: 1.2.3
+Author: Tyche Softwares
+Author URI: https://www.tychesoftwares.com/
 Text Domain: product-input-fields-for-woocommerce
 Domain Path: /langs
-Copyright: © 2019 Algoritmika Ltd.
+Copyright: © 2018 Tyche Softwares
 WC tested up to: 3.5
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -29,7 +29,7 @@ if (
 
 // Constants
 if ( ! defined( 'ALG_WC_PIF_VERSION' ) ) {
-	define( 'ALG_WC_PIF_VERSION', '1.2.1' );
+	define( 'ALG_WC_PIF_VERSION', '1.2.3' );
 }
 if ( ! defined( 'ALG_WC_PIF_ID' ) ) {
 	define( 'ALG_WC_PIF_ID',      'alg_wc_pif' );
@@ -115,7 +115,7 @@ final class Alg_WC_PIF {
 		$custom_links = array();
 		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_pif' ) . '">' . __( 'Settings', 'woocommerce' ) . '</a>';
 		if ( 'product-input-fields-for-woocommerce.php' === basename( __FILE__ ) ) {
-			$custom_links[] = '<a href="https://wpfactory.com/item/product-input-fields-woocommerce/">' . __( 'Unlock All', 'product-input-fields-for-woocommerce' ) . '</a>';
+			$custom_links[] = '<a href="https://www.tychesoftwares.com/store/premium-plugins/product-input-fields-for-woocommerce/">' . __( 'Unlock All', 'product-input-fields-for-woocommerce' ) . '</a>';
 		}
 		return array_merge( $custom_links, $links );
 	}

@@ -1,0 +1,10 @@
+<wpml-config>
+
+	<admin-texts>
+		<key name="alg_wc_pif_title_global_*"/>
+		<key name="alg_wc_pif_placeholder_global_*"/>
+		<key name="alg_wc_pif_required_message_global_*"/>
+		<key name="alg_wc_pif_type_file_max_size_msg_global_*"/>
+	</admin-texts>
+
+</wpml-config>

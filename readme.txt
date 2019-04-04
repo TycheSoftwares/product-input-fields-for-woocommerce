@@ -62,7 +62,7 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 == Changelog ==
 
 = 1.2.4 - 04/04/2019 =
-* Fix - Plugin is made compatible with WPML. wpml-config.xml file is added to translate the All Products field labels using WPML.
+* Enhancement - Plugin is made compatible with WPML. wpml-config.xml file is added to translate the All Products field labels using WPML.
 
 = 1.2.3 - 19/02/2019 =
 * Plugin URL updated due to handover of the plugins.

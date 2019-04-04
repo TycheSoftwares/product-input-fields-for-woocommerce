@@ -2,8 +2,8 @@
 Contributors: tychesoftwares
 Tags: woocommerce, product input fields
 Requires at least: 4.4
-Tested up to: 5.0
-Stable tag: 1.2.3
+Tested up to: 5.1.1
+Stable tag: 1.2.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -60,6 +60,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 5. Setting local (i.e. on per product basis) product input field options.
 
 == Changelog ==
+
+= 1.2.4 - 04/04/2019 =
+* Enhancement - Plugin is made compatible with WPML. wpml-config.xml file is added to translate the All Products field labels using WPML.
 
 = 1.2.3 - 19/02/2019 =
 * Plugin URL updated due to handover of the plugins.

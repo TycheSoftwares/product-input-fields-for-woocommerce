@@ -115,7 +115,7 @@ final class Alg_WC_PIF {
 		$custom_links = array();
 		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_pif' ) . '">' . __( 'Settings', 'woocommerce' ) . '</a>';
 		if ( 'product-input-fields-for-woocommerce.php' === basename( __FILE__ ) ) {
-			$custom_links[] = '<a href="https://www.tychesoftwares.com/store/premium-plugins/product-input-fields-for-woocommerce/">' . __( 'Unlock All', 'product-input-fields-for-woocommerce' ) . '</a>';
+			$custom_links[] = '<a href="https://www.tychesoftwares.com/store/premium-plugins/product-input-fields-for-woocommerce/?utm_source=pifupgradetopro&utm_medium=unlockall&utm_campaign=ProductInputFieldsLite">' . __( 'Unlock All', 'product-input-fields-for-woocommerce' ) . '</a>';
 		}
 		return array_merge( $custom_links, $links );
 	}

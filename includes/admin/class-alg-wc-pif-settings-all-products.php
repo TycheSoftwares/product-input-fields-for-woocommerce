@@ -54,7 +54,7 @@ class Alg_WC_PIF_Settings_All_Products extends Alg_WC_PIF_Settings_Section {
 				'id'       => 'global_total_number',
 				'default'  => 1,
 				'type'     => 'number',
-				'desc'     => apply_filters( 'alg_wc_product_input_fields', sprintf( __( 'Get <a target="_blank" href="%s">Product Input Fields for WooCommerce Pro</a> plugin to add more than one product input field.', 'product-input-fields-for-woocommerce' ), 'https://wpfactory.com/item/product-input-fields-woocommerce/' ), 'settings' ),
+				'desc'     => apply_filters( 'alg_wc_product_input_fields', sprintf( __( 'Get <a target="_blank" href="%s">Product Input Fields for WooCommerce Pro</a> plugin to add more than one product input field.', 'product-input-fields-for-woocommerce' ), 'https://www.tychesoftwares.com/store/premium-plugins/product-input-fields-for-woocommerce/?utm_source=pifupgradetopro&utm_medium=link&utm_campaign=ProductInputFieldsLite' ), 'settings' ),
 				'custom_attributes' => apply_filters( 'alg_wc_product_input_fields', array( 'min' => '1', 'max' => '1' ), 'settings_array' ),
 			),
 			array(

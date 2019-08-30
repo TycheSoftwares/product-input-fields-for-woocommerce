@@ -355,7 +355,7 @@ if ( ! function_exists( 'alg_get_table_html' ) ) {
 	 * @since   1.0.0
 	 */
 	function alg_get_table_html( $data, $args = array() ) {
-		$defaults = array(
+		$defaults           = array(
 			'table_class'        => '',
 			'table_style'        => '',
 			'row_styles'         => '',
@@ -363,14 +363,16 @@ if ( ! function_exists( 'alg_get_table_html' ) ) {
 			'columns_classes'    => array(),
 			'columns_styles'     => array(),
 		);
-		$args     = array_merge( $defaults, $args );
-		extract( $args );
-		$table_class = ( '' === $table_class ) ? '' : ' class="' . $table_class . '"';
-		$table_style = ( '' === $table_style ) ? '' : ' style="' . $table_style . '"';
-		$row_styles  = ( '' === $row_styles ) ? '' : ' style="' . $row_styles . '"';
-		$html        = '';
-		$html       .= '<table' . $table_class . $table_style . '>';
-		$html       .= '<tbody>';
+		$args               = array_merge( $defaults, $args );
+		$table_class        = ( '' === $args['table_class'] ) ? '' : ' class="' . $args['table_class'] . '"';
+		$table_style        = ( '' === $args['table_style'] ) ? '' : ' style="' . $args['table_style'] . '"';
+		$row_styles         = ( '' === $args['row_styles'] ) ? '' : ' style="' . $args['row_styles'] . '"';
+		$table_heading_type = $args['table_heading_type'];
+		$columns_classes    = $args['columns_classes'];
+		$columns_styles     = $args['columns_styles'];
+		$html               = '';
+		$html              .= '<table' . $table_class . $table_style . '>';
+		$html              .= '<tbody>';
 		foreach ( $data as $row_number => $row ) {
 			$html .= '<tr' . $row_styles . '>';
 			foreach ( $row as $column_number => $value ) {

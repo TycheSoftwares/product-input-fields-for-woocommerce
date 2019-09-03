@@ -59,7 +59,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Per_Product_Metabox' ) ) :
 					$option_id = ALG_WC_PIF_ID . '_' . $option['id'] . '_local_' . $i;
 
 					if ( isset( $_POST[ $option_id ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
-						update_post_meta( $post_id, '_' . $option_id, sanitize_text_field( wp_unslash( $_POST[ $option_id ] ) ) ); // phpcs:ignore WordPress.Security.NonceVerification
+						update_post_meta( $post_id, '_' . $option_id, $_POST[ $option_id ]  ); // phpcs:ignore
 					} elseif ( 'checkbox' === $option['type'] ) {
 						update_post_meta( $post_id, '_' . $option_id, 'no' );
 					}

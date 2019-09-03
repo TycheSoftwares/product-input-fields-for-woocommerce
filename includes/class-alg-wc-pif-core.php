@@ -136,7 +136,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 		 */
 		public function handle_downloads() {
 			if ( isset( $_GET['alg_wc_pif_download_file'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
-				$file_name  = sanitize_file_name( wp_unslash( $_GET['alg_wc_pif_download_file'] ) ); // phpcs:ignore WordPress.Security.NonceVerification
+				$file_name  = $_GET['alg_wc_pif_download_file']; // phpcs:ignore
 				$upload_dir = alg_get_uploads_dir( 'product_input_fields' );
 				$file_path  = $upload_dir . '/' . $file_name;
 				header( 'Expires: 0' );

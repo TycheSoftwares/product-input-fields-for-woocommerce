@@ -244,7 +244,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 				// Validate required.
 				if ( 'yes' === $product_input_field['required'] ) {
 					if ( 'file' === $product_input_field['type'] ) {
-						$field_value = ( isset( $_FILES[ $field_name ]['name'] ) ) ? sanitize_file_name( wp_unslash( $_FILES[ $field_name ]['name'] ) ) : '';
+						$field_value = ( isset( $_FILES[ $field_name ]['name'] ) ) ?  $_FILES[ $field_name ]['name']  : '';// phpcs:ignore
 					} else {
 						$field_value = ( isset( $_POST[ $field_name ] ) ) ? wp_unslash( $_POST[ $field_name ] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 					}
@@ -259,7 +259,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 					if ( '' !== $file_accept ) {
 						$file_accept = explode( ',', $file_accept );
 						if ( is_array( $file_accept ) && ! empty( $file_accept ) ) {
-							$file_type = '.' . pathinfo( sanitize_file_name( wp_unslash( $_FILES[ $field_name ]['name'] ) ), PATHINFO_EXTENSION );
+							$file_type = '.' . pathinfo( $_FILES[ $field_name ]['name'] , PATHINFO_EXTENSION );// phpcs:ignore
 							if ( ! in_array( $file_type, $file_accept ) ) {
 								$passed = false;
 								wc_add_notice( $product_input_field['type_file_wrong_type_msg'], 'error' );
@@ -300,9 +300,9 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 				$field_name                             = ALG_WC_PIF_ID . '_' . $this->scope . '_' . $i;
 				if ( 'file' === $product_input_field['type'] ) {
 					if ( isset( $_FILES[ $field_name ] ) && '' !== $_FILES[ $field_name ] && isset( $_FILES[ $field_name ]['tmp_name'] ) && '' !== $_FILES[ $field_name ]['tmp_name'] ) {
-						$product_input_field['_value'] = wp_unslash( $_FILES[ $field_name ] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+						$product_input_field['_value'] = $_FILES[ $field_name ]; // phpcs:ignore
 						$tmp_dest_file                 = tempnam( sys_get_temp_dir(), 'alg' );
-						move_uploaded_file( wp_unslash( $_FILES[ $field_name ]['tmp_name'] ), $tmp_dest_file ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+						move_uploaded_file( $_FILES[ $field_name ]['tmp_name'] , $tmp_dest_file ); // phpcs:ignore
 						$product_input_field['_value']['_tmp_name'] = $tmp_dest_file;
 					}
 				} else {

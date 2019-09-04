@@ -9,7 +9,7 @@
  * Text Domain: product-input-fields-for-woocommerce
  * Domain Path: /langs
  * Copyright: © 2018 Tyche Softwares
- * WC tested up to: 3.5.7
+ * WC tested up to: 3.7.0
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *

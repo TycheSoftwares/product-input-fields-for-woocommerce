@@ -260,7 +260,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 						$file_accept = explode( ',', $file_accept );
 						if ( is_array( $file_accept ) && ! empty( $file_accept ) ) {
 							$file_type = '.' . pathinfo( $_FILES[ $field_name ]['name'] , PATHINFO_EXTENSION );// phpcs:ignore
-							if ( ! in_array( $file_type, $file_accept ) ) {
+							if ( ! in_array( $file_type, $file_accept, true ) ) {
 								$passed = false;
 								wc_add_notice( $product_input_field['type_file_wrong_type_msg'], 'error' );
 							}

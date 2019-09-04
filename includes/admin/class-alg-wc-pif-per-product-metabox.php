@@ -53,7 +53,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Per_Product_Metabox' ) ) :
 			$options                          = alg_get_product_input_fields_options();
 			for ( $i = 1; $i <= $total_input_fields_before_saving; $i++ ) {
 				foreach ( $options as $option ) {
-					if ( in_array( $option['type'], array( 'title', 'sectionend' ) ) ) {
+					if ( in_array( $option['type'], array( 'title', 'sectionend' ), true ) ) {
 						continue;
 					}
 					$option_id = ALG_WC_PIF_ID . '_' . $option['id'] . '_local_' . $i;

@@ -71,7 +71,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Settings_General' ) ) :
 					),
 					array(
 						'title'   => __( 'Position', 'product-input-fields-for-woocommerce' ),
-						'desc'    => sprintf(
+						'desc'    => sprintf( /* translators: %1$s: Shortcode, %2$s: function */
 							__( 'If set to "Do not display", alternatively you can use %1$s shortcode, or PHP %2$s function.', 'product-input-fields-for-woocommerce' ),
 							'<code>[alg_display_product_input_fields]</code>',
 							'<code>alg_display_product_input_fields()</code>'
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Settings_General' ) ) :
 					array(
 						'title'    => __( 'Product Input Field Template', 'product-input-fields-for-woocommerce' ),
 						'desc_tip' => __( 'Replaced values:', 'product-input-fields-for-woocommerce' ) . ' %field_id%, %title%, %field%',
-						'desc'     => sprintf(
+						'desc'     => sprintf( /* translators: %s: html */
 							__( 'Alternatively try e.g.: %s', 'product-input-fields-for-woocommerce' ),
 							'<code>' . esc_html( '<p><label for="%field_id%">%title%</label>%field%</p>' ) . '</code>'
 						),

@@ -67,7 +67,7 @@ if ( ! function_exists( 'alg_get_all_values' ) ) {
 		$values  = array();
 		$options = alg_get_product_input_fields_options();
 		foreach ( $options as $option ) {
-			if ( in_array( $option['type'], array( 'title', 'sectionend' ) ) ) {
+			if ( in_array( $option['type'], array( 'title', 'sectionend' ), true ) ) {
 				continue;
 			}
 			$option_id               = ALG_WC_PIF_ID . '_' . $option['id'] . '_' . $scope . '_' . $field_nr;
@@ -228,7 +228,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 				switch ( $product_input_field['type'] ) {
 					case 'checkbox':
 						$checked    = checked( $_value, 'yes', false );
-						$field_html = '<input type="hidden" value="no" name="' . $field_name . '">' . '<input' . $class . $style . ' id="' . $field_name .
+						$field_html = '<input type="hidden" value="no" name="' . $field_name . '"><input' . $class . $style . ' id="' . $field_name .
 							'" type="' . $product_input_field['type'] .
 							'" value="yes" name="' . $field_name . '"' . $custom_attributes . $checked . $required . '>';
 						break;

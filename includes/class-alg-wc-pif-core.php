@@ -158,7 +158,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 		 * @return string
 		 */
 		public function get_browser_name() {
-			$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : ''; // phpcs:ignore
 			if ( strpos( $user_agent, 'Opera' ) || strpos( $user_agent, 'OPR/' ) ) {
 				return 'Opera';
 			} elseif ( strpos( $user_agent, 'Edge' ) ) {
@@ -203,7 +203,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 			}
 
 			if ( ! $this->browser_can_render_color_type() ) {
-				wp_enqueue_script( 'spectrum', '//cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js', array( 'jquery' ), PIF_ASSETS_VERSION );
+				wp_enqueue_script( 'spectrum', '//cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js', array( 'jquery' ), PIF_ASSETS_VERSION, false );
 				wp_enqueue_style( 'spectrum', '//cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css', '', PIF_ASSETS_VERSION );
 			}
 

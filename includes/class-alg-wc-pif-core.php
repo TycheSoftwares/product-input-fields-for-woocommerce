@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'PIF_ASSETS_VERSION', '1.2.4' );
+define( 'PIF_ASSETS_VERSION', '1.2.5' );
 
 if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 

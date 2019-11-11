@@ -1,9 +1,10 @@
 === Product Input Fields for WooCommerce ===
 Contributors: tychesoftwares
-Tags: woocommerce, product input fields
+Tags: product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
 Tested up to: 5.2.2
-Stable tag: 1.2.5
+Stable tag: trunk
+Requires PHP: 5.6
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -11,7 +12,7 @@ Add custom frontend input fields to WooCommerce products.
 
 == Description ==
 
-**Product Input Fields for WooCommerce** plugin lets you add custom input fields to WooCommerce product's frontend for customer to fill before adding product to cart.
+[**Product Input Fields for WooCommerce**](https://www.tychesoftwares.com/store/premium-plugins/product-input-fields-for-woocommerce/?utm_source=wprepo&utm_medium=topprolink&utm_campaign=ProductInputFields) plugin lets you add custom input fields to WooCommerce product's frontend for customer to fill before adding product to cart.
 
 Input fields can be added **globally** (i.e. for all products) or on **per product** basis.
 
@@ -40,7 +41,51 @@ Each type comes with specific **options** you can set for each field.
 
 Additionally you can set fields **HTML template** and much more.
 
-Plugin is limited to adding two input fields to each product - one (global) field for all products and one more (local) for each product individually. If you wish to add unlimited number of global and/or local product input fields, please check our [Product Input Fields for WooCommerce Pro](https://www.tychesoftwares.com/store/premium-plugins/product-input-fields-for-woocommerce/) plugin.
+Plugin is limited to adding two input fields to each product - one (global) field for all products and one more (local) for each product individually. If you wish to add unlimited number of global and/or local product input fields, please check our [Product Input Fields for WooCommerce Pro](https://www.tychesoftwares.com/store/premium-plugins/product-input-fields-for-woocommerce/?utm_source=wprepo&utm_medium=prolink&utm_campaign=ProductInputFields) plugin.
+
+**Some of our Pro plugins:**
+
+1. **[Abandoned Cart Pro for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/woocommerce-abandoned-cart-pro/?utm_source=wprepo&utm_medium=link&utm_campaign=ProductInputFields "Abandoned Cart Pro for WooCommerce")**
+
+2. **[Booking & Appointment Plugin for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/woocommerce-booking-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=ProductInputFields "Booking & Appointment Plugin for WooCommerce")**
+
+3. **[Order Delivery Date Pro for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/order-delivery-date-for-woocommerce-pro-21/?utm_source=wprepo&utm_medium=link&utm_campaign=ProductInputFields "Order Delivery Date Pro for WooCommerce")**
+
+4. **[Product Delivery Date Pro for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/product-delivery-date-pro-for-woocommerce/?utm_source=wprepo&utm_medium=link&utm_campaign=ProductInputFields "Product Delivery Date Pro for WooCommerce")**
+
+5. **[Deposits For WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/deposits-for-woocommerce/?utm_source=wprepo&utm_medium=link&utm_campaign=ProductInputFields "Deposits For WooCommerce")**
+
+6. **[Payment Gateway Based Fees and Discounts for WooCommerce - Pro](https://www.tychesoftwares.com/store/premium-plugins/payment-gateway-based-fees-and-discounts-for-woocommerce-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=ProductInputFields "Payment Gateway Based Fees and Discounts for WooCommerce - Pro")**
+
+7. **[Custom Order Status for WooCommerce - Pro](https://www.tychesoftwares.com/store/premium-plugins/custom-order-status-woocommerce/?utm_source=wprepo&utm_medium=link&utm_campaign=ProductInputFields "Custom Order Status for WooCommerce - Pro")**
+
+8. **[Custom Order Numbers for WooCommerce - Pro](https://www.tychesoftwares.com/store/premium-plugins/custom-order-numbers-woocommerce/?utm_source=wprepo&utm_medium=link&utm_campaign=ProductInputFields "Custom Order Numbers for WooCommerce - Pro")**
+
+9. **[Call for Price for WooCommerce - Pro](https://www.tychesoftwares.com/store/premium-plugins/woocommerce-call-for-price-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=ProductInputFields "Call for Price for WooCommerce - Pro")**
+
+10. **[Price based on User Role for WooCommerce - Pro](https://www.tychesoftwares.com/store/premium-plugins/price-user-role-woocommerce/?utm_source=wprepo&utm_medium=link&utm_campaign=ProductInputFields "Price based on User Role for WooCommerce - Pro")**
+
+11. **[Currency per Product for WooCommerce - Pro](https://www.tychesoftwares.com/store/premium-plugins/currency-per-product-for-woocommerce/?utm_source=wprepo&utm_medium=link&utm_campaign=ProductInputFields "Currency per Product for WooCommerce - Pro")**
+
+**Some of our other free plugins:**
+
+1. **[Abandoned Cart for WooCommerce](https://wordpress.org/plugins/woocommerce-abandoned-cart/ "Abandoned Cart for WooCommerce")**
+
+2. **[Order Delivery Date for WooCommerce - Lite](https://wordpress.org/plugins/order-delivery-date-for-woocommerce/ "Order Delivery Date for WooCommerce - Lite")**
+
+3. **[Product Delivery Date for WooCommerce - Lite](https://wordpress.org/plugins/product-delivery-date-for-woocommerce-lite/ "Product Delivery Date for WooCommerce")**
+
+4. **[Payment Gateway Based Fees and Discounts for WooCommerce](https://wordpress.org/plugins/checkout-fees-for-woocommerce/ "Payment Gateway Based Fees and Discounts for WooCommerce")**
+
+5. **[Custom Order Status for WooCommerce](https://wordpress.org/plugins/custom-order-statuses-woocommerce/ "Custom Order Status for WooCommerce")**
+
+6. **[Custom Order Numbers for WooCommerce](https://wordpress.org/plugins/custom-order-numbers-for-woocommerce/ "Custom Order Numbers for WooCommerce")**
+
+7. **[Call for Price for WooCommerce](https://wordpress.org/plugins/woocommerce-call-for-price/ "Call for Price for WooCommerce")**
+
+8. **[Price based on User Role for WooCommerce](https://wordpress.org/plugins/price-by-user-role-for-woocommerce/ "Price based on User Role for WooCommerce")**
+
+9. **[Currency per Product for WooCommerce](https://wordpress.org/plugins/currency-per-product-for-woocommerce/ "Currency per Product for WooCommerce")**
 
 = Feedback =
 * We are open to your suggestions and feedback. Thank you for using or trying out one of our plugins!

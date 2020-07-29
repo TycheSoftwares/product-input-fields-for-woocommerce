@@ -136,16 +136,16 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 		 */
 		public function handle_downloads() {
 			if ( isset( $_GET['alg_wc_pif_download_file'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
-				$allowd_types = array( 'jpg', 'jpeg', 'gif', 'png', 'mp3', 'mp4', 'doc', 'docx', 'xlsx', 'xls', 'ppt', 'pptx' );
+				$allowd_types = get_wc_pif_option( 'type_file_accept_global_1', '.jpg,.gif,.png' );
 
 				// Filter alg_wc_pif_download_extra_extensions to add extra extensions.
-				$extra_ext  = apply_filters( 'alg_wc_pif_download_extra_extensions', $extra_ext, $arg );
-				$extensions = array_merge( $allowd_types, $extra_ext );
+				$extensions = explode( ',', $allowd_types );
 				$file_name  = sanitize_text_field( wp_unslash( $_GET['alg_wc_pif_download_file'] ) ); // phpcs:ignore
-				$file_type  = wp_check_filetype( $file_name );
+				$file_names = explode( '/', $file_name );
+				$file_type  = wp_check_filetype( $file_names[ count( $file_names ) - 1 ] );
 				$upload_dir = alg_get_uploads_dir( 'product_input_fields' );
 
-				if ( in_array( strtolower( $file_type ), $extensions, true ) ) {
+				if ( ! empty( $extensions ) && '' !== $file_type['ext'] && in_array( '.' . strtolower( $file_type['ext'] ), $extensions, true ) ) {
 					$file_path = $upload_dir . '/' . $file_name;
 					header( 'Expires: 0' );
 					header( 'Cache-Control: must-revalidate, post-check=0, pre-check=0' );

@@ -135,18 +135,16 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 		 * @since   1.0.0
 		 */
 		public function handle_downloads() {
-			if ( isset( $_GET['alg_wc_pif_download_file'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
-				$allowd_types = get_wc_pif_option( 'type_file_accept_global_1', '.jpg,.gif,.png' );
+			if ( current_user_can( 'edit_posts' ) && isset( $_GET['alg_wc_pif_download_file'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 
-				// Filter alg_wc_pif_download_user_validation to add extra extensions.
-				$user_validation = apply_filters( 'alg_wc_pif_download_user_validation', is_admin() );
-				$extensions      = explode( ',', $allowd_types );
-				$file_name       = sanitize_text_field( wp_unslash( $_GET['alg_wc_pif_download_file'] ) ); // phpcs:ignore
-				$file_names      = explode( '/', $file_name );
-				$file_type       = wp_check_filetype( $file_names[ count( $file_names ) - 1 ] );
-				$upload_dir      = alg_get_uploads_dir( 'product_input_fields' );
+				$file_name  = sanitize_text_field( wp_unslash( $_GET['alg_wc_pif_download_file'] ) ); // phpcs:ignore
+				$file_name  = preg_replace( '/..\//', '', $file_name );
+				$file_name  = preg_replace( '/.\//', '', $file_name );
+				$file_array = explode( '/', $file_name );
+				$file_type  = wp_check_filetype( $file_array[ count( $file_array ) - 1 ] );
+				$upload_dir = alg_get_uploads_dir( 'product_input_fields' );
 
-				if ( true === $user_validation && ! empty( $extensions ) && '' !== $file_type['ext'] && in_array( '.' . strtolower( $file_type['ext'] ), $extensions, true ) ) {
+				if ( '' !== $file_type['ext'] && file_exists( $upload_dir . '/' . $file_name ) ) {
 					$file_path = $upload_dir . '/' . $file_name;
 					header( 'Expires: 0' );
 					header( 'Cache-Control: must-revalidate, post-check=0, pre-check=0' );

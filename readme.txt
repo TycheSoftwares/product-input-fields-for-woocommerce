@@ -1,8 +1,8 @@
 === Product Input Fields for WooCommerce ===
 Contributors: tychesoftwares
-Tags: product addons, product input fields, custom fields, woocommerce product fields
+Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 5.3.2
+Tested up to: 5.4
 Stable tag: trunk
 Requires PHP: 5.6
 License: GNU General Public License v3.0
@@ -105,6 +105,10 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 5. Setting local (i.e. on per product basis) product input field options.
 
 == Changelog ==
+
+= 1.2.7 - 31/07/2020 =
+* Added restrictions to a function from where files were being downloaded for input type File fields. We now check user roles & permissions before downloading the file.
+* Fixed an issue related to Creta Theme.
 
 = 1.2.6 - 19/03/2020 =
 * Update compatibility changes with WooCommerce 4.0.0.

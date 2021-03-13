@@ -2,7 +2,7 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 5.4
+Tested up to: 5.7
 Stable tag: trunk
 Requires PHP: 5.6
 License: GNU General Public License v3.0

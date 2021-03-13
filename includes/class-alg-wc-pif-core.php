@@ -58,7 +58,27 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 		 * @todo    (later) output only if there are any product input fields to display; same to add_after_product_input_fields_to_frontend(); same to alg_display_product_input_fields()
 		 */
 		public function add_before_product_input_fields_to_frontend() {
-			echo wp_kses_post( get_wc_pif_option( 'frontend_before', '<table id="alg-product-input-fields-table" class="alg-product-input-fields-table">' ) );
+			global $product;
+			$frontend_html       = false;
+			$product_id          = $product->get_id();
+			$input_counts_local  = get_post_meta( $product_id, '_' . ALG_WC_PIF_ID . '_local_total_number', true );
+			$input_counts_global = get_option( 'alg_wc_pif_global_total_number', 0 );
+			for ( $i = 1; $i <= $input_counts_global; $i++ ) {
+				if ( 'yes' === get_option( 'alg_wc_pif_enabled_global_' . $i ) ) {
+					$frontend_html = true;
+				}
+			}
+			for ( $i = 1; $i <= $input_counts_local; $i++ ) {
+				if ( 'yes' === get_post_meta( $product_id, '_' . ALG_WC_PIF_ID . '_enabled_local_' . $i, true ) ) {
+					$frontend_html = true;
+				}
+			}
+			if ( $frontend_html ) {
+				echo wp_kses_post( get_wc_pif_option( 'frontend_before', '<table id="alg-product-input-fields-table" class="alg-product-input-fields-table">' ) );
+
+			} else {
+				echo ( '<table id="alg-product-input-fields-table" class="alg-product-input-fields-table">' );
+			}
 		}
 
 		/**
@@ -68,7 +88,27 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 		 * @since   1.0.0
 		 */
 		public function add_after_product_input_fields_to_frontend() {
-			echo wp_kses_post( get_wc_pif_option( 'frontend_after', '</table>' ) );
+			global $product;
+			$frontend_html       = false;
+			$product_id          = $product->get_id();
+			$input_counts_local  = get_post_meta( $product_id, '_' . ALG_WC_PIF_ID . '_local_total_number', true );
+			$input_counts_global = get_option( 'alg_wc_pif_global_total_number', 0 );
+			for ( $i = 1; $i <= $input_counts_global; $i++ ) {
+				if ( 'yes' === get_option( 'alg_wc_pif_enabled_global_' . $i ) ) {
+					$frontend_html = true;
+				}
+			}
+			for ( $i = 1; $i <= $input_counts_local; $i++ ) {
+				if ( 'yes' === get_post_meta( $product_id, '_' . ALG_WC_PIF_ID . '_enabled_local_' . $i, true ) ) {
+					$frontend_html = true;
+				}
+			}
+			if ( $frontend_html ) {
+				echo wp_kses_post( get_wc_pif_option( 'frontend_after', '</table>' ) );
+
+			} else {
+				echo ( '</table>' );
+			}
 		}
 
 		/**

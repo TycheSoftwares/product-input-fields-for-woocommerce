@@ -72,6 +72,8 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 			// Setups Advanced Order Export For WooCommerce plugin.
 			add_filter( 'woe_get_order_product_value_apif', array( $this, 'setup_adv_order_export_plugin_column' ), 10, 5 );
 			add_filter( 'woe_get_order_product_fields', array( $this, 'add_input_fields_columns_to_adv_order_export_plugin' ) );
+
+			add_filter( 'woocommerce_order_again_cart_item_data', array( $this, 'pif_order_again_cart_item_data' ), 10, 3 );
 		}
 
 		/**
@@ -571,6 +573,28 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 				}
 			}
 			return $attachments;
+		}
+
+		/**
+		 * Adds input fields when Order Again is called
+		 *
+		 * @param array $cart_item_meta Cart Item Array.
+		 * @param array $product        Products in the cart.
+		 * @param array $order          Order Object.
+		 */
+		public function pif_order_again_cart_item_data( $cart_item_meta, $product, $order ) {
+
+			$pif_fields_global = wc_get_order_item_meta( $product->get_id(), '_alg_wc_pif_global' );
+			$pif_fields_local  = wc_get_order_item_meta( $product->get_id(), '_alg_wc_pif_local' );
+			remove_all_filters( 'woocommerce_add_to_cart_validation' );
+			if ( $pif_fields_global ) {
+				$cart_item_meta['alg_wc_pif_global'] = $pif_fields_global;
+			}
+			if ( $pif_fields_local ) {
+				$cart_item_meta['alg_wc_pif_local'] = $pif_fields_local;
+			}
+
+			return $cart_item_meta;
 		}
 
 	}

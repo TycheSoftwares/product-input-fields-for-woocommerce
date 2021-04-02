@@ -106,6 +106,10 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
+= 1.3.0 - 19/03/2021 =
+* Fixed an issue of after clicking on Order again button on My Account page, it shows the error of required fields.
+* Fixed an issue of additional description is shown on all the products even after disabling the All products setting.
+
 = 1.2.7 - 31/07/2020 =
 * Added restrictions to a function from where files were being downloaded for input type File fields. We now check user roles & permissions before downloading the file.
 * Fixed an issue related to Creta Theme.

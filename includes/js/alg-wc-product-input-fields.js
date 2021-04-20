@@ -58,3 +58,8 @@ jQuery(document).ready(function () {
 	pif_ct.init();
 	pif_ct_spectrum.init();
 });
+
+// To add id="cart" in the <form> tag of the cart on product page.
+jQuery(document).ready(	function ($) {
+		$(".cart").attr("id", "cart");
+});

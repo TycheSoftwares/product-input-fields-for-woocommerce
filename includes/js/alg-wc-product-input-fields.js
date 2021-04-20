@@ -60,6 +60,6 @@ jQuery(document).ready(function () {
 });
 
 // To add id="cart" in the <form> tag of the cart on product page.
-jQuery(document).ready(	function ($) {
+jQuery(document).ready(function ($) {
 		$(".cart").attr("id", "cart");
 });

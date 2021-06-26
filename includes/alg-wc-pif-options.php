@@ -374,7 +374,7 @@ if ( ! function_exists( 'alg_get_product_input_fields_options' ) ) {
 				'type'  => 'title',
 			),
 			array(
-				'id'       => 'type_select_options',
+				'id'       => 'select_radio_option_type',
 				'title'    => __( 'Options', 'product-input-fields-for-woocommerce' ),
 				'desc_tip' => __( 'One option per line.', 'product-input-fields-for-woocommerce' ),
 				'type'     => 'textarea',

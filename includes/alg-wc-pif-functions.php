@@ -266,7 +266,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 							'" placeholder="' . $product_input_field['placeholder'] . '"' . $required . '>' . $_value . '</textarea>';
 						break;
 					case 'select':
-						$select_options_raw = $product_input_field['type_select_options'];
+						$select_options_raw = $product_input_field['select_radio_option_type'];
 						$select_options     = alg_get_select_options( $select_options_raw, false );
 						if ( '' !== $product_input_field['placeholder'] ) {
 							$select_options = array_merge( array( '' => $product_input_field['placeholder'] ), $select_options );
@@ -284,7 +284,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 						$field_html = '<select' . $class . $style . ' id="' . $field_name . '" name="' . $field_name . '">' . $select_options_html . '</select>';
 						break;
 					case 'radio':
-						$select_options_raw  = $product_input_field['type_select_options'];
+						$select_options_raw  = $product_input_field['select_radio_option_type'];
 						$select_options      = alg_get_select_options( $select_options_raw, false );
 						$select_options_html = '';
 						if ( ! empty( $select_options ) ) {

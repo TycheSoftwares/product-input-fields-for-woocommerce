@@ -225,6 +225,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 				$field_id = '';
 				// Field HTML.
 				$field_html          = '';
+				$current_theme       = wp_get_theme();
 				$form_cart_attribute = apply_filters( 'alg_wc_pif_remove_form_cart_attribute', false );
 				if ( $form_cart_attribute || is_plugin_active( 'js_composer/js_composer.php' ) || 'Flatsome' === $current_theme->name || 'Flatsome' === $current_theme->parent_theme ) {
 					$form_cart = '';

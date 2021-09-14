@@ -12,6 +12,25 @@ jQuery(document).ready(function () {
 	jQuery('input,textarea').blur(function () {
 		jQuery(this).attr('placeholder', jQuery(this).data('placeholder'));
 	});
+	jQuery("input[type='range'][name^='alg_wc_pif_']").each((index, value) => {
+		let id = value.id;
+
+		jQuery(value).parent().css('position', 'relative');
+		jQuery(value).before('<span class="alg_wc_pif_range_min">' + jQuery(value).attr('min') + '</span>');
+		jQuery(value).after('<span class="alg_wc_pif_range_bubble" style="float:right;" id="' + id + '_bubble">' + jQuery(value).attr('value') + '</span>');
+		jQuery(value).after('<span class="alg_wc_pif_range_max">' + jQuery(value).attr('max') + '</span>');
+		if (jQuery("#" + id + "_bubble").css("visibility") == 'hidden') {
+			jQuery(value).hover((event) => {
+				jQuery("#" + id + "_bubble").css('visibility', 'visible'); 
+			});
+			jQuery(value).mouseleave((event) => {
+				jQuery("#" + id + "_bubble").css('visibility', 'hidden'); 
+			}); 
+		}
+		jQuery(value).mousemove((event) => {
+			jQuery("#" + id + "_bubble").html(event.target.value); 
+		}); 
+	});
 });
 
 //Color typing and syncing

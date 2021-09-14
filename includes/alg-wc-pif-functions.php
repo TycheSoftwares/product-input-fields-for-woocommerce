@@ -32,7 +32,9 @@ if ( ! function_exists( 'alg_display_product_input_fields' ) ) {
 		echo wp_kses_post( get_wc_pif_option( 'frontend_after', '</table>' ) );
 	}
 }
-add_shortcode( 'alg_display_product_input_fields', 'alg_display_product_input_fields' );
+if ( 'yes' === get_wc_pif_option( 'enabled', 'yes' ) ) {
+	add_shortcode( 'alg_display_product_input_fields', 'alg_display_product_input_fields' );
+}
 
 if ( ! function_exists( 'alg_get_uploads_dir' ) ) {
 	/**

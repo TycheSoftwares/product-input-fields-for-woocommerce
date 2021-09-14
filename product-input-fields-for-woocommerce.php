@@ -136,8 +136,10 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 		 * @since   1.0.0
 		 */
 		public function includes() {
-			// Functions.
-			require_once 'includes/alg-wc-pif-functions.php';
+			if ( 'yes' === get_wc_pif_option( 'enabled', 'yes' ) ) {
+				// Functions.
+				require_once 'includes/alg-wc-pif-functions.php';
+			}
 			// Settings.
 			require_once 'includes/alg-wc-pif-options.php';
 			require_once 'includes/admin/class-alg-wc-pif-per-product-metabox.php';

@@ -43,6 +43,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 				if ( 'disable' !== $position ) {
 					add_action( $position, array( $this, 'add_product_input_fields_to_frontend' ), get_wc_pif_option( 'frontend_position_priority', 10 ) );
 				}
+				include_once ABSPATH . 'wp-admin/includes/plugin.php'; // Require class-vc-wxr-parser-plugin.php to use is_plugin_active().
 				// Process from $_POST/session to cart item data.
 				add_filter( 'woocommerce_add_to_cart_validation', array( $this, 'validate_product_input_fields_on_add_to_cart' ), PHP_INT_MAX, 2 );
 				add_filter( 'woocommerce_add_cart_item_data', array( $this, 'add_product_input_fields_to_cart_item_data' ), PHP_INT_MAX, 3 );

@@ -21,15 +21,15 @@ if ( ! function_exists( 'alg_display_product_input_fields' ) ) {
 	 * @since   1.0.0
 	 */
 	function alg_display_product_input_fields() {
-		$frontend_before = get_wc_pif_option( 'frontend_before', '<table id="alg-product-input-fields-table" class="alg-product-input-fields-table">' );
-		echo wp_kses_post( $frontend_before );
+		$html   = get_wc_pif_option( 'frontend_before', '<table id="alg-product-input-fields-table" class="alg-product-input-fields-table">' );
 		$scopes = array( 'global', 'local' );
 		foreach ( $scopes as $scope ) {
 			if ( 'yes' === get_wc_pif_option( $scope . '_enabled', 'yes' ) ) {
-				echo alg_get_frontend_product_input_fields( $scope ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				$html .= alg_get_frontend_product_input_fields( $scope ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
-		echo wp_kses_post( get_wc_pif_option( 'frontend_after', '</table>' ) );
+		$html .= get_wc_pif_option( 'frontend_after', '</table>' );
+		return $html;
 	}
 }
 add_shortcode( 'alg_display_product_input_fields', 'alg_display_product_input_fields' );
@@ -224,16 +224,23 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 
 				$field_id = '';
 				// Field HTML.
-				$field_html = '';
+				$field_html          = '';
+				$current_theme       = wp_get_theme();
+				$form_cart_attribute = apply_filters( 'alg_wc_pif_remove_form_cart_attribute', false );
+				if ( $form_cart_attribute || is_plugin_active( 'js_composer/js_composer.php' ) || 'Flatsome' === $current_theme->name || 'Flatsome' === $current_theme->parent_theme ) {
+					$form_cart = '';
+				} else {
+					$form_cart = ' form="cart"';
+				}
 				switch ( $product_input_field['type'] ) {
 					case 'checkbox':
 						$checked    = checked( $_value, 'yes', false );
-						$field_html = '<input type="hidden" value="no" name="' . $field_name . '"><input' . $class . $style . ' id="' . $field_name .
+						$field_html = '<input type="hidden" value="no" name="' . $field_name . '"><input' . $form_cart . $class . $style . ' id="' . $field_name .
 							'" type="' . $product_input_field['type'] .
 							'" value="yes" name="' . $field_name . '"' . $custom_attributes . $checked . $required . '>';
 						break;
 					case 'datepicker':
-						$field_html = '<input' . $class . $style . ' value="' . $_value . '" id="' . $field_name . '" ' . $datepicker_year .
+						$field_html = '<input' . $form_cart . $class . $style . ' value="' . $_value . '" id="' . $field_name . '" ' . $datepicker_year .
 							'firstday="' . $product_input_field['type_datepicker_firstday'] .
 							'" dateformat="' . $product_input_field['type_datepicker_format'] .
 							'" autocomplete="off" mindate="' . $product_input_field['type_datepicker_mindate'] .
@@ -243,7 +250,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 							'" placeholder="' . $product_input_field['placeholder'] . '"' . $custom_attributes . $required . '>';
 						break;
 					case 'weekpicker':
-						$field_html = '<input' . $class . $style . ' value="' . $_value . '" id="' . $field_name . '" ' . $datepicker_year .
+						$field_html = '<input' . $form_cart . $class . $style . ' value="' . $_value . '" id="' . $field_name . '" ' . $datepicker_year .
 							'firstday="' . $product_input_field['type_datepicker_firstday'] .
 							'" dateformat="' . $product_input_field['type_datepicker_format'] .
 							'" autocomplete="off" mindate="' . $product_input_field['type_datepicker_mindate'] .
@@ -253,7 +260,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 							'" placeholder="' . $product_input_field['placeholder'] . '"' . $custom_attributes . $required . '>';
 						break;
 					case 'timepicker':
-						$field_html = '<input' . $class . $style . ' value="' . $_value . '" id="' . $field_name .
+						$field_html = '<input' . $form_cart . $class . $style . ' value="' . $_value . '" id="' . $field_name .
 							'" interval="' . $product_input_field['type_timepicker_interval'] .
 							'" timeformat="' . $product_input_field['type_timepicker_format'] .
 							'" autocomplete="off" type="' . $product_input_field['type'] .
@@ -261,7 +268,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 							'" placeholder="' . $product_input_field['placeholder'] . '"' . $custom_attributes . $required . '>';
 						break;
 					case 'textarea':
-						$field_html = '<textarea' . $maxlength . $class . $style . ' id="' . $field_name .
+						$field_html = '<textarea' . $form_cart . $maxlength . $class . $style . ' id="' . $field_name .
 							'" name="' . $field_name .
 							'" placeholder="' . $product_input_field['placeholder'] . '"' . $required . '>' . $_value . '</textarea>';
 						break;
@@ -281,7 +288,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 								$select_options_html .= '</option>';
 							}
 						}
-						$field_html = '<select' . $class . $style . ' id="' . $field_name . '" name="' . $field_name . '">' . $select_options_html . '</select>';
+						$field_html = '<select' . $form_cart . $class . $style . ' id="' . $field_name . '" name="' . $field_name . '">' . $select_options_html . '</select>';
 						break;
 					case 'radio':
 						$select_options_raw  = $product_input_field['type_select_options'];
@@ -294,7 +301,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 								if ( '' === $field_id ) {
 									$field_id = $field_name . '_' . esc_attr( $option_key );
 								}
-								$select_options_html .= '<input' . $class . $style . ' type="radio" value="' . esc_attr( $option_key ) .
+								$select_options_html .= '<input' . $form_cart . $class . $style . ' type="radio" value="' . esc_attr( $option_key ) .
 									'" name="' . $field_name . '" id="' . $field_name . '_' . esc_attr( $option_key ) . '"' . checked( $value, $option_key, false ) . ' />';
 								$select_options_html .= '<label for="' . $field_name . '_' . esc_attr( $option_key ) .
 									'">' . $option_text . '</label><br>';
@@ -306,7 +313,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 						$countries = WC()->countries->get_allowed_countries();
 						if ( count( $countries ) > 1 ) {
 							$value = ( '' !== $_value ) ? $_value : key( $countries );
-							$field = '<select' . $style . ' name="' . $field_name . '" id="' . $field_name . '" class="country_to_state country_select' .
+							$field = '<select' . $form_cart . $style . ' name="' . $field_name . '" id="' . $field_name . '" class="country_to_state country_select' .
 								( '' !== $product_input_field['class'] ? ' ' . $product_input_field['class'] : '' ) . '">' .
 								'<option value="">' . __( 'Select a country&hellip;', 'woocommerce' ) . '</option>';
 							foreach ( $countries as $ckey => $cvalue ) {
@@ -320,7 +327,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 						$input_value           = is_array( $_value ) ? implode( ', ', $_value ) : $_value;
 						$allow_color_typing    = $product_input_field['type_color_allow_typing'];
 						$color_text_input_html = ( 'yes' === $allow_color_typing ) ? '<input style="margin-right:10px" type="text" class="alg-pif-color-text-input" name="" />' : '';
-						$field_html            = '<span class="alg-pif-color-wrapper">' . $color_text_input_html . '<input' . $min . $max . $step . $maxlength . $pattern . $class . $style . ' value="' . $input_value .
+						$field_html            = '<span class="alg-pif-color-wrapper">' . $color_text_input_html . '<input' . $form_cart . $min . $max . $step . $maxlength . $pattern . $class . $style . ' value="' . $input_value .
 									'" type="' . $product_input_field['type'] .
 									'" name="' . $field_name .
 									'" id="' . $field_name .
@@ -328,7 +335,7 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 						break;
 					default: // 'number, text, file, password, email, tel etc'.
 						$input_value = is_array( $_value ) ? implode( ', ', $_value ) : $_value;
-						$field_html  = '<input' . $min . $max . $step . $maxlength . $pattern . $class . $style . ' value="' . $input_value .
+						$field_html  = '<input' . $form_cart . $min . $max . $step . $maxlength . $pattern . $class . $style . ' value="' . $input_value .
 							'" type="' . $product_input_field['type'] .
 							'" name="' . $field_name .
 							'" id="' . $field_name .

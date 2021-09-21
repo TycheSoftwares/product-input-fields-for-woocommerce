@@ -106,6 +106,12 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
+= 1.3.1 - 21/09/2021 =
+* Fix - Fatal error was coming with PHP 8. This is fixed now.
+* Fix - Product input fields were getting displayed on the frontend even if the plugin setting was kept disabled and shortcode was added. This is fixed now.
+* Fix - Numbers were not coming on the product page when the 'Range' type was selected. This is fixed now.
+* Fix - Duplicate fields were coming on the frontend when the product input fields were shown using the shortcode and the input fields values were not getting passed to the cart. This is fixed now.
+
 = 1.3.0 - 19/03/2021 =
 * Fixed an issue of after clicking on Order again button on My Account page, it shows the error of required fields.
 * Fixed an issue of additional description is shown on all the products even after disabling the All products setting.

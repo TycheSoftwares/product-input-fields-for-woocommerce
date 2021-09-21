@@ -3,13 +3,13 @@
  * Plugin Name: Product Input Fields for WooCommerce
  * Plugin URI: https://www.tychesoftwares.com/store/premium-plugins/product-input-fields-for-woocommerce/
  * Description: Add custom frontend input fields to WooCommerce products.
- * Version: 1.3.0
+ * Version: 1.3.1
  * Author: Tyche Softwares
  * Author URI: https://www.tychesoftwares.com/
  * Text Domain: product-input-fields-for-woocommerce
  * Domain Path: /langs
  * Copyright: © 2021 Tyche Softwares
- * WC tested up to: 5.5
+ * WC tested up to: 5.6
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
@@ -34,7 +34,7 @@ if (
 
 // Constants.
 if ( ! defined( 'ALG_WC_PIF_VERSION' ) ) {
-	define( 'ALG_WC_PIF_VERSION', '1.3.0' );
+	define( 'ALG_WC_PIF_VERSION', '1.3.1' );
 }
 if ( ! defined( 'ALG_WC_PIF_ID' ) ) {
 	define( 'ALG_WC_PIF_ID', 'alg_wc_pif' );

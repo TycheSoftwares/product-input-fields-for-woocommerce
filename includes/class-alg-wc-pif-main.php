@@ -176,6 +176,9 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 			.alg-product-input-fields-table textarea {
 				overflow: hidden;
 			}
+			.alg-product-input-fields-table, .alg-product-input-fields-table tr, .alg-product-input-fields-table td {
+				border: none !important;
+			}
 		</style>
 			<?php
 		}

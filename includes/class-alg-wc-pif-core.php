@@ -256,20 +256,20 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 			}
 
 			wp_enqueue_script( 'jquery-ui-datepicker' );
-			wp_enqueue_script( 'alg-wc-product-input-fields',	alg_wc_product_input_fields()->plugin_url() . '/includes/js/alg-wc-product-input-fields.js', array( 'jquery' ), ALG_WC_PIF_VERSION, true );
+			wp_enqueue_script( 'alg-wc-product-input-fields', alg_wc_product_input_fields()->plugin_url() . '/includes/js/alg-wc-product-input-fields.js', array( 'jquery' ), ALG_WC_PIF_VERSION, true );
 
 			// Timepicker style.
 			if ( 'yes' === get_wc_pif_option( 'frontend_enqueue_timepicker_style', 'yes' ) ) {
 				wp_enqueue_style( 'jquery-ui-timepicker', '//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css', '', PIF_ASSETS_VERSION );
-				wp_enqueue_script( 'jquery-ui-timepicker',	alg_wc_product_input_fields()->plugin_url() . '/includes/js/jquery.timepicker.min.js', array( 'jquery' ), ALG_WC_PIF_VERSION, true );
-				wp_enqueue_script( 'alg-timepicker',	alg_wc_product_input_fields()->plugin_url() . '/includes/js/alg-timepicker.js', array( 'jquery' ), ALG_WC_PIF_VERSION, true );
+				wp_enqueue_script( 'jquery-ui-timepicker', alg_wc_product_input_fields()->plugin_url() . '/includes/js/jquery.timepicker.min.js', array( 'jquery' ), ALG_WC_PIF_VERSION, true );
+				wp_enqueue_script( 'alg-timepicker', alg_wc_product_input_fields()->plugin_url() . '/includes/js/alg-timepicker.js', array( 'jquery' ), ALG_WC_PIF_VERSION, true );
 			}
 
 			// Datepicker style.
 			if ( 'yes' === get_wc_pif_option( 'frontend_enqueue_datepicker_style', 'yes' ) ) {
-				wp_enqueue_script( 'alg-weekpicker',	alg_wc_product_input_fields()->plugin_url() . '/includes/js/alg-weekpicker.js', array( 'jquery' ), ALG_WC_PIF_VERSION, true );
+				wp_enqueue_script( 'alg-weekpicker', alg_wc_product_input_fields()->plugin_url() . '/includes/js/alg-weekpicker.js', array( 'jquery' ), ALG_WC_PIF_VERSION, true );
 				wp_enqueue_style( 'jquery-ui-datepicker', '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css', '', PIF_ASSETS_VERSION );
-				wp_enqueue_script( 'alg-datepicker',	alg_wc_product_input_fields()->plugin_url() . '/includes/js/alg-datepicker.js', array( 'jquery' ), ALG_WC_PIF_VERSION, true );
+				wp_enqueue_script( 'alg-datepicker', alg_wc_product_input_fields()->plugin_url() . '/includes/js/alg-datepicker.js', array( 'jquery' ), ALG_WC_PIF_VERSION, true );
 			}
 
 		}

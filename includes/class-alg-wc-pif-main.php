@@ -66,6 +66,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 			add_filter( 'woocommerce_order_item_name', array( $this, 'add_product_input_fields_to_order_item_name' ), PHP_INT_MAX, 2 );
 			// Output product input fields in order at backend.
 			add_action( 'woocommerce_before_order_itemmeta', array( $this, 'output_custom_input_fields_in_admin_order' ), 10, 3 );
+			add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'update_order_meta_fields' ), 10, 2 );
 			// Output product input fields in invoice plugin.
 			add_action( 'wpo_wcpdf_after_item_meta', array( $this, 'output_custom_input_fields_in_invoice_plugin' ), 10, 3 );
 			// Add to emails.
@@ -175,6 +176,9 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 		<style>
 			.alg-product-input-fields-table textarea {
 				overflow: hidden;
+			}
+			.alg-product-input-fields-table, .alg-product-input-fields-table tr, .alg-product-input-fields-table td {
+				border: none !important;
 			}
 		</style>
 			<?php
@@ -471,6 +475,31 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 			wc_add_order_item_meta( $item_id, '_' . ALG_WC_PIF_ID . '_' . $this->scope, $_product_input_fields );
 		}
 
+
+			//do_action( 'woocommerce_checkout_update_order_meta', $order_id, $data );
+
+		/**
+		 * Output_custom_input_fields_in_admin_order.
+		 *
+		 * @param int                   $item_id Order Item ID.
+		 * @param WC_Order_item_product $item Order Item object.
+		 * @param WC_Product            $_product Product Object.
+		 * @param bool                  $echo Whether to echo html or return it.
+		 * @param bool                  $simple_text print it in simple text or not.
+		 * @version 1.2.0
+		 * @since   1.0.0
+		 * @todo    (later) make fields editable
+		 */
+		public function update_order_meta_fields( $order_id, $data ) {
+			foreach(WC()->cart->cart_contents as $cart_item) {
+				if (isset($cart_item['alg_wc_pif_local'])) {
+					update_post_meta($order_id, '_alg_wc_pif_local', $cart_item['alg_wc_pif_local']);
+				}
+				if (isset($cart_item['alg_wc_pif_global'])) {
+					update_post_meta($order_id, '_alg_wc_pif_global', $cart_item['alg_wc_pif_global']);
+				}
+			}
+		}
 		/**
 		 * Output_custom_input_fields_in_admin_order.
 		 *

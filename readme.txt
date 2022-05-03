@@ -107,9 +107,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 == Changelog ==
 
 = 1.3.2 - 03/05/2022 =
-* Fix - Input field data does not show in the XML file.
+* Fix - Input field data was not show in the XML file exported from Tools -> Export -> Orders.
 * Fix - Date Picker and Time Picker JavaScript loads when not in use.
-* Fix - Formatting is not proper for the input filed when using Elementor and Astra theme.
+* Fix - Formatting is not proper for the input field when using Elementor and Astra theme.
 
 = 1.3.1 - 21/09/2021 =
 * Fix - Fatal error was coming with PHP 8. This is fixed now.
@@ -118,7 +118,7 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 * Fix - Duplicate fields were coming on the frontend when the product input fields were shown using the shortcode and the input fields values were not getting passed to the cart. This is fixed now.
 
 = 1.3.0 - 19/03/2021 =
-* Fixed an issue of after clicking on Order again button on My Account page, it shows the error of required fields.
+* Fixed an issue of after clicking on the Order again button on My Account page, it shows the error of required fields.
 * Fixed an issue of additional description is shown on all the products even after disabling the All products setting.
 
 = 1.2.7 - 31/07/2020 =

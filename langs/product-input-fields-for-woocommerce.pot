@@ -1,718 +1,736 @@
-#: product-input-fields-for-woocommerce.php:116
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-03 13:01+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: product-input-fields-for-woocommerce.php:125
 msgid "Settings"
 msgstr ""
 
-#: product-input-fields-for-woocommerce.php:118
+#: product-input-fields-for-woocommerce.php:127
 msgid "Unlock All"
 msgstr ""
 
-#: includes/alg-wc-pif-functions.php:298
+#: includes/alg-wc-pif-functions.php:320
 msgid "Select a country&hellip;"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:30
+#: includes/alg-wc-pif-options.php:35
 #, php-format
 msgid "Fill this only if <strong>%s</strong> type is selected."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:36 includes/alg-wc-pif-options.php:373
+#: includes/alg-wc-pif-options.php:41 includes/alg-wc-pif-options.php:378
 msgid "Options"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:41
+#: includes/alg-wc-pif-options.php:46
 msgid "Enable/Disable"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:42
-#: includes/admin/class-alg-wc-pif-settings-general.php:116
+#: includes/alg-wc-pif-options.php:47
+#: includes/admin/class-alg-wc-pif-settings-general.php:130
 msgid "Enable"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:54
+#: includes/alg-wc-pif-options.php:59
 msgid "General Options"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:59
+#: includes/alg-wc-pif-options.php:64
 msgid "Type"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:63
+#: includes/alg-wc-pif-options.php:68
 msgid "Text"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:64
+#: includes/alg-wc-pif-options.php:69
 msgid "Textarea"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:65
+#: includes/alg-wc-pif-options.php:70
 msgid "Number"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:66 includes/alg-wc-pif-options.php:191
+#: includes/alg-wc-pif-options.php:71 includes/alg-wc-pif-options.php:196
 msgid "Checkbox"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:67 includes/alg-wc-pif-options.php:349
+#: includes/alg-wc-pif-options.php:72 includes/alg-wc-pif-options.php:354
 msgid "Color"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:68 includes/alg-wc-pif-options.php:215
+#: includes/alg-wc-pif-options.php:73 includes/alg-wc-pif-options.php:220
 msgid "File"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:69
+#: includes/alg-wc-pif-options.php:74
 msgid "Datepicker"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:70
+#: includes/alg-wc-pif-options.php:75
 msgid "Weekpicker"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:71 includes/alg-wc-pif-options.php:322
+#: includes/alg-wc-pif-options.php:76 includes/alg-wc-pif-options.php:327
 msgid "Timepicker"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:72
+#: includes/alg-wc-pif-options.php:77
 msgid "Select"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:73
+#: includes/alg-wc-pif-options.php:78
 msgid "Radio"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:74
+#: includes/alg-wc-pif-options.php:79
 msgid "Password"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:75
+#: includes/alg-wc-pif-options.php:80
 msgid "Country"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:76
+#: includes/alg-wc-pif-options.php:81
 msgid "Email"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:77
+#: includes/alg-wc-pif-options.php:82
 msgid "Phone"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:78
+#: includes/alg-wc-pif-options.php:83
 msgid "Search"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:79
+#: includes/alg-wc-pif-options.php:84
 msgid "URL"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:80
+#: includes/alg-wc-pif-options.php:85
 msgid "Range"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:85
+#: includes/alg-wc-pif-options.php:90
 msgid "Is Required"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:86
+#: includes/alg-wc-pif-options.php:91
 msgid "Required"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:92
+#: includes/alg-wc-pif-options.php:97
 msgid "Title"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:94
+#: includes/alg-wc-pif-options.php:99
 msgid "Input Field"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:100
+#: includes/alg-wc-pif-options.php:105
 msgid "Placeholder"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:107
+#: includes/alg-wc-pif-options.php:112
 msgid ""
 "Default value. E.g. for <strong>Color</strong> type enter color code; for "
 "<strong>Checkbox</strong> type enter <em>yes</em> or <em>no</em>."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:107 includes/alg-wc-pif-options.php:149
-#: includes/alg-wc-pif-options.php:156 includes/alg-wc-pif-options.php:163
-#: includes/alg-wc-pif-options.php:170 includes/alg-wc-pif-options.php:178
+#: includes/alg-wc-pif-options.php:112 includes/alg-wc-pif-options.php:154
+#: includes/alg-wc-pif-options.php:161 includes/alg-wc-pif-options.php:168
+#: includes/alg-wc-pif-options.php:175 includes/alg-wc-pif-options.php:183
 msgid "Leave blank to disable."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:108
+#: includes/alg-wc-pif-options.php:113
 msgid "Default Value"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:115
+#: includes/alg-wc-pif-options.php:120
 msgid "Class"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:122
+#: includes/alg-wc-pif-options.php:127
 msgid "Style"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:129
+#: includes/alg-wc-pif-options.php:134
 msgid "Message on Required"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:130
+#: includes/alg-wc-pif-options.php:135
 msgid ""
 "Used if \"Add HTML Required Attribute\" option in plugin's \"General > "
 "Frontend Options\" settings is disabled, or product input fields are "
 "displayed outside the add to cart button form."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:132
+#: includes/alg-wc-pif-options.php:137
 msgid "Field \"%title%\" is required!"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:143
+#: includes/alg-wc-pif-options.php:148
 msgid "Input Restrictions"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:148
+#: includes/alg-wc-pif-options.php:153
 msgid "Min"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:149
+#: includes/alg-wc-pif-options.php:154
 msgid ""
 "Minimum value for an input field. E.g. for <strong>Number/Range</strong> "
 "type."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:155
+#: includes/alg-wc-pif-options.php:160
 msgid "Max"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:156
+#: includes/alg-wc-pif-options.php:161
 msgid ""
 "Maximum value for an input field. E.g. for <strong>Number/Range</strong> "
 "type."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:162
+#: includes/alg-wc-pif-options.php:167
 msgid "Step"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:163
+#: includes/alg-wc-pif-options.php:168
 msgid ""
 "Legal number intervals for an input field. E.g. for <strong>Number/Range</"
 "strong> type."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:169
+#: includes/alg-wc-pif-options.php:174
 msgid "Max Length"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:170
+#: includes/alg-wc-pif-options.php:175
 msgid ""
 "Maximum number of character for an input field. E.g. for <strong>Text</"
 "strong> type."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:176
+#: includes/alg-wc-pif-options.php:181
 msgid "Pattern"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:177
-#, php-format
+#: includes/alg-wc-pif-options.php:182
 msgid ""
-"Visit <a href=\"%s\" target=\"_blank\">HTML pattern Attribute</a> for valid "
-"option formats."
+"Visit <a href=\"https://www.w3schools.com/tags/att_input_pattern.asp\" "
+"target=\"_blank\">HTML pattern Attribute</a> for valid option formats."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:178
+#: includes/alg-wc-pif-options.php:183
 msgid ""
 "Regular expression to check the input value against. E.g. for <strong>Text</"
 "strong> type."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:190
+#: includes/alg-wc-pif-options.php:195
 msgid "Checkbox Type Options"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:196
+#: includes/alg-wc-pif-options.php:201
 msgid "Value for ON"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:198
+#: includes/alg-wc-pif-options.php:203
 msgid "Yes"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:202
+#: includes/alg-wc-pif-options.php:207
 msgid "Value for OFF"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:204
+#: includes/alg-wc-pif-options.php:209
 msgid "No"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:214
+#: includes/alg-wc-pif-options.php:219
 msgid "File Type Options"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:220
+#: includes/alg-wc-pif-options.php:225
 msgid "Accepted File Types"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:221
+#: includes/alg-wc-pif-options.php:226
 msgid ""
 "Visit <a href=\"https://www.w3schools.com/tags/att_input_accept.asp\" target="
 "\"_blank\">documentation on input accept attribute</a> for valid option "
 "formats."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:222
+#: includes/alg-wc-pif-options.php:227
 msgid "E.g.: \".jpg,.jpeg,.png\". Leave blank to accept all files."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:224
+#: includes/alg-wc-pif-options.php:229
 msgid ".jpg,.jpeg,.png"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:228
+#: includes/alg-wc-pif-options.php:233
 msgid "Message on Wrong File Type"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:230
+#: includes/alg-wc-pif-options.php:235
 msgid "Wrong file type!"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:235
+#: includes/alg-wc-pif-options.php:240
 msgid "Max File Size"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:236
+#: includes/alg-wc-pif-options.php:241
 msgid "bytes."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:237
+#: includes/alg-wc-pif-options.php:242
 msgid "Set to zero to accept all files."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:244
+#: includes/alg-wc-pif-options.php:249
 msgid "Message on Max File Size Exceeded"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:246
+#: includes/alg-wc-pif-options.php:251
 msgid "File is too big!"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:257
+#: includes/alg-wc-pif-options.php:262
 msgid "Datepicker/Weekpicker Type Options"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:258
+#: includes/alg-wc-pif-options.php:263
 msgid "Datepicker/Weekpicker"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:263
+#: includes/alg-wc-pif-options.php:268
 msgid "Date Format"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:264
+#: includes/alg-wc-pif-options.php:269
 msgid ""
 "Visit <a href=\"https://codex.wordpress.org/Formatting_Date_and_Time\" "
 "target=\"_blank\">documentation on date and time formatting</a> for valid "
 "date formats."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:265
+#: includes/alg-wc-pif-options.php:270
 msgid "Leave blank to use your current WordPress format"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:271
+#: includes/alg-wc-pif-options.php:276
 msgid "Min Date"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:272 includes/alg-wc-pif-options.php:279
+#: includes/alg-wc-pif-options.php:277 includes/alg-wc-pif-options.php:284
 msgid "days."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:278
+#: includes/alg-wc-pif-options.php:283
 msgid "Max Date"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:285
+#: includes/alg-wc-pif-options.php:290
 msgid "Add Year Selector"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:286
+#: includes/alg-wc-pif-options.php:291
 msgid "Add"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:292
+#: includes/alg-wc-pif-options.php:297
 msgid "Year Selector - Year Range"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:293
+#: includes/alg-wc-pif-options.php:298
 msgid ""
 "Visit <a href=\"https://api.jqueryui.com/datepicker/#option-yearRange\" "
 "target=\"_blank\">Datepicker > yearRange</a> documentation for valid year "
 "range formats."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:294
+#: includes/alg-wc-pif-options.php:299
 msgid "Remember to set \"Min Date\" and \"Max Date\" options accordingly."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:300
+#: includes/alg-wc-pif-options.php:305
 msgid "First Week Day"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:304
+#: includes/alg-wc-pif-options.php:309
 msgid "Sunday"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:305
+#: includes/alg-wc-pif-options.php:310
 msgid "Monday"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:306
+#: includes/alg-wc-pif-options.php:311
 msgid "Tuesday"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:307
+#: includes/alg-wc-pif-options.php:312
 msgid "Wednesday"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:308
+#: includes/alg-wc-pif-options.php:313
 msgid "Thursday"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:309
+#: includes/alg-wc-pif-options.php:314
 msgid "Friday"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:310
+#: includes/alg-wc-pif-options.php:315
 msgid "Saturday"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:321
+#: includes/alg-wc-pif-options.php:326
 msgid "Timepicker Type Options"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:327
+#: includes/alg-wc-pif-options.php:332
 msgid "Time Format"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:328
+#: includes/alg-wc-pif-options.php:333
 msgid ""
 "Visit <a href=\"http://timepicker.co/options/\" target=\"_blank\">timepicker "
 "options page</a> for valid time formats."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:334
+#: includes/alg-wc-pif-options.php:339
 msgid "Interval"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:335
+#: includes/alg-wc-pif-options.php:340
 msgid "minutes."
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:348
+#: includes/alg-wc-pif-options.php:353
 msgid "Color Type Options"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:354
+#: includes/alg-wc-pif-options.php:359
 msgid "Allow color typing"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:355
+#: includes/alg-wc-pif-options.php:360
 msgid "Allows typing or pasting the color manually"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:367
+#: includes/alg-wc-pif-options.php:372
 msgid "Select/Radio Type Options"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:368
+#: includes/alg-wc-pif-options.php:373
 msgid "Select/Radio"
 msgstr ""
 
-#: includes/alg-wc-pif-options.php:374
+#: includes/alg-wc-pif-options.php:379
 msgid "One option per line."
 msgstr ""
 
-#: includes/class-alg-wc-pif-main.php:77
+#: includes/class-alg-wc-pif-main.php:95 includes/class-alg-wc-pif-main.php:96
 msgid "Input Fields"
 msgstr ""
 
-#: includes/class-alg-wc-pif-main.php:466
-#: includes/admin/class-alg-wc-pif-per-product-metabox.php:86
+#: includes/class-alg-wc-pif-main.php:546
+#: includes/admin/class-alg-wc-pif-per-product-metabox.php:97
 msgid "Product Input Field"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-per-product-metabox.php:73
+#: includes/admin/class-alg-wc-pif-per-product-metabox.php:83
 msgid "Product Input Fields Total Number"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-per-product-metabox.php:108
+#: includes/admin/class-alg-wc-pif-per-product-metabox.php:120
 msgid "Total Product Input Fields"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-per-product-metabox.php:109
+#: includes/admin/class-alg-wc-pif-per-product-metabox.php:121
 msgid "Click \"Update\" product after you change this number."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-per-product-metabox.php:113
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:57
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:59
+#: includes/admin/class-alg-wc-pif-per-product-metabox.php:125
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:44
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:44
 #, php-format
 msgid ""
 "Get <a target=\"_blank\" href=\"%s\">Product Input Fields for WooCommerce "
 "Pro</a> plugin to add more than one product input field."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products-field.php:24
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:24
+#: includes/admin/class-alg-wc-pif-settings-all-products-field.php:32
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:31
 msgid "All Products"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products-field.php:24
+#: includes/admin/class-alg-wc-pif-settings-all-products-field.php:32
 msgid "Field"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products-field.php:42
+#: includes/admin/class-alg-wc-pif-settings-all-products-field.php:50
 #, php-format
 msgid "Product Input Field #%d"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:38
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:47
 msgid "Product Input Fields Global Options"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:39
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:48
 msgid ""
 "When enabled this section will add new settings section for each product "
 "input field."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:44
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:53
 msgid "Product Input Fields - All Products"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:45
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:46
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:54
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:55
 msgid "Enable section"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:46
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:55
 msgid "Add custom input fields to all products."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:52
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:61
 msgid "Product Input Fields Number"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:53
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:62
 msgid ""
 "After you save this number, new settings sections for each product input "
 "field will appear."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:24
+#: includes/admin/class-alg-wc-pif-settings-general.php:31
 msgid "General"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:40
+#: includes/admin/class-alg-wc-pif-settings-general.php:47
 msgid "Product Input Fields Options"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:45
-#: includes/admin/class-alg-wc-settings-pif.php:24
+#: includes/admin/class-alg-wc-pif-settings-general.php:52
+#: includes/admin/class-alg-wc-settings-pif.php:31
 msgid "Product Input Fields"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:46
+#: includes/admin/class-alg-wc-pif-settings-general.php:53
 msgid "Enable plugin"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:47
+#: includes/admin/class-alg-wc-pif-settings-general.php:54
 msgid "WooCommerce Product Input Fields."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:59
+#: includes/admin/class-alg-wc-pif-settings-general.php:68
 msgid "Frontend Options"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:64
+#: includes/admin/class-alg-wc-pif-settings-general.php:73
 msgid "Position"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:65
+#: includes/admin/class-alg-wc-pif-settings-general.php:75
 #, php-format
 msgid ""
-"If set to \"Do not display\", alternatively you can use %s shortcode, or PHP "
-"%s function."
+"If set to \"Do not display\", alternatively you can use %1$s shortcode, or "
+"PHP %2$s function."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:71
+#: includes/admin/class-alg-wc-pif-settings-general.php:83
 msgid "Before add to cart button"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:72
+#: includes/admin/class-alg-wc-pif-settings-general.php:84
 msgid "After add to cart button"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:73
+#: includes/admin/class-alg-wc-pif-settings-general.php:85
 msgid "Do not display"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:77
+#: includes/admin/class-alg-wc-pif-settings-general.php:89
 msgid "Position Priority"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:78
+#: includes/admin/class-alg-wc-pif-settings-general.php:90
 msgid "Ignored if \"Position\" is set to \"Do not display\"."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:84
+#: includes/admin/class-alg-wc-pif-settings-general.php:96
 msgid "HTML to Add Before Product Input Fields"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:91
+#: includes/admin/class-alg-wc-pif-settings-general.php:103
 msgid "Product Input Field Template"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:92
+#: includes/admin/class-alg-wc-pif-settings-general.php:104
 msgid "Replaced values:"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:93
+#: includes/admin/class-alg-wc-pif-settings-general.php:106
 #, php-format
 msgid "Alternatively try e.g.: %s"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:101
+#: includes/admin/class-alg-wc-pif-settings-general.php:115
 msgid "HTML to Add After Product Input Fields"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:108
+#: includes/admin/class-alg-wc-pif-settings-general.php:122
 msgid "HTML to Add After Required Field Title"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:115
+#: includes/admin/class-alg-wc-pif-settings-general.php:129
 msgid "Add HTML Required Attribute"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:122
+#: includes/admin/class-alg-wc-pif-settings-general.php:136
 msgid "Item Name Order Table Format"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:123
+#: includes/admin/class-alg-wc-pif-settings-general.php:137
 msgid "Affects Thank You page, Emails etc."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:130
+#: includes/admin/class-alg-wc-pif-settings-general.php:144
 msgid "Refill Fields with Previous Input"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:131
+#: includes/admin/class-alg-wc-pif-settings-general.php:145
 msgid "Refill"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:137
+#: includes/admin/class-alg-wc-pif-settings-general.php:151
 msgid "Smart Textarea"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:138
+#: includes/admin/class-alg-wc-pif-settings-general.php:152
 msgid ""
 "Show only the textarea excerpt on frontend and hovering it will make it "
 "display the full content"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:144
+#: includes/admin/class-alg-wc-pif-settings-general.php:158
 msgid "Textarea Auto Height"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:145
+#: includes/admin/class-alg-wc-pif-settings-general.php:159
 msgid "Makes the textarea auto increase its height as users type"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:151
-msgid "Load Timepicker Style"
+#: includes/admin/class-alg-wc-pif-settings-general.php:165
+msgid "Load Timepicker Script"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:152
-msgid "Enqueues Timepicker Style"
+#: includes/admin/class-alg-wc-pif-settings-general.php:166
+msgid "Enqueues Timepicker CSS/JS"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:153
+#: includes/admin/class-alg-wc-pif-settings-general.php:167
 msgid "If you are not using Timepicker, please disable this option"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:159
-msgid "Load Datepicker Style"
+#: includes/admin/class-alg-wc-pif-settings-general.php:173
+msgid "Load Datepicker Script"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:160
-msgid "Enqueues Datepicker and Weekpicker Style"
+#: includes/admin/class-alg-wc-pif-settings-general.php:174
+msgid "Enqueues Datepicker and Weekpicker CSS/JS"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:161
+#: includes/admin/class-alg-wc-pif-settings-general.php:175
 msgid ""
 "If you are not using Datepicker or Weekpicker, please disable this option"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:173
+#: includes/admin/class-alg-wc-pif-settings-general.php:190
 msgid "Emails Options"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:178
+#: includes/admin/class-alg-wc-pif-settings-general.php:195
 msgid "Attach Files to Admin's New Order Emails"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:179
-#: includes/admin/class-alg-wc-pif-settings-general.php:186
+#: includes/admin/class-alg-wc-pif-settings-general.php:196
+#: includes/admin/class-alg-wc-pif-settings-general.php:203
 msgid "Attach"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:185
+#: includes/admin/class-alg-wc-pif-settings-general.php:202
 msgid "Attach Files to Customer's Processing Order Emails"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:24
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:31
 msgid "Per Product"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:38
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:47
 msgid "Product Input Fields per Product Options"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:40
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:49
 msgid ""
 "When enabled this section will add \"Product Input Fields\" tab to each "
 "product's \"Edit\" page."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:45
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:54
 msgid "Product Input Fields - per Product"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:47
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:56
 msgid "Add custom input field on per product basis."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:54
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:63
 msgid "Default Number of Product Input Fields per Product"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:56
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:65
 msgid ""
 "You will be able to change this number later as well as define the fields, "
 "for each product individually, in product's \"Edit\"."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-section.php:62
+#: includes/admin/class-alg-wc-pif-settings-section.php:74
 msgid "Reset Section Settings"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-section.php:67
+#: includes/admin/class-alg-wc-pif-settings-section.php:79
 msgid "Reset Settings"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-section.php:68
+#: includes/admin/class-alg-wc-pif-settings-section.php:80
 msgid "Reset"
 msgstr ""

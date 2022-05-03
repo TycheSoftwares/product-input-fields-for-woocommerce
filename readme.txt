@@ -106,6 +106,11 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
+= 1.3.2 - 03/05/2022 =
+* Fix - Input field data does not show in the XML file.
+* Fix - Date Picker and Time Picker JavaScript loads when not in use.
+* Fix - Formatting is not proper for the input filed when using Elementor and Astra theme.
+
 = 1.3.1 - 21/09/2021 =
 * Fix - Fatal error was coming with PHP 8. This is fixed now.
 * Fix - Product input fields were getting displayed on the frontend even if the plugin setting was kept disabled and shortcode was added. This is fixed now.

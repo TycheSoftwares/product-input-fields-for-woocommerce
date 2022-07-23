@@ -218,6 +218,11 @@ if ( ! function_exists( 'alg_get_frontend_product_input_fields' ) ) {
 				$field_name = ALG_WC_PIF_ID . '_' . $scope . '_' . $i;
 				$_value     = ( 'yes' === get_wc_pif_option( 'frontend_refill', 'yes' ) && isset( $_POST[ $field_name ] ) ) ? wp_unslash( $_POST[ $field_name ] ) : $product_input_field['default_value']; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized,WordPress.Security.NonceVerification
 				$_value     = stripslashes_deep( $_value );
+				if ( 'text' === $product_input_field['type'] ) {
+					$_value = trim( $_value, '"' );
+					$_value = trim( $_value, '>' );
+					$_value = str_replace( '"', '', $_value );
+				}
 				if ( 'textarea' === $product_input_field['type'] ) {
 					$_value = sanitize_textarea_field( $_value );
 				} else {

@@ -19,11 +19,11 @@ jQuery(document).ready(function() {
 			showWeek: true,
 			beforeShow: function(dateText, inst) {
 				// for week highighting
-				jQuery(".ui-datepicker-calendar tbody tr").live("mousemove", function() {
+				jQuery(".ui-datepicker-calendar tbody tr").on("mousemove", function() {
 					jQuery(this).find("td a").addClass("ui-state-hover");
 					jQuery(this).find(".ui-datepicker-week-col").addClass("ui-state-hover");
 				});
-				jQuery(".ui-datepicker-calendar tbody tr").live("mouseleave", function() {
+				jQuery(".ui-datepicker-calendar tbody tr").on("mouseleave", function() {
 					jQuery(this).find("td a").removeClass("ui-state-hover");
 					jQuery(this).find(".ui-datepicker-week-col").removeClass("ui-state-hover");
 				});
@@ -37,8 +37,8 @@ jQuery(document).ready(function() {
 					jQuery(this).val(dateText + " - " + endDateFormatted);
 				}
 				// disable live listeners so they dont impact other instances
-				jQuery(".ui-datepicker-calendar tbody tr").die("mousemove");
-				jQuery(".ui-datepicker-calendar tbody tr").die("mouseleave");
+				jQuery(".ui-datepicker-calendar tbody tr").off("mousemove");
+				jQuery(".ui-datepicker-calendar tbody tr").off("mouseleave");
 			}
 		});
 	});

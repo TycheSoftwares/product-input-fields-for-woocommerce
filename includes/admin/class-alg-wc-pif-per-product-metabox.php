@@ -185,7 +185,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Per_Product_Metabox' ) ) :
 						' type="' . $option['type'] .
 						'" id="' . $option_id .
 						'" name="' . $option_id .
-						'" value="' . $option_value . '">' .
+						'" value="' . esc_attr( $option_value ) . '">' .
 						( isset( $option['desc'] ) ? ' <em>' . $option['desc'] . '</em>' : '' );
 						break;
 					case 'textarea':

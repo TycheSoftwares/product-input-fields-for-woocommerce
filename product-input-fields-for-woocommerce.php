@@ -66,6 +66,14 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 	final class Alg_WC_PIF {
 
 		/**
+		 * Variable
+		 *
+		 * @var string Version.
+		 * @access public
+		 */
+		public static $version = '1.3.3';
+
+		/**
 		 * Define an instance for the class.
 		 *
 		 * @var   Alg_WC_PIF The single instance of the class
@@ -98,6 +106,9 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 		 * @access  public
 		 */
 		public function __construct() {
+
+			// Deactivation hook.
+			register_deactivation_hook( __FILE__, array( &$this, 'pif_deactivate' ) );
 
 			// Set up localisation.
 			load_plugin_textdomain( 'product-input-fields-for-woocommerce', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
@@ -166,6 +177,11 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 			}
 			// Core.
 			require_once 'includes/class-alg-wc-pif-core.php';
+
+			if ( is_admin() ) {
+				require_once 'includes/class-pif-data-tracking.php';
+				require_once 'includes/class-pif-tracking-functions.php';
+			}
 		}
 
 		/**
@@ -202,6 +218,17 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 			return untrailingslashit( plugin_dir_path( __FILE__ ) );
 		}
 
+		/**
+		 * Actions to be performed when the plugin is deactivate.
+		 *
+		 * @since 1.3.3
+		 */
+		public function pif_deactivate() {
+			if ( false !== as_next_scheduled_action( 'ts_send_data_tracking_usage' ) ) {
+				as_unschedule_action( 'ts_send_data_tracking_usage' ); // Remove the scheduled action.
+			}
+			do_action( 'pif_deactivate' );
+		}
 	}
 
 endif;

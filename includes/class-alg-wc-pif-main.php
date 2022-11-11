@@ -12,6 +12,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+use Automattic\WooCommerce\Utilities\OrderUtil;
 
 if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 
@@ -435,6 +436,20 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 				$this->add_product_input_fields_to_order_item_meta( $item_id, $item->$pif_values, null );
 			}
 		}
+		/**
+		 * * Check if HPOS is enabled or not.
+		 * *
+		 * * @since 2.4.0
+		 * * return boolean true if enabled else false
+		 * */
+		public function pif_wc_hpos_enabled() {
+			if ( class_exists( '\Automattic\WooCommerce\Utilities\OrderUtil' ) ) {
+				if ( OrderUtil::custom_orders_table_usage_is_enabled() ) {
+					return true;
+				}
+			}
+			return false;
+		}
 
 		/**
 		 * Add_product_input_fields_to_order_item_meta.
@@ -491,12 +506,23 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 		 * @todo    (later) make fields editable
 		 */
 		public function update_order_meta_fields( $order_id, $data ) {
-			foreach(WC()->cart->cart_contents as $cart_item) {
-				if (isset($cart_item['alg_wc_pif_local'])) {
-					update_post_meta($order_id, '_alg_wc_pif_local', $cart_item['alg_wc_pif_local']);
+			foreach ( WC()->cart->cart_contents as $cart_item ) {
+				$order = wc_get_order( $order_id );
+				if ( isset( $cart_item['alg_wc_pif_local'] ) ) {
+					if ( $this->pif_wc_hpos_enabled() ) {
+						$order->update_meta_data( '_alg_wc_pif_local', $cart_item['alg_wc_pif_local'] );
+						$order->save();
+					} else {
+						update_post_meta( $order_id, '_alg_wc_pif_local', $cart_item['alg_wc_pif_local'] );
+					}
 				}
-				if (isset($cart_item['alg_wc_pif_global'])) {
-					update_post_meta($order_id, '_alg_wc_pif_global', $cart_item['alg_wc_pif_global']);
+				if ( isset( $cart_item['alg_wc_pif_global'] ) ) {
+					if ( $this->pif_wc_hpos_enabled() ) {
+						$order->update_meta_data( '_alg_wc_pif_global', $cart_item['alg_wc_pif_global'] );
+						$order->save();
+					} else {
+						update_post_meta( $order_id, '_alg_wc_pif_global', $cart_item['alg_wc_pif_global'] );
+					}
 				}
 			}
 		}

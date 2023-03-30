@@ -83,6 +83,13 @@ if ( ! class_exists( 'Alg_WC_PIF_Settings_Section' ) ) :
 							'type'    => 'checkbox',
 						),
 						array(
+							'title'   => __( 'Reset Usage Tracking', 'product-input-fields-for-woocommerce' ),
+							'desc'    => __( 'This will reset your usage tracking settings, causing it to show the opt-in banner again and not sending any data.', 'woocommerce-call-for-price' ),
+							'id'      => $this->id . '_' . 'reset_usage_tracking',
+							'default' => 'no',
+							'type'    => 'checkbox',
+						),
+						array(
 							'type' => 'sectionend',
 							'id'   => $this->id . '_reset_options',
 						),

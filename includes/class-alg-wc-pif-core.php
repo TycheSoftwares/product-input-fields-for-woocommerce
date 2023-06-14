@@ -47,7 +47,20 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 				if ( 'yes' === get_wc_pif_option( 'global_enabled', 'yes' ) || 'yes' === get_wc_pif_option( 'local_enabled', 'yes' ) ) {
 					add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 				}
+
+				add_filter( 'astra_get_option_single-product-add-to-cart-action', array( $this, 'pif_lite_astra_option_set_default' ), 10, 3 );
 			}
+		}
+
+		/**
+		 * Function for set default value astra option.
+		 *
+		 * @param string $value value.
+		 * @param string $option option name.
+		 * @param string $default default value.
+		 */
+		public function pif_lite_astra_option_set_default( $value, $option, $default ) {
+			return $default;
 		}
 
 		/**

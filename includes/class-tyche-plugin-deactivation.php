@@ -33,7 +33,7 @@ if ( ! class_exists( 'Tyche_Plugin_Deactivation' ) ) {
 		 *
 		 * @var string $api_url
 		 */
-		protected $api_url = 'https://tracking.tychesoftwares.com/v2';
+		protected $api_url = 'https://tracking.tychesoftwares.com/v2/';
 
 		/**
 		 * Plugin Name.
@@ -163,7 +163,7 @@ if ( ! class_exists( 'Tyche_Plugin_Deactivation' ) ) {
 				array(
 					'deactivation_data' => $data,
 					'ajax_url'          => admin_url( 'admin-ajax.php' ),
-					'nonce'             => wp_create_nonce( 'tyche_plugin_deactivation' ),
+					'nonce'             => wp_create_nonce( 'tyche_plugin_deactivation_submit_action' ),
 				)
 			);
 
@@ -177,12 +177,12 @@ if ( ! class_exists( 'Tyche_Plugin_Deactivation' ) ) {
 		 */
 		public function tyche_plugin_deactivation_submit_action() {
 
-			if ( ! wp_verify_nonce( $_POST['nonce'], 'tyche_plugin_deactivation_submit_action' ) || ! isset( $_POST['data'] ) || empty( $_POST['data'] ) ) { // phpcs:ignore
+			if ( ! wp_verify_nonce( $_POST['nonce'], 'tyche_plugin_deactivation_submit_action' ) || ! isset( $_POST['reason_id'] ) || ! isset( $_POST['reason_text'] ) ) { // phpcs:ignore
 				wp_send_json_error( 0 );
 			}
 
 			wp_safe_remote_post(
-				$this->$api_url,
+				$this->api_url,
 				array(
 					'method'      => 'POST',
 					'timeout'     => 60,

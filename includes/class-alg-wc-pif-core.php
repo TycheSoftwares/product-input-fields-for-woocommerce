@@ -29,6 +29,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 		 * @since   1.0.0
 		 */
 		public function __construct() {
+			add_action( 'admin_enqueue_scripts', array( $this, 'alg_product_input_fields_setting_script' ) );
 			if ( 'yes' === get_wc_pif_option( 'enabled', 'yes' ) ) {
 				$position = get_wc_pif_option( 'frontend_position', 'woocommerce_before_add_to_cart_button' );
 				$priority = get_wc_pif_option( 'frontend_position_priority', 10 );
@@ -79,6 +80,24 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 			} else {
 				echo ( '<table id="alg-product-input-fields-table" class="alg-product-input-fields-table">' );
 			}
+		}
+
+		/**
+		 * Enqueue JS script for showing fields as per the changes made in the settings.
+		 *
+		 * @version 2.3.0
+		 * @since   2.3.0
+		 */
+		public static function alg_product_input_fields_setting_script() {
+			$plugin_url = plugins_url() . '/product-input-fields-for-woocommerce';
+			wp_register_script(
+				'tyche',
+				$plugin_url . '/includes/js/tyche.js',
+				array( 'jquery' ),
+				ALG_WC_PIF_VERSION,
+				true
+			);
+			wp_enqueue_script( 'tyche' );
 		}
 
 		/**

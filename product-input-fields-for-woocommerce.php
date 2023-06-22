@@ -181,8 +181,20 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 			require_once 'includes/class-alg-wc-pif-core.php';
 
 			if ( is_admin() ) {
+				$pif_plugin_url = plugins_url() . '/product-input-fields-for-woocommerce';
 				require_once 'includes/class-pif-data-tracking.php';
 				require_once 'includes/class-pif-tracking-functions.php';
+				// plugin deactivation.
+				require_once 'includes/class-tyche-plugin-deactivation.php';
+				new Tyche_Plugin_Deactivation(
+					array(
+						'plugin_name'       => 'Product Input Fields for WooCommerce',
+						'plugin_base'       => 'product-input-fields-for-woocommerce/product-input-fields-for-woocommerce.php',
+						'script_file'       => $pif_plugin_url . '/includes/js/plugin-deactivation.js',
+						'plugin_short_name' => 'pif_lite',
+						'version'           => ALG_WC_PIF_VERSION,
+					)
+				);
 			}
 		}
 

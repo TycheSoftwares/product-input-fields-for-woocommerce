@@ -371,36 +371,40 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 		 * @since   1.0.0
 		 */
 		public function add_product_input_fields_to_order_item_name( $name, $item, $is_cart = false ) {
-			$product_input_fields_html = '';
-			$product_input_fields      = isset( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) ? maybe_unserialize( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) : array();
-			foreach ( $product_input_fields as $product_input_field ) {
-				$value = isset( $product_input_field['_value'] ) ? $product_input_field['_value'] : '';
-				if ( 'checkbox' === $product_input_field['type'] ) {
-					$value = ( 'yes' === $value ) ? $product_input_field['type_checkbox_yes'] : $product_input_field['type_checkbox_no'];
-				}
-				if ( 'file' === $product_input_field['type'] ) {
-					$value = maybe_unserialize( $value );
-					$value = ( isset( $value['name'] ) ) ? $value['name'] : '';
-				}
-				if ( '' !== $value ) {
-					$value = is_array( $value ) ? implode( ', ', $value ) : $value;
-					if (
-					( $is_cart ||
-					'textarea' === $product_input_field['type']) && strpos( $name, '<a href' ) !== false
-					) {
-						$product_input_fields_html .= '<dt class="alg-pif-dt ' . $product_input_field['type'] . '">' . $product_input_field['title'] . '</dt><dd class="alg-pif-dd ' . $product_input_field['type'] . '">' . $value . '</dd>'; /* . '<pre>' . print_r( $product_input_field, true ) . '</pre>' */
-					} else {
-						$product_input_fields_html .= str_replace( array( '%title%', '%value%' ), array( $product_input_field['title'], $value ), get_wc_pif_option( 'frontend_order_table_format', '&nbsp;| %title% %value%' ) );
+
+			if ( ( ( is_cart() && strpos( $name, '<a href' ) !== false && ! wp_doing_ajax() ) || is_checkout() ) && ! is_product() &&
+			! ( is_wc_endpoint_url( 'view-order' ) || is_wc_endpoint_url( 'order-received' ) ) ) {
+				$product_input_fields_html = '';
+				$product_input_fields      = isset( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) ? maybe_unserialize( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) : array();
+				foreach ( $product_input_fields as $product_input_field ) {
+					$value = isset( $product_input_field['_value'] ) ? $product_input_field['_value'] : '';
+					if ( 'checkbox' === $product_input_field['type'] ) {
+						$value = ( 'yes' === $value ) ? $product_input_field['type_checkbox_yes'] : $product_input_field['type_checkbox_no'];
+					}
+					if ( 'file' === $product_input_field['type'] ) {
+						$value = maybe_unserialize( $value );
+						$value = ( isset( $value['name'] ) ) ? $value['name'] : '';
+					}
+					if ( '' !== $value ) {
+						$value = is_array( $value ) ? implode( ', ', $value ) : $value;
+						if (
+						( $is_cart ||
+						'textarea' === $product_input_field['type']) && strpos( $name, '<a href' ) !== false
+						) {
+							$product_input_fields_html .= '<dt class="alg-pif-dt ' . $product_input_field['type'] . '">' . $product_input_field['title'] . '</dt><dd class="alg-pif-dd ' . $product_input_field['type'] . '">' . $value . '</dd>'; /* . '<pre>' . print_r( $product_input_field, true ) . '</pre>' */
+						} else {
+							$product_input_fields_html .= str_replace( array( '%title%', '%value%' ), array( $product_input_field['title'], $value ), get_wc_pif_option( 'frontend_order_table_format', '&nbsp;| %title% %value%' ) );
+						}
 					}
 				}
-			}
-			if ( '' !== $product_input_fields_html ) {
-				if ( $is_cart && strpos( $name, '<a href' ) !== false ) {
-					$name .= '<dl style="font-size:smaller;">';
-				}
-				$name .= $product_input_fields_html;
-				if ( $is_cart && strpos( $name, '<a href' ) !== false ) {
-					$name .= '</dl>';
+				if ( '' !== $product_input_fields_html ) {
+					if ( $is_cart && strpos( $name, '<a href' ) !== false ) {
+						$name .= '<dl style="font-size:smaller;">';
+					}
+					$name .= $product_input_fields_html;
+					if ( $is_cart && strpos( $name, '<a href' ) !== false ) {
+						$name .= '</dl>';
+					}
 				}
 			}
 			return $name;

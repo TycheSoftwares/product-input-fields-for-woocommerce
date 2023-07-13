@@ -135,6 +135,8 @@ if ( ! class_exists( 'Tyche_Plugin_Tracking' ) ) {
 
 		/**
 		 * It will delete the tracking option from the database.
+		 *
+		 * @param string $plugin_short_name Plugin Short Name.
 		 */
 		public static function reset_tracker_setting( $plugin_short_name ) {
 			delete_option( $plugin_short_name . '_allow_tracking' );
@@ -204,7 +206,7 @@ if ( ! class_exists( 'Tyche_Plugin_Tracking' ) ) {
 					'httpversion' => '1.0',
 					'blocking'    => false,
 					'headers'     => array( 'user-agent' => 'TSTracker/' . md5( esc_url( home_url( '/' ) ) ) . ';' ),
-					'body'        => json_encode( $params ),
+					'body'        => wp_json_encode( $params ),
 					'cookies'     => array(),
 				)
 			);
@@ -212,8 +214,6 @@ if ( ! class_exists( 'Tyche_Plugin_Tracking' ) ) {
 
 		/**
 		 * Initiates the tracker and sends plugin data to the tracking server.
-		 *
-		 * @param string $action Action - whether to enable or disable the tracker.
 		 */
 		public function init_tracker() {
 
@@ -223,7 +223,7 @@ if ( ! class_exists( 'Tyche_Plugin_Tracking' ) ) {
 
 			$tracker_option = isset( $_GET[ $this->plugin_short_name . '_tracker_optin' ] ) ? $this->plugin_short_name . '_tracker_optin' : ( isset( $_GET[ $this->plugin_short_name . '_tracker_optout' ] ) ? $this->plugin_short_name . '_tracker_optout' : '' ); // phpcs:ignore
 
-			if ( '' === $tracker_option || ! wp_verify_nonce( $_GET[ $this->plugin_short_name . '_tracker_nonce' ], $tracker_option ) ) {
+			if ( '' === $tracker_option || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET[ $this->plugin_short_name . '_tracker_nonce' ] ) ), $tracker_option ) ) {
 				return;
 			}
 
@@ -301,7 +301,7 @@ if ( ! class_exists( 'Tyche_Plugin_Tracking' ) ) {
 			$data['theme_info'] = array(
 				'theme_name'    => $theme_data->Name,
 				'theme_version' => $theme_data->Version,
-				'child_theme'   => is_child_theme() ? 'Yes' : 'No',
+				'child_theme'   => is_child_theme() ? 'Yes' : 'No'
 			);
 
 			// Server Info.
@@ -315,7 +315,7 @@ if ( ! class_exists( 'Tyche_Plugin_Tracking' ) ) {
 			);
 
 			if ( isset( $_SERVER['SERVER_SOFTWARE'] ) && ! empty( $_SERVER['SERVER_SOFTWARE'] ) ) {
-				$data['server']['software'] = $_SERVER['SERVER_SOFTWARE'];
+				$data['server']['software'] = sanitize_text_field( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ) );
 			}
 
 			if ( function_exists( 'phpversion' ) ) {
@@ -342,25 +342,25 @@ if ( ! class_exists( 'Tyche_Plugin_Tracking' ) ) {
 
 				// Take care of formatting the data how we want it.
 				$formatted         = array();
-				$formatted['name'] = strip_tags( $v['Name'] );
+				$formatted['name'] = wp_strip_all_tags( $v['Name'] );
 
 				if ( isset( $v['Version'] ) ) {
-					$formatted['version'] = strip_tags( $v['Version'] );
+					$formatted['version'] = wp_strip_all_tags( $v['Version'] );
 				}
 
 				if ( isset( $v['Author'] ) ) {
-					$formatted['author'] = strip_tags( $v['Author'] );
+					$formatted['author'] = wp_strip_all_tags( $v['Author'] );
 				}
 
 				if ( isset( $v['Network'] ) ) {
-					$formatted['network'] = strip_tags( $v['Network'] );
+					$formatted['network'] = wp_strip_all_tags( $v['Network'] );
 				}
 
 				if ( isset( $v['PluginURI'] ) ) {
-					$formatted['plugin_uri'] = strip_tags( $v['PluginURI'] );
+					$formatted['plugin_uri'] = wp_strip_all_tags( $v['PluginURI'] );
 				}
 
-				if ( in_array( $k, $active_plugins_keys ) ) {
+				if ( in_array( $k, $active_plugins_keys, true ) ) {
 					// Remove active plugins from list so we can show active and inactive separately.
 					unset( $plugins[ $k ] );
 					$active_plugins[ $k ] = $formatted;

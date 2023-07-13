@@ -181,9 +181,12 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 			require_once 'includes/class-alg-wc-pif-core.php';
 
 			if ( is_admin() ) {
+
+				add_action( 'admin_footer', array( __CLASS__, 'ts_admin_notices_scripts' ) );
+				add_action( 'pif_lite_init_tracker_completed', array( __CLASS__, 'init_tracker_completed' ), 10, 2 );
+
 				$pif_plugin_url = plugins_url() . '/product-input-fields-for-woocommerce';
-				require_once 'includes/class-pif-data-tracking.php';
-				require_once 'includes/class-pif-tracking-functions.php';
+
 				// plugin deactivation.
 				require_once 'includes/class-tyche-plugin-deactivation.php';
 				new Tyche_Plugin_Deactivation(
@@ -195,7 +198,53 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 						'version'           => ALG_WC_PIF_VERSION,
 					)
 				);
+
+				require_once 'includes/component/plugin-tracking/class-tyche-plugin-tracking.php';
+
+				new Tyche_Plugin_Tracking(
+					array(
+						'plugin_name'       => 'Product Input Fields for WooCommerce',
+						'plugin_locale'     => 'product-input-fields-for-woocommerce',
+						'plugin_short_name' => 'pif_lite',
+						'version'           => ALG_WC_PIF_VERSION,
+						'blog_link'         => 'https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking',
+					)
+				);
 			}
+		}
+
+		/**
+		 * Add admin notice script.
+		 */
+		public static function ts_admin_notices_scripts() {
+
+			$pif_plugin_url = plugins_url() . '/product-input-fields-for-woocommerce';
+
+			wp_enqueue_script(
+				'pif_ts_dismiss_notice',
+				plugins_url( '/includes/js/tyche-dismiss-tracking-notice.js', __FILE__ ),
+				'',
+				ALG_WC_PIF_VERSION,
+				false
+			);
+
+			wp_localize_script(
+				'pif_ts_dismiss_notice',
+				'pif_ts_dismiss_notice',
+				array(
+					'ts_prefix_of_plugin' => 'pif_lite',
+					'ts_admin_url'        => admin_url( 'admin-ajax.php' ),
+				)
+			);
+
+		}
+
+		/**
+		 * Add tracker completed.
+		 */
+		public static function init_tracker_completed() {
+			header( 'Location: ' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_pif' ) );
+			exit;
 		}
 
 		/**

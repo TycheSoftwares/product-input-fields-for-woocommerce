@@ -301,7 +301,7 @@ if ( ! class_exists( 'Tyche_Plugin_Tracking' ) ) {
 			$data['theme_info'] = array(
 				'theme_name'    => $theme_data->Name,
 				'theme_version' => $theme_data->Version,
-				'child_theme'   => is_child_theme() ? 'Yes' : 'No'
+				'child_theme'   => is_child_theme() ? 'Yes' : 'No',
 			);
 
 			// Server Info.

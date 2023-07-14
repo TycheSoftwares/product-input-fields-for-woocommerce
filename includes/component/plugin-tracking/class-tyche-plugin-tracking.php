@@ -290,7 +290,7 @@ if ( ! class_exists( 'Tyche_Plugin_Tracking' ) ) {
 			$memory = wc_let_to_num( WP_MEMORY_LIMIT );
 
 			if ( function_exists( 'memory_get_usage' ) ) {
-				$system_memory = wc_let_to_num( @ini_get( 'memory_limit' ) );
+				$system_memory = wc_let_to_num( ini_get( 'memory_limit' ) );
 				$memory        = max( $memory, $system_memory );
 			}
 
@@ -299,8 +299,8 @@ if ( ! class_exists( 'Tyche_Plugin_Tracking' ) ) {
 			// Theme Info.
 			$theme_data         = wp_get_theme();
 			$data['theme_info'] = array(
-				'theme_name'    => $theme_data->Name,
-				'theme_version' => $theme_data->Version,
+				'theme_name'    => $theme_data->get( 'Name' ),
+				'theme_version' => $theme_data->get( 'Version' ),
 				'child_theme'   => is_child_theme() ? 'Yes' : 'No',
 			);
 

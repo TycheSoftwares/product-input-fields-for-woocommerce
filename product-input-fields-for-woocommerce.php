@@ -244,8 +244,10 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 		 * Add tracker completed.
 		 */
 		public static function init_tracker_completed() {
-			header( 'Location: ' . sanitize_text_field( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) );
-			exit;
+			if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
+				header( 'Location: ' . sanitize_text_field( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) );
+				exit;
+			}
 		}
 
 		/**
@@ -256,9 +258,9 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 		public static function pif_ts_tracker_display_notice( $is_flag ) {
 			global $current_section;
 
-			if ( isset( $_GET['page'] ) && 'wc-settings' === $_GET['page'] ) {
+			if ( isset( $_GET['page'] ) && 'wc-settings' === wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['page'] ) ) ) ) {
 				$is_flag = false;
-				if ( isset( $_GET['tab'] ) && 'alg_wc_pif' === $_GET['tab'] && empty( $current_section ) ) {
+				if ( isset( $_GET['tab'] ) && 'alg_wc_pif' === wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['tab'] ) ) ) && empty( $current_section ) ) {
 					$is_flag = true;
 				}
 			}

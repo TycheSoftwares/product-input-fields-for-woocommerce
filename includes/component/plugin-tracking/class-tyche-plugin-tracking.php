@@ -243,6 +243,11 @@ if ( ! class_exists( 'Tyche_Plugin_Tracking' ) ) {
 				return;
 			}
 
+			$is_specific_page = apply_filters( $this->plugin_short_name . '_ts_tracker_display_notice', true );
+			if ( ! $is_specific_page ) {
+				return;
+			}
+
 			echo '<input type="hidden" id="admin_url" value="' . esc_url( get_admin_url() ) . '"/>';
 
 			if ( '' === get_option( $this->plugin_short_name . '_allow_tracking', '' ) ) { ?>

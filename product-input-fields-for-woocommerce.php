@@ -183,7 +183,8 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 			if ( is_admin() ) {
 
 				add_action( 'admin_footer', array( __CLASS__, 'ts_admin_notices_scripts' ) );
-				add_action( 'pif_lite_init_tracker_completed', array( __CLASS__, 'init_tracker_completed' ), 10, 2 );
+				add_action( 'pif_lite_init_tracker_completed', array( __CLASS__, 'init_tracker_completed' ), 10 );
+				add_filter( 'pif_lite_ts_tracker_display_notice', array( __CLASS__, 'pif_ts_tracker_display_notice' ), 10, 1 );
 
 				$pif_plugin_url = plugins_url() . '/product-input-fields-for-woocommerce';
 
@@ -243,8 +244,26 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 		 * Add tracker completed.
 		 */
 		public static function init_tracker_completed() {
-			header( 'Location: ' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_pif' ) );
+			header( 'Location: ' . sanitize_text_field( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) );
 			exit;
+		}
+
+		/**
+		 * Display admin notice on specific page.
+		 *
+		 * @param array $is_flag Is Flag defailt value true.
+		 */
+		public static function pif_ts_tracker_display_notice( $is_flag ) {
+			global $current_section;
+
+			if ( isset( $_GET['page'] ) && 'wc-settings' === $_GET['page'] ) {
+				$is_flag = false;
+				if ( isset( $_GET['tab'] ) && 'alg_wc_pif' === $_GET['tab'] && empty( $current_section ) ) {
+					$is_flag = true;
+				}
+			}
+
+			return $is_flag;
 		}
 
 		/**

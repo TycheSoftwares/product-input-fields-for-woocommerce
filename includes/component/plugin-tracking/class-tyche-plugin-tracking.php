@@ -239,12 +239,8 @@ if ( ! class_exists( 'Tyche_Plugin_Tracking' ) ) {
 
 			$current_screen = get_current_screen();
 
-			if ( 'page' === get_post_type() || 'post' === get_post_type() || ( method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) || ( function_exists( 'is_gutenberg_page' ) && is_gutenberg_page() ) ) {
-				return;
-			}
-
 			$is_specific_page = apply_filters( $this->plugin_short_name . '_ts_tracker_display_notice', true );
-			if ( ! $is_specific_page ) {
+			if ( ! $is_specific_page || 'page' === get_post_type() || 'post' === get_post_type() || ( method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) || ( function_exists( 'is_gutenberg_page' ) && is_gutenberg_page() ) ) {
 				return;
 			}
 

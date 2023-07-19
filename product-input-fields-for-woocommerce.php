@@ -244,10 +244,9 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 		 * Add tracker completed.
 		 */
 		public static function init_tracker_completed() {
-			if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
-				header( 'Location: ' . sanitize_text_field( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) );
-				exit;
-			}
+			$redirect_url = isset( $_SERVER['HTTP_REFERER'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) : admin_url( 'admin.php?page=wc-settings&tab=alg_wc_pif' );
+			header( 'Location: ' . $redirect_url );
+			exit;
 		}
 
 		/**

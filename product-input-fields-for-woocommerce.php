@@ -55,18 +55,6 @@ if ( ! function_exists( 'get_wc_pif_option' ) ) {
 	}
 }
 
-require_once 'includes/component/plugin-tracking/class-tyche-plugin-tracking.php';
-
-new Tyche_Plugin_Tracking(
-	array(
-		'plugin_name'       => 'Product Input Fields for WooCommerce',
-		'plugin_locale'     => 'product-input-fields-for-woocommerce',
-		'plugin_short_name' => 'pif_lite',
-		'version'           => ALG_WC_PIF_VERSION,
-		'blog_link'         => 'https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking',
-	)
-);
-
 if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 
 	/**
@@ -161,6 +149,18 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 		 * @since   1.0.0
 		 */
 		public function includes() {
+
+			require_once 'includes/component/plugin-tracking/class-tyche-plugin-tracking.php';
+			new Tyche_Plugin_Tracking(
+				array(
+					'plugin_name'       => 'Product Input Fields for WooCommerce',
+					'plugin_locale'     => 'product-input-fields-for-woocommerce',
+					'plugin_short_name' => 'pif_lite',
+					'version'           => ALG_WC_PIF_VERSION,
+					'blog_link'         => 'https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking',
+				)
+			);
+
 			// Functions.
 			require_once 'includes/alg-wc-pif-functions.php';
 			// Settings.

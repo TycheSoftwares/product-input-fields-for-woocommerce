@@ -194,6 +194,9 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 
 			if ( is_admin() ) {
 
+				require_once 'includes/class-pif-tracking-functions.php';
+				add_filter( 'ts_tracker_data', array( __CLASS__, 'pif_lite_ts_add_plugin_tracking_data' ), 10, 1 );
+
 				add_action( 'admin_footer', array( __CLASS__, 'ts_admin_notices_scripts' ) );
 				add_action( 'pif_lite_init_tracker_completed', array( __CLASS__, 'init_tracker_completed' ), 10 );
 				add_filter( 'pif_lite_ts_tracker_display_notice', array( __CLASS__, 'pif_ts_tracker_display_notice' ), 10, 1 );
@@ -212,6 +215,29 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 					)
 				);
 			}
+		}
+
+		/**
+		 * Send the plugin data when the user has opted in
+		 *
+		 * @hook ts_tracker_data
+		 * @param array $data All data to send to server.
+		 *
+		 * @return array $plugin_data All data to send to server.
+		 */
+		public static function pif_lite_ts_add_plugin_tracking_data( $data ) {
+			$plugin_short_name = 'pif_lite';
+			if ( ! isset( $_GET[ $plugin_short_name . '_tracker_nonce' ] ) ) {
+				return $data;
+			}
+
+			$tracker_option = isset( $_GET[ $plugin_short_name . '_tracker_optin' ] ) ? $plugin_short_name . '_tracker_optin' : ( isset( $_GET[ $plugin_short_name . '_tracker_optout' ] ) ? $plugin_short_name . '_tracker_optout' : '' ); // phpcs:ignore
+			if ( '' === $tracker_option || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET[ $plugin_short_name . '_tracker_nonce' ] ) ), $tracker_option ) ) {
+				return $data;
+			}
+
+			$data = pif_Tracking_Functions::pif_lite_plugin_tracking_data( $data );
+			return $data;
 		}
 
 		/**

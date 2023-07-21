@@ -86,14 +86,9 @@ if ( ! class_exists( 'Alg_WC_Settings_PIF' ) ) :
 				}
 			}
 
-			if ( 'yes' === get_wc_pif_option( $current_section . '_reset_usage_tracking', '' ) ) {
-				delete_option( 'pif_lite_allow_tracking' );
-				delete_option( $this->id . '_' . $current_section . '_reset_usage_tracking' );
-				if ( function_exists( 'as_next_scheduled_action' ) ) {
-					if ( false !== as_next_scheduled_action( 'ts_send_data_tracking_usage' ) ) {
-						as_unschedule_action( 'ts_send_data_tracking_usage' );
-					}
-				}
+			if ( 'yes' === get_wc_pif_option( $current_section . 'ts_reset_tracking', '' ) ) {
+				delete_option( $this->id . '_ts_reset_tracking' );
+				Tyche_Plugin_Tracking::reset_tracker_setting( 'pif_lite' );
 			}
 		}
 

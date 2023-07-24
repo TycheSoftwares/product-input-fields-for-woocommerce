@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore
 /**
  * Plugin Name: Product Input Fields for WooCommerce
  * Plugin URI: https://www.tychesoftwares.com/store/premium-plugins/product-input-fields-for-woocommerce/
@@ -193,10 +193,7 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 			require_once 'includes/class-alg-wc-pif-core.php';
 
 			if ( is_admin() ) {
-
-				add_action( 'admin_footer', array( __CLASS__, 'ts_admin_notices_scripts' ) );
-				add_action( 'pif_lite_init_tracker_completed', array( __CLASS__, 'init_tracker_completed' ), 10 );
-				add_filter( 'pif_lite_ts_tracker_display_notice', array( __CLASS__, 'pif_ts_tracker_display_notice' ), 10, 1 );
+				require_once 'includes/class-alg-wc-pif-tracking.php';
 
 				$pif_plugin_url = plugins_url() . '/product-input-fields-for-woocommerce';
 
@@ -212,59 +209,6 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 					)
 				);
 			}
-		}
-
-		/**
-		 * Add admin notice script.
-		 */
-		public static function ts_admin_notices_scripts() {
-
-			$pif_plugin_url = plugins_url() . '/product-input-fields-for-woocommerce';
-
-			wp_enqueue_script(
-				'pif_ts_dismiss_notice',
-				plugins_url( '/includes/js/tyche-dismiss-tracking-notice.js', __FILE__ ),
-				'',
-				ALG_WC_PIF_VERSION,
-				false
-			);
-
-			wp_localize_script(
-				'pif_ts_dismiss_notice',
-				'pif_ts_dismiss_notice',
-				array(
-					'ts_prefix_of_plugin' => 'pif_lite',
-					'ts_admin_url'        => admin_url( 'admin-ajax.php' ),
-				)
-			);
-
-		}
-
-		/**
-		 * Add tracker completed.
-		 */
-		public static function init_tracker_completed() {
-			$redirect_url = isset( $_SERVER['HTTP_REFERER'] ) ? esc_url_raw( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) : admin_url( 'admin.php?page=wc-settings&tab=alg_wc_pif' );
-			header( 'Location: ' . $redirect_url );
-			exit;
-		}
-
-		/**
-		 * Display admin notice on specific page.
-		 *
-		 * @param array $is_flag Is Flag defailt value true.
-		 */
-		public static function pif_ts_tracker_display_notice( $is_flag ) {
-			global $current_section;
-
-			if ( isset( $_GET['page'] ) && 'wc-settings' === $_GET['page'] ) { // phpcs:ignore
-				$is_flag = false;
-				if ( isset( $_GET['tab'] ) && 'alg_wc_pif' === $_GET['tab'] && empty( $current_section ) ) { // phpcs:ignore
-					$is_flag = true;
-				}
-			}
-
-			return $is_flag;
 		}
 
 		/**

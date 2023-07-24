@@ -25,7 +25,87 @@ if ( ! class_exists( 'Pif_Tracking_Functions' ) ) :
 		 * @since 1.3.3
 		 */
 		public function __construct() {
+			add_filter( 'ts_tracker_data', array( __CLASS__, 'pif_lite_ts_add_plugin_tracking_data' ), 10, 1 );
 
+			add_action( 'admin_footer', array( __CLASS__, 'ts_admin_notices_scripts' ) );
+			add_action( 'pif_lite_init_tracker_completed', array( __CLASS__, 'init_tracker_completed' ), 10 );
+			add_filter( 'pif_lite_ts_tracker_display_notice', array( __CLASS__, 'pif_ts_tracker_display_notice' ), 10, 1 );
+		}
+
+		/**
+		 * Send the plugin data when the user has opted in
+		 *
+		 * @hook ts_tracker_data
+		 * @param array $data All data to send to server.
+		 *
+		 * @return array $plugin_data All data to send to server.
+		 */
+		public static function pif_lite_ts_add_plugin_tracking_data( $data ) {
+			$plugin_short_name = 'pif_lite';
+			if ( ! isset( $_GET[ $plugin_short_name . '_tracker_nonce' ] ) ) {
+				return $data;
+			}
+
+			$tracker_option = isset( $_GET[ $plugin_short_name . '_tracker_optin' ] ) ? $plugin_short_name . '_tracker_optin' : ( isset( $_GET[ $plugin_short_name . '_tracker_optout' ] ) ? $plugin_short_name . '_tracker_optout' : '' ); // phpcs:ignore
+			if ( '' === $tracker_option || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET[ $plugin_short_name . '_tracker_nonce' ] ) ), $tracker_option ) ) {
+				return $data;
+			}
+
+			$data = self::pif_lite_plugin_tracking_data( $data );
+			return $data;
+		}
+
+		/**
+		 * Add admin notice script.
+		 */
+		public static function ts_admin_notices_scripts() {
+
+			$pif_plugin_url = plugins_url() . '/product-input-fields-for-woocommerce';
+
+			wp_enqueue_script(
+				'pif_ts_dismiss_notice',
+				plugins_url( '/includes/js/tyche-dismiss-tracking-notice.js', __FILE__ ),
+				'',
+				ALG_WC_PIF_VERSION,
+				false
+			);
+
+			wp_localize_script(
+				'pif_ts_dismiss_notice',
+				'pif_ts_dismiss_notice',
+				array(
+					'ts_prefix_of_plugin' => 'pif_lite',
+					'ts_admin_url'        => admin_url( 'admin-ajax.php' ),
+				)
+			);
+
+		}
+
+		/**
+		 * Add tracker completed.
+		 */
+		public static function init_tracker_completed() {
+			$redirect_url = isset( $_SERVER['HTTP_REFERER'] ) ? esc_url_raw( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) : admin_url( 'admin.php?page=wc-settings&tab=alg_wc_pif' );
+			header( 'Location: ' . $redirect_url );
+			exit;
+		}
+
+		/**
+		 * Display admin notice on specific page.
+		 *
+		 * @param array $is_flag Is Flag defailt value true.
+		 */
+		public static function pif_ts_tracker_display_notice( $is_flag ) {
+			global $current_section;
+
+			if ( isset( $_GET['page'] ) && 'wc-settings' === $_GET['page'] ) { // phpcs:ignore
+				$is_flag = false;
+				if ( isset( $_GET['tab'] ) && 'alg_wc_pif' === $_GET['tab'] && empty( $current_section ) ) { // phpcs:ignore
+					$is_flag = true;
+				}
+			}
+
+			return $is_flag;
 		}
 
 		/**

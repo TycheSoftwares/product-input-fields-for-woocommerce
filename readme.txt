@@ -111,10 +111,10 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 * Enhancement - Introduced Deactivation survey feature.
 * Enhancement - Introduced tracking plugin data feature.
 * Fix - Weekpicker and Timepicker were not working on the product page due to a conflict with the Storefront theme.
-* Fix - On Using a quote inside the input field on the product page was displaying broken input HTML.
+* Fix - Using a quote inside the input field on the product page was displaying broken input HTML.
 * Fix - The file upload field was not working when the Astra Pro plugin was active due to a hook from the plugin.
-* Fix - With WC 7.8.0 or above Input fields value were displayed twice on the cart page due to changes in the WC
-* Fix - There was an issue with displaying the date format inside the Date field when the format was saved as dd/mm/yy
+* Fix - With WC 7.8.0 or above input field values were displayed twice on the cart page.
+* Fix - Issue with displaying the date inside the Date field when the format was saved as dd/mm/yy.
 
 = 1.4.0 - 29/11/2022 =
 * Enhancement - Introduced compatibility with WooCommerce High Performance Order Storage.

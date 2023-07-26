@@ -138,7 +138,11 @@ if ( ! function_exists( 'alg_date_format_php_to_js' ) ) {
 					$jqueryui_format .= "'";
 					$escaping         = false;
 				}
-				$jqueryui_format .= ( isset( $symbols_matching[ $char ] ) && strpos( $jqueryui_format, $symbols_matching[ $char ] ) !== false ) ? $symbols_matching[ $char ] : $char;
+				if ( isset( $symbols_matching[ $char ] ) ) {
+					$jqueryui_format .= substr_count( $jqueryui_format, $char ) < 2 ? $symbols_matching[ $char ] : '';
+				} else {
+					$jqueryui_format .= $char;
+				}
 			}
 		}
 		return $jqueryui_format;

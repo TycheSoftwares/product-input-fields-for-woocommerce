@@ -69,7 +69,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Settings_Section' ) ) :
 			global $current_section;
 
 			if ( ! empty( $current_section ) ) {
-				return $this->get_section_settings();
+				return $this->add_wc_pif_id( $this->get_section_settings() );
 			} else {
 				return $this->add_wc_pif_id(
 					array_merge(

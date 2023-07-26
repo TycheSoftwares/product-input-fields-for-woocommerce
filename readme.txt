@@ -2,9 +2,9 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 6.1
+Tested up to: 6.2
 Stable tag: trunk
-Requires PHP: 5.6
+Requires PHP: 7.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -106,6 +106,15 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
+
+= 1.5.0 - 26/07/2023 = 
+* Enhancement - Introduced Deactivation survey feature.
+* Enhancement - Introduced tracking plugin data feature.
+* Fix - Weekpicker and Timepicker were not working on the product page due to a conflict with the Storefront theme.
+* Fix - On Using a quote inside the input field on the product page was displaying broken input HTML.
+* Fix - The file upload field was not working when the Astra Pro plugin was active due to a hook from the plugin.
+* Fix - With WC 7.8.0 or above Input fields value were displayed twice on the cart page due to changes in the WC
+* Fix - There was an issue with displaying the date format inside the Date field when the format was saved as dd/mm/yy
 
 = 1.4.0 - 29/11/2022 =
 * Enhancement - Introduced compatibility with WooCommerce High Performance Order Storage.

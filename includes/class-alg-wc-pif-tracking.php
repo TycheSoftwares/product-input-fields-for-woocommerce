@@ -64,7 +64,7 @@ if ( ! class_exists( 'Pif_Tracking_Functions' ) ) :
 
 			wp_enqueue_script(
 				'pif_ts_dismiss_notice',
-				plugins_url( '/includes/js/tyche-dismiss-tracking-notice.js', __FILE__ ),
+				plugins_url( '/js/tyche-dismiss-tracking-notice.js', __FILE__ ),
 				'',
 				ALG_WC_PIF_VERSION,
 				false

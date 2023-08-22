@@ -198,7 +198,7 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 				$pif_plugin_url = plugins_url() . '/product-input-fields-for-woocommerce';
 
 				// plugin deactivation.
-				require_once 'includes/class-tyche-plugin-deactivation.php';
+				require_once 'includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php';
 				new Tyche_Plugin_Deactivation(
 					array(
 						'plugin_name'       => 'Product Input Fields for WooCommerce',

@@ -2,7 +2,7 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 6.1
+Tested up to: 6.2
 Stable tag: trunk
 Requires PHP: 5.6
 License: GNU General Public License v3.0
@@ -106,10 +106,12 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
+= 1.6.0 - 22/08/2022 =
+* Fix - Slow load time issue on the admin dashboard panel.
+* Fix - Wrong text appear on product frontend when Date picker/ Weekpicker input field selected.
 
 = 1.4.0 - 29/11/2022 =
 * Enhancement - Introduced compatibility with WooCommerce High Performance Order Storage.
-
 
 = 1.3.2 - 03/05/2022 =
 * Fix - Input field data was not show in the XML file exported from Tools -> Export -> Orders.

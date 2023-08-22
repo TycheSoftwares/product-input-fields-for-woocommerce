@@ -106,6 +106,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
+= 1.6.0 - 22/08/2022 =
+* Fix - Slow load time issue on the admin dashboard panel.
+* Fix - Wrong text appear on product frontend when Date picker/ Weekpicker input field selected.
 
 = 1.5.0 - 26/07/2023 = 
 * Enhancement - Introduced Deactivation survey feature.
@@ -118,7 +121,6 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 = 1.4.0 - 29/11/2022 =
 * Enhancement - Introduced compatibility with WooCommerce High Performance Order Storage.
-
 
 = 1.3.2 - 03/05/2022 =
 * Fix - Input field data was not show in the XML file exported from Tools -> Export -> Orders.

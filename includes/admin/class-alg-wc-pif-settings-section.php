@@ -53,7 +53,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Settings_Section' ) ) :
 		public function add_wc_pif_id( $settings ) {
 			$settings_with_id = array();
 			foreach ( $settings as $setting ) {
-				$setting['id']      = ALG_WC_PIF_ID . '_' . $setting['id'];
+				$setting['id']      = ! empty( $setting['id'] ) ? ALG_WC_PIF_ID . '_' . $setting['id'] : ALG_WC_PIF_ID;
 				$settings_with_id[] = $setting;
 			}
 			return $settings_with_id;
@@ -66,36 +66,42 @@ if ( ! class_exists( 'Alg_WC_PIF_Settings_Section' ) ) :
 		 * @since   1.0.0
 		 */
 		public function get_settings() {
-			return $this->add_wc_pif_id(
-				array_merge(
-					$this->get_section_settings(),
-					array(
+			global $current_section;
+
+			if ( ! empty( $current_section ) ) {
+				return $this->add_wc_pif_id( $this->get_section_settings() );
+			} else {
+				return $this->add_wc_pif_id(
+					array_merge(
+						$this->get_section_settings(),
 						array(
-							'title' => __( 'Reset Section Settings', 'product-input-fields-for-woocommerce' ),
-							'type'  => 'title',
-							'id'    => $this->id . '_reset_options',
-						),
-						array(
-							'title'   => __( 'Reset Settings', 'product-input-fields-for-woocommerce' ),
-							'desc'    => '<strong>' . __( 'Reset', 'product-input-fields-for-woocommerce' ) . '</strong>',
-							'id'      => $this->id . '_reset',
-							'default' => 'no',
-							'type'    => 'checkbox',
-						),
-						array(
-							'title'   => __( 'Reset Usage Tracking', 'product-input-fields-for-woocommerce' ),
-							'desc'    => __( 'This will reset your usage tracking settings, causing it to show the opt-in banner again and not sending any data.', 'woocommerce-call-for-price' ),
-							'id'      => $this->id . '_' . 'reset_usage_tracking',
-							'default' => 'no',
-							'type'    => 'checkbox',
-						),
-						array(
-							'type' => 'sectionend',
-							'id'   => $this->id . '_reset_options',
-						),
+							array(
+								'title' => __( 'Reset Section Settings', 'product-input-fields-for-woocommerce' ),
+								'type'  => 'title',
+								'id'    => $this->id . 'reset_options',
+							),
+							array(
+								'title'   => __( 'Reset Settings', 'product-input-fields-for-woocommerce' ),
+								'desc'    => '<strong>' . __( 'Reset', 'product-input-fields-for-woocommerce' ) . '</strong>',
+								'id'      => $this->id . 'reset',
+								'default' => 'no',
+								'type'    => 'checkbox',
+							),
+							array(
+								'title'   => __( 'Reset Usage Tracking', 'product-input-fields-for-woocommerce' ),
+								'desc'    => __( 'This will reset your usage tracking settings, causing it to show the opt-in banner again and not sending any data.', 'woocommerce-call-for-price' ),
+								'id'      => $this->id . 'ts_reset_tracking',
+								'default' => 'no',
+								'type'    => 'checkbox',
+							),
+							array(
+								'type' => 'sectionend',
+								'id'   => $this->id . 'reset_options',
+							),
+						)
 					)
-				)
-			);
+				);
+			}
 		}
 
 	}

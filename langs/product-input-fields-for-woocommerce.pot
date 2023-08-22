@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-03 13:01+0530\n"
+"POT-Creation-Date: 2023-07-26 12:20+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: product-input-fields-for-woocommerce.php:125
+#: product-input-fields-for-woocommerce.php:138
 msgid "Settings"
 msgstr ""
 
-#: product-input-fields-for-woocommerce.php:127
+#: product-input-fields-for-woocommerce.php:140
 msgid "Unlock All"
 msgstr ""
 
-#: includes/alg-wc-pif-functions.php:320
+#: includes/alg-wc-pif-functions.php:322
 msgid "Select a country&hellip;"
 msgstr ""
 
@@ -453,11 +453,11 @@ msgstr ""
 msgid "One option per line."
 msgstr ""
 
-#: includes/class-alg-wc-pif-main.php:95 includes/class-alg-wc-pif-main.php:96
+#: includes/class-alg-wc-pif-main.php:96 includes/class-alg-wc-pif-main.php:97
 msgid "Input Fields"
 msgstr ""
 
-#: includes/class-alg-wc-pif-main.php:546
+#: includes/class-alg-wc-pif-main.php:576
 #: includes/admin/class-alg-wc-pif-per-product-metabox.php:97
 msgid "Product Input Field"
 msgstr ""
@@ -723,14 +723,40 @@ msgid ""
 "for each product individually, in product's \"Edit\"."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-section.php:74
+#: includes/admin/class-alg-wc-pif-settings-section.php:79
 msgid "Reset Section Settings"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-section.php:79
+#: includes/admin/class-alg-wc-pif-settings-section.php:84
 msgid "Reset Settings"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-section.php:80
+#: includes/admin/class-alg-wc-pif-settings-section.php:85
 msgid "Reset"
+msgstr ""
+
+#: includes/admin/class-alg-wc-pif-settings-section.php:91
+msgid "Reset Usage Tracking"
+msgstr ""
+
+#: includes/admin/class-alg-wc-pif-settings-section.php:92
+msgid ""
+"This will reset your usage tracking settings, causing it to show the opt-in "
+"banner again and not sending any data."
+msgstr ""
+
+#: includes/component/plugin-tracking/class-tyche-plugin-tracking.php:121
+msgid "Once in a Week"
+msgstr ""
+
+#: includes/component/plugin-tracking/class-tyche-plugin-tracking.php:252
+msgid "Want to help make "
+msgstr ""
+
+#: includes/component/plugin-tracking/class-tyche-plugin-tracking.php:255
+msgid "Allow"
+msgstr ""
+
+#: includes/component/plugin-tracking/class-tyche-plugin-tracking.php:256
+msgid "No thanks"
 msgstr ""

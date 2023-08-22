@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore
 /**
  * Plugin Name: Product Input Fields for WooCommerce
  * Plugin URI: https://www.tychesoftwares.com/store/premium-plugins/product-input-fields-for-woocommerce/
@@ -149,6 +149,18 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 		 * @since   1.0.0
 		 */
 		public function includes() {
+
+			require_once 'includes/component/plugin-tracking/class-tyche-plugin-tracking.php';
+			new Tyche_Plugin_Tracking(
+				array(
+					'plugin_name'       => 'Product Input Fields for WooCommerce',
+					'plugin_locale'     => 'product-input-fields-for-woocommerce',
+					'plugin_short_name' => 'pif_lite',
+					'version'           => ALG_WC_PIF_VERSION,
+					'blog_link'         => 'https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking',
+				)
+			);
+
 			// Functions.
 			require_once 'includes/alg-wc-pif-functions.php';
 			// Settings.
@@ -181,8 +193,21 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 			require_once 'includes/class-alg-wc-pif-core.php';
 
 			if ( is_admin() ) {
-				require_once 'includes/class-pif-data-tracking.php';
-				require_once 'includes/class-pif-tracking-functions.php';
+				require_once 'includes/class-alg-wc-pif-tracking.php';
+
+				$pif_plugin_url = plugins_url() . '/product-input-fields-for-woocommerce';
+
+				// plugin deactivation.
+				require_once 'includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php';
+				new Tyche_Plugin_Deactivation(
+					array(
+						'plugin_name'       => 'Product Input Fields for WooCommerce',
+						'plugin_base'       => 'product-input-fields-for-woocommerce/product-input-fields-for-woocommerce.php',
+						'script_file'       => $pif_plugin_url . '/includes/js/plugin-deactivation.js',
+						'plugin_short_name' => 'pif_lite',
+						'version'           => ALG_WC_PIF_VERSION,
+					)
+				);
 			}
 		}
 

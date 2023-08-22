@@ -117,7 +117,7 @@ if ( ! class_exists( 'Tyche_Plugin_Deactivation' ) ) {
 		public function plugin_action_links( $links ) {
 
 			if ( isset( $links['deactivate'] ) ) {
-				$links['deactivate'] .= '<i class="' . $this->plugin_short_name . ' ts-slug" data-slug="' . $this->plugin_base . '"></i>';
+				$links['deactivate'] .= '<i class="' . $this->plugin_short_name . ' ts-slug" data-slug="' . $this->plugin_base . '" data-plugin="' . $this->plugin_name . '"></i>';
 			}
 
 			return $links;
@@ -177,7 +177,7 @@ if ( ! class_exists( 'Tyche_Plugin_Deactivation' ) ) {
 		 */
 		public function tyche_plugin_deactivation_submit_action() {
 
-			if ( ! wp_verify_nonce( $_POST['nonce'], 'tyche_plugin_deactivation_submit_action' ) || ! isset( $_POST['reason_id'] ) || ! isset( $_POST['reason_text'] ) ) { // phpcs:ignore
+			if ( ! wp_verify_nonce( $_POST['nonce'], 'tyche_plugin_deactivation_submit_action' ) || ! isset( $_POST['reason_id'] ) || ! isset( $_POST['reason_text'] ) || ! isset( $_POST['plugin_short_name'] ) || ! isset( $_POST['plugin_name'] ) ) { // phpcs:ignore
 				wp_send_json_error( 0 );
 			}
 
@@ -193,10 +193,10 @@ if ( ! class_exists( 'Tyche_Plugin_Deactivation' ) ) {
 					'body'        => wp_json_encode(
 						array(
 							'action'      => 'plugin-deactivation',
-							'plugin_slug' => $this->plugin_short_name,
+							'plugin_slug' => isset( $_POST['plugin_short_name'] ) ? sanitize_text_field( wp_unslash( $_POST['plugin_short_name'] ) ) : '',
 							'url'         => home_url(),
 							'email'       => apply_filters( 'ts_tracker_admin_email', get_option( 'admin_email' ) ),
-							'plugin_name' => $this->plugin_name,
+							'plugin_name' => isset( $_POST['plugin_name'] ) ? sanitize_text_field( wp_unslash( $_POST['plugin_name'] ) ) : '',
 							'reason_id'   => isset( $_POST['reason_id'] ) ? sanitize_text_field( wp_unslash( $_POST['reason_id'] ) ) : '',
 							'reason_text' => isset( $_POST['reason_text'] ) ? sanitize_text_field( wp_unslash( $_POST['reason_text'] ) ) : '',
 							'reason_info' => isset( $_POST['reason_info'] ) ? sanitize_text_field( wp_unslash( $_POST['reason_info'] ) ) : '',

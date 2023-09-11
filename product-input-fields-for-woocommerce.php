@@ -206,6 +206,7 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 						'script_file'       => $pif_plugin_url . '/includes/js/plugin-deactivation.js',
 						'plugin_short_name' => 'pif_lite',
 						'version'           => ALG_WC_PIF_VERSION,
+						'plugin_locale'     => 'product-input-fields-for-woocommerce',
 					)
 				);
 			}

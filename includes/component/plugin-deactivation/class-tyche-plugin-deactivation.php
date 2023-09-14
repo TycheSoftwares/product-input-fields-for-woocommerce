@@ -43,6 +43,13 @@ if ( ! class_exists( 'Tyche_Plugin_Deactivation' ) ) {
 		private $plugin_name = '';
 
 		/**
+		 * Plugin Locale.
+		 *
+		 * @var string $plugin_locale
+		 */
+		private $plugin_locale = '';
+
+		/**
 		 * Plugin Short Name.
 		 *
 		 * @var string $plugin_short_name
@@ -93,7 +100,7 @@ if ( ! class_exists( 'Tyche_Plugin_Deactivation' ) ) {
 				return false;
 			}
 
-			if ( ! isset( $options['plugin_name'] ) || ! isset( $options['plugin_base'] ) || ! isset( $options['script_file'] ) || ! isset( $options['plugin_short_name'] ) || ! isset( $options['version'] ) ) {
+			if ( ! isset( $options['plugin_name'] ) || ! isset( $options['plugin_base'] ) || ! isset( $options['script_file'] ) || ! isset( $options['plugin_short_name'] ) || ! isset( $options['version'] ) || ! isset( $options['plugin_locale'] ) ) {
 				return false;
 			}
 
@@ -102,6 +109,7 @@ if ( ! class_exists( 'Tyche_Plugin_Deactivation' ) ) {
 			$this->script_file       = $options['script_file'];
 			$this->plugin_short_name = $options['plugin_short_name'];
 			$this->version           = $options['version'];
+			$this->plugin_locale     = $options['plugin_locale'];
 
 			return true;
 		}
@@ -161,9 +169,10 @@ if ( ! class_exists( 'Tyche_Plugin_Deactivation' ) ) {
 				'tyche_plugin_deactivation_' . $this->plugin_short_name,
 				'tyche_plugin_deactivation_' . $this->plugin_short_name . '_js',
 				array(
-					'deactivation_data' => $data,
-					'ajax_url'          => admin_url( 'admin-ajax.php' ),
-					'nonce'             => wp_create_nonce( 'tyche_plugin_deactivation_submit_action' ),
+					'deactivation_data'    => $data,
+					'ajax_url'             => admin_url( 'admin-ajax.php' ),
+					'nonce'                => wp_create_nonce( 'tyche_plugin_deactivation_submit_action' ),
+					'deactivation_req_msg' => __( 'Please select a reason for deactivation!', $this->plugin_locale ),//phpcs:ignore
 				)
 			);
 

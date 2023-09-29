@@ -7,3 +7,5 @@ tasks/node_modules
 tasks/node_modules/*
 
 **/*.log
+workspace.code-workspace
+.vscode/*

@@ -50,7 +50,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 				add_filter( 'woocommerce_add_cart_item_data', array( $this, 'add_product_input_fields_to_cart_item_data' ), PHP_INT_MAX, 3 );
 				add_filter( 'woocommerce_get_cart_item_from_session', array( $this, 'get_cart_item_product_input_fields_from_session' ), PHP_INT_MAX, 3 );
 				// Show details at cart.
-				add_filter( 'woocommerce_cart_item_name', array( $this, 'add_product_input_fields_to_cart_item_name' ), PHP_INT_MAX, 3 );
+				add_filter( 'woocommerce_get_item_data', array( $this, 'add_product_input_fields_to_cart_item_name' ), PHP_INT_MAX, 3 );
 				// Add item meta from cart to order.
 				if ( version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' ) ) {
 					add_action( 'woocommerce_add_order_item_meta', array( $this, 'add_product_input_fields_to_order_item_meta' ), PHP_INT_MAX, 3 );
@@ -351,14 +351,41 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 		/**
 		 * Adds product input values to cart item details.
 		 *
-		 * @param string $name Product title.
-		 * @param array  $cart_item Cart Item data.
-		 * @param string $cart_item_key Cart ITem Key.
+		 * @param array  $other_data Other data.
+		 * @param string $item Cart ITem.
 		 * @version 1.0.0
 		 * @since   1.0.0
 		 */
-		public function add_product_input_fields_to_cart_item_name( $name, $cart_item, $cart_item_key ) {
-			return $this->add_product_input_fields_to_order_item_name( $name, $cart_item, true );
+		public function add_product_input_fields_to_cart_item_name( $other_data, $item ) {
+			$product_input_fields_html = '';
+			$is_cart                   = false;
+			$product_input_fields      = isset( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) ? maybe_unserialize( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) : array();
+			foreach ( $product_input_fields as $product_input_field ) {
+				$value = isset( $product_input_field['_value'] ) ? $product_input_field['_value'] : '';
+				if ( 'checkbox' === $product_input_field['type'] ) {
+					$value = ( 'yes' === $value ) ? $product_input_field['type_checkbox_yes'] : $product_input_field['type_checkbox_no'];
+				}
+				if ( 'file' === $product_input_field['type'] ) {
+					$value = maybe_unserialize( $value );
+					$value = ( isset( $value['name'] ) ) ? $value['name'] : '';
+				}
+				if ( '' !== $value ) {
+					$value = is_array( $value ) ? implode( ', ', $value ) : $value;
+					if (
+					( $is_cart ||
+					'textarea' === $product_input_field['type'] ) && strpos( $name, '<a href' ) !== false
+					) {
+						$product_input_fields_html .= '<dt class="alg-pif-dt ' . $product_input_field['type'] . '">' . $product_input_field['title'] . '</dt><dd class="alg-pif-dd ' . $product_input_field['type'] . '">' . $value . '</dd>'; /* . '<pre>' . print_r( $product_input_field, true ) . '</pre>' */
+					} else {
+						$product_input_fields_html .= str_replace( array( '%title%', '%value%' ), array( $product_input_field['title'], $value ), get_wc_pif_option( 'frontend_order_table_format', '&nbsp;| %title% %value%' ) );
+					}
+				}
+			}
+			$other_data[] = array(
+				'name'  => __( $product_input_field['title'], 'product-input-fields-for-woocommerce' ),//phpcs:ignore
+				'value' => $value,
+			);
+			return $other_data;
 		}
 
 		/**

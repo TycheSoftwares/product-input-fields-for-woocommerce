@@ -12,9 +12,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
 use Automattic\WooCommerce\Utilities\OrderUtil;
 
-if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
+if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 
 	/**
 	 * Main functions to add input meta to cart
@@ -38,45 +39,58 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 		 */
 		public function __construct( $scope ) {
 			$this->scope = $scope;
+
 			if ( 'yes' === get_wc_pif_option( $this->scope . '_enabled', 'yes' ) ) {
+
 				// Show fields at frontend.
 				$position = get_wc_pif_option( 'frontend_position', 'woocommerce_before_add_to_cart_button' );
+
 				if ( 'disable' !== $position ) {
 					add_action( $position, array( $this, 'add_product_input_fields_to_frontend' ), get_wc_pif_option( 'frontend_position_priority', 10 ) );
 				}
+
 				include_once ABSPATH . 'wp-admin/includes/plugin.php'; // Require class-vc-wxr-parser-plugin.php to use is_plugin_active().
+
 				// Process from $_POST/session to cart item data.
 				add_filter( 'woocommerce_add_to_cart_validation', array( $this, 'validate_product_input_fields_on_add_to_cart' ), PHP_INT_MAX, 2 );
 				add_filter( 'woocommerce_add_cart_item_data', array( $this, 'add_product_input_fields_to_cart_item_data' ), PHP_INT_MAX, 3 );
 				add_filter( 'woocommerce_get_cart_item_from_session', array( $this, 'get_cart_item_product_input_fields_from_session' ), PHP_INT_MAX, 3 );
+
 				// Show details at cart.
 				add_filter( 'woocommerce_get_item_data', array( $this, 'add_product_input_fields_to_cart_item_name' ), PHP_INT_MAX, 3 );
 				// Add item meta from cart to order.
 				if ( version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' ) ) {
-					add_action( 'woocommerce_add_order_item_meta', array( $this, 'add_product_input_fields_to_order_item_meta' ), PHP_INT_MAX, 3 );
+					add_action( 'woocommerce_add_order_item_meta', array( $this, 'add_product_input_fields_to_order_item_meta' ), 10, 3 );
 				} else {
-					add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'save_values_in_item' ), PHP_INT_MAX, 4 );
-					add_action( 'woocommerce_new_order_item', array( $this, 'add_product_input_fields_to_order_item_meta_wc3' ), PHP_INT_MAX, 3 );
+					add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'save_values_in_item' ), 10, 4 );
+					add_action( 'woocommerce_new_order_item', array( $this, 'add_product_input_fields_to_order_item_meta_wc3' ), 10, 3 );
 				}
+
 				// Add option to hover textarea value on frontend showing its full value.
 				add_action( 'wp_head', array( $this, 'hover_textarea_value' ) );
+
 				// Text Area Auto Height option.
 				add_action( 'wp_head', array( $this, 'textarea_auto_height' ) );
 			}
+
 			// Show details at order details, emails.
-			add_filter( 'woocommerce_order_item_name', array( $this, 'add_product_input_fields_to_order_item_name' ), PHP_INT_MAX, 2 );
+			add_action( 'woocommerce_order_item_name', array( $this, 'add_product_input_fields_to_order_item_name' ), 10, 2 );
+
 			// Output product input fields in order at backend.
-			add_action( 'woocommerce_before_order_itemmeta', array( $this, 'output_custom_input_fields_in_admin_order' ), 10, 3 );
+			add_action( 'woocommerce_before_order_itemmeta', array( $this, 'output_custom_input_fields_in_admin_order' ), 10, 2 );
+
 			add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'update_order_meta_fields' ), 10, 2 );
+
 			// Output product input fields in invoice plugin.
 			add_action( 'wpo_wcpdf_after_item_meta', array( $this, 'output_custom_input_fields_in_invoice_plugin' ), 10, 3 );
+
 			// Add to emails.
 			add_filter( 'woocommerce_email_attachments', array( $this, 'add_files_to_email_attachments' ), PHP_INT_MAX, 3 );
-			// Setups Advanced Order Export For WooCommerce plugin.
-			add_filter( 'woe_get_order_product_value_apif', array( $this, 'setup_adv_order_export_plugin_column' ), 10, 5 );
-			add_filter( 'woe_get_order_product_fields', array( $this, 'add_input_fields_columns_to_adv_order_export_plugin' ) );
 
-			add_filter( 'woocommerce_order_again_cart_item_data', array( $this, 'pif_order_again_cart_item_data' ), 10, 3 );
+			// Setup Advanced Order Export For WooCommerce plugin.
+			add_filter( 'woe_get_order_product_value_apif', array( $this, 'setup_adv_order_export_plugin_column' ), PHP_INT_MAX, 5 );
+			add_filter( 'woe_get_order_product_fields', array( $this, 'add_input_fields_columns_to_adv_order_export_plugin' ), PHP_INT_MAX );
+			add_filter( 'woocommerce_order_again_cart_item_data', array( $this, 'pif_order_again_cart_item_data' ), PHP_INT_MAX, 3 );
 		}
 
 		/**
@@ -115,7 +129,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 		 * @return string
 		 */
 		public function setup_adv_order_export_plugin_column( $value, \WC_Order $order, \WC_Order_Item_Product $item, $product, $itemmeta ) {
-			$value .= $this->output_custom_input_fields_in_admin_order( $item->get_id(), $item, $product, false, true );
+			$value .= $this->output_custom_input_fields_in_admin_order( $item->get_id(), $item, false, true );
 			return $value;
 		}
 
@@ -131,7 +145,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 		 * @param WC_Order              $order Order object.
 		 */
 		public function output_custom_input_fields_in_invoice_plugin( $type, $item, $order ) {
-			$this->output_custom_input_fields_in_admin_order( $item['item_id'], $item['item'], wc_get_product( $item['product_id'] ) );
+			$this->output_custom_input_fields_in_admin_order( $item['item_id'], $item['item'] );
 		}
 
 		/**
@@ -398,7 +412,6 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 		 * @since   1.0.0
 		 */
 		public function add_product_input_fields_to_order_item_name( $name, $item, $is_cart = false ) {
-
 			if ( ( ( is_cart() && strpos( $name, '<a href' ) !== false && ! wp_doing_ajax() ) || is_checkout() ) && ! is_product() &&
 			! ( is_wc_endpoint_url( 'view-order' ) || is_wc_endpoint_url( 'order-received' ) ) ) {
 				$product_input_fields_html = '';
@@ -521,25 +534,17 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 			wc_add_order_item_meta( $item_id, '_' . ALG_WC_PIF_ID . '_' . $this->scope, $_product_input_fields );
 		}
 
-
-			//do_action( 'woocommerce_checkout_update_order_meta', $order_id, $data );
-
 		/**
-		 * Output_custom_input_fields_in_admin_order.
+		 * Update Order Meta Fields.
 		 *
-		 * @param int                   $item_id Order Item ID.
-		 * @param WC_Order_item_product $item Order Item object.
-		 * @param WC_Product            $_product Product Object.
-		 * @param bool                  $echo Whether to echo html or return it.
-		 * @param bool                  $simple_text print it in simple text or not.
-		 * @version 1.2.0
-		 * @since   1.0.0
-		 * @todo    (later) make fields editable
+		 * @param int   $order_id Order ID.
+		 * @param array $data Order data.
 		 */
 		public function update_order_meta_fields( $order_id, $data ) {
 			foreach ( WC()->cart->cart_contents as $cart_item ) {
 				$order = wc_get_order( $order_id );
-				if ( isset( $cart_item['alg_wc_pif_local'] ) ) {
+
+				if ( $order && isset( $cart_item['alg_wc_pif_local'] ) ) {
 					if ( $this->pif_wc_hpos_enabled() ) {
 						$order->update_meta_data( '_alg_wc_pif_local', $cart_item['alg_wc_pif_local'] );
 						$order->save();
@@ -547,7 +552,8 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 						update_post_meta( $order_id, '_alg_wc_pif_local', $cart_item['alg_wc_pif_local'] );
 					}
 				}
-				if ( isset( $cart_item['alg_wc_pif_global'] ) ) {
+
+				if ( $order && isset( $cart_item['alg_wc_pif_global'] ) ) {
 					if ( $this->pif_wc_hpos_enabled() ) {
 						$order->update_meta_data( '_alg_wc_pif_global', $cart_item['alg_wc_pif_global'] );
 						$order->save();
@@ -562,18 +568,13 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 		 *
 		 * @param int                   $item_id Order Item ID.
 		 * @param WC_Order_item_product $item Order Item object.
-		 * @param WC_Product            $_product Product Object.
 		 * @param bool                  $echo Whether to echo html or return it.
 		 * @param bool                  $simple_text print it in simple text or not.
 		 * @version 1.2.0
 		 * @since   1.0.0
-		 * @todo    (later) make fields editable
 		 */
-		public function output_custom_input_fields_in_admin_order( $item_id, $item, $_product, $echo = true, $simple_text = false ) {
-			if ( null === $_product ) {
-				// Shipping.
-				return;
-			}
+		public function output_custom_input_fields_in_admin_order( $item_id, $item, $echo = true, $simple_text = false ) {
+
 			if ( version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' ) ) {
 				if ( ! isset( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) || ! is_serialized( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) ) {
 					return;
@@ -583,6 +584,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 					return;
 				}
 			}
+
 			$html                 = '';
 			$product_input_fields = ( version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' ) ?
 			unserialize( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) :
@@ -590,26 +592,30 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 			);
 
 			foreach ( $product_input_fields as $product_input_field ) {
-				if ( ! (
-					isset( $product_input_field['title'] ) &&
-					isset( $product_input_field['_field_nr'] ) &&
-					isset( $product_input_field['_value'] ) &&
-					isset( $product_input_field['type'] )
-				) ) {
+				if ( ! isset( $product_input_field['title'] ) || ! isset( $product_input_field['_field_nr'] ) || ! isset( $product_input_field['_value'] ) || ! isset( $product_input_field['type'] ) ) {
 					continue;
 				}
+
 				$title = $product_input_field['title'];
 				if ( '' === $title ) {
 					$title = __( 'Product Input Field', 'product-input-fields-for-woocommerce' ) . ' (' . $this->scope . ') #' . $product_input_field['_field_nr'];
 				}
+
 				$_value = $product_input_field['_value'];
+
+				if ( 'checkbox' === $product_input_field['type'] ) {
+					$_value = ( 'yes' === $_value ) ? $product_input_field['type_checkbox_yes'] : $product_input_field['type_checkbox_no'];
+				}
+
 				if ( 'file' === $product_input_field['type'] ) {
 					$_value = maybe_unserialize( $_value );
 					$_value = ( isset( $_value['name'] ) && '' !== $_value['name'] ) ?
 					'<a href="' . add_query_arg( 'alg_wc_pif_download_file', $item_id . '_' . $_value['name'] ) . '">' . $_value['name'] . '</a>' : '';
 				}
+
 				if ( '' !== $_value ) {
 					$_value = is_array( $_value ) ? implode( ', ', $_value ) : $_value;
+
 					if ( $simple_text ) {
 						$html .= "\n" . $title . ': ' . $_value;
 					} else {
@@ -617,6 +623,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 					}
 				}
 			}
+
 			if ( $echo ) {
 				echo wp_kses_post( $html );
 			} else {
@@ -663,7 +670,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 		}
 
 		/**
-		 * Adds input fields when Order Again is called
+		 * Adds input fields when Order Again is called.
 		 *
 		 * @param array $cart_item_meta Cart Item Array.
 		 * @param array $product        Products in the cart.
@@ -685,5 +692,4 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) :
 		}
 
 	}
-
-endif;
+}

@@ -57,8 +57,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 				add_filter( 'woocommerce_get_cart_item_from_session', array( $this, 'get_cart_item_product_input_fields_from_session' ), PHP_INT_MAX, 3 );
 
 				// Show details at cart.
-				add_filter( 'woocommerce_cart_item_name', array( $this, 'add_product_input_fields_to_cart_item_name' ), PHP_INT_MAX, 2 );
-
+				add_filter( 'woocommerce_get_item_data', array( $this, 'add_product_input_fields_to_cart_item_name' ), PHP_INT_MAX, 3 );
 				// Add item meta from cart to order.
 				if ( version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' ) ) {
 					add_action( 'woocommerce_add_order_item_meta', array( $this, 'add_product_input_fields_to_order_item_meta' ), 10, 3 );
@@ -75,7 +74,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 			}
 
 			// Show details at order details, emails.
-			add_action( 'woocommerce_order_item_meta_start', array( $this, 'output_custom_input_fields_in_admin_order' ), 10, 2 );
+			add_action( 'woocommerce_order_item_name', array( $this, 'add_product_input_fields_to_order_item_name' ), 10, 2 );
 
 			// Output product input fields in order at backend.
 			add_action( 'woocommerce_before_order_itemmeta', array( $this, 'output_custom_input_fields_in_admin_order' ), 10, 2 );
@@ -366,54 +365,88 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 		/**
 		 * Adds product input values to cart item details.
 		 *
-		 * @param string                $name Product title.
-		 * @param WC_Order_item_Product $item Order Item.
+		 * @param array  $other_data Other data.
+		 * @param string $item Cart ITem.
 		 * @version 1.0.0
 		 * @since   1.0.0
 		 */
-		public function add_product_input_fields_to_cart_item_name( $name, $item ) {
-
-			if ( is_product() || is_wc_endpoint_url( 'view-order' ) || is_wc_endpoint_url( 'order-received' ) || ! ( ( is_cart() && strpos( $name, '<a href' ) !== false && ! wp_doing_ajax() ) || is_checkout() ) ) {
-				return $name;
-			}
-
+		public function add_product_input_fields_to_cart_item_name( $other_data, $item ) {
 			$product_input_fields_html = '';
+			$is_cart                   = false;
 			$product_input_fields      = isset( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) ? maybe_unserialize( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) : array();
-
 			foreach ( $product_input_fields as $product_input_field ) {
-
 				$value = isset( $product_input_field['_value'] ) ? $product_input_field['_value'] : '';
-
 				if ( 'checkbox' === $product_input_field['type'] ) {
 					$value = ( 'yes' === $value ) ? $product_input_field['type_checkbox_yes'] : $product_input_field['type_checkbox_no'];
 				}
-
 				if ( 'file' === $product_input_field['type'] ) {
 					$value = maybe_unserialize( $value );
 					$value = ( isset( $value['name'] ) ) ? $value['name'] : '';
 				}
-
 				if ( '' !== $value ) {
 					$value = is_array( $value ) ? implode( ', ', $value ) : $value;
-					if ( ( is_cart() || 'textarea' === $product_input_field['type'] ) && strpos( $name, '<a href' ) !== false ) {
-						$product_input_fields_html .= '<dt class="alg-pif-dt ' . $product_input_field['type'] . '">' . $product_input_field['title'] . '</dt><dd class="alg-pif-dd ' . $product_input_field['type'] . '">' . $value . '</dd>';
+					if (
+					( $is_cart ||
+					'textarea' === $product_input_field['type'] ) && strpos( $name, '<a href' ) !== false
+					) {
+						$product_input_fields_html .= '<dt class="alg-pif-dt ' . $product_input_field['type'] . '">' . $product_input_field['title'] . '</dt><dd class="alg-pif-dd ' . $product_input_field['type'] . '">' . $value . '</dd>'; /* . '<pre>' . print_r( $product_input_field, true ) . '</pre>' */
 					} else {
 						$product_input_fields_html .= str_replace( array( '%title%', '%value%' ), array( $product_input_field['title'], $value ), get_wc_pif_option( 'frontend_order_table_format', '&nbsp;| %title% %value%' ) );
 					}
 				}
 			}
+			$other_data[] = array(
+				'name'  => __( $product_input_field['title'], 'product-input-fields-for-woocommerce' ),//phpcs:ignore
+				'value' => $value,
+			);
+			return $other_data;
+		}
 
-			if ( '' !== $product_input_fields_html ) {
-				if ( is_cart() && strpos( $name, '<a href' ) !== false ) {
-					$name .= '<dl style="font-size:smaller;">';
+		/**
+		 * Adds product input values to order details (and emails).
+		 *
+		 * @param string                $name Product title.
+		 * @param WC_Order_item_Product $item Order Item.
+		 * @param bool                  $is_cart Whether its cart or not.
+		 * @version 1.1.4
+		 * @since   1.0.0
+		 */
+		public function add_product_input_fields_to_order_item_name( $name, $item, $is_cart = false ) {
+			if ( ( ( is_cart() && strpos( $name, '<a href' ) !== false && ! wp_doing_ajax() ) || is_checkout() ) && ! is_product() &&
+			! ( is_wc_endpoint_url( 'view-order' ) || is_wc_endpoint_url( 'order-received' ) ) ) {
+				$product_input_fields_html = '';
+				$product_input_fields      = isset( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) ? maybe_unserialize( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) : array();
+				foreach ( $product_input_fields as $product_input_field ) {
+					$value = isset( $product_input_field['_value'] ) ? $product_input_field['_value'] : '';
+					if ( 'checkbox' === $product_input_field['type'] ) {
+						$value = ( 'yes' === $value ) ? $product_input_field['type_checkbox_yes'] : $product_input_field['type_checkbox_no'];
+					}
+					if ( 'file' === $product_input_field['type'] ) {
+						$value = maybe_unserialize( $value );
+						$value = ( isset( $value['name'] ) ) ? $value['name'] : '';
+					}
+					if ( '' !== $value ) {
+						$value = is_array( $value ) ? implode( ', ', $value ) : $value;
+						if (
+						( $is_cart ||
+						'textarea' === $product_input_field['type'] ) && strpos( $name, '<a href' ) !== false
+						) {
+							$product_input_fields_html .= '<dt class="alg-pif-dt ' . $product_input_field['type'] . '">' . $product_input_field['title'] . '</dt><dd class="alg-pif-dd ' . $product_input_field['type'] . '">' . $value . '</dd>'; /* . '<pre>' . print_r( $product_input_field, true ) . '</pre>' */
+						} else {
+							$product_input_fields_html .= str_replace( array( '%title%', '%value%' ), array( $product_input_field['title'], $value ), get_wc_pif_option( 'frontend_order_table_format', '&nbsp;| %title% %value%' ) );
+						}
+					}
 				}
-
-				$name .= $product_input_fields_html;
-				if ( is_cart() && strpos( $name, '<a href' ) !== false ) {
-					$name .= '</dl>';
+				if ( '' !== $product_input_fields_html ) {
+					if ( $is_cart && strpos( $name, '<a href' ) !== false ) {
+						$name .= '<dl style="font-size:smaller;">';
+					}
+					$name .= $product_input_fields_html;
+					if ( $is_cart && strpos( $name, '<a href' ) !== false ) {
+						$name .= '</dl>';
+					}
 				}
 			}
-
 			return $name;
 		}
 

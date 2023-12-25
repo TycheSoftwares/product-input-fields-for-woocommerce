@@ -394,11 +394,11 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 						$product_input_fields_html .= str_replace( array( '%title%', '%value%' ), array( $product_input_field['title'], $value ), get_wc_pif_option( 'frontend_order_table_format', '&nbsp;| %title% %value%' ) );
 					}
 				}
+				$other_data[] = array(
+					'name'  => __( $product_input_field['title'], 'product-input-fields-for-woocommerce' ),//phpcs:ignore
+					'value' => $value,
+				);
 			}
-			$other_data[] = array(
-				'name'  => __( $product_input_field['title'], 'product-input-fields-for-woocommerce' ),//phpcs:ignore
-				'value' => $value,
-			);
 			return $other_data;
 		}
 

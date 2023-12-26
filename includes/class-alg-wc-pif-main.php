@@ -58,6 +58,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 
 				// Show details at cart.
 				add_filter( 'woocommerce_get_item_data', array( $this, 'add_product_input_fields_to_cart_item_name' ), PHP_INT_MAX, 3 );
+
 				// Add item meta from cart to order.
 				if ( version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' ) ) {
 					add_action( 'woocommerce_add_order_item_meta', array( $this, 'add_product_input_fields_to_order_item_meta' ), 10, 3 );
@@ -74,7 +75,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 			}
 
 			// Show details at order details, emails.
-			add_action( 'woocommerce_order_item_name', array( $this, 'add_product_input_fields_to_order_item_name' ), 10, 2 );
+			add_action( 'woocommerce_order_item_meta_start', array( $this, 'output_custom_input_fields_in_admin_order' ), 10, 2 );
 
 			// Output product input fields in order at backend.
 			add_action( 'woocommerce_before_order_itemmeta', array( $this, 'output_custom_input_fields_in_admin_order' ), 10, 2 );
@@ -416,6 +417,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 			! ( is_wc_endpoint_url( 'view-order' ) || is_wc_endpoint_url( 'order-received' ) ) ) {
 				$product_input_fields_html = '';
 				$product_input_fields      = isset( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) ? maybe_unserialize( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) : array();
+				
 				foreach ( $product_input_fields as $product_input_field ) {
 					$value = isset( $product_input_field['_value'] ) ? $product_input_field['_value'] : '';
 					if ( 'checkbox' === $product_input_field['type'] ) {
@@ -427,6 +429,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 					}
 					if ( '' !== $value ) {
 						$value = is_array( $value ) ? implode( ', ', $value ) : $value;
+						
 						if (
 						( $is_cart ||
 						'textarea' === $product_input_field['type'] ) && strpos( $name, '<a href' ) !== false
@@ -586,10 +589,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 			}
 
 			$html                 = '';
-			$product_input_fields = ( version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' ) ?
-			unserialize( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) :
-			$item->get_meta( '_' . ALG_WC_PIF_ID . '_' . $this->scope )
-			);
+			$product_input_fields = ( version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' ) ? unserialize( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) : $item->get_meta( '_' . ALG_WC_PIF_ID . '_' . $this->scope ) );
 
 			foreach ( $product_input_fields as $product_input_field ) {
 				if ( ! isset( $product_input_field['title'] ) || ! isset( $product_input_field['_field_nr'] ) || ! isset( $product_input_field['_value'] ) || ! isset( $product_input_field['type'] ) ) {

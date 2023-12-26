@@ -2,7 +2,7 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 6.2
+Tested up to: 6.4.2
 Stable tag: trunk
 Requires PHP: 7.3
 License: GNU General Public License v3.0
@@ -105,6 +105,11 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 5. Setting local (i.e. on per product basis) product input field options.
 
 == Changelog ==
+
+= 1.7.0 - 26/12/2022 =
+* Fix - Input fields data are not appear on woocommerce emails.
+* Fix - Warnings errors from cart & checkout page.
+* Fix - The selected Input field value does not appear on the Cart and Checkout block page.
 
 = 1.6.0 - 22/08/2022 =
 * Fix - Slow load time issue on the admin dashboard panel.

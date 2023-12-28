@@ -21,6 +21,20 @@ if ( ! class_exists( 'Alg_WC_PIF_Settings_Per_Product' ) ) :
 	class Alg_WC_PIF_Settings_Per_Product extends Alg_WC_PIF_Settings_Section {
 
 		/**
+		 * Unique identifier.
+		 *
+		 * @var string ID.
+		 */
+		public $id;
+
+		/**
+		 * Description for the field
+		 *
+		 * @var string Description.
+		 */
+		public $desc;
+
+		/**
 		 * Constructor.
 		 *
 		 * @version 1.0.0

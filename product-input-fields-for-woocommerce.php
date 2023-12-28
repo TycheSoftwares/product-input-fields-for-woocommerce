@@ -67,6 +67,14 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 	final class Alg_WC_PIF {
 
 		/**
+		 * Setting
+		 *
+		 * @var string Setting.
+		 * @access public
+		 */
+		public $settings = array();
+
+		/**
 		 * Variable
 		 *
 		 * @var string Version.

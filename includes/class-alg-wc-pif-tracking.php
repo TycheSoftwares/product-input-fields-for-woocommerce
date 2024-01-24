@@ -61,6 +61,7 @@ if ( ! class_exists( 'Pif_Tracking_Functions' ) ) :
 		public static function ts_admin_notices_scripts() {
 
 			$pif_plugin_url = plugins_url() . '/product-input-fields-for-woocommerce';
+			$nonce          = wp_create_nonce( 'tracking_notice' );
 
 			wp_enqueue_script(
 				'pif_ts_dismiss_notice',
@@ -76,6 +77,7 @@ if ( ! class_exists( 'Pif_Tracking_Functions' ) ) :
 				array(
 					'ts_prefix_of_plugin' => 'pif_lite',
 					'ts_admin_url'        => admin_url( 'admin-ajax.php' ),
+					'tracking_notice'     => $nonce,
 				)
 			);
 

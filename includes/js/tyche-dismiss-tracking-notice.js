@@ -23,7 +23,8 @@ jQuery(document).ready( function() {
 					jQuery.post(
 						pif_ts_dismiss_notice.ts_admin_url,
 						{
-							action: pif_ts_dismiss_notice.ts_prefix_of_plugin + "_admin_notices"
+							action: pif_ts_dismiss_notice.ts_prefix_of_plugin + "_tracker_dismiss_notice",
+							tracking_notice : pif_ts_dismiss_notice.tracking_notice
 						},
 						function( response ) {}
 					);

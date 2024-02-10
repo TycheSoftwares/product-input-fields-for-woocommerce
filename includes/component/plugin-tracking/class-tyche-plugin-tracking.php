@@ -7,7 +7,7 @@
  * @author      Tyche Softwares
  * @package     TycheSoftwares/PluginTracking
  * @category    Classes
- * @since       1.1
+ * @since       1.2
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -373,13 +373,11 @@ if ( ! class_exists( 'Tyche_Plugin_Tracking' ) ) {
 				}
 			}
 
-			$data['active_plugins']   = $active_plugins;
-			$data['inactive_plugins'] = $plugins;
+			$data['active_plugins']    = $active_plugins;
+			$data['inactive_plugins']  = $plugins;
+			$data['wc_plugin_version'] = WC()->version; // WooCommerce version.
 
-			// WooCommerce version.
-			$data['wc_plugin_version'] = WC()->version;
-
-			return apply_filters( 'ts_tracker_data', $data );
+			return apply_filters( $this->plugin_short_name . '_ts_tracker_data', $data );
 		}
 	}
 }

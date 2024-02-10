@@ -25,7 +25,7 @@ if ( ! class_exists( 'Pif_Tracking_Functions' ) ) :
 		 * @since 1.3.3
 		 */
 		public function __construct() {
-			add_filter( 'ts_tracker_data', array( __CLASS__, 'pif_lite_ts_add_plugin_tracking_data' ), 10, 1 );
+			add_filter( 'pif_lite_ts_tracker_data', array( __CLASS__, 'pif_lite_ts_add_plugin_tracking_data' ), 10, 1 );
 
 			add_action( 'admin_footer', array( __CLASS__, 'ts_admin_notices_scripts' ) );
 			add_action( 'pif_lite_init_tracker_completed', array( __CLASS__, 'init_tracker_completed' ), 10 );

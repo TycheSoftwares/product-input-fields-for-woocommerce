@@ -25,7 +25,7 @@ if ( ! class_exists( 'Pif_Tracking_Functions' ) ) :
 		 * @since 1.3.3
 		 */
 		public function __construct() {
-			add_filter( 'ts_tracker_data', array( __CLASS__, 'pif_lite_ts_add_plugin_tracking_data' ), 10, 1 );
+			add_filter( 'pif_lite_ts_tracker_data', array( __CLASS__, 'pif_lite_ts_add_plugin_tracking_data' ), 10, 1 );
 
 			add_action( 'admin_footer', array( __CLASS__, 'ts_admin_notices_scripts' ) );
 			add_action( 'pif_lite_init_tracker_completed', array( __CLASS__, 'init_tracker_completed' ), 10 );
@@ -61,6 +61,7 @@ if ( ! class_exists( 'Pif_Tracking_Functions' ) ) :
 		public static function ts_admin_notices_scripts() {
 
 			$pif_plugin_url = plugins_url() . '/product-input-fields-for-woocommerce';
+			$nonce          = wp_create_nonce( 'tracking_notice' );
 
 			wp_enqueue_script(
 				'pif_ts_dismiss_notice',
@@ -76,6 +77,7 @@ if ( ! class_exists( 'Pif_Tracking_Functions' ) ) :
 				array(
 					'ts_prefix_of_plugin' => 'pif_lite',
 					'ts_admin_url'        => admin_url( 'admin-ajax.php' ),
+					'tracking_notice'     => $nonce,
 				)
 			);
 

@@ -464,8 +464,10 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 		 * @since   1.1.1
 		 */
 		public function save_values_in_item( $item, $cart_item_key, $values, $order ) {
-			$pif_values        = ALG_WC_PIF_ID . '_values';
-			$item->$pif_values = $values;
+			$pif_values = ALG_WC_PIF_ID . '_values';
+			if ( isset( $item->$pif_values ) ) {
+				$item->$pif_values = $values;
+			}
 		}
 
 		/**

@@ -8,7 +8,7 @@ Requires PHP: 7.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Add custom frontend input fields to WooCommerce products.
+Add custom product input fields to your WooCommerce products. Let customers personalize/customize products effortlessly. Elevate your store experience!
 
 == Description ==
 

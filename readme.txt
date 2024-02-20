@@ -2,7 +2,7 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 6.4.2
+Tested up to: 6.4.3
 Stable tag: trunk
 Requires PHP: 7.3
 License: GNU General Public License v3.0
@@ -105,6 +105,12 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 5. Setting local (i.e. on per product basis) product input field options.
 
 == Changelog ==
+
+= 1.8.0 - 20/02/2024 =
+* Fix - PHP deprecated error is coming in the log file.
+* Fix - Change plugin description.
+* Fix - F j, Y text is appears in the Date picker/ Weekpicker input field.
+* Fix - Cross Site Request Forgery (CSRF) vulnerability.
 
 = 1.7.0 - 26/12/2022 =
 * Fix - Input fields data are not appear on woocommerce emails.

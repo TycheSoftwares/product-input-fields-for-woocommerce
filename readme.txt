@@ -106,6 +106,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
+= 1.8.1 - 20/02/2024 =
+* Fix - Input fields data were not getting passed to the order after v1.8.0 update.
+
 = 1.8.0 - 20/02/2024 =
 * Fix - PHP deprecated error is coming in the log file.
 * Fix - Change plugin description.

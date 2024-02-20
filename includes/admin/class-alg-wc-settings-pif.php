@@ -21,13 +21,6 @@ if ( ! class_exists( 'Alg_WC_Settings_PIF' ) ) :
 	class Alg_WC_Settings_PIF extends WC_Settings_Page {
 
 		/**
-		 * Indicating whether the WooCommerce version is below 3.2.0.
-		 *
-		 * @var string is_wc_version_below_3_2_0.
-		 */
-		public $is_wc_version_below_3_2_0;
-
-		/**
 		 * Constructor.
 		 *
 		 * @version 1.0.0

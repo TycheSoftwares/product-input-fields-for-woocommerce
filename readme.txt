@@ -2,15 +2,19 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 6.5
-Stable tag: trunk
+Tested up to: 6.6.2
+Stable tag: 1.8.2
 Requires PHP: 7.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Add custom product input fields to your WooCommerce products. Let customers personalize/customize products effortlessly. Elevate your store experience!
+Add product addons (fields) to WooCommerce products. Personalise with various product options for WooCommerce. Create product forms for WooCommerce.
 
 == Description ==
+
+> ###🚀&nbsp;&nbsp;New Launch: Flexi BOGO for WooCommerce
+>
+> The only BOGO plugin with a revenue tracking feature. **Now, at an attractive introductory price**. [Check out our new plugin here](https://www.tychesoftwares.com/products/woocommerce-flexi-bogo-plugin/?utm_source=wprepo&utm_medium=pluginpagetop&utm_campaign=ProductInputFields).
 
 [**Product Input Fields for WooCommerce**](https://www.tychesoftwares.com/store/premium-plugins/product-input-fields-for-woocommerce/?utm_source=wprepo&utm_medium=topprolink&utm_campaign=ProductInputFields) plugin lets you add custom input fields to WooCommerce product's frontend for customer to fill before adding product to cart.
 
@@ -45,6 +49,8 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 **Some of our Pro plugins:**
 
+1. **[Flexi BOGO for WooCommerce](https://www.tychesoftwares.com/products/woocommerce-flexi-bogo-plugin/?utm_source=wprepo&utm_medium=pluginpagetop&utm_campaign=ProductInputFields "Flexi BOGO for WooCommerce")**
+
 1. **[Abandoned Cart Pro for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/woocommerce-abandoned-cart-pro/?utm_source=wprepo&utm_medium=link&utm_campaign=ProductInputFields "Abandoned Cart Pro for WooCommerce")**
 
 2. **[Booking & Appointment Plugin for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/woocommerce-booking-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=ProductInputFields "Booking & Appointment Plugin for WooCommerce")**
@@ -72,6 +78,8 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 1. **[Abandoned Cart for WooCommerce](https://wordpress.org/plugins/woocommerce-abandoned-cart/ "Abandoned Cart for WooCommerce")**
 
 2. **[Order Delivery Date for WooCommerce - Lite](https://wordpress.org/plugins/order-delivery-date-for-woocommerce/ "Order Delivery Date for WooCommerce - Lite")**
+
+3. **[Print Invoice & Delivery Notes for WooCommerce](https://wordpress.org/plugins/woocommerce-delivery-notes/ "Print Invoice & Delivery Notes for WooCommerce")**
 
 3. **[Product Delivery Date for WooCommerce - Lite](https://wordpress.org/plugins/product-delivery-date-for-woocommerce-lite/ "Product Delivery Date for WooCommerce")**
 

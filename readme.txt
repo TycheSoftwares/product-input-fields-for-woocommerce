@@ -114,6 +114,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 
 == Changelog ==
 
+= 1.9.0 - 22/10/2024 = 
+* Fix - Deactivation survey request was being sent even though 'Skip & deactivate' was selected while deactivating the plugin.
+
 = 1.8.2 - 02/04/2024 = 
 * Tweak :- Update compatibility with WordPress 6.5.
 * Tweak :- Update compatibility with WooCommerce 8.7.

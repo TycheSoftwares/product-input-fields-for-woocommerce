@@ -210,22 +210,23 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 			if ( current_user_can( 'edit_posts' ) && isset( $_GET['alg_wc_pif_download_file'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 
 				$file_name  = sanitize_text_field( wp_unslash( $_GET['alg_wc_pif_download_file'] ) ); // phpcs:ignore
-				$file_name  = preg_replace( '/..\//', '', $file_name );
-				$file_name  = preg_replace( '/.\//', '', $file_name );
+				$file_name  = preg_replace( '/(\.\.\/|\/\.\.\/|\/)/', '', $file_name ); // Remove any directory traversal.
 				$file_array = explode( '/', $file_name );
 				$file_type  = wp_check_filetype( $file_array[ count( $file_array ) - 1 ] );
 				$upload_dir = alg_get_uploads_dir( 'product_input_fields' );
 
-				if ( '' !== $file_type['ext'] && file_exists( $upload_dir . '/' . $file_name ) ) {
+				if ( '' !== $file_type['ext'] ) {
 					$file_path = $upload_dir . '/' . $file_name;
-					header( 'Expires: 0' );
-					header( 'Cache-Control: must-revalidate, post-check=0, pre-check=0' );
-					header( 'Cache-Control: private', false );
-					header( 'Content-disposition: attachment; filename=' . $file_name );
-					header( 'Content-Transfer-Encoding: binary' );
-					header( 'Content-Length: ' . filesize( $file_path ) );
-					readfile( $file_path );
-					exit();
+					if ( file_exists( $file_path ) && strpos( $file_path, $upload_dir ) === 0 ) {
+						header( 'Expires: 0' );
+						header( 'Cache-Control: must-revalidate, post-check=0, pre-check=0' );
+						header( 'Cache-Control: private', false );
+						header( 'Content-disposition: attachment; filename=' . basename( $file_name ) );
+						header( 'Content-Transfer-Encoding: binary' );
+						header( 'Content-Length: ' . filesize( $file_path ) );
+						readfile( $file_path );
+						exit();
+					}
 				}
 			}
 		}

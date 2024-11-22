@@ -112,6 +112,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 4. Setting global (i.e. for all products) product input field options.
 5. Setting local (i.e. on per product basis) product input field options.
 
+== External Services ==
+This plugin communicates with our tracking server to send usage data **only** if the user has explicitly opted in to usage tracking. For detailed information about what is tracked, please refer to our [usage tracking documentation](https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking/).
+
 == Changelog ==
 
 = 1.9.0 - 22/10/2024 = 

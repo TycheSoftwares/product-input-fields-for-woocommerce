@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-26 12:20+0530\n"
-"PO-Revision-Date: 2023-07-26 12:20+0500\n"
+"POT-Creation-Date: 2024-11-23 00:32+0530\n"
+"PO-Revision-Date: 2024-11-23 00:32+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -16,17 +16,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Eazy Po 0.9.5.3\n"
+"X-Generator: Eazy Po 1.0.0.0\n"
 
-#: product-input-fields-for-woocommerce.php:138
+#: product-input-fields-for-woocommerce.php:150
 msgid "Settings"
 msgstr ""
 
-#: product-input-fields-for-woocommerce.php:140
+#: product-input-fields-for-woocommerce.php:152
 msgid "Unlock All"
 msgstr ""
 
-#: includes/alg-wc-pif-functions.php:322
+#: includes/alg-wc-pif-functions.php:326
 msgid "Select a country&hellip;"
 msgstr ""
 
@@ -44,7 +44,7 @@ msgid "Enable/Disable"
 msgstr ""
 
 #: includes/alg-wc-pif-options.php:47
-#: includes/admin/class-alg-wc-pif-settings-general.php:130
+#: includes/admin/class-alg-wc-pif-settings-general.php:144
 msgid "Enable"
 msgstr ""
 
@@ -454,11 +454,12 @@ msgstr ""
 msgid "One option per line."
 msgstr ""
 
-#: includes/class-alg-wc-pif-main.php:96 includes/class-alg-wc-pif-main.php:97
+#: includes/class-alg-wc-pif-main.php:111
+#: includes/class-alg-wc-pif-main.php:112
 msgid "Input Fields"
 msgstr ""
 
-#: includes/class-alg-wc-pif-main.php:576
+#: includes/class-alg-wc-pif-main.php:601
 #: includes/admin/class-alg-wc-pif-per-product-metabox.php:97
 msgid "Product Input Field"
 msgstr ""
@@ -476,249 +477,249 @@ msgid "Click \"Update\" product after you change this number."
 msgstr ""
 
 #: includes/admin/class-alg-wc-pif-per-product-metabox.php:125
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:44
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:44
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:58
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:58
 #, php-format
 msgid ""
 "Get <a target=\"_blank\" href=\"%s\">Product Input Fields for WooCommerce "
 "Pro</a> plugin to add more than one product input field."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products-field.php:32
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:31
+#: includes/admin/class-alg-wc-pif-settings-all-products-field.php:53
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:45
 msgid "All Products"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products-field.php:32
+#: includes/admin/class-alg-wc-pif-settings-all-products-field.php:53
 msgid "Field"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products-field.php:50
+#: includes/admin/class-alg-wc-pif-settings-all-products-field.php:71
 #, php-format
 msgid "Product Input Field #%d"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:47
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:61
 msgid "Product Input Fields Global Options"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:48
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:62
 msgid ""
 "When enabled this section will add new settings section for each product "
 "input field."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:53
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:67
 msgid "Product Input Fields - All Products"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:54
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:55
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:68
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:69
 msgid "Enable section"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:55
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:69
 msgid "Add custom input fields to all products."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:61
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:75
 msgid "Product Input Fields Number"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-all-products.php:62
+#: includes/admin/class-alg-wc-pif-settings-all-products.php:76
 msgid ""
 "After you save this number, new settings sections for each product input "
 "field will appear."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:31
+#: includes/admin/class-alg-wc-pif-settings-general.php:45
 msgid "General"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:47
+#: includes/admin/class-alg-wc-pif-settings-general.php:61
 msgid "Product Input Fields Options"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:52
+#: includes/admin/class-alg-wc-pif-settings-general.php:66
 #: includes/admin/class-alg-wc-settings-pif.php:31
 msgid "Product Input Fields"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:53
+#: includes/admin/class-alg-wc-pif-settings-general.php:67
 msgid "Enable plugin"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:54
+#: includes/admin/class-alg-wc-pif-settings-general.php:68
 msgid "WooCommerce Product Input Fields."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:68
+#: includes/admin/class-alg-wc-pif-settings-general.php:82
 msgid "Frontend Options"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:73
+#: includes/admin/class-alg-wc-pif-settings-general.php:87
 msgid "Position"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:75
+#: includes/admin/class-alg-wc-pif-settings-general.php:89
 #, php-format
 msgid ""
 "If set to \"Do not display\", alternatively you can use %1$s shortcode, or "
 "PHP %2$s function."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:83
+#: includes/admin/class-alg-wc-pif-settings-general.php:97
 msgid "Before add to cart button"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:84
+#: includes/admin/class-alg-wc-pif-settings-general.php:98
 msgid "After add to cart button"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:85
+#: includes/admin/class-alg-wc-pif-settings-general.php:99
 msgid "Do not display"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:89
+#: includes/admin/class-alg-wc-pif-settings-general.php:103
 msgid "Position Priority"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:90
+#: includes/admin/class-alg-wc-pif-settings-general.php:104
 msgid "Ignored if \"Position\" is set to \"Do not display\"."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:96
+#: includes/admin/class-alg-wc-pif-settings-general.php:110
 msgid "HTML to Add Before Product Input Fields"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:103
+#: includes/admin/class-alg-wc-pif-settings-general.php:117
 msgid "Product Input Field Template"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:104
+#: includes/admin/class-alg-wc-pif-settings-general.php:118
 msgid "Replaced values:"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:106
+#: includes/admin/class-alg-wc-pif-settings-general.php:120
 #, php-format
 msgid "Alternatively try e.g.: %s"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:115
+#: includes/admin/class-alg-wc-pif-settings-general.php:129
 msgid "HTML to Add After Product Input Fields"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:122
+#: includes/admin/class-alg-wc-pif-settings-general.php:136
 msgid "HTML to Add After Required Field Title"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:129
+#: includes/admin/class-alg-wc-pif-settings-general.php:143
 msgid "Add HTML Required Attribute"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:136
+#: includes/admin/class-alg-wc-pif-settings-general.php:150
 msgid "Item Name Order Table Format"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:137
+#: includes/admin/class-alg-wc-pif-settings-general.php:151
 msgid "Affects Thank You page, Emails etc."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:144
+#: includes/admin/class-alg-wc-pif-settings-general.php:158
 msgid "Refill Fields with Previous Input"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:145
+#: includes/admin/class-alg-wc-pif-settings-general.php:159
 msgid "Refill"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:151
+#: includes/admin/class-alg-wc-pif-settings-general.php:165
 msgid "Smart Textarea"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:152
+#: includes/admin/class-alg-wc-pif-settings-general.php:166
 msgid ""
 "Show only the textarea excerpt on frontend and hovering it will make it "
 "display the full content"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:158
+#: includes/admin/class-alg-wc-pif-settings-general.php:172
 msgid "Textarea Auto Height"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:159
+#: includes/admin/class-alg-wc-pif-settings-general.php:173
 msgid "Makes the textarea auto increase its height as users type"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:165
+#: includes/admin/class-alg-wc-pif-settings-general.php:179
 msgid "Load Timepicker Script"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:166
+#: includes/admin/class-alg-wc-pif-settings-general.php:180
 msgid "Enqueues Timepicker CSS/JS"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:167
+#: includes/admin/class-alg-wc-pif-settings-general.php:181
 msgid "If you are not using Timepicker, please disable this option"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:173
+#: includes/admin/class-alg-wc-pif-settings-general.php:187
 msgid "Load Datepicker Script"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:174
+#: includes/admin/class-alg-wc-pif-settings-general.php:188
 msgid "Enqueues Datepicker and Weekpicker CSS/JS"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:175
+#: includes/admin/class-alg-wc-pif-settings-general.php:189
 msgid ""
 "If you are not using Datepicker or Weekpicker, please disable this option"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:190
+#: includes/admin/class-alg-wc-pif-settings-general.php:204
 msgid "Emails Options"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:195
+#: includes/admin/class-alg-wc-pif-settings-general.php:209
 msgid "Attach Files to Admin's New Order Emails"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:196
-#: includes/admin/class-alg-wc-pif-settings-general.php:203
+#: includes/admin/class-alg-wc-pif-settings-general.php:210
+#: includes/admin/class-alg-wc-pif-settings-general.php:217
 msgid "Attach"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-general.php:202
+#: includes/admin/class-alg-wc-pif-settings-general.php:216
 msgid "Attach Files to Customer's Processing Order Emails"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:31
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:45
 msgid "Per Product"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:47
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:61
 msgid "Product Input Fields per Product Options"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:49
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:63
 msgid ""
 "When enabled this section will add \"Product Input Fields\" tab to each "
 "product's \"Edit\" page."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:54
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:68
 msgid "Product Input Fields - per Product"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:56
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:70
 msgid "Add custom input field on per product basis."
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:63
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:77
 msgid "Default Number of Product Input Fields per Product"
 msgstr ""
 
-#: includes/admin/class-alg-wc-pif-settings-per-product.php:65
+#: includes/admin/class-alg-wc-pif-settings-per-product.php:79
 msgid ""
 "You will be able to change this number later as well as define the fields, "
 "for each product individually, in product's \"Edit\"."
@@ -746,18 +747,91 @@ msgid ""
 "banner again and not sending any data."
 msgstr ""
 
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:172
+msgid "I only needed the plugin for a short period."
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:178
+msgid "I found a better plugin."
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:180
+msgid "Please let us have the plugin's name so that we can make improvements"
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:184
+msgid "The plugin is not working."
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:186
+msgid ""
+"Please share what was faulty with the plugin so that we may get the issue "
+"fixed."
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:190
+msgid "The plugin is causing issues on my site"
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:192
+msgid ""
+"We’re sorry! Please tell us about the issues so that we can get them fixed."
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:196
+msgid "Some features I need are not working as per my expectations"
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:198
+msgid "Please tell us about these features."
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:202
+msgid "The plugin is not compatible with another plugin/theme"
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:204
+msgid ""
+"We’re sorry! We would like you to tell us the plugin/theme so that we can "
+"work on the compatibility."
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:208
+msgid "Other"
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:222
+msgid "If you have a moment, please let us know why you are deactivating:"
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:233
+msgid "Skip & Deactivate"
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:234
+msgid "Submit & Deactivate"
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:235
+msgid "Cancel"
+msgstr ""
+
+#: includes/component/plugin-deactivation/class-tyche-plugin-deactivation.php:248
+msgid "Please select a reason for deactivation!"
+msgstr ""
+
 #: includes/component/plugin-tracking/class-tyche-plugin-tracking.php:121
 msgid "Once in a Week"
 msgstr ""
 
-#: includes/component/plugin-tracking/class-tyche-plugin-tracking.php:252
+#: includes/component/plugin-tracking/class-tyche-plugin-tracking.php:256
 msgid "Want to help make "
 msgstr ""
 
-#: includes/component/plugin-tracking/class-tyche-plugin-tracking.php:255
+#: includes/component/plugin-tracking/class-tyche-plugin-tracking.php:259
 msgid "Allow"
 msgstr ""
 
-#: includes/component/plugin-tracking/class-tyche-plugin-tracking.php:256
+#: includes/component/plugin-tracking/class-tyche-plugin-tracking.php:260
 msgid "No thanks"
 msgstr ""

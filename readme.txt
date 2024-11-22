@@ -2,8 +2,8 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 6.6.2
-Stable tag: 1.9.0
+Tested up to: 6.7.1
+Stable tag: 1.10.0
 Requires PHP: 7.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -113,6 +113,11 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 5. Setting local (i.e. on per product basis) product input field options.
 
 == Changelog ==
+
+= 1.10.0 - 23/11/2024 =
+* Fix - Translation loading was triggered too early, causing errors when changing the site language in WordPress 6.7.
+* Tweak - Started loading the external resources(js, css) from the plugin itself instead of external URLs.
+* Tweak - Removed the call to our tracking server to fetch the deactivation reasons and added them in the plugin itself.
 
 = 1.9.0 - 22/10/2024 = 
 * Fix - Deactivation survey request was being sent even though 'Skip & deactivate' was selected while deactivating the plugin.

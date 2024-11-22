@@ -41,9 +41,16 @@ if ( ! class_exists( 'Alg_WC_PIF_Settings_Per_Product' ) ) :
 		 * @since   1.0.0
 		 */
 		public function __construct() {
-			$this->id   = 'per_product';
-			$this->desc = __( 'Per Product', 'product-input-fields-for-woocommerce' );
+			$this->id = 'per_product';
+			add_action( 'init', array( &$this, 'pif_desc_per_product' ) );
 			parent::__construct();
+		}
+
+		/**
+		 * Add desc to setting page.
+		 */
+		public function pif_desc_per_product() {
+			$this->desc = __( 'Per Product', 'product-input-fields-for-woocommerce' );
 		}
 
 		/**

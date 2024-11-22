@@ -49,10 +49,17 @@ if ( ! class_exists( 'Alg_WC_PIF_Settings_All_Products_Field' ) ) :
 		 * @since   1.0.0
 		 */
 		public function __construct( $field_nr ) {
-			$this->id       = 'all_products_field_' . $field_nr;
-			$this->desc     = __( 'All Products', 'product-input-fields-for-woocommerce' ) . ': ' . __( 'Field', 'product-input-fields-for-woocommerce' ) . ' #' . $field_nr;
 			$this->field_nr = $field_nr;
+			$this->id       = 'all_products_field_' . $field_nr;
+			add_action( 'init', array( &$this, 'pif_desc_all_products_field_' ) );
 			parent::__construct();
+		}
+
+		/**
+		 * Add desc to setting page.
+		 */
+		public function pif_desc_all_products_field_() {
+			$this->desc = __( 'All Products', 'product-input-fields-for-woocommerce' ) . ': ' . __( 'Field', 'product-input-fields-for-woocommerce' ) . ' #' . $this->field_nr;
 		}
 
 		/**

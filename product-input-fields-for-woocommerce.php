@@ -124,7 +124,7 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 			register_deactivation_hook( __FILE__, array( &$this, 'pif_deactivate' ) );
 
 			// Set up localisation.
-			load_plugin_textdomain( 'product-input-fields-for-woocommerce', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
+			add_action( 'init', array( $this, 'pif_load_text_domain' ) );
 
 			// Include required files.
 			$this->includes();
@@ -135,6 +135,13 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 				add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
 				add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'action_links' ) );
 			}
+		}
+
+		/**
+		 * Added plugin text domain.
+		 */
+		public function pif_load_text_domain() {
+			load_plugin_textdomain( 'product-input-fields-for-woocommerce', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 		}
 
 		/**

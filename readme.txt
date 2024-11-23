@@ -2,8 +2,8 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 6.6.2
-Stable tag: 1.9.0
+Tested up to: 6.7.1
+Stable tag: 1.10.0
 Requires PHP: 7.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -116,6 +116,12 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 This plugin communicates with our tracking server to send usage data **only** if the user has explicitly opted in to usage tracking. For detailed information about what is tracked, please refer to our [usage tracking documentation](https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking/).
 
 == Changelog ==
+
+= 1.10.0 - 23/11/2024 =
+* Fix - Directory traversal vulnerability in the `handle_downloads()` function by adding proper file path sanitization.
+* Fix - Translation loading was triggered too early, causing errors when changing the site language in WordPress 6.7.
+* Tweak - Started loading the external resources(js, css) from the plugin itself instead of external URLs.
+* Tweak - Removed the call to our tracking server to fetch the deactivation reasons and added them in the plugin itself.
 
 = 1.9.0 - 22/10/2024 = 
 * Fix - Deactivation survey request was being sent even though 'Skip & deactivate' was selected while deactivating the plugin.

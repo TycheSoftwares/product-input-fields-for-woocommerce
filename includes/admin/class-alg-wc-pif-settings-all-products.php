@@ -41,9 +41,16 @@ if ( ! class_exists( 'Alg_WC_PIF_Settings_All_Products' ) ) :
 		 * @since   1.0.0
 		 */
 		public function __construct() {
-			$this->id   = 'all_products';
-			$this->desc = __( 'All Products', 'product-input-fields-for-woocommerce' );
+			$this->id = 'all_products';
+			add_action( 'init', array( &$this, 'pif_desc_all_products' ) );
 			parent::__construct();
+		}
+
+		/**
+		 * Add desc to setting page.
+		 */
+		public function pif_desc_all_products() {
+			$this->desc = __( 'All Products', 'product-input-fields-for-woocommerce' );
 		}
 
 		/**

@@ -151,7 +151,7 @@ if ( ! class_exists( 'Tyche_Plugin_Deactivation' ) ) {
 
 			wp_enqueue_style(
 				'tyche_plugin_deactivation',
-				$this->api_url . '/assets/plugin-deactivation/css/style.css',
+				plugins_url( '/assets/css/style.css', __FILE__ ),
 				array(),
 				$this->plugin_version
 			);
@@ -164,17 +164,79 @@ if ( ! class_exists( 'Tyche_Plugin_Deactivation' ) ) {
 				true
 			);
 
-			$request = wp_remote_get( $this->api_url . '?action=fetch-deactivation-data&plugin=' . $this->plugin_short_name . '&language=' . apply_filters( 'tyche_plugin_deactivation_language', 'en' ) . '&version=' . $this->version );
-
-			if ( is_wp_error( $request ) || 200 !== wp_remote_retrieve_response_code( $request ) ) {
-				return false; // In case the user is offline or something else that could have probably caused an error.
-			}
-
-			$data = json_decode( wp_remote_retrieve_body( $request ), true );
-
-			if ( ! is_array( $data ) ) {
-				return false;
-			}
+			// Hardcoded deactivation data.
+			$data = array(
+				'reasons'  => array(
+					array(
+						'id'                => 1,
+						'text'              => __( 'I only needed the plugin for a short period.', 'product-input-fields-for-woocommerce' ),
+						'input_type'        => '',
+						'input_placeholder' => '',
+					),
+					array(
+						'id'                => 2,
+						'text'              => __( 'I found a better plugin.', 'product-input-fields-for-woocommerce' ),
+						'input_type'        => 'textfield',
+						'input_placeholder' => __( 'Please let us have the plugin\'s name so that we can make improvements', 'product-input-fields-for-woocommerce' ),
+					),
+					array(
+						'id'                => 3,
+						'text'              => __( 'The plugin is not working.', 'product-input-fields-for-woocommerce' ),
+						'input_type'        => 'textfield',
+						'input_placeholder' => __( 'Please share what was faulty with the plugin so that we may get the issue fixed.', 'product-input-fields-for-woocommerce' ),
+					),
+					array(
+						'id'                => 4,
+						'text'              => __( 'The plugin is causing issues on my site', 'product-input-fields-for-woocommerce' ),
+						'input_type'        => 'textfield',
+						'input_placeholder' => __( 'We’re sorry! Please tell us about the issues so that we can get them fixed.', 'product-input-fields-for-woocommerce' ),
+					),
+					array(
+						'id'                => 6,
+						'text'              => __( 'Some features I need are not working as per my expectations', 'product-input-fields-for-woocommerce' ),
+						'input_type'        => 'textfield',
+						'input_placeholder' => __( 'Please tell us about these features.', 'product-input-fields-for-woocommerce' ),
+					),
+					array(
+						'id'                => 7,
+						'text'              => __( 'The plugin is not compatible with another plugin/theme', 'product-input-fields-for-woocommerce' ),
+						'input_type'        => 'textfield',
+						'input_placeholder' => __( 'We’re sorry! We would like you to tell us the plugin/theme so that we can work on the compatibility.', 'product-input-fields-for-woocommerce' ),
+					),
+					array(
+						'id'                => 10,
+						'text'              => __( 'Other', 'product-input-fields-for-woocommerce' ),
+						'input_type'        => 'textfield',
+						'input_placeholder' => '',
+					),
+				),
+				'template' => '<div class="{PLUGIN} ts-modal no-confirmation-message">
+								<div class="ts-modal-dialog">
+									<div class="ts-modal-body">
+										<div class="ts-modal-panel" data-panel-id="confirm">
+											<p></p>
+										</div>
+										<div class="ts-modal-panel active" data-panel-id="reasons">
+											<h3>
+												<strong>
+													' . __( 'If you have a moment, please let us know why you are deactivating:', 'product-input-fields-for-woocommerce' ) . '
+												</strong>
+											</h3>
+											
+											<ul id="reasons-list">
+												{HTML}
+											</ul>
+										</div>
+									</div>
+			
+									<div class="ts-modal-footer">
+										<a href="javascript:void(0);" class="button button-secondary button-skip-deactivate"> ' . __( 'Skip & Deactivate', 'product-input-fields-for-woocommerce' ) . '</a>
+										<a href="javascript:void(0);" class="button button-secondary button-deactivate"> ' . __( 'Submit & Deactivate', 'product-input-fields-for-woocommerce' ) . '</a>
+										<a href="javascript:void(0);" class="button button-primary button-close">' . __( 'Cancel', 'product-input-fields-for-woocommerce' ) . '</a>
+									</div>
+								</div>
+							</div>',
+			);
 
 			wp_localize_script(
 				'tyche_plugin_deactivation_' . $this->plugin_short_name,
@@ -183,7 +245,7 @@ if ( ! class_exists( 'Tyche_Plugin_Deactivation' ) ) {
 					'deactivation_data'    => $data,
 					'ajax_url'             => admin_url( 'admin-ajax.php' ),
 					'nonce'                => wp_create_nonce( 'tyche_plugin_deactivation_submit_action' ),
-					'deactivation_req_msg' => __( 'Please select a reason for deactivation!', $this->plugin_locale ),
+					'deactivation_req_msg' => __( 'Please select a reason for deactivation!', 'product-input-fields-for-woocommerce' ),
 				)
 			);
 

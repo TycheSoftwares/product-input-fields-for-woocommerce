@@ -115,6 +115,7 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 == Changelog ==
 
 = 1.10.0 - 23/11/2024 =
+* Fix - Directory traversal vulnerability in the `handle_downloads()` function by adding proper file path sanitization.
 * Fix - Translation loading was triggered too early, causing errors when changing the site language in WordPress 6.7.
 * Tweak - Started loading the external resources(js, css) from the plugin itself instead of external URLs.
 * Tweak - Removed the call to our tracking server to fetch the deactivation reasons and added them in the plugin itself.

@@ -80,7 +80,6 @@ if ( ! class_exists( 'Pif_Tracking_Functions' ) ) :
 					'tracking_notice'     => $nonce,
 				)
 			);
-
 		}
 
 		/**
@@ -240,7 +239,7 @@ if ( ! class_exists( 'Pif_Tracking_Functions' ) ) :
 		 */
 		public static function pif_get_per_product_count() {
 			global $wpdb;
-			$per_product_count = $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(DISTINCT(post_id)) FROM `wp_postmeta` WHERE `meta_key` LIKE %s AND `meta_value` = "yes"', '%' . $wpdb->esc_like( '_alg_wc_pif_enabled_local_' ) . '%' ) ); // db call ok. no-cache ok.
+			$per_product_count = $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(DISTINCT(post_id)) FROM `wp_postmeta` WHERE `meta_key` LIKE %s AND `meta_value` = "yes"', '%' . $wpdb->esc_like( '_alg_wc_pif_enabled_local_' ) . '%' ) ); // phpcs:ignore
 
 			return wp_json_encode( $per_product_count );
 		}
@@ -252,7 +251,7 @@ if ( ! class_exists( 'Pif_Tracking_Functions' ) ) :
 		 */
 		public static function pif_get_per_product_count_enabled() {
 			global $wpdb;
-			$per_product_count_enabled = $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM `wp_postmeta` WHERE `meta_key` LIKE %s AND `meta_value` = "yes"', '%' . $wpdb->esc_like( '_alg_wc_pif_enabled_local_' ) . '%' ) ); // db call ok. no-cache ok.
+			$per_product_count_enabled = $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM `wp_postmeta` WHERE `meta_key` LIKE %s AND `meta_value` = "yes"', '%' . $wpdb->esc_like( '_alg_wc_pif_enabled_local_' ) . '%' ) ); // phpcs:ignore
 			return wp_json_encode( $per_product_count_enabled );
 		}
 

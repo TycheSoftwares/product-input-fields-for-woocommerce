@@ -1,0 +1,146 @@
+*** Product Input Fields for WooCommerce ***
+2024-11-23 - version 1.10.0
+* Fix - Directory traversal vulnerability in the `handle_downloads()` function by adding proper file path sanitization.
+* Fix - Translation loading was triggered too early, causing errors when changing the site language in WordPress 6.7.
+* Tweak - Started loading the external resources(js, css) from the plugin itself instead of external URLs.
+* Tweak - Removed the call to our tracking server to fetch the deactivation reasons and added them in the plugin itself.
+
+2024-10-22 - version 1.9.0
+* Fix - Deactivation survey request was being sent even though 'Skip & deactivate' was selected while deactivating the plugin.
+
+2024-04-02 - version 1.8.2
+* Tweak - Update compatibility with WordPress 6.5.
+* Tweak - Update compatibility with WooCommerce 8.7.
+
+2024-02-20 - version 1.8.1
+* Fix - Input fields data were not getting passed to the order after v1.8.0 update.
+
+2024-02-20 - version 1.8.0
+* Fix - PHP deprecated error is coming in the log file.
+* Fix - Change plugin description.
+* Fix - F j, Y text is appears in the Date picker/ Weekpicker input field.
+* Fix - Cross Site Request Forgery (CSRF) vulnerability.
+
+2022-12-26 - version 1.7.0
+* Fix - Input fields data are not appear on woocommerce emails.
+* Fix - Warnings errors from cart & checkout page.
+* Fix - The selected Input field value does not appear on the Cart and Checkout block page.
+
+2022-08-22 - version 1.6.0
+* Fix - Slow load time issue on the admin dashboard panel.
+* Fix - Wrong text appear on product frontend when Date picker/ Weekpicker input field selected.
+
+2023-07-26 - version 1.5.0
+* Enhancement - Introduced Deactivation survey feature.
+* Enhancement - Introduced tracking plugin data feature.
+* Fix - Weekpicker and Timepicker were not working on the product page due to a conflict with the Storefront theme.
+* Fix - Using a quote inside the input field on the product page was displaying broken input HTML.
+* Fix - The file upload field was not working when the Astra Pro plugin was active due to a hook from the plugin.
+* Fix - With WC 7.8.0 or above input field values were displayed twice on the cart page.
+* Fix - Issue with displaying the date inside the Date field when the format was saved as dd/mm/yy.
+
+2022-11-29 - version 1.4.0
+* Enhancement - Introduced compatibility with WooCommerce High Performance Order Storage.
+
+2022-05-03 - version 1.3.2
+* Fix - Input field data was not show in the XML file exported from Tools -> Export -> Orders.
+* Fix - Date Picker and Time Picker JavaScript loads when not in use.
+* Fix - Formatting is not proper for the input field when using Elementor and Astra theme.
+
+2021-09-21 - version 1.3.1
+* Fix - Fatal error was coming with PHP 8. This is fixed now.
+* Fix - Product input fields were getting displayed on the frontend even if the plugin setting was kept disabled and shortcode was added. This is fixed now.
+* Fix - Numbers were not coming on the product page when the 'Range' type was selected. This is fixed now.
+* Fix - Duplicate fields were coming on the frontend when the product input fields were shown using the shortcode and the input fields values were not getting passed to the cart. This is fixed now.
+
+2021-03-19 - version 1.3.0
+* Fixed an issue of after clicking on the Order again button on My Account page, it shows the error of required fields.
+* Fixed an issue of additional description is shown on all the products even after disabling the All products setting.
+
+2020-07-31 - version 1.2.7
+* Added restrictions to a function from where files were being downloaded for input type File fields. We now check user roles & permissions before downloading the file.
+* Fixed an issue related to Creta Theme.
+
+2020-03-19 - version 1.2.6
+* Update compatibility changes with WooCommerce 4.0.0.
+
+2019-09-04 - version 1.2.5
+* Changes in code to make the plugin compliant as per WPCS rules.
+
+2019-04-04 - version 1.2.4
+* Enhancement - Plugin is made compatible with WPML. wpml-config.xml file is added to translate the All Products field labels using WPML.
+
+2019-02-19 - version 1.2.3
+* Plugin URL updated due to handover of the plugins.
+
+2019-02-01 - version 1.2.2
+* Author name updated due to handover of the plugin.
+
+2019-01-23 - version 1.2.1
+* Dev - Plugin URI updated.
+* Dev - Admin settings restyled and descriptions updated.
+* Dev - Code clean up.
+
+2018-10-25 - version 1.2.0
+* Add compatibility with Advanced Order Export For WooCommerce plugin.
+
+2018-10-09 - version 1.1.9
+* Display fields on PDF Invoices & Packing Slips plugin.
+
+2018-09-19 - version 1.1.8
+* Add 'Load Datepicker Style' option.
+* Add 'Load Timepicker Style' option.
+* Update Timepicker JS.
+* Turn off autocomplete on timepicker, datepicker and weekpicker.
+* Fix Datepicker, Timepicker and Weekpicker style.
+
+2018-09-18 - version 1.1.7
+* Add color input compatibility with Opera and Safari.
+
+2018-09-17 - version 1.1.6
+* Add color section on admin input fields options.
+* Add option to allow typing or pasting the color manually.
+* Update WC tested up to.
+
+2018-08-10 - version 1.1.5
+* Fix maxlength attribute on textarea.
+
+2018-08-01 - version 1.1.4
+* Check if order and input fields exist before trying to delete file uploads.
+* Improve help link for pattern attribute.
+* Improve input sanitizing.
+* Display multiple array value as comma separated string.
+* Fix PHP warnings.
+* Fix file uploading when using multiple file inputs.
+* Add "Smart Textarea" option, showing only the textarea excerpt on frontend and hovering it will make it display the full content.
+* Add 'Textarea Auto Height' option, making the textarea auto increase its height as users type.
+
+2018-05-18 - version 1.1.3
+* Add composer.
+* Add filter 'alg_product_input_fields_options' allowing changes on field options.
+* Add filter 'alg_wc_pif_field_html' allowing changes to the field HTML.
+* Remove check for pro version.
+* Remove slashes from the values.
+
+2018-04-18 - version 1.1.2
+* Dev - "WC tested up to" added to plugin header.
+
+2017-10-30 - version 1.1.1
+* Dev - WooCommerce v3.2 compatibility - Admin settings - `select` type options fixed.
+* Dev - WooCommerce v3.0 compatibility - "woocommerce_add_order_item_meta hook uses out of date data structures and function is deprecated..." notice fixed.
+* Fix - `add_product_input_fields_to_order_item_meta()` - Checking if product input fields values exist (fixes notice in log).
+* Dev - Saving settings array as main class property.
+
+2017-06-15 - version 1.1.0
+* Dev - WooCommerce 3.x.x compatibility - `output_custom_input_fields_in_admin_order()` - Using `meta_exists()` and `get_meta()` functions to access order items meta data.
+* Dev - WooCommerce 3.x.x compatibility - `alg_get_frontend_product_input_fields()` - Product ID (using `get_id()` function instead of accessing `id` object property directly).
+* Dev - Core - `add_files_to_email_attachments()` - Additional validation added.
+* Tweak - Plugin link updated from <a href="https://coder.fm">https://coder.fm</a> to <a href="https://wpcodefactory.com">https://wpcodefactory.com</a>.
+
+2017-03-28 - version 1.0.1
+* Dev - Language (POT) file added.
+* Dev - readme.txt updated (screenshots added etc.).
+* Tweak - http replaced with https in links to coder.fm.
+
+2017-03-28 - version 1.0.0
+* Initial Release.

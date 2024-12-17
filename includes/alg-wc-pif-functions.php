@@ -130,7 +130,7 @@ if ( ! function_exists( 'alg_date_format_php_to_js' ) ) {
 		for ( $i = 0; $i < $php_format_len; $i++ ) {
 			$char = $php_format[ $i ];
 			if ( '\\' === $char ) { // PHP date format escaping character.
-				$i++;
+				++$i;
 				$jqueryui_format .= ( $escaping ) ? $php_format[ $i ] : '\'' . $php_format[ $i ];
 				$escaping         = true;
 			} else {

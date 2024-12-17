@@ -105,7 +105,6 @@ if ( ! class_exists( 'Alg_WC_Settings_PIF' ) ) :
 			wp_safe_redirect( add_query_arg( '', '' ) );
 			exit;
 		}
-
 	}
 
 endif;

@@ -41,7 +41,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Per_Product_Metabox' ) ) :
 		 * @version 1.0.0
 		 * @since   1.0.0
 		 */
-		public function save_local_product_input_fields_meta_box( $post_id, $post ) {
+		public function save_local_product_input_fields_meta_box( $post_id, $post ) { // phpcs:ignore
 			// Check that we are saving with input fields displayed.
 			if ( ! isset( $_POST[ ALG_WC_PIF_ID . '_save_post' ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 				return;
@@ -213,7 +213,6 @@ if ( ! class_exists( 'Alg_WC_PIF_Per_Product_Metabox' ) ) :
 			);
 			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
-
 	}
 
 endif;

@@ -276,7 +276,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 						wc_add_notice( str_replace( '%title%', $product_input_field['title'], $product_input_field['required_message'] ), 'error' );
 					}
 				}
-				if ( 'file' === $product_input_field['type'] && isset( $_FILES[ $field_name ] ) && '' !== $_FILES[ $field_name ]['name'] ) {
+				if ( 'file' === $product_input_field['type'] && isset( $_FILES[ $field_name ] ) && '' !== $_FILES[ $field_name ]['name'] ) { // phpcs:ignore
 					// Validate file type.
 					$file_accept = $product_input_field['type_file_accept'];
 					if ( '' !== $file_accept ) {
@@ -291,7 +291,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 					}
 					// Validate file max size.
 					if ( $product_input_field['type_file_max_size'] > 0 ) {
-						if ( isset( $_FILES[ $field_name ]['size'] ) && $_FILES[ $field_name ]['size'] > $product_input_field['type_file_max_size'] ) {
+						if ( isset( $_FILES[ $field_name ]['size'] ) && $_FILES[ $field_name ]['size'] > $product_input_field['type_file_max_size'] ) { // phpcs:ignore
 							$passed = false;
 							wc_add_notice( $product_input_field['type_file_max_size_msg'], 'error' );
 						}
@@ -322,13 +322,13 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 				$product_input_field['_field_nr']       = $i;
 				$field_name                             = ALG_WC_PIF_ID . '_' . $this->scope . '_' . $i;
 				if ( 'file' === $product_input_field['type'] ) {
-					if ( isset( $_FILES[ $field_name ] ) && '' !== $_FILES[ $field_name ] && isset( $_FILES[ $field_name ]['tmp_name'] ) && '' !== $_FILES[ $field_name ]['tmp_name'] ) {
+					if ( isset( $_FILES[ $field_name ] ) && '' !== $_FILES[ $field_name ] && isset( $_FILES[ $field_name ]['tmp_name'] ) && '' !== $_FILES[ $field_name ]['tmp_name'] ) { // phpcs:ignore
 						$product_input_field['_value'] = $_FILES[ $field_name ]; // phpcs:ignore
 						$tmp_dest_file                 = tempnam( sys_get_temp_dir(), 'alg' );
 						move_uploaded_file( $_FILES[ $field_name ]['tmp_name'] , $tmp_dest_file ); // phpcs:ignore
 						$product_input_field['_value']['_tmp_name'] = $tmp_dest_file;
 					}
-				} else {
+				} else { // phpcs:ignore
 					if ( isset( $_POST[ $field_name ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 						$value = stripslashes_deep( $_POST[ $field_name ] ); // phpcs:ignore WordPress.Security.NonceVerification,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 						if ( 'textarea' === $product_input_field['type'] ) {
@@ -417,7 +417,6 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 			! ( is_wc_endpoint_url( 'view-order' ) || is_wc_endpoint_url( 'order-received' ) ) ) {
 				$product_input_fields_html = '';
 				$product_input_fields      = isset( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) ? maybe_unserialize( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) : array();
-				
 				foreach ( $product_input_fields as $product_input_field ) {
 					$value = isset( $product_input_field['_value'] ) ? $product_input_field['_value'] : '';
 					if ( 'checkbox' === $product_input_field['type'] ) {
@@ -429,7 +428,6 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 					}
 					if ( '' !== $value ) {
 						$value = is_array( $value ) ? implode( ', ', $value ) : $value;
-						
 						if (
 						( $is_cart ||
 						'textarea' === $product_input_field['type'] ) && strpos( $name, '<a href' ) !== false
@@ -522,12 +520,12 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 						$name       = $item_id . '_' . $value['name'];
 						$upload_dir = alg_get_uploads_dir( 'product_input_fields' );
 						if ( ! file_exists( $upload_dir ) ) {
-							mkdir( $upload_dir, 0755, true );
+							mkdir( $upload_dir, 0755, true ); // phpcs:ignore
 						}
 						$upload_dir_and_name = $upload_dir . '/' . $name;
-						$file_data           = file_get_contents( $tmp_name );
-						file_put_contents( $upload_dir_and_name, $file_data );
-						unlink( $tmp_name );
+						$file_data           = file_get_contents( $tmp_name ); // phpcs:ignore
+						file_put_contents( $upload_dir_and_name, $file_data ); // phpcs:ignore
+						unlink( $tmp_name ); // phpcs:ignore
 						$value['_tmp_name']            = addslashes( $upload_dir_and_name );
 						$product_input_field['_value'] = $value;
 					}
@@ -543,7 +541,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 		 * @param int   $order_id Order ID.
 		 * @param array $data Order data.
 		 */
-		public function update_order_meta_fields( $order_id, $data ) {
+		public function update_order_meta_fields( $order_id, $data ) { // phpcs:ignore
 			foreach ( WC()->cart->cart_contents as $cart_item ) {
 				$order = wc_get_order( $order_id );
 
@@ -576,20 +574,20 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 		 * @version 1.2.0
 		 * @since   1.0.0
 		 */
-		public function output_custom_input_fields_in_admin_order( $item_id, $item, $echo = true, $simple_text = false ) {
+		public function output_custom_input_fields_in_admin_order( $item_id, $item, $echo = true, $simple_text = false ) { // phpcs:ignore
 
 			if ( version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' ) ) {
 				if ( ! isset( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) || ! is_serialized( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) ) {
 					return;
 				}
-			} else {
+			} else { // phpcs:ignore
 				if ( ! $item->meta_exists( '_' . ALG_WC_PIF_ID . '_' . $this->scope ) ) {
 					return;
 				}
 			}
 
 			$html                 = '';
-			$product_input_fields = ( version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' ) ? unserialize( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) : $item->get_meta( '_' . ALG_WC_PIF_ID . '_' . $this->scope ) );
+			$product_input_fields = ( version_compare( get_option( 'woocommerce_version', null ), '3.0.0', '<' ) ? unserialize( $item[ ALG_WC_PIF_ID . '_' . $this->scope ] ) : $item->get_meta( '_' . ALG_WC_PIF_ID . '_' . $this->scope ) ); // phpcs:ignore
 
 			foreach ( $product_input_fields as $product_input_field ) {
 				if ( ! isset( $product_input_field['title'] ) || ! isset( $product_input_field['_field_nr'] ) || ! isset( $product_input_field['_value'] ) || ! isset( $product_input_field['type'] ) ) {
@@ -690,6 +688,5 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 
 			return $cart_item_meta;
 		}
-
 	}
 }

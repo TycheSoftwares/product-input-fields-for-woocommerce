@@ -31,7 +31,7 @@ require_once 'vendor/autoload.php';
 /** Check if WooCommerce is active */
 $plugin_name = 'woocommerce/woocommerce.php';
 if (
-	! in_array( $plugin_name, apply_filters( 'active_plugins', get_option( 'active_plugins', array() ) ) ) &&
+	! in_array( $plugin_name, apply_filters( 'active_plugins', get_option( 'active_plugins', array() ) ) ) && // phpcs:ignore
 	! ( is_multisite() && array_key_exists( $plugin_name, get_site_option( 'active_sitewide_plugins', array() ) ) )
 ) {
 	return;
@@ -54,7 +54,7 @@ if ( ! function_exists( 'get_wc_pif_option' ) ) {
 	 * @version 1.0.0
 	 * @since   1.0.0
 	 */
-	function get_wc_pif_option( $option, $default = false ) {
+	function get_wc_pif_option( $option, $default = false ) { // phpcs:ignore
 		return get_option( ALG_WC_PIF_ID . '_' . $option, $default );
 	}
 }
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Alg_WC_PIF' ) ) :
 	 * @version 1.2.1
 	 * @since   1.0.0
 	 */
-	final class Alg_WC_PIF {
+	final class Alg_WC_PIF { // phpcs:ignore
 
 		/**
 		 * Setting

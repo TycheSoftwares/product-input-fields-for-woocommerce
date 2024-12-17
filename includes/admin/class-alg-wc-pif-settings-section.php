@@ -103,7 +103,6 @@ if ( ! class_exists( 'Alg_WC_PIF_Settings_Section' ) ) :
 				);
 			}
 		}
-
 	}
 
 endif;

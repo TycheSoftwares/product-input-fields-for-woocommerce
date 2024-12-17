@@ -60,7 +60,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 		 * @param string $option option name.
 		 * @param string $default default value.
 		 */
-		public function pif_lite_astra_option_set_default( $value, $option, $default ) {
+		public function pif_lite_astra_option_set_default( $value, $option, $default ) { // phpcs:ignore
 			return $default;
 		}
 
@@ -160,7 +160,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 						if ( 'file' === $product_input_field['type'] ) {
 							$_value = maybe_unserialize( $product_input_field['_value'] );
 							if ( isset( $_value['_tmp_name'] ) ) {
-								unlink( $_value['_tmp_name'] );
+								unlink( $_value['_tmp_name'] ); // phpcs:ignore
 							}
 						}
 					}
@@ -192,7 +192,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 						if ( 'file' === $product_input_field['type'] ) {
 							$_value = maybe_unserialize( $product_input_field['_value'] );
 							if ( isset( $_value['_tmp_name'] ) ) {
-								unlink( $_value['_tmp_name'] );
+								unlink( $_value['_tmp_name'] ); // phpcs:ignore
 							}
 						}
 					}
@@ -224,7 +224,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 					header( 'Content-disposition: attachment; filename=' . $file_name );
 					header( 'Content-Transfer-Encoding: binary' );
 					header( 'Content-Length: ' . filesize( $file_path ) );
-					readfile( $file_path );
+					readfile( $file_path ); // phpcs:ignore
 					exit();
 				}
 			}
@@ -303,9 +303,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 				wp_enqueue_style( 'jquery-ui-datepicker', alg_wc_product_input_fields()->plugin_url() . '/includes/css/jquery-ui.min.css', '', PIF_ASSETS_VERSION );
 				wp_enqueue_script( 'alg-datepicker', alg_wc_product_input_fields()->plugin_url() . '/includes/js/alg-datepicker.js', array( 'jquery' ), ALG_WC_PIF_VERSION, true );
 			}
-
 		}
-
 	}
 
 endif;

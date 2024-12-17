@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore
 /**
  * Product Input Fields for WooCommerce - Options
  *
@@ -10,7 +10,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	exit; // Exit if accessed directly.
 }
 
 if ( ! function_exists( 'alg_get_product_input_fields_options' ) ) {

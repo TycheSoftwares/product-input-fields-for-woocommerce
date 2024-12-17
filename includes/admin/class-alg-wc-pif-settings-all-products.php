@@ -101,7 +101,6 @@ if ( ! class_exists( 'Alg_WC_PIF_Settings_All_Products' ) ) :
 			);
 			return $settings;
 		}
-
 	}
 
 endif;

@@ -78,12 +78,12 @@ if ( ! class_exists( 'Alg_WC_PIF_Settings_Section' ) ) :
 							array(
 								'title' => __( 'Reset Section Settings', 'product-input-fields-for-woocommerce' ),
 								'type'  => 'title',
-								'id'    => $this->id . 'reset_options',
+								'id'    => $this->id . '_reset_options',
 							),
 							array(
 								'title'   => __( 'Reset Settings', 'product-input-fields-for-woocommerce' ),
 								'desc'    => '<strong>' . __( 'Reset', 'product-input-fields-for-woocommerce' ) . '</strong>',
-								'id'      => $this->id . 'reset',
+								'id'      => $this->id . '_reset',
 								'default' => 'no',
 								'type'    => 'checkbox',
 							),

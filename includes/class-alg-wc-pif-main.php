@@ -388,7 +388,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 					$value = is_array( $value ) ? implode( ', ', $value ) : $value;
 					if (
 					( $is_cart ||
-					'textarea' === $product_input_field['type'] ) && strpos( $name, '<a href' ) !== false
+					'textarea' === $product_input_field['type'] ) && strpos( $product_input_field['title'], '<a href' ) !== false
 					) {
 						$product_input_fields_html .= '<dt class="alg-pif-dt ' . $product_input_field['type'] . '">' . $product_input_field['title'] . '</dt><dd class="alg-pif-dd ' . $product_input_field['type'] . '">' . $value . '</dd>'; /* . '<pre>' . print_r( $product_input_field, true ) . '</pre>' */
 					} else {

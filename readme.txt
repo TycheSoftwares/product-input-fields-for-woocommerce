@@ -3,7 +3,7 @@ Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
 Tested up to: 6.7.1
-Stable tag: 1.10.0
+Stable tag: 1.11.0
 Requires PHP: 7.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -116,6 +116,11 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 This plugin communicates with our tracking server to send usage data **only** if the user has explicitly opted in to usage tracking. For detailed information about what is tracked, please refer to our [usage tracking documentation](https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking/).
 
 == Changelog ==
+
+= 1.11.0 - 14/01/2025 =
+* Fix - Issue where the "Reset Settings" button was not working on the settings page.
+* Fix - Undefined warning for the $name variable on the cart and checkout pages.
+* Fix - Resolved all PHPCS warnings and aligned the code with WordPress Coding Standards to enhance quality and maintainability.
 
 = 1.10.0 - 23/11/2024 =
 * Fix - Directory traversal vulnerability in the `handle_downloads()` function by adding proper file path sanitization.

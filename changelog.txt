@@ -1,4 +1,9 @@
 *** Product Input Fields for WooCommerce ***
+2025-01-14 - version 1.11.0
+* Fix - Issue where the "Reset Settings" button was not working on the settings page.
+* Fix - Undefined warning for the $name variable on the cart and checkout pages.
+* Fix - Resolved all PHPCS warnings and aligned the code with WordPress Coding Standards to enhance quality and maintainability.
+
 2024-11-23 - version 1.10.0
 * Fix - Directory traversal vulnerability in the `handle_downloads()` function by adding proper file path sanitization.
 * Fix - Translation loading was triggered too early, causing errors when changing the site language in WordPress 6.7.

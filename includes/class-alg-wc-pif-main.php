@@ -517,6 +517,12 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 					$value    = $product_input_field['_value'];
 					$tmp_name = $value['_tmp_name'];
 					if ( '' !== $tmp_name ) {
+						$filename = $value['name'];
+						$validate = wp_check_filetype( $filename ); // Check the file type.
+						if ( ! $validate['type'] ) {
+							die( __("File type is not allowed.", "plugin-slug") );  // phpcs:ignore
+						}
+
 						$name       = $item_id . '_' . $value['name'];
 						$upload_dir = alg_get_uploads_dir( 'product_input_fields' );
 						if ( ! file_exists( $upload_dir ) ) {

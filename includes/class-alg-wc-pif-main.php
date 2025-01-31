@@ -520,7 +520,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 						$filename = $value['name'];
 						$validate = wp_check_filetype( $filename ); // Check the file type.
 						if ( ! $validate['type'] ) {
-							die( __( 'File type is not allowed.', 'product-input-fields-for-woocommerce' ) );
+							die( esc_html__( 'File type is not allowed.', 'product-input-fields-for-woocommerce' ) );
 						}
 
 						$name       = $item_id . '_' . $value['name'];

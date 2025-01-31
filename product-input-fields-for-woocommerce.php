@@ -11,7 +11,7 @@
  * Copyright: © 2021 Tyche Softwares
  * Requires PHP: 7.4
  * WC requires at least: 5.0.0
- * WC tested up to: 9.6.0
+ * WC tested up to: 9.5.2
  * Tested up to: 6.7.1
  * Requires Plugins: woocommerce
  * License: GNU General Public License v3.0

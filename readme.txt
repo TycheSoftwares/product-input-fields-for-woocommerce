@@ -3,7 +3,7 @@ Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
 Tested up to: 6.7.1
-Stable tag: 1.11.0
+Stable tag: 1.12.0
 Requires PHP: 7.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html

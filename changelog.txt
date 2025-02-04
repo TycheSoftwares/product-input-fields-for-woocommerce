@@ -1,4 +1,7 @@
 *** Product Input Fields for WooCommerce ***
+2025-02-04 - version 1.12.0
+* Fix - Security vulnerability that allowed unauthenticated file uploads due to insufficient file type validation, preventing the upload of unauthorized files.
+
 2025-01-14 - version 1.11.0
 * Fix - Issue where the "Reset Settings" button was not working on the settings page.
 * Fix - Undefined warning for the $name variable on the cart and checkout pages.

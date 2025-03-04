@@ -118,7 +118,7 @@ This plugin communicates with our tracking server to send usage data **only** if
 == Changelog ==
 
 = 1.12.1 - 04/03/2025 =
-* Fix - Implemented sanitize_file_name to fix a security vulnerability and prevent double extension attacks on file names.
+* Fix - Security vulnerability: Implemented sanitize_file_name to prevent double extension attacks on file names.
 
 = 1.12.0 - 04/02/2025 =
 * Fix - Security vulnerability that allowed unauthenticated file uploads due to insufficient file type validation, preventing the upload of unauthorized files.

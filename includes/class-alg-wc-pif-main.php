@@ -645,6 +645,9 @@ if ( ! class_exists( 'Alg_WC_PIF_Main' ) ) {
 		 * @since   1.0.0
 		 */
 		public function add_files_to_email_attachments( $attachments, $status, $order ) {
+			if ( ! is_a( $order, 'WC_Order' ) ) {
+				return $attachments;
+			}
 			if (
 			( 'new_order' === $status && 'yes' === get_wc_pif_option( 'attach_to_admin_new_order', 'yes' ) ) ||
 			( 'customer_processing_order' === $status && 'yes' === get_wc_pif_option( 'attach_to_customer_processing_order', 'yes' ) )

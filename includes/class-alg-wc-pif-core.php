@@ -209,7 +209,7 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 		public function handle_downloads() {
 			if ( current_user_can( 'edit_posts' ) && isset( $_GET['alg_wc_pif_download_file'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 
-				$file_name  = sanitize_file_name( wp_unslash( $_GET['alg_wc_pif_download_file'] ) ); // phpcs:ignore
+				$file_name  = sanitize_text_field( wp_unslash( $_GET['alg_wc_pif_download_file'] ) ); // phpcs:ignore
 				$file_name  = preg_replace( '/..\//', '', $file_name );
 				$file_name  = preg_replace( '/.\//', '', $file_name );
 				$file_array = explode( '/', $file_name );

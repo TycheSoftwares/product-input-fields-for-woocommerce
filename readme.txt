@@ -2,8 +2,8 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 6.7.2
-Stable tag: 1.12.1
+Tested up to: 6.8.1
+Stable tag: 1.13.0
 Requires PHP: 7.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -116,6 +116,12 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 This plugin communicates with our tracking server to send usage data **only** if the user has explicitly opted in to usage tracking. For detailed information about what is tracked, please refer to our [usage tracking documentation](https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking/).
 
 == Changelog ==
+
+= 1.13.0 - 01/07/2025 =
+* Fix - Uncaught fatal error when an order is marked "On Hold" from the admin panel.
+* Fix - Files uploaded by guest users via file-type input fields were not downloadable from the Edit Order page.
+* Tweak - Updated for compatibility with WordPress 6.8.1.
+* Tweak - Updated for compatibility with WooCommerce 9.9.5.
 
 = 1.12.1 - 04/03/2025 =
 * Fix - Security vulnerability: Implemented sanitize_file_name to prevent double extension attacks on file names.

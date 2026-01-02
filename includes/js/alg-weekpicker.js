@@ -29,12 +29,13 @@ jQuery(document).ready(function() {
 				});
 			},
 			onClose: function(dateText, inst) {
-				var date = jQuery(this).datepicker( "getDate" );
-				if (date != null){
+				var date = jQuery(this).datepicker("getDate");
+				if (date != null) {
 					var dateFormat = inst.settings.dateFormat || jQuery(this).datepicker._defaults.dateFormat;
-					var endDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay() + 6);
+					var startDateFormatted = jQuery.datepicker.formatDate( dateFormat, date, inst.settings );
+					var endDate = new Date( date.getFullYear(), date.getMonth(), date.getDate() - date.getDay() + 6 );
 					var endDateFormatted = jQuery.datepicker.formatDate( dateFormat, endDate, inst.settings );
-					jQuery(this).val(dateText + " - " + endDateFormatted);
+					jQuery(this).val(startDateFormatted + " - " + endDateFormatted);
 				}
 				// disable live listeners so they dont impact other instances
 				jQuery(".ui-datepicker-calendar tbody tr").off("mousemove");

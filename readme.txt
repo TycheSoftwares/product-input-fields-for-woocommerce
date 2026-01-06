@@ -2,8 +2,8 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 6.8.1
-Stable tag: 1.13.0
+Tested up to: 6.9.0
+Stable tag: 1.14.0
 Requires PHP: 7.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -116,6 +116,11 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 This plugin communicates with our tracking server to send usage data **only** if the user has explicitly opted in to usage tracking. For detailed information about what is tracked, please refer to our [usage tracking documentation](https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking/).
 
 == Changelog ==
+
+= 1.14.0 - 06/01/2026 =
+* Fix - On the product page, if a date was selected twice using the week picker input and the product was added to the cart, the end week date appeared repeatedly in the cart input field.
+* Tweak - Updated for compatibility with WordPress 6.9.
+* Tweak - Updated for compatibility with WooCommerce 10.4.3.
 
 = 1.13.0 - 01/07/2025 =
 * Fix - Uncaught fatal error when an order is marked "On Hold" from the admin panel.

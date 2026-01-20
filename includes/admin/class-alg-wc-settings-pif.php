@@ -21,6 +21,14 @@ if ( ! class_exists( 'Alg_WC_Settings_PIF' ) ) :
 	class Alg_WC_Settings_PIF extends WC_Settings_Page {
 
 		/**
+		 * WC version below 3.2.0.
+		 *
+		 * @since 1.1.1
+		 * @var bool|null
+		 */
+		protected $is_wc_version_below_3_2_0 = null;
+
+		/**
 		 * Constructor.
 		 *
 		 * @version 1.0.0

@@ -1,0 +1,12 @@
+span.alg_wc_pif_range_min, span.alg_wc_pif_range_max { font-size: small; }
+span.alg_wc_pif_range_bubble {
+    visibility: hidden;
+    background-color: #cd2653;
+    color: #fff;
+    border-radius: 20px;
+    padding: 4px;
+    position: absolute;
+    right: 15px;
+    bottom: 7px;
+    z-index: 9999;
+}

@@ -1,0 +1,1304 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-09-28 18:23+0530\n"
+"PO-Revision-Date: 2024-09-28 18:24+0500\n"
+"Language: \n"
+"Plural-Forms: \n"
+"X-Generator: Eazy Po 1.0.0.0\n"
+
+#. Translators: %s is the type of input that needs to be filled.
+#: includes/pif-functions.php:60
+#, php-format
+msgid "Fill this only if <strong>%s</strong> type is selected."
+msgstr ""
+
+#: includes/tyche/components/plugin-tracking/class-tyche-plugin-tracking.php:255
+#, php-format
+msgid "Want to help make %1$s even more awesome? Allow %1$s to collect non-sensitive diagnostic data and usage information and get 20%% off on your next purchase. <a href=\"%2$s\">Find out more</a>."
+msgstr ""
+
+#: includes/pif-functions.php:978
+msgid "Action"
+msgstr ""
+
+#: includes/pif-functions.php:1049
+#: includes/pif-functions.php:1105
+msgid "Upload image"
+msgstr ""
+
+#: includes/pif-functions.php:1291
+msgid "Add Option"
+msgstr ""
+
+#: includes/pif-functions.php:66
+#: includes/pif-functions.php:403
+msgid "Options"
+msgstr ""
+
+#: includes/pif-functions.php:71
+msgid "Enable/Disable"
+msgstr ""
+
+#: includes/pif-functions.php:72
+msgid "Enable"
+msgstr ""
+
+#: includes/pif-functions.php:84
+msgid "General Options"
+msgstr ""
+
+#: includes/pif-functions.php:89
+msgid "Type"
+msgstr ""
+
+#: includes/pif-functions.php:34
+#: includes/pif-functions.php:93
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:50
+msgid "Text"
+msgstr ""
+
+#: includes/pif-functions.php:35
+#: includes/pif-functions.php:94
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:51
+msgid "Textarea"
+msgstr ""
+
+#: includes/pif-functions.php:36
+#: includes/pif-functions.php:95
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:52
+msgid "Number"
+msgstr ""
+
+#: includes/pif-functions.php:37
+#: includes/pif-functions.php:96
+#: includes/pif-functions.php:221
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:53
+msgid "Checkbox"
+msgstr ""
+
+#: includes/pif-functions.php:38
+#: includes/pif-functions.php:97
+#: includes/pif-functions.php:379
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:54
+msgid "Color"
+msgstr ""
+
+#: includes/pif-functions.php:39
+#: includes/pif-functions.php:98
+#: includes/pif-functions.php:245
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:55
+msgid "File"
+msgstr ""
+
+#: includes/pif-functions.php:40
+#: includes/pif-functions.php:99
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:56
+msgid "Datepicker"
+msgstr ""
+
+#: includes/pif-functions.php:41
+#: includes/pif-functions.php:100
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:57
+msgid "Weekpicker"
+msgstr ""
+
+#: includes/pif-functions.php:42
+#: includes/pif-functions.php:101
+#: includes/pif-functions.php:352
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:58
+msgid "Timepicker"
+msgstr ""
+
+#: includes/pif-functions.php:43
+#: includes/pif-functions.php:102
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:59
+msgid "Select"
+msgstr ""
+
+#: includes/pif-functions.php:44
+#: includes/pif-functions.php:103
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:60
+msgid "Radio"
+msgstr ""
+
+#: includes/pif-functions.php:45
+#: includes/pif-functions.php:104
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:61
+msgid "Password"
+msgstr ""
+
+#: includes/pif-functions.php:46
+#: includes/pif-functions.php:105
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:62
+msgid "Country"
+msgstr ""
+
+#: includes/pif-functions.php:47
+#: includes/pif-functions.php:106
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:63
+msgid "Email"
+msgstr ""
+
+#: includes/pif-functions.php:48
+#: includes/pif-functions.php:107
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:64
+msgid "Phone"
+msgstr ""
+
+#: includes/pif-functions.php:49
+#: includes/pif-functions.php:108
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:65
+msgid "Search"
+msgstr ""
+
+#: includes/pif-functions.php:50
+#: includes/pif-functions.php:109
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:66
+msgid "URL"
+msgstr ""
+
+#: includes/pif-functions.php:51
+#: includes/pif-functions.php:110
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:67
+msgid "Range"
+msgstr ""
+
+#: includes/pif-functions.php:115
+msgid "Is Required"
+msgstr ""
+
+#: includes/pif-functions.php:116
+msgid "Required"
+msgstr ""
+
+#: includes/pif-functions.php:122
+msgid "Title"
+msgstr ""
+
+#: includes/pif-functions.php:124
+msgid "Input Field"
+msgstr ""
+
+#: includes/pif-functions.php:130
+msgid "Placeholder"
+msgstr ""
+
+#: includes/pif-functions.php:137
+msgid "Default value. E.g. for <strong>Color</strong> type enter color code; for <strong>Checkbox</strong> type enter <em>yes</em> or <em>no</em>."
+msgstr ""
+
+#: includes/pif-functions.php:137
+#: includes/pif-functions.php:179
+#: includes/pif-functions.php:186
+#: includes/pif-functions.php:193
+#: includes/pif-functions.php:200
+#: includes/pif-functions.php:208
+msgid "Leave blank to disable."
+msgstr ""
+
+#: includes/pif-functions.php:138
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:106
+msgid "Default Value"
+msgstr ""
+
+#: includes/pif-functions.php:145
+msgid "Class"
+msgstr ""
+
+#: includes/pif-functions.php:152
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:143
+msgid "Style"
+msgstr ""
+
+#: includes/pif-functions.php:159
+msgid "Message on Required"
+msgstr ""
+
+#: includes/pif-functions.php:160
+msgid "Used if \"Add HTML Required Attribute\" option in plugin's \"General > Frontend Options\" settings is disabled, or product input fields are displayed outside the add to cart button form."
+msgstr ""
+
+#: includes/pif-functions.php:162
+msgid "Field \"%title%\" is required!"
+msgstr ""
+
+#: includes/pif-functions.php:173
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:179
+msgid "Input Restrictions"
+msgstr ""
+
+#: includes/pif-functions.php:178
+msgid "Min"
+msgstr ""
+
+#: includes/pif-functions.php:179
+msgid "Minimum value for an input field. E.g. for <strong>Number/Range</strong> type."
+msgstr ""
+
+#: includes/pif-functions.php:185
+msgid "Max"
+msgstr ""
+
+#: includes/pif-functions.php:186
+msgid "Maximum value for an input field. E.g. for <strong>Number/Range</strong> type."
+msgstr ""
+
+#: includes/pif-functions.php:192
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:213
+msgid "Step"
+msgstr ""
+
+#: includes/pif-functions.php:193
+msgid "Legal number intervals for an input field. E.g. for <strong>Number/Range</strong> type."
+msgstr ""
+
+#: includes/pif-functions.php:199
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:226
+msgid "Max Length"
+msgstr ""
+
+#: includes/pif-functions.php:200
+msgid "Maximum number of character for an input field. E.g. for <strong>Text</strong> type."
+msgstr ""
+
+#: includes/pif-functions.php:206
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:240
+msgid "Pattern"
+msgstr ""
+
+#: includes/pif-functions.php:208
+msgid "Regular expression to check the input value against. E.g. for <strong>Text</strong> type."
+msgstr ""
+
+#: includes/pif-functions.php:244
+msgid "File Type Options"
+msgstr ""
+
+#: includes/pif-functions.php:250
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:254
+#: src/screens/fieldSettings.js:317
+msgid "Accepted File Types"
+msgstr ""
+
+#: includes/pif-functions.php:251
+msgid "Visit <a href=\"https://www.w3schools.com/tags/att_input_accept.asp\" target=\"_blank\">documentation on input accept attribute</a> for valid option formats."
+msgstr ""
+
+#: includes/pif-functions.php:252
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:261
+#: src/screens/fieldSettings.js:324
+msgid "E.g.: \".jpg,.jpeg,.png\". Leave blank to accept all files."
+msgstr ""
+
+#: includes/pif-functions.php:254
+msgid ".jpg,.jpeg,.png"
+msgstr ""
+
+#: includes/pif-functions.php:258
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:268
+#: src/screens/fieldSettings.js:331
+msgid "Message on Wrong File Type"
+msgstr ""
+
+#: includes/pif-functions.php:260
+msgid "Wrong file type!"
+msgstr ""
+
+#: includes/pif-functions.php:265
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:281
+#: src/screens/fieldSettings.js:344
+msgid "Max File Size"
+msgstr ""
+
+#: includes/pif-functions.php:266
+msgid "bytes."
+msgstr ""
+
+#: includes/pif-functions.php:267
+msgid "Set to zero to accept all files."
+msgstr ""
+
+#: includes/pif-functions.php:274
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:294
+#: src/screens/fieldSettings.js:357
+msgid "Message on Max File Size Exceeded"
+msgstr ""
+
+#: includes/pif-functions.php:276
+msgid "File is too big!"
+msgstr ""
+
+#: includes/pif-functions.php:287
+msgid "Datepicker/Weekpicker Type Options"
+msgstr ""
+
+#: includes/pif-functions.php:288
+msgid "Datepicker/Weekpicker"
+msgstr ""
+
+#: includes/pif-functions.php:293
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:380
+msgid "Date Format"
+msgstr ""
+
+#: includes/pif-functions.php:294
+msgid "Visit <a href=\"https://codex.wordpress.org/Formatting_Date_and_Time\" target=\"_blank\">documentation on date and time formatting</a> for valid date formats."
+msgstr ""
+
+#: includes/pif-functions.php:295
+msgid "Leave blank to use your current WordPress format"
+msgstr ""
+
+#: includes/pif-functions.php:301
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:393
+msgid "Min Date"
+msgstr ""
+
+#: includes/pif-functions.php:302
+#: includes/pif-functions.php:309
+msgid "days."
+msgstr ""
+
+#: includes/pif-functions.php:308
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:406
+msgid "Max Date"
+msgstr ""
+
+#: includes/pif-functions.php:315
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:424
+msgid "Add Year Selector"
+msgstr ""
+
+#: includes/pif-functions.php:316
+msgid "Add"
+msgstr ""
+
+#: includes/pif-functions.php:322
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:432
+msgid "Year Selector - Year Range"
+msgstr ""
+
+#: includes/pif-functions.php:323
+msgid "Visit <a href=\"https://api.jqueryui.com/datepicker/#option-yearRange\" target=\"_blank\">Datepicker > yearRange</a> documentation for valid year range formats."
+msgstr ""
+
+#: includes/pif-functions.php:324
+msgid "Remember to set \"Min Date\" and \"Max Date\" options accordingly."
+msgstr ""
+
+#: includes/pif-functions.php:330
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:446
+msgid "First Week Day"
+msgstr ""
+
+#: includes/pif-functions.php:334
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:452
+msgid "Sunday"
+msgstr ""
+
+#: includes/pif-functions.php:335
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:453
+msgid "Monday"
+msgstr ""
+
+#: includes/pif-functions.php:336
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:454
+msgid "Tuesday"
+msgstr ""
+
+#: includes/pif-functions.php:337
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:455
+msgid "Wednesday"
+msgstr ""
+
+#: includes/pif-functions.php:338
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:456
+msgid "Thursday"
+msgstr ""
+
+#: includes/pif-functions.php:339
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:457
+msgid "Friday"
+msgstr ""
+
+#: includes/pif-functions.php:340
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:458
+msgid "Saturday"
+msgstr ""
+
+#: includes/pif-functions.php:351
+msgid "Timepicker Type Options"
+msgstr ""
+
+#: includes/pif-functions.php:357
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:480
+msgid "Time Format"
+msgstr ""
+
+#: includes/pif-functions.php:358
+msgid "Visit <a href=\"http://timepicker.co/options/\" target=\"_blank\">timepicker options page</a> for valid time formats."
+msgstr ""
+
+#: includes/pif-functions.php:364
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:492
+msgid "Interval"
+msgstr ""
+
+#: includes/pif-functions.php:365
+msgid "minutes."
+msgstr ""
+
+#: includes/pif-functions.php:378
+msgid "Color Type Options"
+msgstr ""
+
+#: includes/pif-functions.php:384
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:519
+msgid "Allow color typing"
+msgstr ""
+
+#: includes/pif-functions.php:385
+msgid "Allows typing or pasting the color manually"
+msgstr ""
+
+#: includes/pif-functions.php:397
+msgid "Select/Radio Type Options"
+msgstr ""
+
+#: includes/pif-functions.php:398
+msgid "Select/Radio"
+msgstr ""
+
+#: includes/pif-functions.php:404
+msgid "One option per line."
+msgstr ""
+
+#: includes/class-pif-order.php:224
+#: includes/class-pif-order.php:225
+msgid "Input Fields"
+msgstr ""
+
+#: includes/class-pif-order.php:94
+msgid "Product Input Field"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:201
+msgid "Enable section"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:175
+msgid "Product Input Fields Options"
+msgstr ""
+
+#: includes/admin/class-pif-product-admin.php:35
+#: includes/class-product-input-fields.php:166
+msgid "Product Input Fields"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:183
+msgid "Enable plugin"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:184
+msgid "WooCommerce Product Input Fields."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:215
+msgid "Frontend Options"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:221
+msgid "Position"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:227
+msgid "Before add to cart button"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:228
+msgid "After add to cart button"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:267
+msgid "Product Input Field Template"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:279
+msgid "HTML to Add After Product Input Fields"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:291
+msgid "Item Name Order Table Format"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:310
+msgid "Refill Fields with Previous Input"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:333
+msgid "Attach Files to Admin's New Order Emails"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:346
+msgid "Attach Files to Customer's Processing Order Emails"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:357
+msgid "Reset Section Settings"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:369
+msgid "Reset Settings"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:393
+msgid "Reset Usage Tracking"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: product-input-fields-for-woocommerce.php
+msgid "https://www.tychesoftwares.com/store/premium-plugins/product-input-fields-for-woocommerce/"
+msgstr ""
+
+#. Description of the plugin
+#: product-input-fields-for-woocommerce.php
+msgid "Add custom frontend input fields to WooCommerce products."
+msgstr ""
+
+#. Author of the plugin
+#: product-input-fields-for-woocommerce.php
+msgid "Tyche Softwares"
+msgstr ""
+
+#. Author URI of the plugin
+#: product-input-fields-for-woocommerce.php
+msgid "https://www.tychesoftwares.com"
+msgstr ""
+
+#: includes/class-product-input-fields.php:109
+#: includes/class-product-input-fields.php:118
+msgid "Not allowed."
+msgstr ""
+
+#: includes/pif-functions.php:1459
+msgid "Select Condition Type"
+msgstr ""
+
+#: includes/pif-functions.php:1788
+msgid "Select Relation"
+msgstr ""
+
+#: includes/pif-functions.php:1500
+msgid "Products"
+msgstr ""
+
+#: includes/pif-functions.php:1501
+msgid "Products Categories"
+msgstr ""
+
+#: includes/pif-functions.php:1502
+msgid "Product Tags"
+msgstr ""
+
+#: includes/pif-functions.php:1503
+msgid "Product Variations"
+msgstr ""
+
+#: includes/pif-functions.php:1682
+#: includes/pif-functions.php:1692
+msgid "Is"
+msgstr ""
+
+#: includes/pif-functions.php:1683
+#: includes/pif-functions.php:1693
+msgid "Is not"
+msgstr ""
+
+#: includes/pif-functions.php:1686
+#: includes/pif-functions.php:1696
+#: includes/pif-functions.php:1702
+#: includes/pif-functions.php:1709
+#: includes/pif-functions.php:1716
+#: includes/pif-functions.php:1720
+#: includes/pif-functions.php:1727
+#: includes/pif-functions.php:1743
+#: includes/pif-functions.php:1747
+#: includes/pif-functions.php:1791
+msgid "Equals"
+msgstr ""
+
+#: includes/pif-functions.php:1687
+#: includes/pif-functions.php:1697
+#: includes/pif-functions.php:1703
+#: includes/pif-functions.php:1710
+#: includes/pif-functions.php:1717
+#: includes/pif-functions.php:1721
+#: includes/pif-functions.php:1728
+#: includes/pif-functions.php:1744
+#: includes/pif-functions.php:1748
+#: includes/pif-functions.php:1792
+msgid "Not equals"
+msgstr ""
+
+#: includes/pif-functions.php:1688
+#: includes/pif-functions.php:1698
+#: includes/pif-functions.php:1704
+#: includes/pif-functions.php:1711
+#: includes/pif-functions.php:1722
+#: includes/pif-functions.php:1729
+#: includes/pif-functions.php:1735
+#: includes/pif-functions.php:1739
+msgid "Contains"
+msgstr ""
+
+#: includes/pif-functions.php:1689
+#: includes/pif-functions.php:1699
+#: includes/pif-functions.php:1730
+#: includes/pif-functions.php:1736
+#: includes/pif-functions.php:1740
+msgid "Not contains"
+msgstr ""
+
+#: includes/pif-functions.php:1705
+#: includes/pif-functions.php:1712
+#: includes/pif-functions.php:1723
+msgid "Starts with"
+msgstr ""
+
+#: includes/pif-functions.php:1706
+#: includes/pif-functions.php:1713
+#: includes/pif-functions.php:1724
+msgid "Ends with"
+msgstr ""
+
+#: includes/pif-functions.php:1733
+msgid "Length greater than"
+msgstr ""
+
+#: includes/pif-functions.php:1734
+msgid "Length less than"
+msgstr ""
+
+#: includes/pif-functions.php:1751
+#: includes/pif-functions.php:1755
+msgid "Includes"
+msgstr ""
+
+#: includes/pif-functions.php:1752
+#: includes/pif-functions.php:1756
+msgid "Not Includes"
+msgstr ""
+
+#: includes/pif-functions.php:1759
+msgid "Greater than"
+msgstr ""
+
+#: includes/pif-functions.php:1760
+msgid "Less than"
+msgstr ""
+
+#: includes/pif-functions.php:1761
+msgid "Equal to"
+msgstr ""
+
+#: includes/pif-functions.php:1764
+msgid "Has file"
+msgstr ""
+
+#: includes/pif-functions.php:1765
+msgid "No file"
+msgstr ""
+
+#: includes/pif-functions.php:1768
+#: includes/pif-functions.php:1772
+#: includes/pif-functions.php:1776
+#: includes/pif-functions.php:1780
+#: includes/pif-functions.php:1784
+msgid "In list"
+msgstr ""
+
+#: includes/pif-functions.php:1769
+#: includes/pif-functions.php:1773
+#: includes/pif-functions.php:1777
+#: includes/pif-functions.php:1781
+#: includes/pif-functions.php:1785
+msgid "Not in list"
+msgstr ""
+
+#: build/admin.js:1
+#: src/app.js:82
+msgid "Easily add customizable input fields to your WooCommerce products."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/components/optionsTable.js:85
+msgid "+ Add Option"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldBuilder.js:443
+msgid "Save Field"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:37
+msgid "Basic Settings"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:44
+msgid "Field Type"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:79
+msgid "Field Label"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:93
+msgid "Placeholder Text"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:99
+msgid "Hint text shown inside the field when empty."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:111
+msgid "Pre-filled value when the page loads."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:118
+msgid "Required Field Message"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:123
+msgid "Message displayed when the required field is left empty."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:130
+msgid "Custom CSS Class"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:136
+msgid "Add custom CSS classes for styling (optional)."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:149
+msgid "Add custom CSS for styling (optional)."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:187
+msgid "Min Value"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:193
+msgid "Minimum value for an input field. E.g. for Number/Range type. Leave blank to disable"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:200
+msgid "Max Value"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:206
+msgid "Maximum value for an input field. E.g. for Number/Range type. Leave blank to disable"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:219
+msgid "Legal number intervals for an input field. E.g. for Number/Range type. Leave blank to disable"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:232
+msgid "Maximum number of character for an input field. Leave blank to disable"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:246
+msgid "Regular expression to check the input value against. Leave blank to disable"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:287
+#: src/screens/fieldSettings.js:350
+msgid "Set to zero to accept all files (in bytes)."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:308
+msgid "File Upload Settings"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:309
+msgid "Configure file upload restrictions."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:371
+msgid "Datepicker/Weekpicker Settings"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:372
+msgid "Configure date selection options."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:386
+msgid "Leave blank to use your current WordPress format."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:399
+#: src/screens/fieldSettings.js:412
+msgid "Days"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:439
+msgid "E.g., \"c-10:c+10\" for 10 years back and forward from current year. Remember to set \"Min Date\" and \"Max Date\" options accordingly"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:471
+msgid "Timepicker Settings"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:472
+msgid "Configure time selection options."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:498
+msgid "Minutes"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:520
+msgid "Allows typing or pasting the color manually."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:534
+msgid "Add options for customers to choose from."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:194
+msgid "Product Input Fields – Per Product"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:204
+msgid "Add custom input fields on a per-product basis"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:255
+msgid "HTML to add before product input fields"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:304
+msgid "Advanced Options"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:313
+msgid "Remember and auto-fill previously entered values."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:325
+msgid "Email Options"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:334
+msgid "Attach files to new order emails sent to administrators."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:347
+msgid "Attach files to processing order emails sent to customers."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:400
+msgid "Save Changes"
+msgstr ""
+
+#. translators: 1. Plugin Name, 2. WordPress Version
+#: includes/class-product-input-fields.php:316
+#, php-format
+msgid "You are using an outdated version of WordPress. %1$s requires WP version %2$s or higher."
+msgstr ""
+
+#. translators: 1. Plugin Name, 2. PHP Version
+#: includes/class-product-input-fields.php:322
+#, php-format
+msgid "%1$s requires PHP version %2$s or above. Please update PHP to run this plugin."
+msgstr ""
+
+#. translators: Plugin Name
+#: includes/class-product-input-fields.php:328
+#, php-format
+msgid "WooCommerce not found. %s requires a minimum of WooCommerce v3.3.0."
+msgstr ""
+
+#. translators: Plugin Name
+#: includes/class-product-input-fields.php:334
+msgid "OpenSSL extension required."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:156
+msgid "Uppercase"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:163
+msgid "Converts all characters to uppercase version."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:167
+msgid "Converts only first letter of first word to uppercase version."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:419
+msgid "Year Selector"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:425
+msgid "Enable to show Year Selector options below."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:506
+msgid "Color Settings"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:507
+msgid "Configure color typing options."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:532
+msgid "Field Options"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:195
+msgid "When enabled, this option will add a \"Product Input Fields\" section to each product's Edit page, allowing you to add custom input fields on a per-product basis."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:229
+msgid "Do not display"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:234
+msgid "If set to \"Do not display\", alternatively you can use [alg_display_product_input_fields] shortcode, or PHP alg_display_product_input_fields() function."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:242
+msgid "Position Priority"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:245
+msgid "Ignored if Position is set to \"Do not display\"."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:260
+msgid "Displays the background of the product input field."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:272
+#, js-format
+msgid "Replaced values: %field_id%, %title%, %field%"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:284
+msgid "This HTML tag is used to close the tag in \"HTML to Add Before Product Input Fields setting\"."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:296
+msgid "Affects Thank You page, Emails etc."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/general.js:380
+msgid "Are you sure you want to reset to default settings?"
+msgstr ""
+
+#. Plugin Name of the plugin
+#: product-input-fields-for-woocommerce.php
+msgid "Product Input Fields for WooCommerce"
+msgstr ""
+
+#: includes/pif-functions.php:207
+msgid "Visit <a href=\"https://www.w3schools.com/tags/att_input_pattern.asp\" target=\"_blank\">HTML pattern Attribute</a> for valid option formats."
+msgstr ""
+
+#: includes/pif-functions.php:220
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:565
+msgid "Checkbox Type Options"
+msgstr ""
+
+#: includes/pif-functions.php:226
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:574
+msgid "Value for ON"
+msgstr ""
+
+#: includes/pif-functions.php:228
+msgid "Yes"
+msgstr ""
+
+#: includes/pif-functions.php:232
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:585
+msgid "Value for OFF"
+msgstr ""
+
+#: includes/pif-functions.php:234
+msgid "No"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldBuilder.js:361
+msgid "Note: Field added here will appear on all WooCommerce product pages across your store."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldBuilder.js:383
+msgid "Upgrade to Pro to add more than one product input field."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:566
+msgid "Fill this only if Checkbox type is selected."
+msgstr ""

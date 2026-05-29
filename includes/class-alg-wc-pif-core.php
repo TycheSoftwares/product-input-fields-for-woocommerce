@@ -37,6 +37,8 @@ if ( ! class_exists( 'Alg_WC_PIF_Core' ) ) :
 					add_action( $position, array( $this, 'add_before_product_input_fields_to_frontend' ), $priority );
 				}
 				require_once 'class-alg-wc-pif-main.php';
+				require_once 'class-alg-wc-pif-express-checkout.php';
+				new Alg_WC_PIF_Express_Checkout();
 				$global = new Alg_WC_PIF_Main( 'global' );
 				$local  = new Alg_WC_PIF_Main( 'local' );
 				if ( 'disable' !== $position ) {

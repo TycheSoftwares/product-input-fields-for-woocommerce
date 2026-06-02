@@ -2,9 +2,9 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 6.9.0
-Stable tag: 1.14.0
-Requires PHP: 7.3
+Tested up to: 7.0.0
+Stable tag: 1.15.0
+Requires PHP: 7.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -116,6 +116,10 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 This plugin communicates with our tracking server to send usage data **only** if the user has explicitly opted in to usage tracking. For detailed information about what is tracked, please refer to our [usage tracking documentation](https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking/).
 
 == Changelog ==
+
+= 1.15.0 - 02/06/2026 =
+* Fix - Product Input Field data is now carried forward when Stripe Express Checkout is used directly from the product page.
+* Fix - PHP 8.2+ deprecation warning caused by dynamic property creation in Alg_WC_Settings_PIF.
 
 = 1.14.0 - 06/01/2026 =
 * Fix - On the product page, if a date was selected twice using the week picker input and the product was added to the cart, the end week date appeared repeatedly in the cart input field.

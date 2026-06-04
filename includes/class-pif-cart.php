@@ -40,11 +40,20 @@ class PIF_Cart {
 	 * @since   3.0.0
 	 */
 	public static function validate_fields( $fields, $scope, $product_id, $passed ) {
+		$is_express = self::is_express_checkout_request();
+		if ( $is_express && PIF_Express_Checkout::is_blocks_api_request() ) {
+			return $passed;
+		}
 		$terms     = get_the_terms( $product_id, 'product_cat' );
 		$terms_ids = ! empty( $terms ) ? wp_list_pluck( $terms, 'term_id' ) : array();
 
 		if ( empty( $fields ) || ! is_array( $fields ) ) {
 			return $passed;
+		}
+
+		$session_data = null;
+		if ( $is_express ) {
+			$session_data = PIF_Express_Checkout::get_from_session( $product_id );
 		}
 
 		foreach ( $fields as $id => $product_input_field ) {
@@ -103,19 +112,33 @@ class PIF_Cart {
 
 			// Validate required fields only if the field is visible.
 			if ( $required ) {
-				$multiple = isset( $product_input_field['multiple'] ) && ( true === $product_input_field['multiple'] || 'yes' === $product_input_field['multiple'] ) ? true : false;
+				$multiple    = isset( $product_input_field['multiple'] ) && ( true === $product_input_field['multiple'] || 'yes' === $product_input_field['multiple'] ) ? true : false;
+				$field_value = '';
 				if ( 'file' === $product_input_field['type'] ) {
 					$field_value = ( isset( $_FILES[ $field_name ]['name'] ) ) ? $_FILES[ $field_name ]['name'] : ''; //phpcs:ignore
-				} elseif ( 'multicheck' === $product_input_field['type'] || ( 'select' === $product_input_field['type'] && $multiple ) || 'checkbox' === $product_input_field['type'] ) {
-					$field_value = ( isset( $_POST[ $field_name ] ) ) ? array_map( 'sanitize_text_field', $_POST[ $field_name ] ) : ''; //phpcs:ignore
+					if ( '' === $field_value && $is_express && $session_data ) {
+						$field_value = $session_data['files'][ $field_name ] ?? '';
+					}
 				} else {
-					$field_value = ( isset( $_POST[ $field_name ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ $field_name ] ) ) : ''; //phpcs:ignore
-
 					if ( 'select' === $product_input_field['type'] && $_POST[ $field_name ] === 'placeholder' ) { //phpcs:ignore
 						$field_value = '';
 					}
+
+					if ( isset( $_POST[ $field_name ] ) ) { // phpcs:ignore
+						$field_value = sanitize_text_field( wp_unslash( $_POST[ $field_name ] ) ); // phpcs:ignore
+						if ( is_array( $field_value ) ) {
+							$field_value = implode( '', $field_value );
+						}
+					}
+
+					if ( '' === trim( (string) $field_value ) && $is_express && $session_data ) {
+						$field_value = $session_data['values'][ $field_name ] ?? '';
+						if ( is_array( $field_value ) ) {
+							$field_value = implode( '', $field_value );
+						}
+					}
 				}
-				if ( '' === $field_value ) {
+				if ( '' === trim( (string) $field_value ) ) {
 					$passed = false;
 					wc_add_notice( str_replace( '%title%', $product_input_field['title'], $product_input_field['required_message'] ), 'error' );
 					$active_theme = wp_get_theme();
@@ -173,6 +196,15 @@ class PIF_Cart {
 		if ( ! empty( $local_input_fields ) ) {
 			$cart_item_data[ ALG_WC_PIF_ID . '_local' ] = $local_input_fields;
 		}
+
+		$is_express   = self::is_express_checkout_request();
+		$session_data = null;
+		if ( $is_express && ! PIF_Express_Checkout::is_blocks_api_request() ) {
+			$session_data = PIF_Express_Checkout::get_from_session( $product_id );
+		}
+		if ( $is_express && ! PIF_Express_Checkout::is_blocks_api_request() && $session_data ) {
+			PIF_Express_Checkout::clear_session( $product_id );
+		}
 		return $cart_item_data;
 	}
 
@@ -181,6 +213,12 @@ class PIF_Cart {
 			return array();
 		}
 
+		$is_express   = self::is_express_checkout_request();
+		$session_data = null;
+		if ( $is_express && ! PIF_Express_Checkout::is_blocks_api_request() ) {
+			$session_data = PIF_Express_Checkout::get_from_session( $product_id );
+		}
+		
 		$product_input_fields = array();
 		foreach ( $fields as $id => $product_input_field ) {
 			$field_id = $product_input_field['id'] ?? 1;
@@ -201,10 +239,22 @@ class PIF_Cart {
 					$tmp_dest_file                 = tempnam( sys_get_temp_dir(), 'alg' );
 					move_uploaded_file( $_FILES[ $field_name ]['tmp_name'], $tmp_dest_file ); // phpcs:ignore
 					$product_input_field['_value']['_tmp_name'] = $tmp_dest_file;
+				} elseif ( $session_data && ! empty( $session_data['files'][ $field_name ] ) ) {
+					$product_input_field['_value'] = array(
+						'name'      => $session_data['files'][ $field_name ],
+						'_tmp_name' => '',
+						'_express'  => true,
+					);
 				}
 			} else { // phpcs:ignore
+				$value = null;
 				if ( isset( $_POST[ $field_name ] ) ) { // phpcs:ignore
 					$value = stripslashes_deep( sanitize_text_field( wp_unslash( $_POST[ $field_name ] ) ) ); // phpcs:ignore
+				} elseif ( $session_data && isset( $session_data['values'][ $field_name ] ) ) {
+					$value = $session_data['values'][ $field_name ];
+				}
+
+				if ( null !== $value ) {
 					if ( 'textarea' === $product_input_field['type'] ) {
 						$value = sanitize_textarea_field( $value );
 					} elseif ( 'url' === $product_input_field['type'] ) {
@@ -450,5 +500,52 @@ class PIF_Cart {
 				$value['data']->set_price( ( $price ) );
 			}
 		}
+	}
+
+	private static function is_express_checkout_request() {
+		if ( PIF_Express_Checkout::is_blocks_api_request() ) {
+			return true;
+		}
+		$is_ajax = defined( 'DOING_AJAX' ) && DOING_AJAX;
+		$wc_ajax = isset( $_GET['wc-ajax'] ) ? sanitize_text_field( wp_unslash( $_GET['wc-ajax'] ) ) : ''; // phpcs:ignore
+		$action  = isset( $_POST['action'] ) ? sanitize_text_field( wp_unslash( $_POST['action'] ) ) : ''; // phpcs:ignore
+
+		$express_actions = array(
+			'wc_stripe_payment_request_create_order',
+			'wc_stripe_payment_request_add_to_cart',
+			'wc_stripe_create_order',
+			'wc_stripe_express_checkout_create_order',
+			'wc_stripe_express_checkout_add_to_cart',
+			'wcpay_create_order',
+			'wcpay_payment_request_create_order',
+			'wcpay_payment_request_add_to_cart',
+			'wcpay_express_checkout_create_order',
+			'wcpay_express_checkout_add_to_cart',
+			'wc_ppec_start_checkout',
+			'woocommerce_payment_request_button_add_to_cart',
+		);
+		$express_wc_ajax = array(
+			'stripe_payment_request_create_order',
+			'stripe_payment_request_add_to_cart',
+			'wcpay_create_order',
+			'wcpay_payment_request_create_order',
+			'wcpay_payment_request_add_to_cart',
+			'wcpay_express_checkout_create_order',
+			'wcpay_express_checkout_add_to_cart',
+			'wc_stripe_express_checkout_create_order',
+			'wc_stripe_express_checkout_add_to_cart',
+		);
+		if ( $is_ajax && in_array( $action, $express_actions, true ) ) {
+			return true;
+		}
+		if ( in_array( $wc_ajax, $express_wc_ajax, true ) ) {
+			return true;
+		}
+		$stripe_header  = isset( $_SERVER['HTTP_X_WCPAY_PLATFORM'] ) ? $_SERVER['HTTP_X_WCPAY_PLATFORM'] : ''; // phpcs:ignore
+		$stripe_header2 = isset( $_SERVER['HTTP_X_WC_STRIPE_PAYMENT_REQUEST'] ) ? $_SERVER['HTTP_X_WC_STRIPE_PAYMENT_REQUEST'] : ''; // phpcs:ignore
+		if ( ! empty( $stripe_header ) || ! empty( $stripe_header2 ) ) {
+			return true;
+		}
+		return false;
 	}
 }

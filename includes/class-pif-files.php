@@ -57,6 +57,8 @@ class PIF_Files {
 		PIF()::include_file( 'class-pif-product.php' );
 		PIF()::include_file( 'class-pif-cart.php' );
 		PIF()::include_file( 'class-pif-order.php' );
+		PIF()::include_file( 'class-pif-express-checkout.php' );
+		new PIF_Express_Checkout();
 	}
 
 	/**

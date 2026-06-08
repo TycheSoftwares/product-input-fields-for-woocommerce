@@ -433,6 +433,8 @@ final class Product_Input_Fields {
 	public function action_links( $links ) {
 		$custom_links   = array();
 		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=product-input-fields-for-woocommerce' ) . '">' . __( 'Settings', 'woocommerce' ) . '</a>';
+		$custom_links[] = '<a href="https://www.tychesoftwares.com/products/woocommerce-product-input-fields-plugin/?utm_source=pifupgradetopro&utm_medium=unlockall&utm_campaign=ProductInputFieldsLite">' . __( 'Unlock All', 'product-input-fields-for-woocommerce' ) . '</a>';
+
 		return array_merge( $custom_links, $links );
 	}
 

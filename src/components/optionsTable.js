@@ -73,7 +73,7 @@ const OptionsTable = ({
                                         ))
                                     }
                                     <HStack>
-                                        <Button icon={'trash'} isDestructive style={{ marginTop: 'auto' }} onClick={() => remove(index)}/>
+                                        <Button icon={'trash'} isDestructive style={{ marginTop: 'auto' }} onClick={() => remove(index)} disabled={ 'type_conditional_options' === id ? true : false }/>
                                     </HStack>
                                 </Grid>
                             )
@@ -82,7 +82,7 @@ const OptionsTable = ({
                 </CardBody>
             </Card>
             <HStack> 
-                <Button className='pif-button-add-option' onClick={() => append( defaultValue )}>{__('+ Add Option', 'product-input-fields-for-woocommerce')}</Button>
+                <Button className='pif-button-add-option' onClick={() => append( defaultValue )} disabled={ 'type_conditional_options' === id ? true : false }>{__('+ Add Option', 'product-input-fields-for-woocommerce')}</Button>
             </HStack>
         </>
     );

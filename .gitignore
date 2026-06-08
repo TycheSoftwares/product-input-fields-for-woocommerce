@@ -1,11 +1,20 @@
-.idea
-.idea/*
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
 
-**/.sass-cache
-**/.sass-cache/*
-tasks/node_modules
-tasks/node_modules/*
+# Dependency directories
+node_modules/
+package-lock.json
 
-**/*.log
+#vendor/
+.vscode
 workspace.code-workspace
-.vscode/*
+Rubbish/
+
+npm-debug.log*
+vendor/
+
+# For Mac
+.DS_Store

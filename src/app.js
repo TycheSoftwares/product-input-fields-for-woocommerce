@@ -11,16 +11,13 @@ import {
     CardHeader,  
     CardBody,
     CardFooter,
-    TabPanel,
     Spinner
 } from '@wordpress/components';
 
 import { useRef, useEffect, useState } from "@wordpress/element";
-import { dispatch, useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { General, FieldBuilder } from './screens';
 import { getSettings, getFields } from './data/api';
-import { store as coreDataStore } from '@wordpress/core-data';
 
 /**
  * External dependencies
@@ -122,7 +119,7 @@ function App() {
                     </HStack>
                     <HStack justify="center">
                         <Text>If this plugin helped you,</Text>
-                        <ExternalLink href="https://www.tychesoftwares.com/submit-review/" className="bogo-link">
+                        <ExternalLink href="https://wordpress.org/support/plugin/product-input-fields-for-woocommerce/reviews" className="bogo-link">
                         please rate it
                         </ExternalLink>
                         <Text style={{ fontSize: "17px", color: "#FFBA00" }}>★★★★★</Text>

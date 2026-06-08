@@ -14,11 +14,12 @@ import {
     TabPanel,
     withNotices,
     Spinner,
+    ExternalLink
 } from "@wordpress/components";
 
 import { __ } from '@wordpress/i18n';
 import { FieldCard } from "../components";
-import { FieldSettings } from "./";
+import { FieldSettings, ConditionalLogic } from "./";
 import { upload } from '@wordpress/icons';
 import { useCallback, useState, useEffect, useMemo, useRef } from "@wordpress/element";
 import { getFields, getField, updateField, addField } from "../data/api";
@@ -328,9 +329,9 @@ function FieldBuilder({ noticeOperations, noticeUI, parentRef, settingsData, pro
             component: <FieldSettings control={control} reset={reset} watch={watch} getValues={getValues} />
         },
         {
-            name: 'conditional_logic',
-            title: __('Conditional Logic (Upgrade to Pro)', 'woocommerce-flexi-bogo'),
-            disabled: true,
+            name: 'conditions',
+            title: __('Conditional Logic', 'woocommerce-flexi-bogo'),
+            component: <ConditionalLogic control={control} reset={reset} watch={watch} setValue={setValue} activeID={activeFieldId} fieldsData={fields} productID={productID} globalFields={globalFields} />
         }
     ];
 
@@ -380,7 +381,13 @@ function FieldBuilder({ noticeOperations, noticeUI, parentRef, settingsData, pro
                         />
                     ))
                 }
-                <Text style={{ fontStyle: 'italic'}}>{ __( 'Upgrade to Pro to add more than one product input field.', 'product-input-fields-for-woocommerce')}</Text>
+                <Text style={{ fontStyle: 'italic'}}>
+                    {__( 'Need more fields?  ', 'product-input-fields-for-woocommerce')}
+                    <ExternalLink href="https://www.tychesoftwares.com/products/woocommerce-product-input-fields-plugin/?utm_source=pifupgradetopro&utm_medium=link&utm_campaign=ProductInputFieldsLite" style={{ fontWeight: 'bold'}}>
+                    { __( 'Upgrade to Pro' ) }
+                    </ExternalLink>
+                    { __( ' to add unlimited product input fields.', 'product-input-fields-for-woocommerce')}
+                </Text>
             </VStack>
             <VStack spacing={4} style={{flex: 5}}>
                 {noticeUI}

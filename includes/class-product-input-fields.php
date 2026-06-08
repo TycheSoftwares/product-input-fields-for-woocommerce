@@ -273,11 +273,12 @@ final class Product_Input_Fields {
 	private function handle_localization() {
 		$domain = 'product-input-fields-for-woocommerce';
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-		$loaded = load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . 'plugins/' . $domain . '-pro/' . $domain . '-' . $locale . '.mo' );
+		$loaded = load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '-' . $locale . '.mo' );
+
 		if ( $loaded ) {
 			return $loaded;
 		} else {
-			load_plugin_textdomain( $domain, false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
+			load_plugin_textdomain( $domain, false, dirname( plugin_basename( PIF_FILE ) ) . '/languages/' );
 		}
 	}
 

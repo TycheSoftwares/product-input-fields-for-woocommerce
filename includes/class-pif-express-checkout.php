@@ -279,12 +279,12 @@ class PIF_Express_Checkout {
 			$global_fields = get_option( 'pif_field_settings', array() );
 			$product_fields = get_post_meta( $product_id, 'pif_field_settings', true );
 
-			$fields = ( 'local' === $scope ) ? $product_fields : $global_fields;
+			$all_fields = ( 'local' === $scope ) ? $product_fields : $global_fields;
 
-			if ( ! is_array( $fields ) ) {
+			if ( ! is_array( $all_fields ) ) {
 				continue;
 			}
-			foreach ( $fields as $key => $field ) {
+			foreach ( $all_fields as $key => $field ) {
 				$field_id = $field['id'] ?? 1;
 				$enabled  = isset( $field['enabled'] ) && ( true === $field['enabled'] || 'yes' === $field['enabled'] ) ? true : false;
 
@@ -312,12 +312,12 @@ class PIF_Express_Checkout {
 			$global_fields  = get_option( 'pif_field_settings', array() );
 			$product_fields = get_post_meta( $product_id, 'pif_field_settings', true );
 
-			$fields = ( 'local' === $scope ) ? $product_fields : $global_fields;
+			$all_fields = ( 'local' === $scope ) ? $product_fields : $global_fields;
 
-			if ( ! is_array( $fields ) ) {
+			if ( ! is_array( $all_fields ) ) {
 				continue;
 			}
-			foreach ( $fields as $key => $field ) {
+			foreach ( $all_fields as $key => $field ) {
 				$field_id = $field['id'] ?? 1;
 				$enabled  = isset( $field['enabled'] ) && ( true === $field['enabled'] || 'yes' === $field['enabled'] ) ? true : false;
 				$required  = isset( $field['required'] ) && ( true === $field['required'] || 'yes' === $field['required'] ) ? true : false;

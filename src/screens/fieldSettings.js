@@ -150,28 +150,6 @@ function FieldSettings({control, reset, watch, getValues }) {
                             />
                         ),
                     },
-                    {
-                        name: 'to_uppercase',
-                        defaultValue: '',
-                        label: __( 'Uppercase', 'product-input-fields-for-woocommerce' ),
-                        showWhen: type === 'text' || type === 'textarea',
-                        render: ( field ) => (
-                            <RadioControl
-                                selected={ field.value }
-                                options={[
-                                    {
-                                        label: __('Converts all characters to uppercase version.', 'product-input-fields-for-woocommerce'),
-                                        value: 'all_letters_uppercase',
-                                    },
-                                    {
-                                        label: __('Converts only first letter of first word to uppercase version.', 'product-input-fields-for-woocommerce'),
-                                        value: 'only_first_letter_uppercase',
-                                    },
-                                ]}
-                                onChange={ field.onChange }
-                            />
-                        ),
-                    },
                 ] }
             />
 

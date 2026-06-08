@@ -120,10 +120,6 @@ class PIF_Cart {
 						$field_value = $session_data['files'][ $field_name ] ?? '';
 					}
 				} else {
-					if ( 'select' === $product_input_field['type'] && $_POST[ $field_name ] === 'placeholder' ) { //phpcs:ignore
-						$field_value = '';
-					}
-
 					if ( isset( $_POST[ $field_name ] ) ) { // phpcs:ignore
 						$field_value = sanitize_text_field( wp_unslash( $_POST[ $field_name ] ) ); // phpcs:ignore
 						if ( is_array( $field_value ) ) {

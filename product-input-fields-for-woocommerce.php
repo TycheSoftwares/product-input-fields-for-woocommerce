@@ -39,8 +39,8 @@ if ( ! class_exists( 'Product_Input_Fields', false ) ) {
  *
  * @since  1.0
  */
-function PIF() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+function PIF_Lite() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	return Product_Input_Fields::instance();
 }
 
-PIF();
+PIF_Lite();

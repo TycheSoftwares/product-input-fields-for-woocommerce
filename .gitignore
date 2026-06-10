@@ -3,6 +3,7 @@
 [Rr]elease/
 x64/
 build/
+dist/
 
 # Dependency directories
 node_modules/

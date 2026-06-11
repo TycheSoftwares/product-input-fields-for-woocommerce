@@ -40,7 +40,7 @@ function FieldSettings({control, reset, watch, getValues }) {
                 fields={ [
                     {
                         name: 'type',
-                        defaultValue: false,
+                        defaultValue: 'text',
                         label: __( 'Field Type', 'product-input-fields-for-woocommerce' ),
                         render: ( field ) => (
                             <SelectControl

@@ -26,7 +26,8 @@
         "package:wc": "node build-plugin.js --variant=wc",
         "release:non-wc": "npm run build && npm run i18n && node build-plugin.js",
         "release:wc": "CPP_WC_BUILD=true npm run build && node build-plugin.js --variant=wc",
-        "release": "npm run clean && npm run release:non-wc && npm run release:wc"
+        "release": "npm run clean && npm run release:non-wc && npm run release:wc",
+        "release:svn": "npm run clean && npm run build && npm run i18n && node build-plugin.js --variant=svn"
     },
     "dependencies": {
         "@wordpress/components": "^28.2.0",

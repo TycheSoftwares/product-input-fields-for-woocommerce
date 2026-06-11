@@ -61,41 +61,9 @@ class PIF_Cart {
 			$exl_yes  = true;
 			$enabled  = isset( $product_input_field['enabled'] ) && ( true === $product_input_field['enabled'] || 'yes' === $product_input_field['enabled'] ) ? $product_input_field['enabled'] : false; 
 			$required = isset( $product_input_field['required'] ) && ( true === $product_input_field['required'] || 'yes' === $product_input_field['required'] ) ? true : false;
-			if ( 'global' === $scope && $enabled ) {
-				$exl_categories = isset( $product_input_field['exl_categories'] ) ? $product_input_field['exl_categories'] : '';
-				$inl_categories = isset( $product_input_field['inl_categories'] ) ? $product_input_field['inl_categories'] : '';
-				if ( ! empty( $exl_categories ) && ! empty( $terms_ids ) ) {
-					$exl_yes = ! array_intersect( $terms_ids, $exl_categories );
-					if ( ! $exl_yes ) { //phpcs:ignore
-					}
-				}
-				if ( ! empty( $inl_categories ) && ! empty( $terms_ids ) ) {
-					$exl_yes = array_intersect( $terms_ids, $inl_categories );
-					if ( $exl_yes ) { //phpcs:ignore
-					}
-				}
-			}
-
-			// Skip validation if field is excluded based on categories.
-			if ( ! $enabled || ! $exl_yes ) {
-				continue;
-			}
 
 			if ( !$enabled ) {
 				continue;
-			}
-			$field_name = ALG_WC_PIF_ID . '_' . $scope . '_' . $field_id;
-
-			// Skip required validation if conditional category does not match product category.
-			if ( isset( $product_input_field['enabled_conditional_logic'] ) && $product_input_field['enabled_conditional_logic']
-				&& isset( $product_input_field['type_conditional_options']['type_conditional_options_categories'][0] )
-				&& ! empty( $product_input_field['type_conditional_options']['type_conditional_options_categories'][0] )
-			) {
-				$conditional_categories = $product_input_field['type_conditional_options']['type_conditional_options_categories'][0];
-				// Product categories already available as $terms_ids.
-				if ( empty( array_intersect( $terms_ids, $conditional_categories ) ) ) {
-					continue;
-				}
 			}
 
 			// Generate field name.
@@ -112,8 +80,8 @@ class PIF_Cart {
 
 			// Validate required fields only if the field is visible.
 			if ( $required ) {
-				$multiple    = isset( $product_input_field['multiple'] ) && ( true === $product_input_field['multiple'] || 'yes' === $product_input_field['multiple'] ) ? true : false;
-				$field_value = '';
+				$is_empty = false;
+				$field_value = null;
 				if ( 'file' === $product_input_field['type'] ) {
 					$field_value = ( isset( $_FILES[ $field_name ]['name'] ) ) ? $_FILES[ $field_name ]['name'] : ''; //phpcs:ignore
 					if ( '' === $field_value && $is_express && $session_data ) {
@@ -133,8 +101,11 @@ class PIF_Cart {
 							$field_value = implode( '', $field_value );
 						}
 					}
+
+					$is_empty = ( '' === $field_value );
 				}
-				if ( '' === trim( (string) $field_value ) ) {
+
+				if ( $is_empty ) {
 					$passed = false;
 					wc_add_notice( str_replace( '%title%', $product_input_field['title'], $product_input_field['required_message'] ), 'error' );
 					$active_theme = wp_get_theme();

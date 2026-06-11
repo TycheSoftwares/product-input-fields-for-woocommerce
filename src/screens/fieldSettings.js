@@ -19,7 +19,8 @@ import {
     CardFooter,
     TabPanel,
     TextareaControl,
-    Icon
+    Icon,
+    ExternalLink,
 } from "@wordpress/components";
 
 import { __ } from '@wordpress/i18n';
@@ -496,6 +497,36 @@ function FieldSettings({control, reset, watch, getValues }) {
                                 onChange={ field.onChange }
                                 label={ __('Allow color typing', 'product-input-fields-for-woocommerce' ) }
                                 help={__('Allows typing or pasting the color manually.', 'product-input-fields-for-woocommerce')}
+                            />
+                        ),
+                    },
+                ] }
+            />
+
+            <SettingsCardSection
+                heading={ __( 'Field Pricing', 'product-input-fields-for-woocommerce' ) }
+                subHeading={ 
+                    <>
+                        {__( 'Configure pricing options for this field. ', 'product-input-fields-for-woocommerce' )}
+                        <ExternalLink href="https://www.tychesoftwares.com/products/woocommerce-product-input-fields-plugin/?utm_source=pifupgradetopro&utm_medium=link&utm_campaign=ProductInputFieldsLite" style={{ fontWeight: 'bold'}}>
+                        { __( 'Upgrade to Pro' ) }
+                        </ExternalLink>
+                    </>
+                 }
+                control={ control }
+                className="pif-field-builder"
+                fields={ [
+                    {
+                        name: 'required_price',
+                        defaultValue: false,
+                        label: __( 'Add Extra Price', 'product-input-fields-for-woocommerce' ),
+                        render: ( field ) => (
+                            <ToggleControl
+                                checked={ toBoolean(field.value) }
+                                onChange={ field.onChange }
+                                label={ __( 'Enable pricing', 'product-input-fields-for-woocommerce' ) }
+                                help={__('Enable pricing to add prices for the input fields.', 'product-input-fields-for-woocommerce')}
+                                disabled={true}
                             />
                         ),
                     },

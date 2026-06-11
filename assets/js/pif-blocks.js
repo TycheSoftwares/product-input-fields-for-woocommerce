@@ -95,7 +95,17 @@
             }
 
             for (var i = 0; i < required.length; i++) {
-                var f   = required[i];
+                var f = required[i];
+
+                // Skip if the field element is not present on the page
+                // (e.g. position set to "Do not display").
+                var fieldEl = document.querySelector(
+                    '[name="' + f.fieldName + '"], [name="' + f.fieldName + '[]"]'
+                );
+                if (!fieldEl) {
+                    continue;
+                }
+
                 var val = this.getFieldValue(f.fieldName, f.type);
                 if (!val || val.toString().trim() === '') {
                     var msg = this.config.messages.required;
@@ -138,54 +148,63 @@
 
         /**
          * Collect current values of ALL enabled PIF fields from the product page.
-         * @return {{ values: Object, files: Object }}
+         * Also records which fields are actually rendered in the DOM so PHP can
+         * skip required-field validation for fields that were never displayed.
+         * @return {{ values: Object, files: Object, rendered: Array }}
          */
         collectValues: function () {
-            var values = {};
-            var files  = {};
+            var values   = {};
+            var files    = {};
+            var rendered = [];
             (this.config.allFields || []).forEach(function (f) {
                 var name = f.fieldName;
                 if (f.type === 'file') {
-                    var el      = document.querySelector('[name="' + name + '"]');
-                    files[name] = (el && el.files && el.files.length) ? el.files[0].name : '';
+                    var el = document.querySelector('[name="' + name + '"]');
+                    if (el) {
+                        rendered.push(name);
+                        files[name] = (el.files && el.files.length) ? el.files[0].name : '';
+                    }
                 } else if (f.type === 'checkbox') {
-                    var cb       = document.querySelector('input[type="checkbox"][name="' + name + '"]');
-                    values[name] = (cb && cb.checked) ? 'yes' : 'no';
+                    var cb = document.querySelector('input[type="checkbox"][name="' + name + '"]');
+                    if (cb) {
+                        rendered.push(name);
+                        values[name] = cb.checked ? 'yes' : 'no';
+                    }
                 } else if (f.type === 'color') {
-                    var colorVal = '';
-
                     var colorInput = document.querySelector('input[type="color"][name="' + name + '"]')
                         || document.querySelector('input[type="text"][name="' + name + '"]')
                         || document.querySelector('input[name="' + name + '"]');
-
                     if (colorInput) {
-                        colorVal = colorInput.value || '';
-                    }
-
-                    if (!colorVal) {
-                        var spPreview = document.querySelector('.sp-preview-inner');
-                        if (spPreview && spPreview.style.backgroundColor) {
-                            colorVal = spPreview.style.backgroundColor;
+                        rendered.push(name);
+                        var colorVal = colorInput.value || '';
+                        if (!colorVal) {
+                            var spPreview = document.querySelector('.sp-preview-inner');
+                            if (spPreview && spPreview.style.backgroundColor) {
+                                colorVal = spPreview.style.backgroundColor;
+                            }
                         }
+                        values[name] = colorVal;
                     }
-                    values[name] = colorVal || '';
-
                 } else {
                     var input = document.querySelector('[name="' + name + '"]');
                     if (!input) {
                         var inputs = document.querySelectorAll('[name="' + name + '[]"]');
-                        var arr    = [];
-                        inputs.forEach(function (el) {
-                            if ((el.type === 'checkbox' || el.type === 'radio') && !el.checked) return;
-                            if (el.value) arr.push(el.value);
-                        });
-                        values[name] = arr.length ? arr : '';
+                        if (inputs.length) {
+                            rendered.push(name);
+                            var arr = [];
+                            inputs.forEach(function (el) {
+                                if ((el.type === 'checkbox' || el.type === 'radio') && !el.checked) return;
+                                if (el.value) arr.push(el.value);
+                            });
+                            values[name] = arr.length ? arr : '';
+                        }
                     } else {
+                        rendered.push(name);
                         values[name] = input.value || '';
                     }
                 }
             });
-            return { values: values, files: files };
+            return { values: values, files: files, rendered: rendered };
         },
 
         /**
@@ -204,11 +223,12 @@
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
                 var params = self.buildParams({
-                    action:     'alg_wc_pif_save_for_express',
-                    nonce:      config.nonce,
-                    product_id: config.productId,
-                    pif_values: data.values,
-                    pif_files:  data.files,
+                    action:       'alg_wc_pif_save_for_express',
+                    nonce:        config.nonce,
+                    product_id:   config.productId,
+                    pif_values:   data.values,
+                    pif_files:    data.files,
+                    pif_rendered: data.rendered,
                 });
 
                 xhr.onload = function () {
@@ -238,11 +258,12 @@
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
             var params = this.buildParams({
-                action:     'alg_wc_pif_save_for_express',
-                nonce:      config.nonce,
-                product_id: config.productId,
-                pif_values: data.values,
-                pif_files:  data.files,
+                action:       'alg_wc_pif_save_for_express',
+                nonce:        config.nonce,
+                product_id:   config.productId,
+                pif_values:   data.values,
+                pif_files:    data.files,
+                pif_rendered: data.rendered,
             });
 
             xhr.send(params);

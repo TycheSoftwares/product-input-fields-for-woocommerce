@@ -3,8 +3,16 @@ const path = require("path");
 const archiver = require("archiver");
 
 const PLUGIN_SLUG = "product-input-fields-for-woocommerce";
-const variant = process.argv.includes("--variant=wc") ? "wc" : "standard";
-const DEST_BASE = path.join("dist", variant === "wc" ? "wc-version" : "standard-version");
+const variant = process.argv.includes("--variant=wc")
+    ? "wc"
+    : process.argv.includes("--variant=svn")
+        ? "svn"
+        : "standard";
+
+// SVN places the plugin folder directly inside dist/ (no version subfolder).
+const DEST_BASE = variant === "svn"
+    ? "dist"
+    : path.join("dist", variant === "wc" ? "wc-version" : "standard-version");
 const DEST = path.join(DEST_BASE, PLUGIN_SLUG);
 const ZIP_PATH = path.join(DEST_BASE, `${PLUGIN_SLUG}.zip`);
 
@@ -24,11 +32,13 @@ if (!fs.existsSync("build")) {
     throw new Error("Missing /build — run `npm run build` first.");
 }
 
-// Clean and recreate the dist folder.
-rmSync(DEST_BASE);
+// Clean and recreate the destination.
+// For SVN, only wipe the plugin subfolder so other dist variants are preserved.
+rmSync(variant === "svn" ? DEST : DEST_BASE);
 fs.mkdirSync(DEST, { recursive: true });
 
-console.log(`\nPackaging ${variant === "wc" ? "WC Marketplace" : "Standard"} version…`);
+const variantLabel = variant === "wc" ? "WC Marketplace" : variant === "svn" ? "SVN" : "Standard";
+console.log(`\nPackaging ${variantLabel} version…`);
 
 // Copy all included files.
 INCLUDE.forEach((item) => {

@@ -62,7 +62,7 @@ msgstr ""
 #: includes/pif-functions.php:93
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:50
+#: src/screens/fieldSettings.js:51
 msgid "Text"
 msgstr ""
 
@@ -70,7 +70,7 @@ msgstr ""
 #: includes/pif-functions.php:94
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:51
+#: src/screens/fieldSettings.js:52
 msgid "Textarea"
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr ""
 #: includes/pif-functions.php:95
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:52
+#: src/screens/fieldSettings.js:53
 msgid "Number"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgstr ""
 #: includes/pif-functions.php:221
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:53
+#: src/screens/fieldSettings.js:54
 msgid "Checkbox"
 msgstr ""
 
@@ -96,7 +96,7 @@ msgstr ""
 #: includes/pif-functions.php:379
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:54
+#: src/screens/fieldSettings.js:55
 msgid "Color"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 #: includes/pif-functions.php:245
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:55
+#: src/screens/fieldSettings.js:56
 msgid "File"
 msgstr ""
 
@@ -113,7 +113,7 @@ msgstr ""
 #: includes/pif-functions.php:99
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:56
+#: src/screens/fieldSettings.js:57
 msgid "Datepicker"
 msgstr ""
 
@@ -121,7 +121,7 @@ msgstr ""
 #: includes/pif-functions.php:100
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:57
+#: src/screens/fieldSettings.js:58
 msgid "Weekpicker"
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr ""
 #: includes/pif-functions.php:352
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:58
+#: src/screens/fieldSettings.js:59
 msgid "Timepicker"
 msgstr ""
 
@@ -138,7 +138,7 @@ msgstr ""
 #: includes/pif-functions.php:102
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:59
+#: src/screens/fieldSettings.js:60
 msgid "Select"
 msgstr ""
 
@@ -146,7 +146,7 @@ msgstr ""
 #: includes/pif-functions.php:103
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:60
+#: src/screens/fieldSettings.js:61
 msgid "Radio"
 msgstr ""
 
@@ -154,7 +154,7 @@ msgstr ""
 #: includes/pif-functions.php:104
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:61
+#: src/screens/fieldSettings.js:62
 msgid "Password"
 msgstr ""
 
@@ -162,7 +162,7 @@ msgstr ""
 #: includes/pif-functions.php:105
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:62
+#: src/screens/fieldSettings.js:63
 msgid "Country"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgstr ""
 #: includes/pif-functions.php:106
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:63
+#: src/screens/fieldSettings.js:64
 msgid "Email"
 msgstr ""
 
@@ -178,7 +178,7 @@ msgstr ""
 #: includes/pif-functions.php:107
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:64
+#: src/screens/fieldSettings.js:65
 msgid "Phone"
 msgstr ""
 
@@ -186,7 +186,7 @@ msgstr ""
 #: includes/pif-functions.php:108
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:65
+#: src/screens/fieldSettings.js:66
 msgid "Search"
 msgstr ""
 
@@ -194,7 +194,7 @@ msgstr ""
 #: includes/pif-functions.php:109
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:66
+#: src/screens/fieldSettings.js:67
 msgid "URL"
 msgstr ""
 
@@ -202,7 +202,7 @@ msgstr ""
 #: includes/pif-functions.php:110
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:67
+#: src/screens/fieldSettings.js:68
 msgid "Range"
 msgstr ""
 
@@ -242,7 +242,7 @@ msgstr ""
 #: includes/pif-functions.php:138
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:106
+#: src/screens/fieldSettings.js:107
 msgid "Default Value"
 msgstr ""
 
@@ -253,7 +253,7 @@ msgstr ""
 #: includes/pif-functions.php:152
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:143
+#: src/screens/fieldSettings.js:144
 msgid "Style"
 msgstr ""
 
@@ -272,7 +272,7 @@ msgstr ""
 #: includes/pif-functions.php:173
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:157
+#: src/screens/fieldSettings.js:158
 msgid "Input Restrictions"
 msgstr ""
 
@@ -295,7 +295,7 @@ msgstr ""
 #: includes/pif-functions.php:192
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:191
+#: src/screens/fieldSettings.js:192
 msgid "Step"
 msgstr ""
 
@@ -306,7 +306,7 @@ msgstr ""
 #: includes/pif-functions.php:199
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:204
+#: src/screens/fieldSettings.js:205
 msgid "Max Length"
 msgstr ""
 
@@ -317,7 +317,7 @@ msgstr ""
 #: includes/pif-functions.php:206
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:218
+#: src/screens/fieldSettings.js:219
 msgid "Pattern"
 msgstr ""
 
@@ -332,8 +332,8 @@ msgstr ""
 #: includes/pif-functions.php:250
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:232
-#: src/screens/fieldSettings.js:295
+#: src/screens/fieldSettings.js:233
+#: src/screens/fieldSettings.js:296
 msgid "Accepted File Types"
 msgstr ""
 
@@ -344,8 +344,8 @@ msgstr ""
 #: includes/pif-functions.php:252
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:239
-#: src/screens/fieldSettings.js:302
+#: src/screens/fieldSettings.js:240
+#: src/screens/fieldSettings.js:303
 msgid "E.g.: \".jpg,.jpeg,.png\". Leave blank to accept all files."
 msgstr ""
 
@@ -356,8 +356,8 @@ msgstr ""
 #: includes/pif-functions.php:258
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:246
-#: src/screens/fieldSettings.js:309
+#: src/screens/fieldSettings.js:247
+#: src/screens/fieldSettings.js:310
 msgid "Message on Wrong File Type"
 msgstr ""
 
@@ -368,8 +368,8 @@ msgstr ""
 #: includes/pif-functions.php:265
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:259
-#: src/screens/fieldSettings.js:322
+#: src/screens/fieldSettings.js:260
+#: src/screens/fieldSettings.js:323
 msgid "Max File Size"
 msgstr ""
 
@@ -384,8 +384,8 @@ msgstr ""
 #: includes/pif-functions.php:274
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:272
-#: src/screens/fieldSettings.js:335
+#: src/screens/fieldSettings.js:273
+#: src/screens/fieldSettings.js:336
 msgid "Message on Max File Size Exceeded"
 msgstr ""
 
@@ -404,7 +404,7 @@ msgstr ""
 #: includes/pif-functions.php:293
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:358
+#: src/screens/fieldSettings.js:359
 msgid "Date Format"
 msgstr ""
 
@@ -419,7 +419,7 @@ msgstr ""
 #: includes/pif-functions.php:301
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:371
+#: src/screens/fieldSettings.js:372
 msgid "Min Date"
 msgstr ""
 
@@ -431,14 +431,14 @@ msgstr ""
 #: includes/pif-functions.php:308
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:384
+#: src/screens/fieldSettings.js:385
 msgid "Max Date"
 msgstr ""
 
 #: includes/pif-functions.php:315
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:402
+#: src/screens/fieldSettings.js:403
 msgid "Add Year Selector"
 msgstr ""
 
@@ -449,7 +449,7 @@ msgstr ""
 #: includes/pif-functions.php:322
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:410
+#: src/screens/fieldSettings.js:411
 msgid "Year Selector - Year Range"
 msgstr ""
 
@@ -464,56 +464,56 @@ msgstr ""
 #: includes/pif-functions.php:330
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:424
+#: src/screens/fieldSettings.js:425
 msgid "First Week Day"
 msgstr ""
 
 #: includes/pif-functions.php:334
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:430
+#: src/screens/fieldSettings.js:431
 msgid "Sunday"
 msgstr ""
 
 #: includes/pif-functions.php:335
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:431
+#: src/screens/fieldSettings.js:432
 msgid "Monday"
 msgstr ""
 
 #: includes/pif-functions.php:336
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:432
+#: src/screens/fieldSettings.js:433
 msgid "Tuesday"
 msgstr ""
 
 #: includes/pif-functions.php:337
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:433
+#: src/screens/fieldSettings.js:434
 msgid "Wednesday"
 msgstr ""
 
 #: includes/pif-functions.php:338
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:434
+#: src/screens/fieldSettings.js:435
 msgid "Thursday"
 msgstr ""
 
 #: includes/pif-functions.php:339
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:435
+#: src/screens/fieldSettings.js:436
 msgid "Friday"
 msgstr ""
 
 #: includes/pif-functions.php:340
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:436
+#: src/screens/fieldSettings.js:437
 msgid "Saturday"
 msgstr ""
 
@@ -524,7 +524,7 @@ msgstr ""
 #: includes/pif-functions.php:357
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:458
+#: src/screens/fieldSettings.js:459
 msgid "Time Format"
 msgstr ""
 
@@ -535,7 +535,7 @@ msgstr ""
 #: includes/pif-functions.php:364
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:470
+#: src/screens/fieldSettings.js:471
 msgid "Interval"
 msgstr ""
 
@@ -550,7 +550,7 @@ msgstr ""
 #: includes/pif-functions.php:384
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:497
+#: src/screens/fieldSettings.js:498
 msgid "Allow color typing"
 msgstr ""
 
@@ -873,189 +873,189 @@ msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:37
+#: src/screens/fieldSettings.js:38
 msgid "Basic Settings"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:44
+#: src/screens/fieldSettings.js:45
 msgid "Field Type"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:79
+#: src/screens/fieldSettings.js:80
 msgid "Field Label"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:93
+#: src/screens/fieldSettings.js:94
 msgid "Placeholder Text"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:99
+#: src/screens/fieldSettings.js:100
 msgid "Hint text shown inside the field when empty."
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:111
+#: src/screens/fieldSettings.js:112
 msgid "Pre-filled value when the page loads."
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:118
+#: src/screens/fieldSettings.js:119
 msgid "Required Field Message"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:123
+#: src/screens/fieldSettings.js:124
 msgid "Message displayed when the required field is left empty."
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:130
+#: src/screens/fieldSettings.js:131
 msgid "Custom CSS Class"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:136
+#: src/screens/fieldSettings.js:137
 msgid "Add custom CSS classes for styling (optional)."
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:149
+#: src/screens/fieldSettings.js:150
 msgid "Add custom CSS for styling (optional)."
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:165
+#: src/screens/fieldSettings.js:166
 msgid "Min Value"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:171
+#: src/screens/fieldSettings.js:172
 msgid "Minimum value for an input field. E.g. for Number/Range type. Leave blank to disable"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:178
+#: src/screens/fieldSettings.js:179
 msgid "Max Value"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:184
+#: src/screens/fieldSettings.js:185
 msgid "Maximum value for an input field. E.g. for Number/Range type. Leave blank to disable"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:197
+#: src/screens/fieldSettings.js:198
 msgid "Legal number intervals for an input field. E.g. for Number/Range type. Leave blank to disable"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:210
+#: src/screens/fieldSettings.js:211
 msgid "Maximum number of character for an input field. Leave blank to disable"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:224
+#: src/screens/fieldSettings.js:225
 msgid "Regular expression to check the input value against. Leave blank to disable"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:265
-#: src/screens/fieldSettings.js:328
+#: src/screens/fieldSettings.js:266
+#: src/screens/fieldSettings.js:329
 msgid "Set to zero to accept all files (in bytes)."
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:286
+#: src/screens/fieldSettings.js:287
 msgid "File Upload Settings"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:287
+#: src/screens/fieldSettings.js:288
 msgid "Configure file upload restrictions."
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:349
+#: src/screens/fieldSettings.js:350
 msgid "Datepicker/Weekpicker Settings"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:350
+#: src/screens/fieldSettings.js:351
 msgid "Configure date selection options."
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:364
+#: src/screens/fieldSettings.js:365
 msgid "Leave blank to use your current WordPress format."
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:377
-#: src/screens/fieldSettings.js:390
+#: src/screens/fieldSettings.js:378
+#: src/screens/fieldSettings.js:391
 msgid "Days"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:417
+#: src/screens/fieldSettings.js:418
 msgid "E.g., \"c-10:c+10\" for 10 years back and forward from current year. Remember to set \"Min Date\" and \"Max Date\" options accordingly"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:449
+#: src/screens/fieldSettings.js:450
 msgid "Timepicker Settings"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:450
+#: src/screens/fieldSettings.js:451
 msgid "Configure time selection options."
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:476
+#: src/screens/fieldSettings.js:477
 msgid "Minutes"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:498
+#: src/screens/fieldSettings.js:499
 msgid "Allows typing or pasting the color manually."
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:512
+#: src/screens/fieldSettings.js:543
 msgid "Add options for customers to choose from."
 msgstr ""
 
@@ -1138,31 +1138,31 @@ msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:397
+#: src/screens/fieldSettings.js:398
 msgid "Year Selector"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:403
+#: src/screens/fieldSettings.js:404
 msgid "Enable to show Year Selector options below."
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:484
+#: src/screens/fieldSettings.js:485
 msgid "Color Settings"
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:485
+#: src/screens/fieldSettings.js:486
 msgid "Configure color typing options."
 msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:510
+#: src/screens/fieldSettings.js:541
 msgid "Field Options"
 msgstr ""
 
@@ -1239,14 +1239,14 @@ msgstr ""
 #: includes/pif-functions.php:220
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:543
+#: src/screens/fieldSettings.js:574
 msgid "Checkbox Type Options"
 msgstr ""
 
 #: includes/pif-functions.php:226
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:552
+#: src/screens/fieldSettings.js:583
 msgid "Value for ON"
 msgstr ""
 
@@ -1257,7 +1257,7 @@ msgstr ""
 #: includes/pif-functions.php:232
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:563
+#: src/screens/fieldSettings.js:594
 msgid "Value for OFF"
 msgstr ""
 
@@ -1273,7 +1273,7 @@ msgstr ""
 
 #: build/admin.js:1
 #: build/product.js:1
-#: src/screens/fieldSettings.js:544
+#: src/screens/fieldSettings.js:575
 msgid "Fill this only if Checkbox type is selected."
 msgstr ""
 
@@ -1300,6 +1300,36 @@ msgstr ""
 #: build/product.js:1
 #: src/screens/fieldBuilder.js:389
 msgid " to add unlimited product input fields."
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:507
+msgid "Field Pricing"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:510
+msgid "Configure pricing options for this field. "
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:522
+msgid "Add Extra Price"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:527
+msgid "Enable pricing"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:528
+msgid "Enable pricing to add prices for the input fields."
 msgstr ""
 
 #: build/admin.js:1
@@ -1378,4 +1408,34 @@ msgstr ""
 #: build/product.js:1
 #: src/screens/conditionalLogic.js:120
 msgid "of the following conditions match:"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:507
+msgid "Field Pricing"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:510
+msgid "Configure pricing options for this field. "
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:522
+msgid "Add Extra Price"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:527
+msgid "Enable pricing"
+msgstr ""
+
+#: build/admin.js:1
+#: build/product.js:1
+#: src/screens/fieldSettings.js:528
+msgid "Enable pricing to add prices for the input fields."
 msgstr ""

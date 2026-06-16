@@ -16,7 +16,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-if ( file_exists( WP_PLUGIN_DIR . '/product-input-fields-for-woocommerce/product-input-fields-for-woocommerce.php' ) ) {
+if ( file_exists( WP_PLUGIN_DIR . '/product-input-fields-for-woocommerce-pro/product-input-fields-for-woocommerce-pro.php' ) ) {
 	return;
 }
 

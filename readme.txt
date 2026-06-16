@@ -3,7 +3,7 @@ Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
 Tested up to: 7.0.0
-Stable tag: 1.15.0
+Stable tag: 2.0.0
 Requires PHP: 7.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -116,6 +116,14 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 This plugin communicates with our tracking server to send usage data **only** if the user has explicitly opted in to usage tracking. For detailed information about what is tracked, please refer to our [usage tracking documentation](https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking/).
 
 == Changelog ==
+
+= 2.0.0 - 16/06/2026 =
+* New - React-based admin interface for Settings, Prefix/Suffix rules, and FAQs pages.
+* Dev - Introduced a REST API layer (pif/v1) for all admin data operations, with per-endpoint capability checks.
+* Dev - Plugin settings migrated from individual `alg_wc_pif_*` options to consolidated `pif_general_settings` and `pif_field_settings` options.
+* Dev - Removed dead WooCommerce < 3.0 functions.
+* Tweak - Updated for compatibility with WordPress 7.0.
+* Tweak - Updated for compatibility with WooCommerce 10.8.1.
 
 = 1.15.0 - 02/06/2026 =
 * Fix - Product Input Field data is now carried forward when Stripe Express Checkout is used directly from the product page.

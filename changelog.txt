@@ -1,5 +1,8 @@
 *** Product Input Fields for WooCommerce ***
 
+2026-06-16 - version 2.0.1
+* Fix - Resolved a deployment issue that caused the admin interface to not load correctly after updating to 2.0.0.
+
 2026-06-16 - version 2.0.0
 * New - React-based admin interface for Settings, Prefix/Suffix rules, and FAQs pages.
 * Dev - Introduced a REST API layer (pif/v1) for all admin data operations, with per-endpoint capability checks.

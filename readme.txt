@@ -3,7 +3,7 @@ Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
 Tested up to: 7.0.0
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 Requires PHP: 7.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -116,6 +116,9 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 This plugin communicates with our tracking server to send usage data **only** if the user has explicitly opted in to usage tracking. For detailed information about what is tracked, please refer to our [usage tracking documentation](https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking/).
 
 == Changelog ==
+
+= 2.0.1 - 16/06/2026 =
+* Fix - Resolved a deployment issue that caused the admin interface to not load correctly after updating to 2.0.0.
 
 = 2.0.0 - 16/06/2026 =
 * New - React-based admin interface for Settings, Prefix/Suffix rules, and FAQs pages.

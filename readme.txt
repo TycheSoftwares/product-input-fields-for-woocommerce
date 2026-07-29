@@ -54,7 +54,7 @@ Product Input Fields for WooCommerce is ideal for stores selling:
 * Check the [documentation](https://www.tychesoftwares.com/docs/woocommerce-product-input-fields/) for common answers
 * Try the [live demo](https://app.instawp.io/launch?d=v1&t=product-input-fields-for-woocommerce) to see how the plugin works on the storefront.
 
-If you find the plugin useful, a **â­ 5-star rating** is always appreciated â€” it helps other store owners discover the plugin.
+If you find the plugin useful, a **⭐ 5-star rating** is always appreciated — it helps other store owners discover the plugin.
 
 = Looking for More Advanced Features? =
 
@@ -150,9 +150,9 @@ Yes. The plugin adds custom input fields directly to WooCommerce product pages, 
 
 == Screenshots ==
 
-1. General settings â€” enable the plugin and configure per-product input fields.
-2. Field Builder â€” choose from 19 different field types.
-3. Field Settings â€” configure field type, label, placeholder, default value, and validation message.
+1. General settings — enable the plugin and configure per-product input fields.
+2. Field Builder — choose from 19 different field types.
+3. Field Settings — configure field type, label, placeholder, default value, and validation message.
 4. Per-product input field settings on the product edit page.
 5. Custom input field displayed on the WooCommerce product page.
 6. Input field value shown in the WooCommerce order details.

@@ -1,5 +1,9 @@
 *** Product Input Fields for WooCommerce ***
 
+2026-08-03 - version 2.0.2
+* Fix - Security vulnerability that allowed unauthenticated file uploads due to insufficient file type validation, preventing the upload of unauthorized files.
+* Fix - Console error occurs when using the Time Picker input field on the product page.
+
 2026-06-16 - version 2.0.1
 * Fix - Resolved a deployment issue that caused the admin interface to not load correctly after updating to 2.0.0.
 

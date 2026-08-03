@@ -26,7 +26,7 @@ final class Product_Input_Fields {
 	 *
 	 * @var string
 	 */
-	protected static $plugin_version = '2.0.1';
+	protected static $plugin_version = '2.0.2';
 
 	/**
 	 * Minimum version of WordPress required.

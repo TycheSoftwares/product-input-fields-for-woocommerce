@@ -70,7 +70,7 @@ class PIF_Update {
 		}
 
 		// Only migrate if old settings were found.
-		if ( ! empty( $general_settings ) ) {
+		if ( false === get_option( 'pif_general_settings', false ) && ! empty( $general_settings ) ) {
 			update_option( 'pif_general_settings', $general_settings );
 		}
 

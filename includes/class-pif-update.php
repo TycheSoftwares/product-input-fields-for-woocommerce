@@ -69,7 +69,10 @@ class PIF_Update {
 			}
 		}
 
-		update_option( 'pif_general_settings', $general_settings );
+		// Only migrate if old settings were found.
+		if ( ! empty( $general_settings ) ) {
+			update_option( 'pif_general_settings', $general_settings );
+		}
 
 		$options = pif_get_old_options();
 		foreach ( $options as $setting ) {
@@ -113,7 +116,10 @@ class PIF_Update {
 			}
 		}
 
-		update_option( 'pif_field_settings', $field_settings );
+		// Only migrate if old field settings were found and new settings don't already exist.
+		if ( false === get_option( 'pif_field_settings', false ) && ! empty( $field_settings ) ) {
+			update_option( 'pif_field_settings', $field_settings );
+		}
 	}
 
 	/**

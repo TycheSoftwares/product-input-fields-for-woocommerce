@@ -164,7 +164,7 @@ This plugin communicates with our tracking server to send usage data **only** if
 == Changelog ==
 
 = 2.0.3 - 03/08/2026 =
-* Fix - Resolved a deployment issue that caused the admin interface to not load correctly after updating to 2.0.0.
+* Fix - Resolved a deployment issue that caused the admin interface to not load correctly after updating to 2.0.2.
 
 = 2.0.2 - 03/08/2026 =
 * Fix - Security vulnerability that allowed unauthenticated file uploads due to insufficient file type validation, preventing the upload of unauthorized files.

@@ -119,19 +119,23 @@ class PIF_Product_API extends PIF_Admin_API {
 			$fields = array();
 		}
 
-		// Lite version: only one field allowed per product.
-		if ( count( $fields ) >= 1 ) {
-			return new \WP_Error( 'field_limit_reached', 'Only one field is allowed per product. Upgrade to Pro to add more fields.', array( 'status' => 403 ) );
+		// Determine the next available ID by finding the maximum existing ID and adding 1.
+		$max_id = 0;
+		foreach ( $fields as $field ) {
+			if ( isset( $field['id'] ) && $field['id'] > $max_id ) {
+				$max_id = $field['id'];
+			}
 		}
 
-		$data['id']    = 1;
-		$data['order'] = 1;
+		$field_id      = $max_id + 1;
+		$data['id']    = $field_id;
+		$data['order'] = is_array( $fields ) && count( $fields ) ? count( $fields ) + 1 : 1; // Set order to the end of the list
 
 		array_push( $fields, $data );
 
 		update_post_meta( $product_id, 'pif_field_settings', $fields );
 
-		return self::return_response( array( 'message' => 'Field created successfully', 'id' => 1 ) );
+		return self::return_response( array( 'message' => 'Field created successfully', 'id' => $field_id ) );
 	}
 
 	/**

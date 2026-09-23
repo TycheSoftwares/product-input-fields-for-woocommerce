@@ -276,10 +276,6 @@ class PIF_Product {
 		$global_fields 	= get_option( 'pif_field_settings', array() );
 		$product_fields = get_post_meta( $product_id, 'pif_field_settings', true );
 
-		if ( count( $global_fields ) >= 2 ) {
-			$global_fields = array_slice( $global_fields, 0, 1, true );
-		}
-
 		$html = self::get_field_html( $global_fields, 'global', $product_id );
 
 		if ( true === pif_get_option( 'local_enabled' ) || 'yes' === pif_get_option( 'local_enabled' ) ) {
@@ -297,6 +293,7 @@ class PIF_Product {
 			return $html;
 		}
 
+		$fields = sort_fields_by_order( $fields );
 		foreach ( $fields as $id => $product_input_field ) {
 
 			$field_id      = $product_input_field['id'];

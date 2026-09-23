@@ -32,6 +32,7 @@ const FieldCard = ({
 			<CardBody style={{ padding: '10px 0'}}>
 				<Grid columns={3} templateColumns={'0.5fr 2fr 0.5fr'} templateRows={'auto'} columnGap={4}>
 					<div style={{alignContent: 'center'}}>
+						<Icon icon={dragHandle} size={20} style={{fill: '#99a1af'}}/>
 					</div>
 					<div style={{margin: '10px 0'}}>
 						<VStack align="start" spacing={1}>
@@ -46,7 +47,21 @@ const FieldCard = ({
 
 					</div>
 					<div className="field-card__actions">
-					
+						<Button
+								icon={copy}
+								label='Copy'
+								onClick={onCopy}
+								iconSize='18'
+								className='field-card__action-button'
+							/>
+							<Button
+								icon={trash}
+								label='Delete'
+								onClick={onDelete}
+								iconSize='18'
+								isDestructive
+								className='field-card__action-button'
+							/>
 					</div>
 					
 				</Grid>

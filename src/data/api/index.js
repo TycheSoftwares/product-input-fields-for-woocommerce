@@ -7,3 +7,4 @@ export { default as getField } from './getField';
 export { default as updateSettings } from './updateSettings';
 export { default as updateField } from './updateField';
 export { default as addField } from './addField';
+export { default as deleteField } from './deleteField';

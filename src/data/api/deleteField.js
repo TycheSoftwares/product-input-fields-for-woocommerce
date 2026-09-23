@@ -9,13 +9,14 @@ import apiFetch from '@wordpress/api-fetch';
  * @param {string} params Query parameters appended to the API path for filtering or specific requests.
  * @returns {Promise<null|Object[]>} 
  */
-const addField = async (fieldData, productID) => {
+const deleteField = async ( fieldID, productID ) => {
     try {
+        console.log( "Deleting field with ID: ", fieldID );
         if ( productID ) {
-            const response = await apiFetch({ path: `/pif/v1/products/${productID}/fields`, method: 'POST', data: fieldData });
+            const response = await apiFetch({ path: `/pif/v1/products/${productID}/fields/${fieldID}`, method: 'DELETE' });
             return response;
         } else {
-            const response = await apiFetch({ path: `/pif/v1/fields`, method: 'POST', data: fieldData });
+            const response = await apiFetch({ path: `/pif/v1/fields/${fieldID}`, method: 'DELETE' });
             return response;
         }
     } catch (error) {
@@ -23,4 +24,4 @@ const addField = async (fieldData, productID) => {
     }
 };
 
-export default addField;
+export default deleteField;

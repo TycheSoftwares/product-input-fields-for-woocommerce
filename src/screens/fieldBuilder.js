@@ -14,7 +14,6 @@ import {
     TabPanel,
     withNotices,
     Spinner,
-    ExternalLink
 } from "@wordpress/components";
 
 import { __ } from '@wordpress/i18n';
@@ -22,7 +21,7 @@ import { FieldCard } from "../components";
 import { FieldSettings, ConditionalLogic } from "./";
 import { upload } from '@wordpress/icons';
 import { useCallback, useState, useEffect, useMemo, useRef } from "@wordpress/element";
-import { getFields, getField, updateField, addField } from "../data/api";
+import { getFields, getField, updateField, addField, deleteField } from "../data/api";
 import {FIELD_TYPES} from "../data/config";
 
 function FieldBuilder({ noticeOperations, noticeUI, parentRef, settingsData, productID = null }) {
@@ -30,6 +29,9 @@ function FieldBuilder({ noticeOperations, noticeUI, parentRef, settingsData, pro
     const [globalFields, setGlobalFields] = useState([]);
     const [activeFieldId, setActiveFieldId] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [draggedId, setDraggedId] = useState(null);
+    const [deleteId, setDeleteId] = useState(null);
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
     const componentRef = useRef(null);
 
     const isDirtyRef = useRef(false);
@@ -38,6 +40,7 @@ function FieldBuilder({ noticeOperations, noticeUI, parentRef, settingsData, pro
     const getDefaultFieldValues = () => ({
         required: false,
         type: 'text',
+        field_min_qty: 1,
         title: 'Input Field',
         placeholder: '',
         required_message: 'Field "%title%" is required!',
@@ -120,16 +123,13 @@ function FieldBuilder({ noticeOperations, noticeUI, parentRef, settingsData, pro
     }, []);
 
     const handleAddField = () => {
-        if (fields.length >= 1) {
-            return;
-        }
 
         const tempId = `temp-${Date.now()}`;
 
         const newField = {
             id: tempId,
             type: "text",
-            order: 1,
+            order: fields.length + 1,
             isTemp: true
         };
 
@@ -322,6 +322,97 @@ function FieldBuilder({ noticeOperations, noticeUI, parentRef, settingsData, pro
         }
     };
 
+    const handleFieldDelete = async (deleteId) => {
+
+        try {
+            await deleteField(deleteId, productID);
+
+            setDeleteId(null);
+            setIsDialogOpen(false);
+            await fetchFields();
+            noticeOperations.createNotice({
+                status: "success",
+                content: "Field deleted successfully.",
+            });
+        } catch (error) {
+            noticeOperations.removeAllNotices();
+            noticeOperations.createNotice({
+                status: 'error',
+                content: 'Failed to delete field.',
+            });
+        }
+
+    }
+
+    const duplicateField = async (fieldID) => {
+        setLoading(true);
+        try {
+            const data = fields.find(f => f.id === fieldID);
+            const newField = await addField(data, productID);
+
+            setFields(prev => [...prev, newField]);
+
+            setActiveFieldId(newField.id);
+
+            noticeOperations.createNotice({
+                status: "success",
+                content: "Field added successfully.",
+            });
+
+            await fetchFields();
+
+        } catch (error) {
+            noticeOperations.removeAllNotices();
+            noticeOperations.createNotice({
+                status: 'error',
+                content: `Failed to duplicate rule: ${error.message}`,
+            });
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleDragStart = (id) => {
+        setDraggedId(id);
+    };
+      
+    const handleDragOver = (e) => {
+      e.preventDefault(); // required for drop
+    };
+    
+    const handleDrop = async (targetId) => {
+        if (!draggedId || draggedId === targetId) return;
+        
+        const updated = [...fields];
+        const from = updated.findIndex(f => f.id === draggedId);
+        const to = updated.findIndex(f => f.id === targetId);
+
+        const [moved] = updated.splice(from, 1);
+        updated.splice(to, 0, moved);
+
+        const reordered = updated.map((f, i) => ({
+            ...f,
+            order: i + 1,
+        }));
+
+        setFields(reordered);
+        setDraggedId(null);
+        try {
+            for (const field of reordered) {
+                await updateField(field.id, field, productID);
+            }
+        } catch (error) {
+            console.error('Failed to update rule order:', error);
+        }
+    };
+
+    const sortedFields = useMemo(() => {
+        return [...fields].sort((a, b) => (a.order || 0) - (b.order || 0));
+    }, [fields]);
+
+    const activeField = fields.find(f => f.id === activeFieldId);
+    const activeIndex = fields.findIndex(f => f.id === activeFieldId);
+
     const tabs = [
         {
             name: 'settings',
@@ -359,35 +450,47 @@ function FieldBuilder({ noticeOperations, noticeUI, parentRef, settingsData, pro
     return (
         <>
         {
-            !productID && <Text style={{ fontStyle: 'italic', padding:'0 0 10px 20px'}}>{__('Note: Field added here will appear on all WooCommerce product pages across your store.', 'product-input-fields-for-woocommerce')}</Text>
+            !productID && <Text style={{ fontStyle: 'italic', padding:'0 0 10px 20px'}}>{__('Note: Fields added here will appear on all WooCommerce product pages across your store.', 'product-input-fields-for-woocommerce')}</Text>
         }
         <HStack alignment="start" ref={componentRef}>
             <VStack spacing={4} style={{flex: '1 1 0%', padding: '20px'}} className={'pif-field-builder'}>
-                <Button 
-                    variant="primary" 
-                    style={{justifyContent: 'center'}} 
-                    disabled={true}
-                >Add Field
-                </Button>
+                <Button variant="primary" onClick={handleAddField} style={{justifyContent: 'center'}}>Add Field</Button>
                 {
-                    fields.map((field) => (
-                        <FieldCard
+                    sortedFields.map((field, index) => (
+                        <div
                             key={field.id}
+                            draggable
+                            onDragStart={() => handleDragStart(field.id)}
+                            onDragOver={handleDragOver}
+                            onDrop={() => handleDrop(field.id)}
+                        >
+                        <FieldCard
                             title={<TruncatedWithTooltip text={`${field.title ? field.title : 'Input Field'}`} />}
                             subtitle={field.isTemp ? "Unsaved field" : FIELD_TYPES[field.type]?.label}
                             icon={FIELD_TYPES[field.type]?.icon || upload}
-                            onClick={() => handleSelectField(field.id)}
+                            onCopy={() => duplicateField(field.id)}
+                            onDelete={() => { 
+                                setIsDialogOpen(true); 
+                                setDeleteId(field.id) 
+                            }}
+                            onClick={() => handleSelectField(field.id) }
                             className={field.id === activeFieldId ? 'active-field-card' : ''}
                         />
+                        </div>
                     ))
                 }
-                <Text style={{ fontStyle: 'italic'}}>
-                    {__( 'Need more fields?  ', 'product-input-fields-for-woocommerce')}
-                    <ExternalLink href="https://www.tychesoftwares.com/products/woocommerce-product-input-fields-plugin/?utm_source=pifupgradetopro&utm_medium=link&utm_campaign=ProductInputFieldsLite" style={{ fontWeight: 'bold'}}>
-                    { __( 'Upgrade to Pro' ) }
-                    </ExternalLink>
-                    { __( ' to add unlimited product input fields.', 'product-input-fields-for-woocommerce')}
-                </Text>
+                <ConfirmDialog
+                        isOpen={isDialogOpen}
+                        cancelButtonText="Cancel"
+                        confirmButtonText="Delete"
+                        onCancel={() => { setIsDialogOpen(false); setDeleteId(null) }}
+                        onConfirm={() => {
+                            handleFieldDelete(deleteId);
+                            setDeleteId(null);
+                        }}
+                    >
+                        {__('Are you sure you want to delete this field?', 'product-input-fields-for-woocommerce')}
+                </ConfirmDialog>
             </VStack>
             <VStack spacing={4} style={{flex: 5}}>
                 {noticeUI}

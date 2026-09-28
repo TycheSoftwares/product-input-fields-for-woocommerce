@@ -2,8 +2,8 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 7.0.2
-Stable tag: 2.0.3
+Tested up to: 7.1.2
+Stable tag: 2.1.0
 Requires PHP: 7.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -12,9 +12,7 @@ Add product addons (fields) to WooCommerce products. Personalise with various pr
 
 == Description ==
 
-WooCommerce product pages don't always collect the information customers need before placing an order. If you sell personalized, made-to-order, engraved, printed, or customizable products, customers often need to provide names, messages, measurements, dates, colors, or upload reference files.
-
-Product Input Fields for WooCommerce lets you add custom input fields to your WooCommerce product pages, making it easy to collect these details before customers add products to their cart. Whether you need a text field for engraving instructions, a file upload for artwork, a date picker for scheduling, or a dropdown with predefined options, the plugin helps you gather the right information during checkout.
+[Product Input Fields for WooCommerce](https://www.tychesoftwares.com/products/woocommerce-product-input-fields-plugin/?utm_source=wprepo&utm_medium=topprolink&utm_campaign=ProductInputFields) lets you add custom input fields to your WooCommerce product pages, making it easy to collect these details before customers add products to their cart. Whether you need a text field for engraving instructions, a file upload for artwork, a date picker for scheduling, or a dropdown with predefined options, the plugin helps you gather the right information during checkout.
 
 You can add one input field that applies across your entire store and one product-specific input field for individual products. Customize field labels, placeholders, default values, display position, and validation settings to match your store's requirements.
 
@@ -58,7 +56,7 @@ If you find the plugin useful, a **⭐ 5-star rating** is always appreciated —
 
 = Looking for More Advanced Features? =
 
-Upgrade to [Product Input Fields for WooCommerce Pro](https://www.tychesoftwares.com/products/woocommerce-product-input-fields-plugin/) to create unlimited global and product-level input fields, apply conditional display rules, show fields based on products or categories, add quantity-based conditions, and unlock additional customization options.
+Upgrade to [Product Input Fields for WooCommerce Pro](https://www.tychesoftwares.com/products/woocommerce-product-input-fields-plugin/?utm_source=wprepo&utm_medium=topprolink&utm_campaign=ProductInputFields) to create unlimited global and product-level input fields, apply conditional display rules, show fields based on products or categories, add quantity-based conditions, and unlock additional customization options.
 
 See the complete Lite vs Pro comparison: [https://www.tychesoftwares.com/differences-between-pro-and-lite-versions-of-product-input-fields-for-woocommerce-plugin/](https://www.tychesoftwares.com/differences-between-pro-and-lite-versions-of-product-input-fields-for-woocommerce-plugin/)
 
@@ -72,29 +70,29 @@ Tyche Softwares also develops plugins for abandoned cart recovery, order deliver
 
 **Some of our Pro plugins:**
 
-1. **[Flexi BOGO for WooCommerce](https://www.tychesoftwares.com/products/woocommerce-flexi-bogo-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=WCDeliveryNotes "Flexi BOGO for WooCommerce")**
+1. **[Flexi BOGO for WooCommerce](https://www.tychesoftwares.com/products/woocommerce-flexi-bogo-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=FlexiBOGO "Flexi BOGO for WooCommerce")**
 
-2. **[Abandoned Cart Pro for WooCommerce](https://www.tychesoftwares.com/products/woocommerce-abandoned-cart-pro-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=WCDeliveryNotes "Abandoned Cart Pro for WooCommerce")**
+2. **[Abandoned Cart Pro for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/woocommerce-abandoned-cart-pro/?utm_source=wprepo&utm_medium=link&utm_campaign=AbandonedCartLite "Abandoned Cart Pro for WooCommerce")**
 
-3. **[Booking & Appointment Plugin for WooCommerce](https://www.tychesoftwares.com/products/woocommerce-booking-and-appointment-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=WCDeliveryNotes "Booking & Appointment Plugin for WooCommerce")**
+3. **[Booking & Appointment Plugin for WooCommerce](https://www.tychesoftwares.com/products/woocommerce-booking-and-appointment-plugin/?utm_source=wprepo&utm_medium=prolink&utm_campaign=BookingAppointmentLite "Booking & Appointment Plugin for WooCommerce")**
 
-4. **[Order Delivery Date Pro for WooCommerce](https://www.tychesoftwares.com/products/woocommerce-order-delivery-date-pro-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=WCDeliveryNotes "Order Delivery Date Pro for WooCommerce")**
+4. **[Order Delivery Date Pro for WooCommerce](https://www.tychesoftwares.com/products/woocommerce-order-delivery-date-pro-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=OrderDeliveryDateLite "Order Delivery Date Pro for WooCommerce")**
 
-5. **[Product Delivery Date Pro for WooCommerce](https://www.tychesoftwares.com/products/woocommerce-product-delivery-date-pro-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=WCDeliveryNotes "Product Delivery Date Pro for WooCommerce")**
+5. **[Product Delivery Date Pro for WooCommerce](https://www.tychesoftwares.com/products/woocommerce-product-delivery-date-pro-plugin/?utm_source=wprepo&utm_medium=topprolink&utm_campaign=ProductDeliveryDateLite "Product Delivery Date Pro for WooCommerce")**
 
-6. **[Deposits For WooCommerce](https://www.tychesoftwares.com/products/woocommerce-deposit-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=WCDeliveryNotes "Deposits For WooCommerce")**
+6. **[Deposits For WooCommerce](https://www.tychesoftwares.com/products/woocommerce-deposit-plugin/?utm_source=wprepo&utm_medium=prolink&utm_campaign=DepositsLite "Deposits For WooCommerce")**
 
-7. **[Payment Gateway Based Fees and Discounts for WooCommerce - Pro](https://www.tychesoftwares.com/products/woocommerce-payment-gateway-based-fees-and-discounts-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=WCDeliveryNotes "Payment Gateway Based Fees and Discounts for WooCommerce - Pro")**
+7. **[Payment Gateway Based Fees and Discounts for WooCommerce - Pro](https://www.tychesoftwares.com/products/woocommerce-payment-gateway-based-fees-and-discounts-plugin/?utm_source=wprepo&utm_medium=prolink2&utm_campaign=WCPGBasedFees "Payment Gateway Based Fees and Discounts for WooCommerce - Pro")**
 
-8. **[Custom Order Status for WooCommerce - Pro](https://www.tychesoftwares.com/products/woocommerce-custom-order-status-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=WCDeliveryNotes "Custom Order Status for WooCommerce - Pro")**
+8. **[Custom Order Status for WooCommerce - Pro](https://www.tychesoftwares.com/products/woocommerce-custom-order-status-plugin/?utm_source=wprepo&utm_medium=prolink&utm_campaign=CustomStatus "Custom Order Status for WooCommerce - Pro")**
 
-9. **[Custom Order Numbers for WooCommerce - Pro](https://www.tychesoftwares.com/products/woocommerce-custom-order-numbers-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=WCDeliveryNotes "Custom Order Numbers for WooCommerce - Pro")**
+9. **[Custom Order Numbers for WooCommerce - Pro](https://www.tychesoftwares.com/products/woocommerce-custom-order-numbers-plugin/?utm_source=wprepo&utm_medium=prolink&utm_campaign=CustomNumbers "Custom Order Numbers for WooCommerce - Pro")**
 
-10. **[Call for Price for WooCommerce - Pro](https://www.tychesoftwares.com/products/woocommerce-call-for-price-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=WCDeliveryNotes "Call for Price for WooCommerce - Pro")**
+10. **[Call for Price for WooCommerce - Pro](https://www.tychesoftwares.com/products/woocommerce-call-for-price-plugin/?utm_source=wprepo&utm_medium=topprolink&utm_campaign=CallForPrice "Call for Price for WooCommerce - Pro")**
 
-11. **[Price based on User Role for WooCommerce - Pro](https://www.tychesoftwares.com/products/woocommerce-price-user-role-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=WCDeliveryNotes "Price based on User Role for WooCommerce - Pro")**
+11. **[Price based on User Role for WooCommerce - Pro](https://www.tychesoftwares.com/products/woocommerce-price-user-role-plugin/?utm_source=wprepo&utm_medium=prolink&utm_campaign=ProductPricesByUserRoles "Price based on User Role for WooCommerce - Pro")**
 
-12. **[Currency per Product for WooCommerce - Pro](https://www.tychesoftwares.com/products/woocommerce-currency-per-product-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=WCDeliveryNotes "Currency per Product for WooCommerce - Pro")**
+12. **[Currency per Product for WooCommerce - Pro](https://www.tychesoftwares.com/products/woocommerce-currency-per-product-plugin/?utm_source=wprepo&utm_medium=topprolink&utm_campaign=CurrencyProductLite "Currency per Product for WooCommerce - Pro")**
 
 **Some of our other free plugins:**
 
@@ -162,6 +160,9 @@ Yes. The plugin adds custom input fields directly to WooCommerce product pages, 
 This plugin communicates with our tracking server to send usage data **only** if the user has explicitly opted in to usage tracking. For detailed information about what is tracked, please refer to our [usage tracking documentation](https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking/).
 
 == Changelog ==
+
+= 2.1.0 - 28/09/2026 =
+* Enhancement - Removed the one-field limit in the free version. You can now add unlimited global input fields and unlimited product-level input fields.
 
 = 2.0.3 - 03/08/2026 =
 * Fix - Resolved a deployment issue that caused the admin interface to not load correctly after updating to 2.0.2.

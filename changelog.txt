@@ -1,5 +1,8 @@
 *** Product Input Fields for WooCommerce ***
 
+2026-09-28 - version 2.1.0
+* Enhancement - Removed the one-field limit in the free version. You can now add unlimited global input fields and unlimited product-level input fields.
+
 2026-08-03 - version 2.0.3
 * Fix - Resolved a deployment issue that caused the admin interface to not load correctly after updating to 2.0.2.
 

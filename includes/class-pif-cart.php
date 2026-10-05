@@ -80,13 +80,14 @@ class PIF_Cart {
 
 			// Validate required fields only if the field is visible.
 			if ( $required ) {
-				$is_empty = false;
-				$field_value = null;
+				$is_empty    = false;
+				$field_value = '';
 				if ( 'file' === $product_input_field['type'] ) {
 					$field_value = ( isset( $_FILES[ $field_name ]['name'] ) ) ? $_FILES[ $field_name ]['name'] : ''; //phpcs:ignore
 					if ( '' === $field_value && $is_express && $session_data ) {
 						$field_value = $session_data['files'][ $field_name ] ?? '';
 					}
+					$is_empty = ( '' === $field_value );
 				} else {
 					if ( isset( $_POST[ $field_name ] ) ) { // phpcs:ignore
 						$field_value = sanitize_text_field( wp_unslash( $_POST[ $field_name ] ) ); // phpcs:ignore

@@ -80,7 +80,7 @@ class PIF_Order {
 	 * @param string $tmp_path Path to the temporary file on disk.
 	 * @return string|false Safe extension, or false if not allowed.
 	 */
-	private static function get_safe_extension_from_content( $tmp_path ) {
+	public static function get_safe_extension_from_content( $tmp_path ) {
 		$real_mime = '';
 		if ( function_exists( 'finfo_open' ) ) {
 			$finfo = finfo_open( FILEINFO_MIME_TYPE );
@@ -116,7 +116,7 @@ class PIF_Order {
 	 *
 	 * @param string $upload_dir Absolute path to the upload directory.
 	 */
-	private static function maybe_protect_uploads_dir( $upload_dir ) {
+	public static function maybe_protect_uploads_dir( $upload_dir ) {
 		if ( ! file_exists( $upload_dir ) ) {
 			mkdir( $upload_dir, 0755, true ); //phpcs:ignore
 		}

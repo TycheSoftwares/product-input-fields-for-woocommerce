@@ -328,21 +328,24 @@ class PIF_Cart {
 		$values  = is_array( $value ) && isset( $value['name'] ) ? $value['name'] : $value;
 		$show_thumbnail = isset( $product_input_field['file_show_thumbnail'] ) && ( true === $product_input_field['file_show_thumbnail'] || 'yes' === $product_input_field['file_show_thumbnail'] ) ? true : false;
 
-		if ( ! empty( $value ) && $show_thumbnail ) {
-			$file_type = $value['type'] ?? '';
+		if ( ! empty( $value ) && $show_thumbnail && isset( $value['_tmp_name'] ) && ! empty( $value['_tmp_name'] ) && file_exists( $value['_tmp_name'] ) ) {
+			// Verify real file type from content (not client Content-Type), and never trust client-supplied filename.
+			$safe_extension = PIF_Order::get_safe_extension_from_content( $value['_tmp_name'] );
 
-			if ( in_array( $file_type, array( 'image/jpeg', 'image/jpg', 'image/png' ), true ) && isset( $value['_tmp_name'] ) ) {
+			if ( in_array( $safe_extension, array( 'jpg', 'png' ), true ) ) {
 				$upload_dir = wp_upload_dir()['basedir'] . '/pif_temp';
 				if ( ! file_exists( $upload_dir ) ) {
 					mkdir( $upload_dir, 0755, true ); //phpcs:ignore
 				}
-				$upload_dir_and_name = $upload_dir . '/' . $value['name'];
-				if ( isset( $value['_tmp_name'] ) && ! empty( $value['_tmp_name'] ) && file_exists( $value['_tmp_name'] ) ) {
-					$file_data = file_get_contents( $value['_tmp_name'] ); // Read the temporary file.
-					file_put_contents( $upload_dir_and_name, $file_data ); // Save to the new location.
-				}
+				PIF_Order::maybe_protect_uploads_dir( $upload_dir );
 
-				$img_url = home_url() . '/wp-content/uploads/pif_temp/' . $value['name'];
+				$safe_name           = wp_generate_password( 20, false, false ) . '.' . $safe_extension;
+				$upload_dir_and_name = $upload_dir . '/' . $safe_name;
+
+				$file_data = file_get_contents( $value['_tmp_name'] ); // Read the temporary file.
+				file_put_contents( $upload_dir_and_name, $file_data ); // Save to the new location.
+
+				$img_url = home_url() . '/wp-content/uploads/pif_temp/' . $safe_name;
 			}
 		}
 

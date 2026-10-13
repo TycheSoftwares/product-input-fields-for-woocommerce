@@ -14,7 +14,7 @@ Add product addons (fields) to WooCommerce products. Personalise with various pr
 
 [Product Input Fields for WooCommerce](https://www.tychesoftwares.com/products/woocommerce-product-input-fields-plugin/?utm_source=wprepo&utm_medium=topprolink&utm_campaign=ProductInputFields) lets you add custom input fields to your WooCommerce product pages, making it easy to collect these details before customers add products to their cart. Whether you need a text field for engraving instructions, a file upload for artwork, a date picker for scheduling, or a dropdown with predefined options, the plugin helps you gather the right information during checkout.
 
-You can add one input field that applies across your entire store and one product-specific input field for individual products. Customize field labels, placeholders, default values, display position, and validation settings to match your store's requirements.
+You can add unlimited input fields that apply across your entire store or create multiple product-specific input fields for individual products. Customize field labels, placeholders, default values, display positions, and validation settings to match your store’s requirements.
 
 = Key Features =
 
@@ -22,7 +22,7 @@ You can add one input field that applies across your entire store and one produc
 Add custom fields to gather additional information from customers before they purchase. The plugin includes 19 field types, including Text, Textarea, Number, Checkbox, Radio Buttons, Select, File Upload, Date Picker, Time Picker, Week Picker, Color Picker, Email, Phone, URL, Password, Country, Search, and Range.
 
 ### Add Custom Fields to WooCommerce Products
-Collect additional information from customers before they purchase. Add custom input fields globally across your store or assign them to individual products, depending on your requirements.
+Collect additional information from customers before they purchase. Add unlimited global input fields across your store or create multiple input fields for individual products, depending on your requirements.
 
 ### Customize Product Fields to Match Your Store
 Configure field titles, placeholders, default values, display position, priority, and custom CSS classes so your input fields match the design of your WooCommerce store.

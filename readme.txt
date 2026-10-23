@@ -122,6 +122,10 @@ Tyche Softwares also develops plugins for abandoned cart recovery, order deliver
 
 == Frequently Asked Questions ==
 
+= How do I add custom input fields to WooCommerce products? =
+
+Create a global input field for your entire store or add a product-specific input field from the product edit page. Customers will see the field before adding the product to their cart.
+
 = What types of input fields are available? =
 
 The plugin includes 19 field types, including Text, Textarea, Number, Checkbox, Radio Buttons, Select, File Upload, Date Picker, Time Picker, Week Picker, Color Picker, Email, Phone, URL, Password, Country, Search, and Range.
@@ -130,9 +134,17 @@ The plugin includes 19 field types, including Text, Textarea, Number, Checkbox, 
 
 Yes. You can add a File Upload field to a product page so customers can submit files with their product orders. Uploaded files can also be attached to order emails for quick access during order processing.
 
+= Can I make a field mandatory? =
+
+Yes. You can mark input fields as required and customize the validation message shown if the customer leaves the field empty.
+
 = Can I add multiple input fields to WooCommerce products? =
 
 Yes. The Lite version lets you add unlimited global input fields across your store and multiple input fields for individual products. You can configure the fields to collect details such as engraving instructions, personalization text, or other product-specific information.
+
+= Does the plugin work with WooCommerce products? =
+
+Yes. The plugin adds custom input fields directly to WooCommerce product pages, making it easy to collect additional customer information before purchase.
 
 == Screenshots ==
 

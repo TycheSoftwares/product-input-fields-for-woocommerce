@@ -166,7 +166,7 @@ class PIF_Product {
 		}
 		$price_html = '';
 		$min_html   = '';
-		$omin       = 0;		
+		$omin       = 0;
 		if ( $product->get_type() === 'variable' ) {
 			$price_html = "<span class='original-price' style='display:none'></span>";
 			$args       = array(
@@ -202,19 +202,12 @@ class PIF_Product {
 
 			$price_html = '<span class="original-price" style="display:none">' . $price . '</span>';
 		}
-		$frontend_html = self::check_field_exists();
 
-		if ( $frontend_html ) {
-			$html  = wp_kses_post( pif_get_option( 'frontend_before', '<table id="alg-product-input-fields-table" class="alg-product-input-fields-table">' ) );
-			$html .= '<span class="currency-pos" style="display:none">' . get_option( 'woocommerce_currency_pos' ) . '</span>';
-			$html .= $price_html . $min_html;
-			echo $html; //phpcs:ignore
-		} else {
-			$html  = '<table id="alg-product-input-fields-table" class="alg-product-input-fields-table">';
-			$html .= '<span class="currency-pos" style="display:none">' . get_option( 'woocommerce_currency_pos' ) . '</span>';
-			$html .= $price_html . $min_html;
-			echo $html; //phpcs:ignore
-		}
+		// Always use the wrapper from settings (falls back to the default table), so opening and closing tags always match.
+		$html  = wp_kses_post( pif_get_option( 'frontend_before', '<table id="alg-product-input-fields-table" class="alg-product-input-fields-table">' ) );
+		$html .= '<span class="currency-pos" style="display:none">' . get_option( 'woocommerce_currency_pos' ) . '</span>';
+		$html .= $price_html . $min_html;
+		echo $html; //phpcs:ignore
 	}
 
 	/**
@@ -224,12 +217,7 @@ class PIF_Product {
 	 * @since   1.0.0
 	 */
 	public static function add_after_product_input_fields_to_frontend() {
-		$frontend_html = true;
-		if ( $frontend_html ) {
-			echo wp_kses_post( pif_get_option( 'frontend_after', '</table>' ) );
-		} else {
-			echo ( '</table>' );
-		}
+		echo wp_kses_post( pif_get_option( 'frontend_after', '</table>' ) );
 	}
 
 	/**

@@ -8,6 +8,13 @@ class PIF_Update {
 	const VERSION_OPTION_KEY  = 'alg_wc_pif_version';
 
 	/**
+	 * Hook the migration repair check.
+	 */
+	public function __construct() {
+		add_action( 'admin_init', array( __CLASS__, 'maybe_repair_migration' ), 20 );
+	}
+
+	/**
 	 * Init the update process.
 	 */
 	public static function maybe_update_settings() {
@@ -24,6 +31,31 @@ class PIF_Update {
 
 			update_option( self::VERSION_OPTION_KEY, PIF_VERSION );
 		}
+	}
+
+	/**
+	 * Re-run the migration on sites where it started but never completed
+	 */
+	public static function maybe_repair_migration() {
+		if ( get_option( 'pif_migration_complete' ) ) {
+			return;
+		}
+		if ( ! get_option( 'pif_lite_migration_scheduled' ) ) {
+			return;
+		}
+		if ( get_transient( 'pif_migration_repair_check' ) ) {
+			return;
+		}
+		set_transient( 'pif_migration_repair_check', 1, HOUR_IN_SECONDS );
+		if ( function_exists( 'as_next_scheduled_action' ) ) {
+			if ( as_next_scheduled_action( 'pif_run_migration_batch' ) ) {
+				return;
+			}
+		} elseif ( wp_next_scheduled( 'pif_run_migration_batch', array( 1 ) ) ) {
+			return;
+		}
+		delete_option( 'pif_migration_running' );
+		self::pif_schedule_migration_batch( 1, true );
 	}
 
 	/**
@@ -125,11 +157,11 @@ class PIF_Update {
 	/**
 	 * Schedule migration batch.
 	 */
-	public static function pif_schedule_migration_batch( $paged ) {
+	public static function pif_schedule_migration_batch( $paged, $force = false ) {
 
 		if ( function_exists( 'as_schedule_single_action' ) ) {
 
-			if ( ! as_next_scheduled_action( 'pif_run_migration_batch' ) ) {
+			if ( $force || ! as_next_scheduled_action( 'pif_run_migration_batch' ) ) {
 
 				as_schedule_single_action(
 					time() + 1,
@@ -139,7 +171,7 @@ class PIF_Update {
 				);
 			}
 		} else {
-			if ( ! wp_next_scheduled( 'pif_run_migration_batch' ) ) {
+			if ( $force || ! wp_next_scheduled( 'pif_run_migration_batch' ) ) {
 				wp_schedule_single_event(
 					time() + 1,
 					'pif_run_migration_batch',
@@ -184,13 +216,19 @@ class PIF_Update {
 			return;
 		}
 
+		$migrated = 0;
 		foreach ( $products as $product_id ) {
 			self::pif_migrate_single_product( $product_id );
+			if ( metadata_exists( 'post', $product_id, '_pif_migrated_2_0' ) ) {
+				++$migrated;
+			}
 		}
 
 		// If fewer products than batch size, this was the last batch.
 		if ( count( $products ) < $batch_size ) {
 			update_option( 'pif_migration_complete', 1 );
+			delete_option( 'pif_migration_running' );
+		} elseif ( 0 === $migrated ) {
 			delete_option( 'pif_migration_running' );
 		} else {
 			// Schedule next batch.

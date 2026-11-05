@@ -19,6 +19,22 @@
             }
             this.patchFetch();
             this.interceptClicks();
+            this.bindNoticeClear(); // FIX: clear notice once required fields are filled.
+        },
+
+        /**
+         * FIX: Remove the inline error notice as soon as all required fields are valid.
+         */
+        bindNoticeClear: function () {
+            var self = this;
+            var clearNotice = function () {
+                var n = document.querySelector('.alg-pif-blocks-error');
+                if (n && self.validate(true)) {
+                    n.parentNode.removeChild(n);
+                }
+            };
+            document.addEventListener('input', clearNotice, true);
+            document.addEventListener('change', clearNotice, true);
         },
 
         /**
@@ -62,12 +78,20 @@
             var self = this;
 
             document.addEventListener('click', function (e) {
-                var t      = e.target;
-                var isCart = (
-                    t.classList.contains('single_add_to_cart_button') ||
-                    t.classList.contains('add_to_cart_button') ||
-                    (t.type === 'submit' && $(t).closest('form.cart').length) ||
-                    $(t).closest('.wp-block-add-to-cart-form').length
+                var t = e.target;
+
+                // FIX: only treat clicks on actual buttons/links as add-to-cart clicks.
+                var btn = (t && t.closest) ? t.closest('button, input[type="submit"], a') : null;
+                var isCart = !!btn && (
+                    btn.classList.contains('single_add_to_cart_button') ||
+                    btn.classList.contains('add_to_cart_button') ||
+                    (
+                        $(btn).closest('form.cart, .wp-block-add-to-cart-form').length &&
+                        btn.type === 'submit' &&
+                        !btn.classList.contains('wc-block-components-quantity-selector__button') &&
+                        !btn.classList.contains('plus') &&
+                        !btn.classList.contains('minus')
+                    )
                 );
                 if (!isCart) return;
                 if (self.sessionSaved) {
@@ -88,7 +112,7 @@
          * Validate all required PIF fields. Shows inline error if any empty.
          * @return {boolean}
          */
-        validate: function () {
+        validate: function (silent) {
             var required = this.config.requiredFields;
             if (!required || required.length === 0) {
                 return true;
@@ -108,9 +132,11 @@
 
                 var val = this.getFieldValue(f.fieldName, f.type);
                 if (!val || val.toString().trim() === '') {
-                    var msg = this.config.messages.required;
-                    if (f.title) msg += ': ' + f.title;
-                    this.showError(msg);
+                    if (!silent) {
+                        var msg = this.config.messages.required;
+                        if (f.title) msg += ': ' + f.title;
+                        this.showError(msg);
+                    }
                     return false;
                 }
             }

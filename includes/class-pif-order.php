@@ -22,8 +22,7 @@ class PIF_Order {
 	 * @param mixed $values Values.
 	 */
 	public static function save_values_in_item( $item, $cart_item_key, $values ) {
-		$pif_values         = ALG_WC_PIF_ID . '_values';
-		$item['pif_values'] = $values;
+		$item->add_meta_data( '_' . ALG_WC_PIF_ID . '_values', $values, true );
 	}
 
 	/**
@@ -35,8 +34,8 @@ class PIF_Order {
 	 * @param object $item Order Item object.
 	 */
 	public static function add_product_input_fields_to_order_item_meta( $item_id, $item ) {
-		$scopes  = array( 'global', 'local' );
-		$values  = $item->get_meta( 'pif_values' );
+		$scopes = array( 'global', 'local' );
+		$values = $item->get_meta( '_' . ALG_WC_PIF_ID . '_values' );
 
 		foreach ( $scopes as $scope ) {
 			$_product_input_fields = array();

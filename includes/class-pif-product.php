@@ -500,8 +500,7 @@ class PIF_Product {
 						$input_value           = is_array( $_value ) ? implode( ', ', $_value ) : $_value;
 
 						$condition   = ( 'number' === $product_input_field['type'] || 'range' === $product_input_field['type'] ) ? $required_price_range_condition : $required_price_character_condition;
-						$datasets    = $_value;
-						$field_html  = '<input ' . $datasets . $form_cart . $min . $max . $step . $maxlength . $pattern . $class . $style . ' value="' . $input_value . '" type="' . $product_input_field['type'] . '" name="' . $field_name . '" data-min_qty="' . $field_min_qty . '" id="' . $field_name . '" placeholder="' . $product_input_field['placeholder'] . '"' . $custom_attributes . $required . '>';
+						$field_html  = '<input' . $form_cart . $min . $max . $step . $maxlength . $pattern . $class . $style . ' value="' . $input_value . '" type="' . $product_input_field['type'] . '" name="' . $field_name . '" data-min_qty="' . $field_min_qty . '" id="' . $field_name . '" placeholder="' . $product_input_field['placeholder'] . '"' . $custom_attributes . $required . '>';
 						break;
 				}
 

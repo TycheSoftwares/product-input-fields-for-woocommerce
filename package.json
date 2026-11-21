@@ -51,7 +51,7 @@
     "license": "ISC",
     "description": "A WordPress plugin for adding custom input fields on the product page.",
     "devDependencies": {
-        "@wordpress/scripts": "^28.2.0",
+        "@wordpress/scripts": "^36.0.0",
         "serve": "^14.2.1"
     }
 }

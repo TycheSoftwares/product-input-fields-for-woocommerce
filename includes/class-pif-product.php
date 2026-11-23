@@ -273,6 +273,16 @@ class PIF_Product {
 		echo $html; //phpcs:ignore
 	}
 
+	/**
+	 * Check if option is enabled.
+	 *
+	 * @param mixed $value Option value.
+	 * @return bool
+	 */
+	private static function is_option_enabled( $value ) {
+		return in_array( $value, array( true, 'yes', 1, '1' ), true );
+	}
+
 	public static function get_field_html( $fields, $scope, $product_id ) {
 		$html = '';
 		$price_symbol   = get_woocommerce_currency_symbol();
@@ -321,7 +331,7 @@ class PIF_Product {
 				// Field name and value.
 				$field_name    = ALG_WC_PIF_ID . '_' . $scope . '_' . $field_id;
 				$field_min_qty = ( isset( $product_input_field['field_min_qty'] ) && '' !== $product_input_field['field_min_qty'] ? $product_input_field['field_min_qty'] : 1 );
-				$_value        = ( 'yes' === pif_get_option( 'frontend_refill', 'yes' ) && isset( $_POST[ $field_name ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ $field_name ] ) ) : $product_input_field['default_value']; // phpcs:ignore
+				$_value        = ( self::is_option_enabled( pif_get_option( 'frontend_refill', 'yes' ) ) && isset( $_POST[ $field_name ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ $field_name ] ) ) : $product_input_field['default_value']; // phpcs:ignore
 				$_value        = stripslashes_deep( $_value );
 				$_value        = esc_attr( $_value );
 				if ( isset( $product_input_field['type'] ) && 'textarea' === $product_input_field['type'] ) {

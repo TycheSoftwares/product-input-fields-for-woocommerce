@@ -14,7 +14,7 @@ Add product addons (fields) to WooCommerce products. Personalise with various pr
 
 [Product Input Fields for WooCommerce](https://www.tychesoftwares.com/products/woocommerce-product-input-fields-plugin/?utm_source=wprepo&utm_medium=topprolink&utm_campaign=ProductInputFields) lets you add custom input fields to your WooCommerce product pages, making it easy to collect these details before customers add products to their cart. Whether you need a text field for engraving instructions, a file upload for artwork, a date picker for scheduling, or a dropdown with predefined options, the plugin helps you gather the right information during checkout.
 
-You can add one input field that applies across your entire store and one product-specific input field for individual products. Customize field labels, placeholders, default values, display position, and validation settings to match your store's requirements.
+You can add unlimited input fields that apply across your entire store or create multiple product-specific input fields for individual products. Customize field labels, placeholders, default values, display positions, and validation settings to match your store’s requirements.
 
 = Key Features =
 
@@ -22,7 +22,7 @@ You can add one input field that applies across your entire store and one produc
 Add custom fields to gather additional information from customers before they purchase. The plugin includes 19 field types, including Text, Textarea, Number, Checkbox, Radio Buttons, Select, File Upload, Date Picker, Time Picker, Week Picker, Color Picker, Email, Phone, URL, Password, Country, Search, and Range.
 
 ### Add Custom Fields to WooCommerce Products
-Collect additional information from customers before they purchase. Add custom input fields globally across your store or assign them to individual products, depending on your requirements.
+Collect additional information from customers before they purchase. Add unlimited global input fields across your store or create multiple input fields for individual products, depending on your requirements.
 
 ### Customize Product Fields to Match Your Store
 Configure field titles, placeholders, default values, display position, priority, and custom CSS classes so your input fields match the design of your WooCommerce store.
@@ -128,19 +128,19 @@ Create a global input field for your entire store or add a product-specific inpu
 
 = What types of input fields are available? =
 
-The Lite plugin includes 19 field types, including text, textarea, number, checkbox, radio buttons, dropdowns, file uploads, date pickers, color pickers, email, phone, URL, and more.
+The plugin includes 19 field types, including Text, Textarea, Number, Checkbox, Radio Buttons, Select, File Upload, Date Picker, Time Picker, Week Picker, Color Picker, Email, Phone, URL, Password, Country, Search, and Range.
 
 = Can customers upload files with their orders? =
 
-Yes. The File Upload field allows customers to upload files such as images or documents before placing an order.
+Yes. You can add a File Upload field to a product page so customers can submit files with their product orders. Uploaded files can also be attached to order emails for quick access during order processing.
 
 = Can I make a field mandatory? =
 
 Yes. You can mark input fields as required and customize the validation message shown if the customer leaves the field empty.
 
-= Can I add multiple input fields? =
+= Can I add multiple input fields to WooCommerce products? =
 
-The Lite version supports one global input field and one product-level input field. Upgrade to the Pro version to create unlimited input fields.
+Yes. The Lite version lets you add unlimited global input fields across your store and multiple input fields for individual products. You can configure the fields to collect details such as engraving instructions, personalization text, or other product-specific information.
 
 = Does the plugin work with WooCommerce products? =
 

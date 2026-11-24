@@ -2,8 +2,8 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 7.1.2
-Stable tag: 2.1.0
+Tested up to: 7.1.5
+Stable tag: 2.2.0
 Requires PHP: 7.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -160,6 +160,15 @@ Yes. The plugin adds custom input fields directly to WooCommerce product pages, 
 This plugin communicates with our tracking server to send usage data **only** if the user has explicitly opted in to usage tracking. For detailed information about what is tracked, please refer to our [usage tracking documentation](https://www.tychesoftwares.com/docs/docs/product-input-fields-for-woocommerce/product-input-fields-usage-tracking/).
 
 == Changelog ==
+
+= 2.2.0 - 24/11/2026
+* Fix - Empty table is generated when no Product Input Fields are configured on the frontend, causing CSS layout issues and unnecessary DOM rendering.
+* Fix - Checkout fails with a PHP fatal error when a subscription renewal order is paid manually through My Account → Orders → Pay.
+* Fix - Products can be added to the cart from the Shop/Archive page even when their Product Input Fields are marked as mandatory.
+* Fix - Product migration does not schedule the next batch after the initial batch of 100 products when migrating from version 2.0.0.
+* Fix - Clicking an empty text input field in the Add to Cart Form block triggers the required-field validation message and prevents customers from entering a value on the product page.
+* Fix - Reflected Cross-Site Scripting (XSS) vulnerability allowing unauthenticated attackers to inject and execute malicious JavaScript on product pages through Product Input Field values. Thanks to @kta1kri for reporting this issue.
+* Fix - Security vulnerability allowing unauthenticated attackers to upload potentially executable files through File-type Product Input Fields.
 
 = 2.1.0 - 28/09/2026 =
 * Enhancement - Removed the one-field limit in the free version. You can now add unlimited global input fields and unlimited product-level input fields.
